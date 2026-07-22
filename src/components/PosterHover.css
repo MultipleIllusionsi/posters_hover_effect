@@ -50,7 +50,6 @@
   position: relative;
   width: 100%;
   aspect-ratio: 420 / 236;
-  /* Figma pulls the text block 24px up over the trailer. */
   margin-bottom: -48px;
   flex-shrink: 0;
 }

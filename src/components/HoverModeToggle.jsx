@@ -1,0 +1,32 @@
+import "./HoverModeToggle.css";
+
+/**
+ * HoverModeToggle — fixed control (bottom right) that switches which hover
+ * treatment the section uses. v1 changes both rows; v2 and v3 differ only in
+ * the vertical posters — the horizontal ones are the same in either.
+ */
+
+const MODES = [
+  { id: "v1", label: "Ховер 1", hint: "Постер заменяется карточкой" },
+  { id: "v2", label: "Ховер 2", hint: "Кнопки и описание выезжают снизу" },
+  { id: "v3", label: "Ховер 3", hint: "Постер затемняется, всё внутри постера" },
+];
+
+export default function HoverModeToggle({ mode, onChange }) {
+  return (
+    <div className="hover-mode" role="group" aria-label="Вариант ховера">
+      {MODES.map((m) => (
+        <button
+          key={m.id}
+          type="button"
+          className={`hover-mode__option${mode === m.id ? " hover-mode__option--active" : ""}`}
+          aria-pressed={mode === m.id}
+          title={m.hint}
+          onClick={() => onChange(m.id)}
+        >
+          {m.label}
+        </button>
+      ))}
+    </div>
+  );
+}

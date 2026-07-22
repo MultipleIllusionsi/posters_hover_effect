@@ -1,6 +1,9 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import PosterHorizontal from "./PosterHorizontal";
+import PosterHorizontalV2 from "./PosterHorizontalV2";
 import PosterVertical from "./PosterVertical";
+import PosterVerticalV2 from "./PosterVerticalV2";
+import PosterVerticalV3 from "./PosterVerticalV3";
 import PosterHover from "./PosterHover";
 import "./PosterGrid.css";
 
@@ -39,8 +42,18 @@ const clamp = (value, min, max) => Math.min(Math.max(value, min), Math.max(min, 
  * poster to a horizontal one is the same smooth slide as moving between two
  * vertical ones: the card is never unmounted, only its position, size and
  * content change.
+ *
+ * `verticalHover` picks the treatment for the whole section:
+ *   "v1" — the shared card described above, for both rows.
+ *   "v2" — <PosterVerticalV2> + <PosterHorizontalV2>.
+ *   "v3" — <PosterVerticalV3> for the vertical row; the horizontal row is the
+ *          same as in v2.
+ * Outside v1 nothing calls show(), so the shared card stays unmounted and the
+ * machinery below simply sits idle.
  */
-export default function PosterGrid({ horizontalPosters, verticalPosters }) {
+export default function PosterGrid({ horizontalPosters, verticalPosters, verticalHover = "v1" }) {
+  const useCard = verticalHover === "v1";
+
   // One flat list so a poster is addressed by a single index, whichever row
   // it's in. Horizontal posters come first, matching the render order.
   const items = useMemo(
@@ -134,6 +147,15 @@ export default function PosterGrid({ horizontalPosters, verticalPosters }) {
     return () => window.removeEventListener("resize", onResize);
   }, [active, measure]);
 
+  // Switching treatments unmounts the v1 vertical posters, so drop any card
+  // that's open over one — its measured geometry no longer refers to anything.
+  useEffect(() => {
+    clearTimeout(timer.current);
+    clearTimeout(exitTimer.current);
+    setActive(null);
+    setLeaving(false);
+  }, [verticalHover]);
+
   const setItemRef = (index) => (el) => {
     itemRefs.current[index] = el;
   };
@@ -148,22 +170,35 @@ export default function PosterGrid({ horizontalPosters, verticalPosters }) {
     // does not count as leaving — only leaving both closes it.
     <div ref={gridRef} className="gallery poster-grid" onMouseLeave={close}>
       <div className="gallery__row gallery__row--horizontal">
-        {horizontalPosters.map((poster, i) => (
-          <PosterHorizontal
-            key={poster.id}
-            ref={setItemRef(i)}
-            src={poster.src}
-            alt={poster.alt}
-            /* Bring the artwork back while the card fades out, not after. */
-            covered={active === i && !leaving}
-            dimmed={dimOthers && active !== i}
-            onMouseEnter={() => show(i)}
-          />
-        ))}
+        {horizontalPosters.map((poster, i) =>
+          useCard ? (
+            <PosterHorizontal
+              key={poster.id}
+              ref={setItemRef(i)}
+              src={poster.src}
+              alt={poster.alt}
+              /* Bring the artwork back while the card fades out, not after. */
+              covered={active === i && !leaving}
+              dimmed={dimOthers && active !== i}
+              onMouseEnter={() => show(i)}
+            />
+          ) : (
+            /* v2 and v3 share the same horizontal treatment. */
+            <PosterHorizontalV2 key={poster.id} data={poster} />
+          )
+        )}
       </div>
 
       <div className="gallery__row gallery__row--vertical">
         {verticalPosters.map((poster, j) => {
+          // v2 / v3 posters own their hover entirely — no ref, no shared card.
+          if (verticalHover === "v2") {
+            return <PosterVerticalV2 key={poster.id} data={poster} />;
+          }
+          if (verticalHover === "v3") {
+            return <PosterVerticalV3 key={poster.id} data={poster} />;
+          }
+
           const i = horizontalPosters.length + j;
           return (
             <PosterVertical

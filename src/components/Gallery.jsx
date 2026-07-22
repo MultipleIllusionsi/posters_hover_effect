@@ -14,7 +14,7 @@ import "./Gallery.css";
  * section gets its own card, so the page can hold as many galleries as needed;
  * content comes from data/postersData.js.
  */
-export default function Gallery({ title, horizontalPosters, verticalPosters }) {
+export default function Gallery({ title, horizontalPosters, verticalPosters, verticalHover }) {
   return (
     <section className="gallery-page">
       <header className="gallery-header">
@@ -32,7 +32,11 @@ export default function Gallery({ title, horizontalPosters, verticalPosters }) {
         </span>
       </header>
 
-      <PosterGrid horizontalPosters={horizontalPosters} verticalPosters={verticalPosters} />
+      <PosterGrid
+        horizontalPosters={horizontalPosters}
+        verticalPosters={verticalPosters}
+        verticalHover={verticalHover}
+      />
     </section>
   );
 }

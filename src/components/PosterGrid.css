@@ -7,6 +7,13 @@
 
 /* The single hover card shared by every poster in the section. */
 .poster-grid__card {
+  /* How the card travels from one poster to the next. The easing overshoots
+     slightly past 1 before settling, which reads as a soft landing rather than
+     a hard stop — the longer duration is what gives the overshoot room to be
+     felt instead of just looking like a wobble. */
+  --card-move-duration: 520ms;
+  --card-move-ease: cubic-bezier(0.32, 1.1, 0.5, 1);
+
   position: absolute;
   top: 0;
   left: 0;
@@ -14,9 +21,9 @@
   opacity: 1;
   filter: blur(0);
   transition:
-    transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
-    width 320ms cubic-bezier(0.16, 1, 0.3, 1),
-    height 320ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform var(--card-move-duration) var(--card-move-ease),
+    width var(--card-move-duration) var(--card-move-ease),
+    height var(--card-move-duration) var(--card-move-ease),
     opacity 240ms ease-in,
     filter 240ms ease-in;
   will-change: transform, width, height, opacity, filter;

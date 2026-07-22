@@ -1,5 +1,58 @@
 /* App-level baseline. Component styling lives next to each component. */
 
+/* iviSans Base — the design's typeface. Files live in assets/fonts/; Vite
+   rewrites these urls to hashed paths and copies them into dist/.
+   Every font stack in the project already starts with "iviSans Base", so
+   declaring the faces here is all it takes for the whole page to pick them up.
+   The alias below covers the "IVI Sans Base" spelling Figma exports. */
+@font-face {
+  font-family: "iviSans Base";
+  src: url("../assets/fonts/IVI_Sans_Base_Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "iviSans Base";
+  src: url("../assets/fonts/IVI_Sans_Base_Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "iviSans Base";
+  src: url("../assets/fonts/IVI_Sans_Base_Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IVI Sans Base";
+  src: url("../assets/fonts/IVI_Sans_Base_Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IVI Sans Base";
+  src: url("../assets/fonts/IVI_Sans_Base_Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IVI Sans Base";
+  src: url("../assets/fonts/IVI_Sans_Base_Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 *,
 *::before,
 *::after {

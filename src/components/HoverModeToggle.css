@@ -1,0 +1,42 @@
+/* Same pill treatment as the card's tab switcher, parked over the page. */
+.hover-mode {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  /* Above the v1 hover card (z-index 20) and the v2 overlay. */
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  border-radius: 100px;
+  background: rgba(64, 64, 64, 0.4);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  font-family: "iviSans Base", "IVI Sans Base", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.hover-mode__option {
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 100px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 160ms ease-out, color 160ms ease-out;
+}
+
+.hover-mode__option:hover {
+  color: #fff;
+}
+
+.hover-mode__option--active {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}

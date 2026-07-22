@@ -1,0 +1,186 @@
+/* PosterVerticalV3 — the content of v2, held inside the poster.
+   Everything lives in the clipped .__media box, so nothing can spill out. */
+
+.poster-v3 {
+  --ivi-font: "iviSans Base", "IVI Sans Base", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --ivi-accent: #f30745;
+  --ivi-text-dim: rgba(255, 255, 255, 0.56);
+  /* Indentation of the overlay from the poster's edges. */
+  --v3-inset: 16px;
+  /* Blur applied to the artwork underneath the overlay. */
+  --v3-blur: 4px;
+  /* Matches v2: the reveal is held back a beat after the pointer arrives. */
+  --v3-delay: 200ms;
+
+  position: relative;
+  /* Share the row width equally with siblings; min-width:0 lets it shrink. */
+  flex: 1 1 0;
+  min-width: 0;
+  aspect-ratio: 222.667 / 337;
+  font-family: var(--ivi-font);
+}
+
+.poster-v3__media {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.poster-v3__image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(0);
+  /* Overscaled on hover below — declared here so the two animate together. */
+  transform: scale(1);
+  transition:
+    filter 200ms ease-out,
+    transform 200ms ease-out;
+}
+
+/* A blur samples past the element's edges, which would leave a washed-out
+   border inside the clipped box — the slight overscale pushes those edges out
+   of sight. Roughly 1 + 2 × blur / poster width. */
+.poster-v3:hover .poster-v3__image {
+  filter: blur(var(--v3-blur));
+  transform: scale(1.06);
+  transition-delay: var(--v3-delay);
+}
+
+/* Darkens the poster edge to edge — the overlay's legibility comes from this
+   rather than from a gradient behind the text. */
+.poster-v3__scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.84);
+  pointer-events: none;
+}
+
+/* Pinned to the bottom of the poster and inset on every side, so the content
+   reads as a panel laid on the artwork rather than an extension of it. */
+.poster-v3__overlay {
+  position: absolute;
+  right: var(--v3-inset);
+  bottom: var(--v3-inset);
+  left: var(--v3-inset);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Reveal ------------------------------------------------------------------- */
+.poster-v3__scrim,
+.poster-v3__overlay {
+  opacity: 0;
+  transition:
+    opacity 200ms ease-out,
+    transform 200ms ease-out;
+}
+
+/* The overlay rises the same 12px v2's does. */
+.poster-v3__overlay {
+  transform: translateY(12px);
+  pointer-events: none;
+}
+
+.poster-v3:hover .poster-v3__scrim,
+.poster-v3:hover .poster-v3__overlay {
+  opacity: 1;
+  transition-delay: var(--v3-delay);
+}
+
+.poster-v3:hover .poster-v3__overlay {
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .poster-v3__image,
+  .poster-v3__scrim,
+  .poster-v3__overlay {
+    transition-duration: 1ms;
+  }
+  .poster-v3__overlay {
+    transform: none;
+  }
+}
+
+/* Actions ------------------------------------------------------------------ */
+.poster-v3__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.poster-v3__watch,
+.poster-v3__fav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border: 0;
+  border-radius: 100px;
+  color: #fff;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 160ms ease-out;
+}
+
+.poster-v3__watch {
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--ivi-accent);
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+.poster-v3__watch:hover { background: #ff1d57; }
+
+.poster-v3__fav {
+  flex-shrink: 0;
+  width: 40px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.poster-v3__fav:hover { background: rgba(255, 255, 255, 0.2); }
+
+/* Text --------------------------------------------------------------------- */
+.poster-v3__text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: center;
+}
+
+.poster-v3__description {
+  margin: 0;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.3;
+  color: #fff;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.poster-v3__meta {
+  margin: 0;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.2;
+  color: var(--ivi-text-dim);
+  white-space: nowrap;
+}
+
+.poster-v3__dot {
+  margin: 0 4px;
+}
