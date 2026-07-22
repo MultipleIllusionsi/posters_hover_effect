@@ -1,0 +1,12 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #000;
+}
+
+/* Sections already carry 48px top / 32px bottom padding; trim the gap between
+   stacked galleries so the page reads as one continuous list. */
+.page > .gallery-page + .gallery-page {
+  padding-top: 16px;
+}

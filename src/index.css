@@ -1,0 +1,28 @@
+/* App-level baseline. Component styling lives next to each component. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #000;
+  color: #fff;
+  font-family: "iviSans Base", "IVI Sans Base", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* The hover card grows past the poster row; keep it from creating a horizontal
+   scrollbar while still allowing the page to scroll vertically. */
+body {
+  overflow-x: hidden;
+}

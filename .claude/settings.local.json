@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__950248e2-e159-49ca-9f4b-efbc58a4c708__get_design_context",
+      "mcp__950248e2-e159-49ca-9f4b-efbc58a4c708__get_metadata",
+      "Bash(pkill -f \"http.server 8123\")",
+      "Bash(npm -v)",
+      "Bash(npm run *)",
+      "Bash(pkill -f \"http.server 8124\")",
+      "Bash(node -e ' *)",
+      "Bash(python3 -)",
+      "Bash(grep -n \"14 MB\\\\|galleries\\\\` array\\\\|assets/posters\" README.md)"
+    ]
+  }
+}

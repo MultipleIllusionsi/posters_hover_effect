@@ -1,0 +1,48 @@
+.gallery-page {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 72px 32px;
+  background: #000;
+}
+
+/* Header ------------------------------------------------------------------ */
+.gallery-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.gallery-header__title {
+  margin: 0;
+  font-family: "iviSans Base", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 36px;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.gallery-header__arrow {
+  display: inline-flex;
+  align-items: center;
+  padding-top: 3px; /* optical alignment with the title, per Figma */
+  color: #fff;
+}
+
+/* Grid -------------------------------------------------------------------- */
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.gallery__row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
