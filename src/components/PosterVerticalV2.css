@@ -5,8 +5,8 @@
   --ivi-font: "iviSans Base", "IVI Sans Base", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --ivi-accent: #f30745;
   --ivi-text-dim: rgba(255, 255, 255, 0.56);
-  /* How far the overlay reaches up over the poster (Figma: poster mb -48). */
-  --v2-overlap: 40px;
+  /* How far the overlay reaches up over the poster */
+  --v2-overlap: 72px;
   /* Dwell before the overlay appears. The poster itself reacts instantly, so
      the hover registers straight away and only the text is held back. Applied
      on the way in only — leaving is immediate. */

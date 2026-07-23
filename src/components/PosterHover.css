@@ -50,7 +50,7 @@
   position: relative;
   width: 100%;
   aspect-ratio: 420 / 236;
-  margin-bottom: -48px;
+  margin-bottom: -8px;
   flex-shrink: 0;
 }
 
@@ -84,6 +84,8 @@
 
 .poster-hover--horizontal .poster-hover__trailer {
   width: 75%;
+  /* Pull the text further up over the trailer than the vertical card does. */
+  margin-bottom: -48px;
 }
 
 /* The trailer no longer reaches the card edges, so fade its own left and right

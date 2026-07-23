@@ -90,17 +90,23 @@ export default function PosterHorizontalV2({ data, className = "", ...rest }) {
 
       <div className="poster-h2__panel">
         <div className="poster-h2__text">
+          {/* Logo is the topmost element, sharing a wrapper with the genre line
+              so the two stay the same width; the description sits below them. */}
+          <div className="poster-h2__brand">
+            {data.logo && <img className="poster-h2__logo" src={data.logo} alt="" />}
+            {data.meta?.length > 0 && (
+              <p className="poster-h2__meta">
+                {data.meta.map((chip, i) => (
+                  <span key={chip}>
+                    {i > 0 && <span className="poster-h2__dot">·</span>}
+                    {chip}
+                  </span>
+                ))}
+              </p>
+            )}
+          </div>
+
           <p className="poster-h2__description">{data.description}</p>
-          {data.meta?.length > 0 && (
-            <p className="poster-h2__meta">
-              {data.meta.map((chip, i) => (
-                <span key={chip}>
-                  {i > 0 && <span className="poster-h2__dot">·</span>}
-                  {chip}
-                </span>
-              ))}
-            </p>
-          )}
         </div>
 
         <div className="poster-h2__actions">

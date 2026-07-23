@@ -8,8 +8,8 @@ import "./HoverModeToggle.css";
 
 const MODES = [
   { id: "v1", label: "Ховер 1", hint: "Постер заменяется карточкой" },
-  { id: "v2", label: "Ховер 2", hint: "Кнопки и описание выезжают снизу" },
-  { id: "v3", label: "Ховер 3", hint: "Постер затемняется, всё внутри постера" },
+  { id: "v3", label: "Ховер 2", hint: "Постер затемняется, всё внутри постера" },
+  { id: "v2", label: "Хе", hint: "Информация появляется под постером" },
 ];
 
 export default function HoverModeToggle({ mode, onChange }) {

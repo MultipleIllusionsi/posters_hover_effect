@@ -22,6 +22,17 @@ import t1 from "../../assets/video_trailers/trailer_1.mp4";
 import t2 from "../../assets/video_trailers/trailer_2.mp4";
 import t3 from "../../assets/video_trailers/trailer_3.mp4";
 import t4 from "../../assets/video_trailers/trailer_4.mp4";
+// Title wordmarks — one per first-gallery show (positional). The v3 hover shows
+// them above the genre line. The second gallery has none, so those posters
+// simply render no logo.
+import lh1 from "../../assets/logotypes/horizontal_1.webp";
+import lh2 from "../../assets/logotypes/horizontal_2.webp";
+import lv1 from "../../assets/logotypes/vertical_1.webp";
+import lv2 from "../../assets/logotypes/vertical_2.webp";
+import lv3 from "../../assets/logotypes/vertical_3.webp";
+import lv4 from "../../assets/logotypes/vertical_4.webp";
+import lv5 from "../../assets/logotypes/vertical_5.webp";
+import lv6 from "../../assets/logotypes/vertical_6.png";
 
 /**
  * Page content: two gallery sections, each with a row of horizontal posters and
@@ -50,6 +61,7 @@ const bestSeriesHorizontal = [
   {
     id: "h1",
     src: h1,
+    logo: lh1,
     alt: "Постер сериала «Алекс Лютый. Дело сирот»",
     title: "Алекс Лютый. Дело сирот",
     meta: ["2025", "детектив", "2 сезона"],
@@ -86,6 +98,7 @@ const bestSeriesHorizontal = [
   {
     id: "h2",
     src: h2,
+    logo: lh2,
     alt: "Постер сериала «Хрустальный»",
     title: "Хрустальный",
     meta: ["2024", "триллер", "1 сезон"],
@@ -116,6 +129,7 @@ const bestSeriesVertical = [
   {
     id: "v1",
     src: v1,
+    logo: lv1,
     alt: "Постер сериала «Переговорщик»",
     title: "Переговорщик",
     meta: ["2025", "криминал", "2 сезона"],
@@ -152,6 +166,7 @@ const bestSeriesVertical = [
   {
     id: "v2",
     src: v2,
+    logo: lv2,
     alt: "Постер сериала «Казанова. Возвращение»",
     title: "Казанова. Возвращение",
     meta: ["2025", "комедия", "1 сезон"],
@@ -179,6 +194,7 @@ const bestSeriesVertical = [
   {
     id: "v3",
     src: v3,
+    logo: lv3,
     alt: "Постер сериала «Шерлок Холмс и доктор Ватсон»",
     title: "Шерлок Холмс и доктор Ватсон",
     meta: ["1979", "детектив", "1 сезон"],
@@ -205,6 +221,7 @@ const bestSeriesVertical = [
   {
     id: "v4",
     src: v4,
+    logo: lv4,
     alt: "Постер сериала «Лепила»",
     title: "Лепила",
     meta: ["2026", "криминал", "1 сезон"],
@@ -232,6 +249,7 @@ const bestSeriesVertical = [
   {
     id: "v5",
     src: v5,
+    logo: lv5,
     alt: "Постер сериала «Акушер 2»",
     title: "Акушер 2",
     meta: ["2025", "драма", "2 сезона"],
@@ -267,6 +285,7 @@ const bestSeriesVertical = [
   {
     id: "v6",
     src: v6,
+    logo: lv6,
     alt: "Постер сериала «Соммердаль»",
     title: "Соммердаль",
     meta: ["2024", "детектив", "3 сезона"],
@@ -312,6 +331,7 @@ const newReleasesHorizontal = [
   {
     id: "h3",
     src: h3,
+    logo: lh1,
     alt: "Постер сериала «Холод»",
     title: "Холод",
     meta: ["2026", "драма", "1 сезон"],
@@ -339,6 +359,7 @@ const newReleasesHorizontal = [
   {
     id: "h4",
     src: h4,
+    logo: lh2,
     alt: "Постер сериала «Золотое дно 2»",
     title: "Золотое дно 2",
     meta: ["2026", "драма", "2 сезона"],
@@ -377,6 +398,7 @@ const newReleasesVertical = [
   {
     id: "v7",
     src: v7,
+    logo: lv1,
     alt: "Постер сериала «Затмение»",
     title: "Затмение",
     meta: ["2025", "триллер", "1 сезон"],
@@ -404,6 +426,7 @@ const newReleasesVertical = [
   {
     id: "v8",
     src: v8,
+    logo: lv2,
     alt: "Постер сериала «История его служанки»",
     title: "История его служанки",
     meta: ["2026", "мелодрама", "1 сезон"],
@@ -431,6 +454,7 @@ const newReleasesVertical = [
   {
     id: "v9",
     src: v9,
+    logo: lv3,
     alt: "Постер сериала «Анатомия чувств»",
     title: "Анатомия чувств",
     meta: ["2026", "мелодрама", "1 сезон"],
@@ -457,6 +481,7 @@ const newReleasesVertical = [
   {
     id: "v10",
     src: v10,
+    logo: lv4,
     alt: "Постер сериала «Страх над Невой. Огненный круг»",
     title: "Страх над Невой. Огненный круг",
     meta: ["2026", "триллер", "1 сезон"],
@@ -484,6 +509,7 @@ const newReleasesVertical = [
   {
     id: "v11",
     src: v11,
+    logo: lv5,
     alt: "Постер сериала «Такси под прикрытием 2»",
     title: "Такси под прикрытием 2",
     meta: ["2026", "боевик", "2 сезона"],
@@ -519,6 +545,7 @@ const newReleasesVertical = [
   {
     id: "v12",
     src: v12,
+    logo: lv6,
     alt: "Постер сериала «Искусство соблазна 2»",
     title: "Искусство соблазна 2",
     meta: ["2026", "мелодрама", "2 сезона"],
