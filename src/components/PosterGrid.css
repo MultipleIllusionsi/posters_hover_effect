@@ -5,6 +5,51 @@
   position: relative;
 }
 
+/* v4 — posters open the bottom sheet on click, so flag them as pressable. */
+.poster--clickable {
+  cursor: pointer;
+  transition: transform 160ms ease-out;
+}
+
+/* Gentle lift on hover — a touch more for the taller vertical posters. */
+.poster-horizontal.poster--clickable:hover { transform: scale(1.01); }
+.poster-vertical.poster--clickable:hover { transform: scale(1.02); }
+
+/* While the sheet is open, give the page extra room at the bottom so a poster
+   in the last row can scroll up clear of the sheet (30vh) instead of staying
+   pinned behind it at the page's end. */
+body.has-bottom-sheet {
+  padding-bottom: calc(30vh + 32px);
+}
+
+/* The poster the open sheet is showing. Lifted above the dimming backdrop
+   (z-index 40, below the sheet at 50) so it reads as the picked one, and ringed
+   with a 2px gradient border that fades from solid white to fully transparent
+   white. The mask keeps the gradient to the border only, following the rounded
+   corners that border-image can't. */
+.poster--selected {
+  z-index: 45;
+}
+
+.poster--selected::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  padding: 2px;
+  background: linear-gradient(135deg, #fff, rgba(255, 255, 255, 0));
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Radii match each poster format's artwork box. */
+.poster-vertical.poster--selected::after { border-radius: 24px; }
+.poster-horizontal.poster--selected::after { border-radius: 32px; }
+
 /* The single hover card shared by every poster in the section. */
 .poster-grid__card {
   /* How the card travels from one poster to the next. The easing overshoots

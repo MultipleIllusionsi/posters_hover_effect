@@ -2,7 +2,7 @@
 .hover-mode {
   position: fixed;
   right: 24px;
-  bottom: 24px;
+  top: 24px;
   /* Above the v1 hover card (z-index 20) and the v2 overlay. */
   z-index: 100;
 

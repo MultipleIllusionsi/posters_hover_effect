@@ -5,6 +5,7 @@ import PosterVertical from "./PosterVertical";
 import PosterVerticalV2 from "./PosterVerticalV2";
 import PosterVerticalV3 from "./PosterVerticalV3";
 import PosterHover from "./PosterHover";
+import PosterBottomsheet from "./PosterBottomsheet";
 import "./PosterGrid.css";
 
 /** Dwell time before the card opens for the first time (Figma spec: 0.5s). */
@@ -20,6 +21,16 @@ const SWITCH_DELAY = 120;
 /** Keep in sync with the fade-out transition in PosterGrid.css. */
 const EXIT_DURATION = 240;
 
+/** v4 bottom sheet — keep in sync with the exit animation in PosterBottomsheet.css. */
+const SHEET_EXIT_DURATION = 360;
+
+/**
+ * Every PosterGrid on the page registers its immediate-close function here. The
+ * bottom sheet is a page-level singleton — each gallery renders its own, so when
+ * one opens we close any other that's still up, leaving only the newest.
+ */
+const sheetClosers = new Set();
+
 /**
  * How big the card is relative to the poster it covers.
  *
@@ -34,6 +45,35 @@ const CARD_RATIOS = {
 };
 
 const clamp = (value, min, max) => Math.min(Math.max(value, min), Math.max(min, max));
+
+/** Fraction of the viewport the v4 bottom sheet covers (see PosterBottomsheet.css). */
+const SHEET_VH = 0.3;
+
+/**
+ * Scroll the page just enough that the clicked poster sits fully inside the
+ * visible band — the viewport minus the bottom sheet's 30vh and a small margin.
+ * Nudges up when the poster is clipped at the top, down when it's clipped (or
+ * hidden behind the sheet) at the bottom; a poster taller than the band is
+ * aligned to the top so its start is always in view.
+ */
+const revealPoster = (el) => {
+  if (!el) return;
+  const rect = el.getBoundingClientRect();
+  const margin = 16;
+  const topBound = margin;
+  const bottomBound = window.innerHeight * (1 - SHEET_VH) - margin;
+
+  let delta = 0;
+  if (rect.height > bottomBound - topBound || rect.top < topBound) {
+    delta = rect.top - topBound; // align to the top of the band
+  } else if (rect.bottom > bottomBound) {
+    delta = rect.bottom - bottomBound; // pull up above the sheet
+  }
+
+  if (delta !== 0) {
+    window.scrollBy({ top: delta, behavior: "smooth" });
+  }
+};
 
 /**
  * PosterGrid — both poster rows and the ONE hover card they all share.
@@ -53,6 +93,7 @@ const clamp = (value, min, max) => Math.min(Math.max(value, min), Math.max(min, 
  */
 export default function PosterGrid({ horizontalPosters, verticalPosters, verticalHover = "v1" }) {
   const useCard = verticalHover === "v1";
+  const useSheet = verticalHover === "v4";
 
   // One flat list so a poster is addressed by a single index, whichever row
   // it's in. Horizontal posters come first, matching the render order.
@@ -67,6 +108,50 @@ export default function PosterGrid({ horizontalPosters, verticalPosters, vertica
   const [active, setActive] = useState(null);
   const [leaving, setLeaving] = useState(false);
   const [geom, setGeom] = useState(null);
+  // v4 only — the poster whose content the bottom sheet is showing (null = closed).
+  const [sheetItem, setSheetItem] = useState(null);
+  // While closing, the sheet stays mounted so it can play its exit animation.
+  const [sheetLeaving, setSheetLeaving] = useState(false);
+  const sheetExitTimer = useRef(null);
+  // Closes this grid's sheet at once, no exit animation — used when another
+  // gallery's sheet takes over so two are never on screen together.
+  const closeSheetNow = useCallback(() => {
+    clearTimeout(sheetExitTimer.current);
+    setSheetLeaving(false);
+    setSheetItem(null);
+    document.body.classList.remove("has-bottom-sheet");
+  }, []);
+  const openSheet = useCallback(
+    (item, el) => {
+      // Singleton: close any sheet still open in another gallery first.
+      sheetClosers.forEach((close) => {
+        if (close !== closeSheetNow) close();
+      });
+      // Opening (or switching posters) cancels any in-flight close.
+      clearTimeout(sheetExitTimer.current);
+      setSheetLeaving(false);
+      setSheetItem(item);
+      // Add the bottom scroll room *before* revealing, so a poster in the last
+      // row has somewhere to scroll up to and can clear the sheet.
+      document.body.classList.add("has-bottom-sheet");
+      revealPoster(el);
+    },
+    [closeSheetNow]
+  );
+  const closeSheet = useCallback(() => {
+    setSheetLeaving(true);
+    clearTimeout(sheetExitTimer.current);
+    sheetExitTimer.current = setTimeout(() => {
+      setSheetItem(null);
+      setSheetLeaving(false);
+      document.body.classList.remove("has-bottom-sheet");
+    }, SHEET_EXIT_DURATION);
+  }, []);
+  // Register this grid's immediate-closer so other galleries can pre-empt it.
+  useEffect(() => {
+    sheetClosers.add(closeSheetNow);
+    return () => sheetClosers.delete(closeSheetNow);
+  }, [closeSheetNow]);
   const gridRef = useRef(null);
   const itemRefs = useRef([]);
   const timer = useRef(null);
@@ -134,6 +219,8 @@ export default function PosterGrid({ horizontalPosters, verticalPosters, vertica
     () => () => {
       clearTimeout(timer.current);
       clearTimeout(exitTimer.current);
+      clearTimeout(sheetExitTimer.current);
+      document.body.classList.remove("has-bottom-sheet");
     },
     []
   );
@@ -152,8 +239,12 @@ export default function PosterGrid({ horizontalPosters, verticalPosters, vertica
   useEffect(() => {
     clearTimeout(timer.current);
     clearTimeout(exitTimer.current);
+    clearTimeout(sheetExitTimer.current);
     setActive(null);
     setLeaving(false);
+    setSheetItem(null);
+    setSheetLeaving(false);
+    document.body.classList.remove("has-bottom-sheet");
   }, [verticalHover]);
 
   const setItemRef = (index) => (el) => {
@@ -182,6 +273,15 @@ export default function PosterGrid({ horizontalPosters, verticalPosters, vertica
               dimmed={dimOthers && active !== i}
               onMouseEnter={() => show(i)}
             />
+          ) : useSheet ? (
+            /* v4 — the poster is a button that opens the bottom sheet. */
+            <PosterHorizontal
+              key={poster.id}
+              src={poster.src}
+              alt={poster.alt}
+              className={`poster--clickable${sheetItem?.id === poster.id ? " poster--selected" : ""}`}
+              onClick={(e) => openSheet({ ...poster, variant: "horizontal" }, e.currentTarget)}
+            />
           ) : (
             /* v2 and v3 share the same horizontal treatment. */
             <PosterHorizontalV2 key={poster.id} data={poster} />
@@ -197,6 +297,17 @@ export default function PosterGrid({ horizontalPosters, verticalPosters, vertica
           }
           if (verticalHover === "v3") {
             return <PosterVerticalV3 key={poster.id} data={poster} />;
+          }
+          if (verticalHover === "v4") {
+            return (
+              <PosterVertical
+                key={poster.id}
+                src={poster.src}
+                alt={poster.alt}
+                className={`poster--clickable${sheetItem?.id === poster.id ? " poster--selected" : ""}`}
+                onClick={(e) => openSheet({ ...poster, variant: "vertical" }, e.currentTarget)}
+              />
+            );
           }
 
           const i = horizontalPosters.length + j;
@@ -225,6 +336,10 @@ export default function PosterGrid({ horizontalPosters, verticalPosters, vertica
         >
           <PosterHover data={activeItem} poster={activeItem.src} variant={activeItem.variant} />
         </div>
+      )}
+
+      {useSheet && sheetItem && (
+        <PosterBottomsheet data={sheetItem} onClose={closeSheet} leaving={sheetLeaving} />
       )}
     </div>
   );
