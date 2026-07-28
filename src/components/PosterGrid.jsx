@@ -361,6 +361,7 @@ export default function PosterGrid({ horizontalPosters, verticalPosters, vertica
     // The card is a DOM descendant of the grid, so moving the pointer onto it
     // does not count as leaving — only leaving both closes it.
     <div ref={gridRef} className="gallery poster-grid" onMouseLeave={close}>
+      {horizontalPosters.length > 0 && (
       <div className="gallery__row gallery__row--horizontal">
         {horizontalPosters.map((poster, i) =>
           useCard ? (
@@ -389,6 +390,7 @@ export default function PosterGrid({ horizontalPosters, verticalPosters, vertica
           )
         )}
       </div>
+      )}
 
       {renderShift("horizontal")}
 

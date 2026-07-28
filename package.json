@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Gallery «Лучшие сериалы» with the vertical-poster hover card (Figma 1:29 / 10:417)",
+  "description": "Different variations of layout in streaming",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

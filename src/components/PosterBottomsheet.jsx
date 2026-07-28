@@ -105,6 +105,10 @@ export default function PosterBottomsheet({ data, onClose, leaving = false, vari
   const trailerStill = data.still || data.src;
   const hasTrailer = Boolean(data.trailer) && tab === "info";
 
+  // Films (meta chip "фильм") have no seasons — drop the «Сезоны» tab for them.
+  const isFilm = data.meta?.includes("фильм");
+  const visibleTabs = isFilm ? TABS.filter((t) => t.id !== "seasons") : TABS;
+
   // Measure the season-number strip so the open/close animation targets its
   // exact width. A ResizeObserver keeps it correct across font load and any
   // late layout (a one-shot measure can catch a 0 before the pills are sized).
@@ -302,7 +306,7 @@ export default function PosterBottomsheet({ data, onClose, leaving = false, vari
             </div>
 
             <div className="poster-sheet__tabs" role="tablist" aria-label="Разделы">
-              {TABS.map((t) => {
+              {visibleTabs.map((t) => {
                 // While «Сезоны» is open, the active-tab highlight moves off the
                 // Сезоны tab and onto the selected season number instead.
                 const seasonsOpen = t.id === "seasons" && tab === "seasons" && seasons.length > 0;

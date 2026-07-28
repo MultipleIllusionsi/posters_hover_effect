@@ -1,4 +1,4 @@
-# Gallery — «Лучшие сериалы»
+# Gallery — «Онлайн-кинотеатр Иви»
 
 React + Vite implementation of Figma node `1:29`, with the vertical-poster hover
 card from node `10:417`.

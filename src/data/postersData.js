@@ -1,19 +1,43 @@
-import h1 from "../../assets/posters/poster_horizontal_01.png";
-import h2 from "../../assets/posters/poster_horizontal_02.png";
-import h3 from "../../assets/posters/poster_horizontal_03.png";
-import h4 from "../../assets/posters/poster_horizontal_04.png";
-import v1 from "../../assets/posters/poster_vertical_01.png";
-import v2 from "../../assets/posters/poster_vertical_02.png";
-import v3 from "../../assets/posters/poster_vertical_03.png";
-import v4 from "../../assets/posters/poster_vertical_04.png";
-import v5 from "../../assets/posters/poster_vertical_05.png";
-import v6 from "../../assets/posters/poster_vertical_06.png";
-import v7 from "../../assets/posters/poster_vertical_07.png";
-import v8 from "../../assets/posters/poster_vertical_08.png";
-import v9 from "../../assets/posters/poster_vertical_09.png";
-import v10 from "../../assets/posters/poster_vertical_10.png";
-import v11 from "../../assets/posters/poster_vertical_11.png";
-import v12 from "../../assets/posters/poster_vertical_12.png";
+import h1 from "../../assets/posters/poster_horizontal_01.jpg";
+import h2 from "../../assets/posters/poster_horizontal_02.jpg";
+import h3 from "../../assets/posters/poster_horizontal_03.jpg";
+import h4 from "../../assets/posters/poster_horizontal_04.jpg";
+import v1 from "../../assets/posters/poster_vertical_01.jpg";
+import v2 from "../../assets/posters/poster_vertical_02.jpg";
+import v3 from "../../assets/posters/poster_vertical_03.jpg";
+import v4 from "../../assets/posters/poster_vertical_04.jpg";
+import v5 from "../../assets/posters/poster_vertical_05.jpg";
+import v6 from "../../assets/posters/poster_vertical_06.jpg";
+import v7 from "../../assets/posters/poster_vertical_07.jpg";
+import v8 from "../../assets/posters/poster_vertical_08.jpg";
+import v9 from "../../assets/posters/poster_vertical_09.jpg";
+import v10 from "../../assets/posters/poster_vertical_10.jpg";
+import v11 from "../../assets/posters/poster_vertical_11.jpg";
+import v12 from "../../assets/posters/poster_vertical_12.jpg";
+import v13 from "../../assets/posters/poster_vertical_13.jpg";
+import v14 from "../../assets/posters/poster_vertical_14.jpg";
+import v15 from "../../assets/posters/poster_vertical_15.jpg";
+import v16 from "../../assets/posters/poster_vertical_16.jpg";
+import v17 from "../../assets/posters/poster_vertical_17.jpg";
+import v18 from "../../assets/posters/poster_vertical_18.jpg";
+import v19 from "../../assets/posters/poster_vertical_19.jpg";
+import v20 from "../../assets/posters/poster_vertical_20.jpg";
+import v21 from "../../assets/posters/poster_vertical_21.jpg";
+import v22 from "../../assets/posters/poster_vertical_22.jpg";
+import v23 from "../../assets/posters/poster_vertical_23.jpg";
+import v24 from "../../assets/posters/poster_vertical_24.jpg";
+import v25 from "../../assets/posters/poster_vertical_25.jpg";
+import v26 from "../../assets/posters/poster_vertical_26.jpg";
+import v27 from "../../assets/posters/poster_vertical_27.jpg";
+import v28 from "../../assets/posters/poster_vertical_28.jpg";
+import v29 from "../../assets/posters/poster_vertical_29.jpg";
+import v30 from "../../assets/posters/poster_vertical_30.jpg";
+import v31 from "../../assets/posters/poster_vertical_31.jpg";
+import v32 from "../../assets/posters/poster_vertical_32.jpg";
+import v33 from "../../assets/posters/poster_vertical_33.jpg";
+import v34 from "../../assets/posters/poster_vertical_34.jpg";
+import v35 from "../../assets/posters/poster_vertical_35.jpg";
+import v36 from "../../assets/posters/poster_vertical_36.jpg";
 import sp1 from "../../assets/series_posters/series_poster_01.png";
 import sp2 from "../../assets/series_posters/series_poster_02.png";
 import sp3 from "../../assets/series_posters/series_poster_03.png";
@@ -172,7 +196,7 @@ const bestSeriesVertical = [
   },
   {
     id: "v2",
-    src: v2,
+    src: v3,
     logo: lv2,
     alt: "Постер сериала «Казанова. Возвращение»",
     title: "Казанова. Возвращение",
@@ -202,7 +226,7 @@ const bestSeriesVertical = [
   },
   {
     id: "v3",
-    src: v3,
+    src: v2,
     logo: lv3,
     alt: "Постер сериала «Шерлок Холмс и доктор Ватсон»",
     title: "Шерлок Холмс и доктор Ватсон",
@@ -231,7 +255,7 @@ const bestSeriesVertical = [
   },
   {
     id: "v4",
-    src: v4,
+    src: v6,
     logo: lv4,
     alt: "Постер сериала «Лепила»",
     title: "Лепила",
@@ -299,7 +323,7 @@ const bestSeriesVertical = [
   },
   {
     id: "v6",
-    src: v6,
+    src: v4,
     logo: lv6,
     alt: "Постер сериала «Соммердаль»",
     title: "Соммердаль",
@@ -448,7 +472,7 @@ const newReleasesVertical = [
   },
   {
     id: "v8",
-    src: v8,
+    src: v10,
     logo: lv2,
     alt: "Постер сериала «История его служанки»",
     title: "История его служанки",
@@ -478,7 +502,7 @@ const newReleasesVertical = [
   },
   {
     id: "v9",
-    src: v9,
+    src: v11,
     logo: lv3,
     alt: "Постер сериала «Анатомия чувств»",
     title: "Анатомия чувств",
@@ -507,7 +531,7 @@ const newReleasesVertical = [
   },
   {
     id: "v10",
-    src: v10,
+    src: v8,
     logo: lv4,
     alt: "Постер сериала «Страх над Невой. Огненный круг»",
     title: "Страх над Невой. Огненный круг",
@@ -537,7 +561,7 @@ const newReleasesVertical = [
   },
   {
     id: "v11",
-    src: v11,
+    src: v12,
     logo: lv5,
     alt: "Постер сериала «Такси под прикрытием 2»",
     title: "Такси под прикрытием 2",
@@ -575,7 +599,7 @@ const newReleasesVertical = [
   },
   {
     id: "v12",
-    src: v12,
+    src: v9,
     logo: lv6,
     alt: "Постер сериала «Искусство соблазна 2»",
     title: "Искусство соблазна 2",
@@ -613,6 +637,224 @@ const newReleasesVertical = [
   },
 ];
 
+/* --------------------------------------------------------------------------
+ * Extra single-row shelves — vertical posters only, built from the newly added
+ * artwork (poster_vertical_13…30). Their content is generated from small pools
+ * so the cards stay interactive without hand-writing 18 more full entries.
+ * ------------------------------------------------------------------------ */
+
+const extraImages = [
+  v13, v14, v15, v16, v17, v18, v19, v20, v21, v22,
+  v23, v24, v25, v26, v27, v28, v29, v30, v31, v32,
+  v33, v34, v35, v36,
+];
+
+// Real metadata for each added poster (v13…v36), read off the artwork. `kind`
+// is the third meta chip: "фильм" for films, a season count for series.
+const extraMeta = [
+  {
+    title: "Отчий дом", year: "1959", genre: "драма", kind: "фильм",
+    description: "Городская девушка едет в деревню на поиски родной матери и открывает совсем другую жизнь.",
+    longDescription:
+      "Выросшая в городе девушка отправляется в деревню, чтобы найти родную мать, которую никогда не знала. Встреча переворачивает её представления о доме, семье и о самой себе — и заставляет заново решить, где её настоящие корни.",
+  },
+  {
+    title: "Изгнание", year: "2007", genre: "драма", kind: "фильм",
+    description: "Семья приезжает в родовой дом, где давняя ложь и молчание приводят к трагедии.",
+    longDescription:
+      "Семья перебирается в старый родовой дом вдали от города в надежде на покой, но признание жены запускает цепочку событий, которую уже не остановить. Тягучая драма о вине, недосказанности и цене, которую платят за молчание.",
+  },
+  {
+    title: "Летят журавли", year: "1957", genre: "военная драма", kind: "фильм",
+    description: "Влюблённых разлучает война: он уходит на фронт, она остаётся ждать вопреки всему.",
+    longDescription:
+      "Молодых влюблённых разлучает война — он добровольцем уходит на фронт, она остаётся ждать в тылу, где каждый день проверяет её верность на прочность. Пронзительная история о любви, потере и надежде, ставшая символом целой эпохи.",
+  },
+  {
+    title: "Мой ласковый и нежный зверь", year: "1978", genre: "мелодрама", kind: "фильм",
+    description: "В усадьбе конца XIX века вспыхивает роковая страсть, губящая всех, кого касается.",
+    longDescription:
+      "По мотивам Чехова: в дворянской усадьбе следователь и юная дочь лесничего оказываются во власти страсти, которой нет места в их размеренном мире. Красивая и печальная история о любви, ревности и неизбежной расплате под знаменитый вальс.",
+  },
+  {
+    title: "Когда деревья были большими", year: "1961", genre: "драма", kind: "фильм",
+    description: "Опустившийся человек выдаёт себя за отца незнакомой девушки — и эта ложь меняет его самого.",
+    longDescription:
+      "Одинокий, опустившийся мужчина решает начать жизнь заново и выдаёт себя за отца девушки, потерявшей родителей на войне. Обман, задуманный ради корысти, постепенно превращается в настоящую привязанность и возвращает герою забытое чувство дома.",
+  },
+  {
+    title: "Монолог", year: "1972", genre: "драма", kind: "фильм",
+    description: "Пожилой академик пытается сохранить связь с дочерью и внучкой, пока жизнь идёт своим чередом.",
+    longDescription:
+      "Известный академик, посвятивший жизнь науке, на склоне лет обнаруживает, что самое важное происходило дома, пока он был занят делом. Тихая, мудрая драма о трёх поколениях одной семьи и о любви, которую не всегда умеют высказать вовремя.",
+  },
+  {
+    title: "Отель Тасокарэ", year: "2025", genre: "аниме", kind: "1 сезон",
+    description: "В отеле на границе жизни и смерти гостям дают последний шанс разобраться с прошлым.",
+    longDescription:
+      "На границе между миром живых и мёртвых стоит отель Тасокарэ, куда попадают те, кто ещё не решил, отпускать ли прошлое. Работники отеля помогают гостям вспомнить, что было важным, и найти покой — атмосферная аниме-история о памяти и прощании.",
+  },
+  {
+    title: "Хоть я и бездарная злодейка", year: "2025", genre: "аниме", kind: "1 сезон",
+    description: "Героиня перерождается злодейкой из игры и пытается избежать уготованной ей гибели.",
+    longDescription:
+      "Девушка приходит в себя в теле второстепенной злодейки из отомэ-игры — героини, которой по сюжету уготован бесславный финал. Вооружившись знанием сюжета и полным отсутствием магических талантов, она изобретательно ломает сценарий, чтобы выжить и обрести собственное счастье.",
+  },
+  {
+    title: "Тёмное дитя: Отголоски", year: "2024", genre: "фантастика", kind: "1 сезон",
+    description: "Женщина без прошлого узнаёт, что она — часть тайного эксперимента с человеческими копиями.",
+    longDescription:
+      "Очнувшись без памяти, героиня выясняет, что она не единственная: где-то есть люди с её лицом и её ДНК. Продолжение истории о клонировании превращается в напряжённый триллер о том, что делает человека собой, когда его личность можно скопировать.",
+  },
+  {
+    title: "Родственные души", year: "2020", genre: "драма", kind: "1 сезон",
+    description: "В мире, где наука находит идеальную пару каждому, любовь оборачивается неожиданной стороной.",
+    longDescription:
+      "Антология о недалёком будущем, где простой тест безошибочно определяет твою вторую половину. Каждая серия — отдельная история о том, что обещание идеальной любви меняет в людях, и о цене, которую платят решившиеся узнать правду.",
+  },
+  {
+    title: "Клеватесс", year: "2025", genre: "аниме", kind: "1 сезон",
+    description: "В мире, захваченном демонами, древний повелитель драконов решает судьбу человечества.",
+    longDescription:
+      "Королевство гибнет под натиском чудовищ, и последней надеждой становится древнее существо, которого люди веками боялись сильнее, чем самих демонов. Мрачное тёмное фэнтези о хрупкой границе между спасителем и разрушителем.",
+  },
+  {
+    title: "Линия разлома", year: "2024", genre: "триллер", kind: "1 сезон",
+    description: "Компания друзей во время вечеринки оказывается в эпицентре события, которое меняет всё.",
+    longDescription:
+      "Обычный вечер большой компании превращается в испытание, когда за окнами начинает происходить необъяснимое. Отрезанные от мира, герои вынуждены довериться друг другу — и выясняют, что главная опасность может оказаться внутри их собственного круга.",
+  },
+  {
+    title: "Дом, который построил Джек", year: "2018", genre: "триллер", kind: "фильм",
+    description: "Хладнокровный убийца рассказывает о пяти эпизодах, превративших преступление в извращённое искусство.",
+    longDescription:
+      "На протяжении двенадцати лет инженер-перфекционист совершает серию убийств, каждое из которых считает произведением искусства. Провокационный фильм-исповедь о природе зла, таланта и о том, как человек оправдывает самому себе непростительное.",
+  },
+  {
+    title: "Счастливое число Слевина", year: "2006", genre: "криминал", kind: "фильм",
+    description: "Случайного парня принимают за должника и втягивают в войну двух криминальных боссов.",
+    longDescription:
+      "Оказавшись не в том месте не в то время, обычный парень становится пешкой в противостоянии двух враждующих боссов преступного мира. Но чем дальше закручивается интрига, тем яснее, что случайностей здесь не было, а каждый ход был просчитан заранее.",
+  },
+  {
+    title: "Одержимость", year: "2014", genre: "драма", kind: "фильм",
+    description: "Молодой барабанщик и деспотичный наставник доводят друг друга до предела в погоне за величием.",
+    longDescription:
+      "Талантливый студент джазовой консерватории мечтает стать великим, а его наставник готов на любую жестокость, лишь бы выжать из ученика гения. История о цене совершенства, где грань между мотивацией и разрушением стирается с каждым ударом по барабанам.",
+  },
+  {
+    title: "Каникулы строгого режима", year: "2009", genre: "комедия", kind: "фильм",
+    description: "Двое беглых заключённых прячутся вожатыми в детском лагере — и неожиданно меняются сами.",
+    longDescription:
+      "Скрываясь от закона, двое сбежавших заключённых устраиваются вожатыми в летний лагерь и оказываются один на один с отрядом непослушных детей. Комедия о том, как чужие проблемы и детская искренность способны исправить даже самых пропащих.",
+  },
+  {
+    title: "Одна жизнь", year: "2023", genre: "драма", kind: "фильм",
+    description: "История биржевого маклера, спасшего сотни детей накануне Второй мировой войны.",
+    longDescription:
+      "Основанная на реальных событиях история британца, который накануне войны организовал спасение сотен детей из оккупированной Европы. Спустя полвека он всё ещё сомневается, достаточно ли сделал, — пока прошлое не возвращается, чтобы дать ответ.",
+  },
+  {
+    title: "Трёшка", year: "2023", genre: "комедия", kind: "1 сезон",
+    description: "Большая семья вынуждена ужиться в тесной квартире, и каждый день превращается в испытание.",
+    longDescription:
+      "Три поколения одной шумной семьи оказываются под одной крышей маленькой квартиры, где нет ни минуты покоя и ни метра личного пространства. Тёплая комедия положений о том, что даже в самой тесноте можно оставаться близкими людьми.",
+  },
+  {
+    title: "Новые папины дочки", year: "2023", genre: "комедия", kind: "1 сезон",
+    description: "Двое родителей-одиночек создают большую семью, где детей — целая команда.",
+    longDescription:
+      "Мама троих дочек и папа с собственными детьми решают жить вместе — и превращают обычную квартиру в весёлый хаос. Продолжение любимой истории о большой семье, где ссоры, примирения и общие праздники учат всех быть терпимее и дружнее.",
+  },
+  {
+    title: "Во всём виноват Стамбул", year: "2023", genre: "мелодрама", kind: "1 сезон",
+    description: "Две сестры едут в Стамбул за наследством и находят там любовь, тайны и себя.",
+    longDescription:
+      "Две очень разные сестры отправляются в Стамбул, чтобы разобраться с наследством, а находят запутанные семейные секреты, неожиданные чувства и совсем не тот город, который представляли. Тёплая мелодрама о родстве, прощении и втором шансе.",
+  },
+  {
+    title: "Домовёнок Кузя 2", year: "2025", genre: "семейный", kind: "фильм",
+    description: "Добрый домовёнок снова спешит на помощь, чтобы спасти дом и друзей от злых чар.",
+    longDescription:
+      "Домовёнок Кузя и его друзья вновь оказываются втянуты в волшебное приключение, где на кону покой родного дома и судьба сказочного мира. Яркая семейная история о дружбе, смелости и о том, что настоящий дом там, где тебя любят.",
+  },
+  {
+    title: "Молодёжка. Новая смена", year: "2024", genre: "спорт", kind: "1 сезон",
+    description: "Новое поколение хоккеистов борется за место в команде и за большую мечту.",
+    longDescription:
+      "Молодая хоккейная команда получает второй шанс и нового тренера, который верит в них больше, чем они сами. Спортивная драма о том, как из амбициозных одиночек рождается настоящая команда, а из поражений — характер.",
+  },
+  {
+    title: "Приключения жёлтого чемоданчика", year: "2022", genre: "семейный", kind: "фильм",
+    description: "Волшебные средства из жёлтого чемоданчика доктора отправляют героев в весёлое приключение.",
+    longDescription:
+      "Чудо-доктор с жёлтым чемоданчиком, полным волшебных средств от страха и грусти, оказывается в центре забавной погони, в которую втянута целая семья. Добрая семейная сказка о смелости, находчивости и о том, что от настоящих проблем не спрячешься за таблеткой.",
+  },
+  {
+    title: "Драники", year: "2024", genre: "комедия", kind: "фильм",
+    description: "В деревне закручивается весёлая история вокруг праздника, любви и знаменитых драников.",
+    longDescription:
+      "Тихая деревня готовится к празднику, а вместе с ним — к череде недоразумений, вспыхнувших чувств и семейных разборок. Тёплая народная комедия о простых людях, большой родне и о том, что вкус дома можно почувствовать в самой обычной тарелке драников.",
+  },
+];
+
+const extraTrailers = [t1, t2, t3, t4];
+const extraStills = [h1, h2, h3, h4];
+const extraEpisodeStills = [sp1, sp2, sp3, sp4];
+
+function makeExtraSeasons(i, isFilm = false) {
+  const count = isFilm ? 1 : 1 + (i % 3);
+  return Array.from({ length: count }, (_, s) => ({
+    id: `s${s + 1}`,
+    title: `Сезон ${s + 1}`,
+    episodes: Array.from({ length: 4 }, (_, e) => ({
+      id: `e${e + 1}`,
+      title: `${e + 1} серия`,
+      subtitle: `${e + 1} серия · ${42 + ((i + e) % 12)} мин`,
+      still: extraEpisodeStills[(i + e) % 4],
+    })),
+  }));
+}
+
+function makeExtraReviews(i) {
+  const authors = ["Игорь М.", "Анна В.", "Павел С.", "Мария Д.", "Олег Т.", "Юлия К."];
+  const texts = [
+    "Затягивает с первой серии — редкий случай для жанра.",
+    "Смотрится ровно, без провисаний. Отличный каст.",
+    "Финал вытягивает всё, даже спорные моменты.",
+    "Атмосфера сделана с любовью, веришь происходящему.",
+  ];
+  return [
+    { id: "r1", author: authors[i % authors.length], rating: 8 + (i % 2), text: texts[i % texts.length] },
+    { id: "r2", author: authors[(i + 3) % authors.length], rating: 7 + (i % 3), text: texts[(i + 2) % texts.length] },
+  ];
+}
+
+const extraVerticalPosters = extraImages.map((src, i) => {
+  const m = extraMeta[i];
+  const isFilm = m.kind === "фильм";
+  return {
+    id: `x${i + 13}`,
+    src,
+    alt: `Постер «${m.title}»`,
+    title: m.title,
+    meta: [m.year, m.genre, m.kind],
+    description: m.description,
+    longDescription: m.longDescription,
+    trailer: extraTrailers[i % extraTrailers.length],
+    still: extraStills[i % extraStills.length],
+    // Films get a single "season" so the episode strip still has content.
+    seasons: makeExtraSeasons(i, isFilm),
+    reviews: makeExtraReviews(i),
+  };
+});
+
+// Split the 24 new posters across the four single-row shelves — 6 each.
+const extraShelfA = extraVerticalPosters.slice(0, 6); // v13–v18
+const extraShelfB = extraVerticalPosters.slice(6, 12); // v19–v24
+const extraShelfC = extraVerticalPosters.slice(12, 18); // v25–v30
+const extraShelfD = extraVerticalPosters.slice(18, 24); // v31–v36
+
 export const galleries = [
   {
     id: "best-series",
@@ -620,10 +862,16 @@ export const galleries = [
     horizontalPosters: bestSeriesHorizontal,
     verticalPosters: bestSeriesVertical,
   },
+  // Two single-row (vertical-only) shelves after the first two-row gallery.
+  { id: "shelf-a", title: "Фильмы Каннского кинофестиваля", horizontalPosters: [], verticalPosters: extraShelfA },
+  { id: "shelf-b", title: "Фантастические сериалы", horizontalPosters: [], verticalPosters: extraShelfB },
   {
-    id: "new-releases",
-    title: "Новинки недели",
+    id: "100-main-series-of-the-year",
+    title: "100 главных сериалов года",
     horizontalPosters: newReleasesHorizontal,
     verticalPosters: newReleasesVertical,
   },
+  // Two more single-row shelves after the second two-row gallery.
+  { id: "shelf-c", title: "Из твоего избранного", horizontalPosters: [], verticalPosters: extraShelfC },
+  { id: "shelf-d", title: "Лучшие комедии", horizontalPosters: [], verticalPosters: extraShelfD },
 ];
