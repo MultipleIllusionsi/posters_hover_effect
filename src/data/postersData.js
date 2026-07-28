@@ -51,6 +51,8 @@ import t4 from "../../assets/video_trailers/trailer_4.mp4";
 // simply render no logo.
 import lh1 from "../../assets/logotypes/horizontal_1.webp";
 import lh2 from "../../assets/logotypes/horizontal_2.webp";
+import lh3 from "../../assets/logotypes/horizontal_3.webp";
+import lh4 from "../../assets/logotypes/horizontal_4.webp";
 import lv1 from "../../assets/logotypes/vertical_1.webp";
 import lv2 from "../../assets/logotypes/vertical_2.webp";
 import lv3 from "../../assets/logotypes/vertical_3.webp";
@@ -372,7 +374,7 @@ const newReleasesHorizontal = [
   {
     id: "h3",
     src: h3,
-    logo: lh1,
+    logo: lh3,
     alt: "Постер сериала «Холод»",
     title: "Холод",
     meta: ["2026", "драма", "1 сезон"],
@@ -402,7 +404,7 @@ const newReleasesHorizontal = [
   {
     id: "h4",
     src: h4,
-    logo: lh2,
+    logo: lh4,
     alt: "Постер сериала «Золотое дно 2»",
     title: "Золотое дно 2",
     meta: ["2026", "драма", "2 сезона"],
