@@ -15,6 +15,36 @@
 .poster-horizontal.poster--clickable:hover { transform: scale(1.01); }
 .poster-vertical.poster--clickable:hover { transform: scale(1.02); }
 
+/* v5 «Смещение» — the inline expander. It sits in the gallery's flex column
+   between rows, so animating its height opens it from the row's bottom and
+   pushes everything below it down (and back when it closes). overflow:hidden
+   reveals the fixed-height panel inside as the container grows. */
+.poster-shift {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 24px;
+  animation: poster-shift-open 360ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.poster-shift--leaving {
+  animation: poster-shift-close 300ms cubic-bezier(0.4, 0, 1, 1) both;
+}
+
+/* Height must match --sheet-h on .poster-sheet--inline in PosterBottomsheet.css. */
+@keyframes poster-shift-open {
+  from { height: 0; }
+  to   { height: 380px; }
+}
+
+@keyframes poster-shift-close {
+  from { height: 380px; }
+  to   { height: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .poster-shift { animation-duration: 1ms; }
+}
+
 /* While the sheet is open, give the page extra room at the bottom so a poster
    in the last row can scroll up clear of the sheet (240px) instead of staying
    pinned behind it at the page's end. */

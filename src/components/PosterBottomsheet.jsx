@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { IconFavorite, IconPlay, IconSoundOff, IconSoundOn } from "./icons";
 import "./PosterBottomsheet.css";
 
@@ -55,12 +55,20 @@ const MIN_EPISODES = 9;
  *  only ships two real reviews). */
 const MIN_REVIEWS = 8;
 
-export default function PosterBottomsheet({ data, onClose, leaving = false }) {
+export default function PosterBottomsheet({ data, onClose, leaving = false, variant = "sheet" }) {
+  // "sheet" — fixed overlay rising from the bottom (v4 «Шторка»).
+  // "inline" — the same content, but rendered in-flow inside an expander that
+  // pushes the page down (v5 «Смещение»); no gradient/blur, no backdrop.
+  const inline = variant === "inline";
   const [tab, setTab] = useState("info");
   const [seasonIndex, setSeasonIndex] = useState(0);
   // Trailers start silent — autoplay with sound is blocked by every browser.
   const [muted, setMuted] = useState(true);
   const videoRef = useRef(null);
+  // Natural width of the season-number strip, so its container can animate its
+  // width from 0 (collapsed) to exactly this when the Seasons tab is selected.
+  const seasonNavInnerRef = useRef(null);
+  const [seasonNavWidth, setSeasonNavWidth] = useState(0);
 
   // The sheet is reused when another poster is clicked, so reset the tabs when
   // the content changes rather than remounting.
@@ -97,6 +105,19 @@ export default function PosterBottomsheet({ data, onClose, leaving = false }) {
   const trailerStill = data.still || data.src;
   const hasTrailer = Boolean(data.trailer) && tab === "info";
 
+  // Measure the season-number strip so the open/close animation targets its
+  // exact width. A ResizeObserver keeps it correct across font load and any
+  // late layout (a one-shot measure can catch a 0 before the pills are sized).
+  useLayoutEffect(() => {
+    const el = seasonNavInnerRef.current;
+    if (!el) return undefined;
+    const measure = () => setSeasonNavWidth(el.offsetWidth);
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [seasons.length, data.id]);
+
   // Repeat the season's episodes until the strip is long enough to spill past
   // the scroll area (a demo season only ships 3–4 real episodes).
   const baseEpisodes = season?.episodes ?? [];
@@ -120,28 +141,38 @@ export default function PosterBottomsheet({ data, onClose, leaving = false }) {
 
   return (
     <>
+      {!inline && (
+        <div
+          className={`poster-sheet-backdrop${leaving ? " poster-sheet-backdrop--leaving" : ""}`}
+          aria-hidden="true"
+        />
+      )}
       <div
-        className={`poster-sheet-backdrop${leaving ? " poster-sheet-backdrop--leaving" : ""}`}
-        aria-hidden="true"
-      />
-      <div
-        className={`poster-sheet${leaving ? " poster-sheet--leaving" : ""}`}
+        className={`poster-sheet${inline ? " poster-sheet--inline" : ""}${
+          !inline && leaving ? " poster-sheet--leaving" : ""
+        }`}
         role="dialog"
         aria-label={data.title}
       >
         {/* Progressive blur — stacked backdrop-filter layers, each masked so the
-            blur ramps up toward the opaque bottom of the gradient scrim. */}
-        <div className="poster-sheet__blur" aria-hidden="true">
-          <span />
-          <span />
-          <span />
-          <span />
-        </div>
+            blur ramps up toward the opaque bottom of the gradient scrim. Only the
+            overlay «Шторка» has it; the inline «Смещение» uses a plain surface. */}
+        {!inline && (
+          <div className="poster-sheet__blur" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
+        )}
 
         <div className="poster-sheet__inner">
           {/* Tab content on top, the tab switcher pinned at the bottom. */}
           <div className="poster-sheet__body">
             <div className="poster-sheet__content">
+              {/* Keyed on the tab so each switch remounts and replays the
+                  fade + light-blur entrance. */}
+              <div className="poster-sheet__tab-panel" key={tab}>
               {tab === "info" && (
                 <div className="poster-sheet__info">
                   {/* Left — the trailer. */}
@@ -173,8 +204,9 @@ export default function PosterBottomsheet({ data, onClose, leaving = false }) {
                     )}
                   </div>
 
-                  {/* Middle — meta + description. */}
+                  {/* Middle — title, meta + description. */}
                   <div className="poster-sheet__info-text">
+                    {data.title && <h3 className="poster-sheet__title">{data.title}</h3>}
                     {data.meta?.length > 0 && (
                       <p className="poster-sheet__meta">
                         {data.meta.map((chip, i) => (
@@ -266,6 +298,7 @@ export default function PosterBottomsheet({ data, onClose, leaving = false }) {
                   ))}
                 </ul>
               )}
+              </div>
             </div>
 
             <div className="poster-sheet__tabs" role="tablist" aria-label="Разделы">
@@ -286,26 +319,39 @@ export default function PosterBottomsheet({ data, onClose, leaving = false }) {
                       {t.label}
                     </button>
 
-                    {/* Season numbers sit right after the «Сезоны» tab when it's
-                        open (default season 1); the selected one takes the same
-                        pill highlight the tabs use. */}
-                    {seasonsOpen && (
-                      <div className="poster-sheet__season-nav" role="tablist" aria-label="Сезоны">
-                        {seasons.map((s, i) => (
-                          <button
-                            key={s.id}
-                            type="button"
-                            role="tab"
-                            aria-selected={i === seasonIndex}
-                            aria-label={s.title}
-                            className={`poster-sheet__tab${
-                              i === seasonIndex ? " poster-sheet__tab--active" : ""
-                            }`}
-                            onClick={() => setSeasonIndex(i)}
-                          >
-                            {i + 1}
-                          </button>
-                        ))}
+                    {/* Season numbers sit right after the «Сезоны» tab. The nav
+                        stays mounted so its width can animate open when Seasons
+                        is selected and closed again when you leave. */}
+                    {t.id === "seasons" && seasons.length > 0 && (
+                      <div
+                        className={`poster-sheet__season-nav${
+                          seasonsOpen ? " poster-sheet__season-nav--open" : ""
+                        }`}
+                        style={{ width: seasonsOpen ? seasonNavWidth : 0 }}
+                      >
+                        <div
+                          className="poster-sheet__season-nav-inner"
+                          ref={seasonNavInnerRef}
+                          role="tablist"
+                          aria-label="Сезоны"
+                        >
+                          {seasons.map((s, i) => (
+                            <button
+                              key={s.id}
+                              type="button"
+                              role="tab"
+                              aria-selected={i === seasonIndex}
+                              aria-label={s.title}
+                              tabIndex={seasonsOpen ? undefined : -1}
+                              className={`poster-sheet__tab${
+                                i === seasonIndex ? " poster-sheet__tab--active" : ""
+                              }`}
+                              onClick={() => setSeasonIndex(i)}
+                            >
+                              {i + 1}
+                            </button>
+                          ))}
+                        </div>
                       </div>
                     )}
                   </Fragment>

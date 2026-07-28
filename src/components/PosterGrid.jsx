@@ -24,12 +24,18 @@ const EXIT_DURATION = 240;
 /** v4 bottom sheet — keep in sync with the exit animation in PosterBottomsheet.css. */
 const SHEET_EXIT_DURATION = 360;
 
+/** v5 inline expander — keep in sync with poster-shift-close in PosterGrid.css. */
+const SHIFT_EXIT_DURATION = 300;
+
 /**
  * Every PosterGrid on the page registers its immediate-close function here. The
  * bottom sheet is a page-level singleton — each gallery renders its own, so when
  * one opens we close any other that's still up, leaving only the newest.
  */
 const sheetClosers = new Set();
+
+/** Same idea for the v5 inline expander — only one open across all galleries. */
+const shiftClosers = new Set();
 
 /**
  * How big the card is relative to the poster it covers.
@@ -94,6 +100,7 @@ const revealPoster = (el) => {
 export default function PosterGrid({ horizontalPosters, verticalPosters, verticalHover = "v1" }) {
   const useCard = verticalHover === "v1";
   const useSheet = verticalHover === "v4";
+  const useShift = verticalHover === "v5";
 
   // One flat list so a poster is addressed by a single index, whichever row
   // it's in. Horizontal posters come first, matching the render order.
@@ -152,6 +159,61 @@ export default function PosterGrid({ horizontalPosters, verticalPosters, vertica
     sheetClosers.add(closeSheetNow);
     return () => sheetClosers.delete(closeSheetNow);
   }, [closeSheetNow]);
+
+  // v5 «Смещение» — the poster whose inline expander is open (null = closed), and
+  // whether it's collapsing. The expander is rendered after the row that holds
+  // the poster (see shiftItem.variant), so opening pushes everything below down.
+  const [shiftItem, setShiftItem] = useState(null);
+  const [shiftLeaving, setShiftLeaving] = useState(false);
+  // The expander left behind, collapsing in its old row, while a new one opens in
+  // a different row — this is what makes a cross-row switch look continuous.
+  const [closingShift, setClosingShift] = useState(null);
+  const shiftExitTimer = useRef(null);
+  const shiftCloseTimer = useRef(null);
+  // Current shiftItem, readable synchronously inside openShift's closure.
+  const shiftItemRef = useRef(null);
+  useEffect(() => {
+    shiftItemRef.current = shiftItem;
+  }, [shiftItem]);
+  const closeShiftNow = useCallback(() => {
+    clearTimeout(shiftExitTimer.current);
+    clearTimeout(shiftCloseTimer.current);
+    setShiftLeaving(false);
+    setShiftItem(null);
+    setClosingShift(null);
+  }, []);
+  const openShift = useCallback(
+    (item) => {
+      shiftClosers.forEach((close) => {
+        if (close !== closeShiftNow) close();
+      });
+      clearTimeout(shiftExitTimer.current);
+      // Switching to a poster in a DIFFERENT row: keep the old expander mounted
+      // in its row, collapsing, while the new one opens — both animate at once.
+      const prev = shiftItemRef.current;
+      if (prev && prev.variant !== item.variant) {
+        setClosingShift(prev);
+        clearTimeout(shiftCloseTimer.current);
+        shiftCloseTimer.current = setTimeout(() => setClosingShift(null), SHIFT_EXIT_DURATION);
+      }
+      setShiftLeaving(false);
+      setShiftItem(item);
+    },
+    [closeShiftNow]
+  );
+  const closeShift = useCallback(() => {
+    setShiftLeaving(true);
+    clearTimeout(shiftExitTimer.current);
+    shiftExitTimer.current = setTimeout(() => {
+      setShiftItem(null);
+      setShiftLeaving(false);
+    }, SHIFT_EXIT_DURATION);
+  }, []);
+  useEffect(() => {
+    shiftClosers.add(closeShiftNow);
+    return () => shiftClosers.delete(closeShiftNow);
+  }, [closeShiftNow]);
+
   const gridRef = useRef(null);
   const itemRefs = useRef([]);
   const timer = useRef(null);
@@ -220,6 +282,8 @@ export default function PosterGrid({ horizontalPosters, verticalPosters, vertica
       clearTimeout(timer.current);
       clearTimeout(exitTimer.current);
       clearTimeout(sheetExitTimer.current);
+      clearTimeout(shiftExitTimer.current);
+      clearTimeout(shiftCloseTimer.current);
       document.body.classList.remove("has-bottom-sheet");
     },
     []
@@ -240,10 +304,15 @@ export default function PosterGrid({ horizontalPosters, verticalPosters, vertica
     clearTimeout(timer.current);
     clearTimeout(exitTimer.current);
     clearTimeout(sheetExitTimer.current);
+    clearTimeout(shiftExitTimer.current);
+    clearTimeout(shiftCloseTimer.current);
     setActive(null);
     setLeaving(false);
     setSheetItem(null);
     setSheetLeaving(false);
+    setShiftItem(null);
+    setShiftLeaving(false);
+    setClosingShift(null);
     document.body.classList.remove("has-bottom-sheet");
   }, [verticalHover]);
 
@@ -255,6 +324,38 @@ export default function PosterGrid({ horizontalPosters, verticalPosters, vertica
   // While a card is up, every other poster in the section steps back. Drops as
   // soon as the exit starts, so the gallery brightens as the card fades.
   const dimOthers = active !== null && !leaving;
+
+  // v4 and v5 both make posters clickable; only the open handler and the
+  // selected-poster highlight differ.
+  const clickable = useSheet || useShift;
+  const selectedId = useSheet ? sheetItem?.id : useShift ? shiftItem?.id : null;
+  const onPosterClick = (poster, variant, el) => {
+    if (useSheet) openSheet({ ...poster, variant }, el);
+    else if (useShift) openShift({ ...poster, variant });
+  };
+
+  // v5 — the inline expander, rendered right after the row of the clicked poster
+  // so it opens from that row's bottom and pushes everything below it down. Each
+  // row renders at most one: the active (opening/closing) expander, or — during a
+  // cross-row switch — the collapsing ghost left behind in the old row.
+  const renderShift = (rowVariant) => {
+    if (!useShift) return null;
+    if (shiftItem && shiftItem.variant === rowVariant) {
+      return (
+        <div className={`poster-shift${shiftLeaving ? " poster-shift--leaving" : ""}`}>
+          <PosterBottomsheet data={shiftItem} onClose={closeShift} variant="inline" />
+        </div>
+      );
+    }
+    if (closingShift && closingShift.variant === rowVariant) {
+      return (
+        <div className="poster-shift poster-shift--leaving" aria-hidden="true">
+          <PosterBottomsheet data={closingShift} onClose={() => {}} variant="inline" />
+        </div>
+      );
+    }
+    return null;
+  };
 
   return (
     // The card is a DOM descendant of the grid, so moving the pointer onto it
@@ -273,14 +374,14 @@ export default function PosterGrid({ horizontalPosters, verticalPosters, vertica
               dimmed={dimOthers && active !== i}
               onMouseEnter={() => show(i)}
             />
-          ) : useSheet ? (
-            /* v4 — the poster is a button that opens the bottom sheet. */
+          ) : clickable ? (
+            /* v4 / v5 — the poster is a button that opens its panel. */
             <PosterHorizontal
               key={poster.id}
               src={poster.src}
               alt={poster.alt}
-              className={`poster--clickable${sheetItem?.id === poster.id ? " poster--selected" : ""}`}
-              onClick={(e) => openSheet({ ...poster, variant: "horizontal" }, e.currentTarget)}
+              className={`poster--clickable${selectedId === poster.id ? " poster--selected" : ""}`}
+              onClick={(e) => onPosterClick(poster, "horizontal", e.currentTarget)}
             />
           ) : (
             /* v2 and v3 share the same horizontal treatment. */
@@ -288,6 +389,8 @@ export default function PosterGrid({ horizontalPosters, verticalPosters, vertica
           )
         )}
       </div>
+
+      {renderShift("horizontal")}
 
       <div className="gallery__row gallery__row--vertical">
         {verticalPosters.map((poster, j) => {
@@ -298,14 +401,14 @@ export default function PosterGrid({ horizontalPosters, verticalPosters, vertica
           if (verticalHover === "v3") {
             return <PosterVerticalV3 key={poster.id} data={poster} />;
           }
-          if (verticalHover === "v4") {
+          if (verticalHover === "v4" || verticalHover === "v5") {
             return (
               <PosterVertical
                 key={poster.id}
                 src={poster.src}
                 alt={poster.alt}
-                className={`poster--clickable${sheetItem?.id === poster.id ? " poster--selected" : ""}`}
-                onClick={(e) => openSheet({ ...poster, variant: "vertical" }, e.currentTarget)}
+                className={`poster--clickable${selectedId === poster.id ? " poster--selected" : ""}`}
+                onClick={(e) => onPosterClick(poster, "vertical", e.currentTarget)}
               />
             );
           }
@@ -324,6 +427,8 @@ export default function PosterGrid({ horizontalPosters, verticalPosters, vertica
           );
         })}
       </div>
+
+      {renderShift("vertical")}
 
       {activeItem && geom && (
         <div

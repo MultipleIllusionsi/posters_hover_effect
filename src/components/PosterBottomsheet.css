@@ -52,10 +52,10 @@
   left: 0;
   right: 0;
   bottom: 0;
-  top: -64px;
+  top: -72px;
   z-index: -1;
   border-radius: 40px 40px 0 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.88) 32%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.80) 32%);
   pointer-events: none;
 }
 
@@ -68,7 +68,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  top: -64px;
+  top: -72px;
   z-index: -1;
   overflow: hidden;
   pointer-events: none;
@@ -104,6 +104,31 @@
   mask-image: linear-gradient(to top, #000 0%, transparent 32%);
 }
 
+/* Inline «Смещение» — the same content, but in normal flow (its expander sizes
+   and animates it). Plain dark surface: no fixed position, no gradient, no blur,
+   no slide-up. A touch taller than the overlay sheet (keep in sync with the
+   poster-shift height in PosterGrid.css). */
+.poster-sheet--inline {
+  --sheet-h: 380px;
+  position: static;
+  width: 100%;
+  height: var(--sheet-h);
+  border-radius: 0;
+  background: #0f0f0f;
+  overflow: hidden;
+  animation: none;
+}
+.poster-sheet--inline::before { display: none; }
+
+/* Inline only — the content spans the full container width (no 1320px cap) and
+   the tab switcher sits at the TOP, above the poster title. */
+.poster-sheet--inline .poster-sheet__body {
+  max-width: none;
+}
+.poster-sheet--inline .poster-sheet__tabs {
+  order: -1;
+}
+
 /* Exit — slide down and fade away. */
 .poster-sheet--leaving {
   animation: poster-sheet-down 360ms cubic-bezier(0.4, 0, 1, 1) both;
@@ -131,7 +156,9 @@
 
 @media (prefers-reduced-motion: reduce) {
   .poster-sheet-backdrop,
-  .poster-sheet { animation-duration: 1ms; }
+  .poster-sheet,
+  .poster-sheet__tab-panel { animation-duration: 1ms; }
+  .poster-sheet__season-nav { transition-duration: 1ms; }
 }
 
 /* 16px padding on every side; a horizontal strip: trailer | body | actions. */
@@ -169,7 +196,7 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  max-width: 1240px;
+  max-width: 1320px;
   gap: 16px;
   min-height: 0;
 }
@@ -187,12 +214,34 @@
 }
 
 /* Season numbers, inline right after the «Сезоны» tab. Each number is a tab
-   pill (.poster-sheet__tab); the selected one takes the active pill. */
+   pill (.poster-sheet__tab); the selected one takes the active pill.
+
+   The nav opens by animating its WIDTH from 0 (collapsed — only the «Сезоны»
+   button shows) to its full content width (all seasons shown, measured in JS and
+   applied inline), and back to 0 when you leave the tab. */
 .poster-sheet__season-nav {
+  flex: 0 0 auto;
+  width: 0;
+  margin-right: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    width 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    margin-right 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 220ms ease-out;
+}
+
+.poster-sheet__season-nav--open {
+  margin-right: 8px;
+  opacity: 1;
+}
+
+/* Its natural (max-content) width stays fixed while the parent's width animates,
+   so the pills are revealed/hidden by the clip rather than reflowing. */
+.poster-sheet__season-nav-inner {
   display: flex;
   align-items: center;
-  gap: 0px;
-  margin-right: 8px;
+  width: max-content;
 }
 
 .poster-sheet__tab {
@@ -224,6 +273,18 @@
 }
 .poster-sheet__content::-webkit-scrollbar { display: none; }
 
+/* Fills the content box (so the info/seasons/reviews height:100% still resolves)
+   and replays a fade + light-blur entrance every time the tab changes. */
+.poster-sheet__tab-panel {
+  height: 100%;
+  animation: poster-sheet-tab-in 260ms ease-out both;
+}
+
+@keyframes poster-sheet-tab-in {
+  from { opacity: 0; filter: blur(6px); }
+  to   { opacity: 1; filter: blur(0); }
+}
+
 /* Info tab — trailer, then meta + description, then the action buttons. */
 .poster-sheet__info {
   display: flex;
@@ -242,6 +303,14 @@
   scrollbar-width: none;
 }
 .poster-sheet__info-text::-webkit-scrollbar { display: none; }
+
+.poster-sheet__title {
+  margin: 0 0 6px 4px;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.15;
+  color: #fff;
+}
 
 .poster-sheet__meta {
   margin: 4px 0px 8px 4px;
@@ -412,7 +481,7 @@
   flex-direction: row;
   /* Fill the content box and drop the (natural-height) cards to the bottom. */
   height: 100%;
-  align-items: flex-end;
+  align-items: center;
   gap: 12px;
   min-height: 0;
   overflow-x: auto;
