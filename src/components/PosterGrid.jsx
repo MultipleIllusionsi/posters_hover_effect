@@ -46,22 +46,22 @@ const CARD_RATIOS = {
 
 const clamp = (value, min, max) => Math.min(Math.max(value, min), Math.max(min, max));
 
-/** Fraction of the viewport the v4 bottom sheet covers (see PosterBottomsheet.css). */
-const SHEET_VH = 0.3;
+/** Height in px of the v4 bottom sheet (see --sheet-h in PosterBottomsheet.css). */
+const SHEET_H = 240;
 
 /**
  * Scroll the page just enough that the clicked poster sits fully inside the
- * visible band — the viewport minus the bottom sheet's 30vh and a small margin.
- * Nudges up when the poster is clipped at the top, down when it's clipped (or
- * hidden behind the sheet) at the bottom; a poster taller than the band is
- * aligned to the top so its start is always in view.
+ * visible band — the viewport minus the bottom sheet's height and a small
+ * margin. Nudges up when the poster is clipped at the top, down when it's
+ * clipped (or hidden behind the sheet) at the bottom; a poster taller than the
+ * band is aligned to the top so its start is always in view.
  */
 const revealPoster = (el) => {
   if (!el) return;
   const rect = el.getBoundingClientRect();
   const margin = 16;
   const topBound = margin;
-  const bottomBound = window.innerHeight * (1 - SHEET_VH) - margin;
+  const bottomBound = window.innerHeight - SHEET_H - margin;
 
   let delta = 0;
   if (rect.height > bottomBound - topBound || rect.top < topBound) {

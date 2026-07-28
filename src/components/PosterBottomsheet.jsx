@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { IconFavorite, IconPlay, IconSoundOff, IconSoundOn } from "./icons";
 import "./PosterBottomsheet.css";
 
@@ -50,6 +50,10 @@ function IconThumbDown() {
 /** Episodes shown in the seasons strip — the list is padded up to this many so
  *  it always overflows the scroll area and the last card is cropped. */
 const MIN_EPISODES = 9;
+
+/** Reviews shown in the reviews strip — padded up to this many (a demo poster
+ *  only ships two real reviews). */
+const MIN_REVIEWS = 8;
 
 export default function PosterBottomsheet({ data, onClose, leaving = false }) {
   const [tab, setTab] = useState("info");
@@ -104,6 +108,16 @@ export default function PosterBottomsheet({ data, onClose, leaving = false }) {
           return { ...ep, key: `${ep.id}-${i}`, label: `${i + 1} серия` };
         });
 
+  // Same padding for reviews, so the strip has more than the two demo cards.
+  const baseReviews = data.reviews ?? [];
+  const reviews =
+    baseReviews.length === 0
+      ? []
+      : Array.from({ length: Math.max(MIN_REVIEWS, baseReviews.length) }, (_, i) => {
+          const r = baseReviews[i % baseReviews.length];
+          return { ...r, key: `${r.id}-${i}` };
+        });
+
   return (
     <>
       <div
@@ -115,71 +129,68 @@ export default function PosterBottomsheet({ data, onClose, leaving = false }) {
         role="dialog"
         aria-label={data.title}
       >
+        {/* Progressive blur — stacked backdrop-filter layers, each masked so the
+            blur ramps up toward the opaque bottom of the gradient scrim. */}
+        <div className="poster-sheet__blur" aria-hidden="true">
+          <span />
+          <span />
+          <span />
+          <span />
+        </div>
+
         <div className="poster-sheet__inner">
-          {/* Left — the trailer. */}
-          <div className="poster-sheet__trailer">
-            {data.trailer ? (
-              <video
-                ref={videoRef}
-                className="poster-sheet__trailer-media"
-                src={data.trailer}
-                poster={trailerStill}
-                autoPlay
-                muted={muted}
-                loop
-                playsInline
-              />
-            ) : (
-              <img className="poster-sheet__trailer-media" src={trailerStill} alt="" />
-            )}
-            {hasTrailer && (
-              <button
-                type="button"
-                className="poster-sheet__sound"
-                onClick={() => setMuted((m) => !m)}
-                aria-label={muted ? "Включить звук" : "Выключить звук"}
-                aria-pressed={!muted}
-              >
-                {muted ? <IconSoundOff /> : <IconSoundOn />}
-              </button>
-            )}
-          </div>
-
-          {/* Middle — description and tabs. */}
+          {/* Tab content on top, the tab switcher pinned at the bottom. */}
           <div className="poster-sheet__body">
-            <div className="poster-sheet__tabs" role="tablist" aria-label="Разделы">
-              {TABS.map((t) => (
-                <button
-                  key={t.id}
-                  type="button"
-                  role="tab"
-                  aria-selected={tab === t.id}
-                  className={`poster-sheet__tab${tab === t.id ? " poster-sheet__tab--active" : ""}`}
-                  onClick={() => setTab(t.id)}
-                >
-                  {t.label}
-                </button>
-              ))}
-            </div>
-
             <div className="poster-sheet__content">
               {tab === "info" && (
                 <div className="poster-sheet__info">
-                  {data.meta?.length > 0 && (
-                    <p className="poster-sheet__meta">
-                      {data.meta.map((chip, i) => (
-                        <span key={chip}>
-                          {i > 0 && <span className="poster-sheet__dot">·</span>}
-                          {chip}
-                        </span>
-                      ))}
-                    </p>
-                  )}
-                  <p className="poster-sheet__description">
-                    {data.longDescription || data.description}
-                  </p>
+                  {/* Left — the trailer. */}
+                  <div className="poster-sheet__trailer">
+                    {data.trailer ? (
+                      <video
+                        ref={videoRef}
+                        className="poster-sheet__trailer-media"
+                        src={data.trailer}
+                        poster={trailerStill}
+                        autoPlay
+                        muted={muted}
+                        loop
+                        playsInline
+                      />
+                    ) : (
+                      <img className="poster-sheet__trailer-media" src={trailerStill} alt="" />
+                    )}
+                    {hasTrailer && (
+                      <button
+                        type="button"
+                        className="poster-sheet__sound"
+                        onClick={() => setMuted((m) => !m)}
+                        aria-label={muted ? "Включить звук" : "Выключить звук"}
+                        aria-pressed={!muted}
+                      >
+                        {muted ? <IconSoundOff /> : <IconSoundOn />}
+                      </button>
+                    )}
+                  </div>
 
-                  {/* Watch / favourite sit under the description, side by side. */}
+                  {/* Middle — meta + description. */}
+                  <div className="poster-sheet__info-text">
+                    {data.meta?.length > 0 && (
+                      <p className="poster-sheet__meta">
+                        {data.meta.map((chip, i) => (
+                          <span key={chip}>
+                            {i > 0 && <span className="poster-sheet__dot">·</span>}
+                            {chip}
+                          </span>
+                        ))}
+                      </p>
+                    )}
+                    <p className="poster-sheet__description">
+                      {data.longDescription || data.description}
+                    </p>
+                  </div>
+
+                  {/* Right — watch / favourite, beside the text. */}
                   <div className="poster-sheet__actions">
                     <button type="button" className="poster-sheet__watch">
                       <IconPlay />
@@ -187,7 +198,7 @@ export default function PosterBottomsheet({ data, onClose, leaving = false }) {
                     </button>
                     <button type="button" className="poster-sheet__fav">
                       <IconFavorite />
-                      В избранное
+                      {/* В избранное */}
                     </button>
                   </div>
                 </div>
@@ -195,25 +206,6 @@ export default function PosterBottomsheet({ data, onClose, leaving = false }) {
 
               {tab === "seasons" && (
                 <div className="poster-sheet__panel">
-                  {seasons.length > 0 && (
-                    <div className="poster-sheet__season-tabs" role="tablist" aria-label="Сезоны">
-                      {seasons.map((s, i) => (
-                        <button
-                          key={s.id}
-                          type="button"
-                          role="tab"
-                          aria-selected={i === seasonIndex}
-                          className={`poster-sheet__season-tab${
-                            i === seasonIndex ? " poster-sheet__season-tab--active" : ""
-                          }`}
-                          onClick={() => setSeasonIndex(i)}
-                        >
-                          <span className="poster-sheet__season-tab-label">{s.title}</span>
-                          <span className="poster-sheet__season-tab-underline" aria-hidden="true" />
-                        </button>
-                      ))}
-                    </div>
-                  )}
                   <ul className="poster-sheet__list poster-sheet__list--episodes">
                     {episodes.map((ep) => (
                       <li className="poster-sheet__episode" key={ep.key}>
@@ -237,10 +229,17 @@ export default function PosterBottomsheet({ data, onClose, leaving = false }) {
 
               {tab === "reviews" && (
                 <ul className="poster-sheet__list poster-sheet__list--reviews">
-                  {data.reviews?.map((r) => (
-                    <li className="poster-sheet__review" key={r.id}>
-                      {/* Left — the rating, in its own large block. */}
-                      <span className="poster-sheet__review-rating">{r.rating}</span>
+                  {reviews.map((r) => (
+                    <li className="poster-sheet__review" key={r.key}>
+                      {/* Left — the rating, in its own large block. High
+                          scores (9–10) get a green background. */}
+                      <span
+                        className={`poster-sheet__review-rating${
+                          r.rating >= 9 ? " poster-sheet__review-rating--high" : ""
+                        }`}
+                      >
+                        {r.rating}
+                      </span>
 
                       {/* Right — author, review text, then like / dislike. */}
                       <span className="poster-sheet__review-body">
@@ -268,18 +267,63 @@ export default function PosterBottomsheet({ data, onClose, leaving = false }) {
                 </ul>
               )}
             </div>
+
+            <div className="poster-sheet__tabs" role="tablist" aria-label="Разделы">
+              {TABS.map((t) => {
+                // While «Сезоны» is open, the active-tab highlight moves off the
+                // Сезоны tab and onto the selected season number instead.
+                const seasonsOpen = t.id === "seasons" && tab === "seasons" && seasons.length > 0;
+                const showActive = tab === t.id && !seasonsOpen;
+                return (
+                  <Fragment key={t.id}>
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={tab === t.id}
+                      className={`poster-sheet__tab${showActive ? " poster-sheet__tab--active" : ""}`}
+                      onClick={() => setTab(t.id)}
+                    >
+                      {t.label}
+                    </button>
+
+                    {/* Season numbers sit right after the «Сезоны» tab when it's
+                        open (default season 1); the selected one takes the same
+                        pill highlight the tabs use. */}
+                    {seasonsOpen && (
+                      <div className="poster-sheet__season-nav" role="tablist" aria-label="Сезоны">
+                        {seasons.map((s, i) => (
+                          <button
+                            key={s.id}
+                            type="button"
+                            role="tab"
+                            aria-selected={i === seasonIndex}
+                            aria-label={s.title}
+                            className={`poster-sheet__tab${
+                              i === seasonIndex ? " poster-sheet__tab--active" : ""
+                            }`}
+                            onClick={() => setSeasonIndex(i)}
+                          >
+                            {i + 1}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </Fragment>
+                );
+              })}
+
+              <button
+                type="button"
+                className="poster-sheet__close"
+                onClick={onClose}
+                aria-label="Закрыть"
+              >
+                ✕
+              </button>
+            </div>
           </div>
 
         </div>
-
-        <button
-          type="button"
-          className="poster-sheet__close"
-          onClick={onClose}
-          aria-label="Закрыть"
-        >
-          ✕
-        </button>
       </div>
     </>
   );
