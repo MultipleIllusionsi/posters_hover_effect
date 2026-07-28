@@ -246,7 +246,7 @@ export default function PosterBottomsheet({ data, onClose, leaving = false }) {
                       <span className="poster-sheet__review-body">
                         <span className="poster-sheet__review-author">{r.author}</span>
                         <span className="poster-sheet__review-text">{r.text}</span>
-                        <span className="poster-sheet__review-votes">
+                        {/* <span className="poster-sheet__review-votes">
                           <button
                             type="button"
                             className="poster-sheet__review-vote"
@@ -261,7 +261,7 @@ export default function PosterBottomsheet({ data, onClose, leaving = false }) {
                           >
                             <IconThumbDown />
                           </button>
-                        </span>
+                        </span> */}
                       </span>
                     </li>
                   ))}
