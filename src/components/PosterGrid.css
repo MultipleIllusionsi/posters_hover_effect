@@ -41,6 +41,28 @@
   to   { height: 0; }
 }
 
+/* v6 «Совмещённый» — the expander opens to the taller 70vh card, and breaks out
+   of the gallery's side gutters to span the full viewport width, no radius. */
+.poster-shift--combined {
+  animation-name: poster-shift-open-combined;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  border-radius: 0;
+}
+.poster-shift--combined.poster-shift--leaving {
+  animation-name: poster-shift-close-combined;
+}
+
+@keyframes poster-shift-open-combined {
+  from { height: 0; }
+  to   { height: 60vh; }
+}
+
+@keyframes poster-shift-close-combined {
+  from { height: 60vh; }
+  to   { height: 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .poster-shift { animation-duration: 1ms; }
 }
@@ -79,6 +101,47 @@ body.has-bottom-sheet {
 /* Radii match each poster format's artwork box. */
 .poster-vertical.poster--selected::after { border-radius: 24px; }
 .poster-horizontal.poster--selected::after { border-radius: 32px; }
+
+/* v6 — a downward white triangle under the selected poster, poking out below its
+   bottom edge toward the card that opened. Lifted above the card (which is a
+   later DOM sibling) so the pointer sits on top of it. */
+.poster--pointer {
+  z-index: 46;
+}
+
+.poster--pointer::before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 11px solid transparent;
+  border-right: 11px solid transparent;
+  border-top: 11px solid #fff;
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* v6 — a 2px gradient border ring, like the «Смещение» ring but reversed:
+   solid white at the BOTTOM fading to near-transparent at the TOP. */
+.poster--pointer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  padding: 2px;
+  background: linear-gradient(0deg, #fff, rgba(255, 255, 255, 0.08));
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  border-radius: 24px;
+}
+.poster-h2.poster--pointer::after { border-radius: 32px; }
 
 /* The single hover card shared by every poster in the section. */
 .poster-grid__card {

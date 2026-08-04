@@ -129,6 +129,183 @@
   order: -1;
 }
 
+/* v6 «Совмещённый» — a taller card (60% of the viewport). Shares the inline
+   surface; the tabs float over the top-center so the content (and the trailer)
+   can reach the card edges. */
+.poster-sheet--combined {
+  --sheet-h: 60vh;
+  position: relative;
+  /* No dark panel — the content sits straight on the page. */
+  background: transparent;
+}
+
+/* Bigger tab pills, 16px radius. */
+.poster-sheet--combined .poster-sheet__tab {
+  font-size: 17px;
+  padding: 12px 20px;
+  border-radius: 16px;
+}
+
+/* Make the selected tab read more clearly — brighter fill (+8% white). */
+.poster-sheet--combined .poster-sheet__tab--active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Larger info type. */
+.poster-sheet--combined .poster-sheet__description {
+  font-size: 20px;
+}
+.poster-sheet--combined .poster-sheet__meta {
+  font-size: 17px;
+}
+
+/* Watch / favourite — 17px label, 16px radius. */
+.poster-sheet--combined .poster-sheet__watch,
+.poster-sheet--combined .poster-sheet__fav {
+  border-radius: 16px;
+}
+.poster-sheet--combined .poster-sheet__watch {
+  font-size: 17px;
+}
+
+/* No inner padding — the trailer runs edge to edge on the right. */
+.poster-sheet--combined .poster-sheet__inner {
+  padding: 0;
+}
+
+/* Tabs pinned over the top, centered — out of flow so they add no top padding. */
+.poster-sheet--combined .poster-sheet__tabs {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+
+/* Info layout: left column (logo · description · meta · actions), and a trailer
+   filling the right half that fades out toward the left into the dark surface. */
+.poster-sheet__combined {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  gap: 24px;
+}
+
+.poster-sheet__combined-info {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 50%;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  /* Its own padding (the inner has none) + top room to clear the pinned tabs. */
+  padding: 72px 0 32px 56px;
+  box-sizing: border-box;
+}
+
+.poster-sheet__combined-logo {
+  width: auto;
+  max-width: 100%;
+  max-height: 148px;
+  object-fit: contain;
+  object-position: left center;
+  /* Extra breathing room below the logo, before the description. */
+  margin-bottom: 12px;
+}
+
+/* Description here can be long — clamp it so the column stays centered. */
+.poster-sheet--combined .poster-sheet__description {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.poster-sheet__combined-trailer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 56%;
+  z-index: 0;
+  /* Runs to the card edges (the .poster-shift wrapper clips the rounded corners). */
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 42%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 42%);
+}
+
+/* The «В избранное» button here is icon-only — a round pill, no label. The
+   double class beats the base `.poster-sheet__fav { padding: 0 24px }` that
+   comes later in the file (otherwise the 48px pad collapses the icon to 0). */
+.poster-sheet__fav.poster-sheet__fav--icon {
+  width: 48px;
+  padding: 0;
+}
+
+/* Keep the seasons/reviews strips a sane size in the much taller card. */
+.poster-sheet--combined .poster-sheet__episode-poster {
+  height: 200px;
+}
+
+/* Seasons/Reviews panel — same inset as the Info tab so every tab's content
+   lines up (top clears the pinned tabs; left matches the info column). Centre
+   the block (logo + numbers/cards) vertically as one group. */
+.poster-sheet--combined .poster-sheet__panel {
+  justify-content: center;
+  margin-left: 0;
+  padding: 72px 0 32px 56px;
+  box-sizing: border-box;
+}
+.poster-sheet--combined .poster-sheet__list--episodes,
+.poster-sheet--combined .poster-sheet__list--reviews {
+  flex: 0 0 auto;
+  align-items: center;
+}
+/* Let the reviews strip shrink to its cards (it's height:100% by default) so the
+   logo + list centre together as one group, instead of the logo floating up
+   while the tall list keeps its cards vertically centred below it. */
+.poster-sheet--combined .poster-sheet__list--reviews {
+  height: auto;
+}
+.poster-sheet--combined .poster-sheet__list--episodes .poster-sheet__episode {
+  height: auto;
+}
+
+/* v6 seasons header — title logo above the season numbers, above the strip. */
+.poster-sheet__combined-seasons {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+.poster-sheet__combined-seasons-logo {
+  width: auto;
+  max-width: 100%;
+  max-height: 100px;
+  object-fit: contain;
+  object-position: left center;
+}
+.poster-sheet__combined-season-nums {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* v6 reviews header logo — same idea as seasons, but smaller than the info one. */
+.poster-sheet__combined-reviews-logo {
+  flex-shrink: 0;
+  width: auto;
+  max-width: 100%;
+  max-height: 100px;
+  object-fit: contain;
+  object-position: left center;
+  margin-bottom: 16px;
+}
+
 /* Exit — slide down and fade away. */
 .poster-sheet--leaving {
   animation: poster-sheet-down 360ms cubic-bezier(0.4, 0, 1, 1) both;

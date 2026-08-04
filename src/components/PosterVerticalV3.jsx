@@ -15,7 +15,9 @@ import "./PosterVerticalV3.css";
  * drives the trailer — play/pause on hover and the mute toggle — exactly as in
  * PosterHorizontalV2.
  */
-export default function PosterVerticalV3({ data, className = "", ...rest }) {
+export default function PosterVerticalV3({ data, variant = "trailer", className = "", ...rest }) {
+  // "combined" (v6): no trailer on hover — the logo shows above the meta instead.
+  const combined = variant === "combined";
   // Trailers start silent — autoplay with sound is blocked by every browser.
   const [muted, setMuted] = useState(true);
   const videoRef = useRef(null);
@@ -44,7 +46,7 @@ export default function PosterVerticalV3({ data, className = "", ...rest }) {
 
   return (
     <div
-      className={`poster-v3 ${className}`.trim()}
+      className={`poster-v3 ${combined ? "poster-v3--combined" : ""} ${className}`.trim()}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
       {...rest}
@@ -54,7 +56,7 @@ export default function PosterVerticalV3({ data, className = "", ...rest }) {
 
         <span className="poster-v3__scrim" aria-hidden="true" />
 
-        {data.trailer && (
+        {!combined && data.trailer && (
           <video
             ref={videoRef}
             className="poster-v3__trailer"
@@ -67,7 +69,7 @@ export default function PosterVerticalV3({ data, className = "", ...rest }) {
           />
         )}
 
-        {data.trailer && (
+        {!combined && data.trailer && (
           <button
             type="button"
             className="poster-v3__sound"
@@ -86,7 +88,9 @@ export default function PosterVerticalV3({ data, className = "", ...rest }) {
                 nowrap meta, and the logo — width:0/min-width:100% — fills it);
                 the description sits below the pair. */}
             <div className="poster-v3__brand">
-              {/* {data.logo && <img className="poster-v3__logo" src={data.logo} alt="" />} */}
+              {combined && data.logo && (
+                <img className="poster-v3__logo" src={data.logo} alt="" />
+              )}
               {data.meta?.length > 0 && (
                 <p className="poster-v3__meta">
                   {data.meta.map((chip, i) => (
@@ -102,15 +106,17 @@ export default function PosterVerticalV3({ data, className = "", ...rest }) {
             <p className="poster-v3__description">{data.description}</p>
           </div>
 
-          <div className="poster-v3__actions">
-            <button type="button" className="poster-v3__watch">
-              <IconPlay />
-              Смотреть
-            </button>
-            <button type="button" className="poster-v3__fav" aria-label="В избранное">
-              <IconFavorite />
-            </button>
-          </div>
+          {!combined && (
+            <div className="poster-v3__actions">
+              <button type="button" className="poster-v3__watch">
+                <IconPlay />
+                Смотреть
+              </button>
+              <button type="button" className="poster-v3__fav" aria-label="В избранное">
+                <IconFavorite />
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -107,6 +107,11 @@
   gap: 16px;
 }
 
+/* v6 «Совмещённый» — a touch more room below the text. */
+.poster-v3--combined .poster-v3__overlay {
+  padding-bottom: 4px;
+}
+
 /* Reveal ------------------------------------------------------------------- */
 .poster-v3__scrim,
 .poster-v3__trailer,

@@ -16,7 +16,9 @@ import "./PosterHorizontalV2.css";
  * `preload="none"` and is only played on hover, so nothing downloads until you
  * actually hover the poster.
  */
-export default function PosterHorizontalV2({ data, className = "", ...rest }) {
+export default function PosterHorizontalV2({ data, variant = "trailer", className = "", ...rest }) {
+  // "combined" (v6): no trailer on hover — just the logo/meta reveal.
+  const combined = variant === "combined";
   const [hovered, setHovered] = useState(false);
   // Trailers start silent — autoplay with sound is blocked by every browser.
   // The click that unmutes is the gesture that permits it.
@@ -45,7 +47,9 @@ export default function PosterHorizontalV2({ data, className = "", ...rest }) {
 
   return (
     <div
-      className={`poster-h2 ${hovered ? "poster-h2--hovered" : ""} ${className}`.trim()}
+      className={`poster-h2 ${hovered ? "poster-h2--hovered" : ""} ${
+        combined ? "poster-h2--combined" : ""
+      } ${className}`.trim()}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => {
         setHovered(false);
@@ -60,7 +64,7 @@ export default function PosterHorizontalV2({ data, className = "", ...rest }) {
       <div className="poster-h2__media">
         <img className="poster-h2__image" src={data.src} alt={data.alt} />
 
-        {data.trailer && (
+        {!combined && data.trailer && (
           <video
             ref={videoRef}
             className="poster-h2__trailer"
@@ -76,7 +80,7 @@ export default function PosterHorizontalV2({ data, className = "", ...rest }) {
         <span className="poster-h2__scrim" aria-hidden="true" />
       </div>
 
-      {data.trailer && (
+      {!combined && data.trailer && (
         <button
           type="button"
           className="poster-h2__sound"
@@ -109,15 +113,17 @@ export default function PosterHorizontalV2({ data, className = "", ...rest }) {
           <p className="poster-h2__description">{data.description}</p>
         </div>
 
-        <div className="poster-h2__actions">
-          <button type="button" className="poster-h2__watch">
-            <IconPlay />
-            Смотреть
-          </button>
-          <button type="button" className="poster-h2__fav" aria-label="В избранное">
-            <IconFavorite />
-          </button>
-        </div>
+        {!combined && (
+          <div className="poster-h2__actions">
+            <button type="button" className="poster-h2__watch">
+              <IconPlay />
+              Смотреть
+            </button>
+            <button type="button" className="poster-h2__fav" aria-label="В избранное">
+              <IconFavorite />
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

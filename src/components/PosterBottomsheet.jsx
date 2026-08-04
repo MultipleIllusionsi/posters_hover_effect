@@ -59,7 +59,11 @@ export default function PosterBottomsheet({ data, onClose, leaving = false, vari
   // "sheet" — fixed overlay rising from the bottom (v4 «Шторка»).
   // "inline" — the same content, but rendered in-flow inside an expander that
   // pushes the page down (v5 «Смещение»); no gradient/blur, no backdrop.
-  const inline = variant === "inline";
+  // "combined" (v6) — like inline, but taller (70vh) and a different Info layout:
+  // logo + description + meta + actions on the left, a left-faded trailer on the
+  // right, tabs pinned to the top.
+  const combined = variant === "combined";
+  const inline = variant === "inline" || combined;
   const [tab, setTab] = useState("info");
   const [seasonIndex, setSeasonIndex] = useState(0);
   // Trailers start silent — autoplay with sound is blocked by every browser.
@@ -143,6 +147,28 @@ export default function PosterBottomsheet({ data, onClose, leaving = false, vari
           return { ...r, key: `${r.id}-${i}` };
         });
 
+  const reviewsList = (
+    <ul className="poster-sheet__list poster-sheet__list--reviews">
+      {reviews.map((r) => (
+        <li className="poster-sheet__review" key={r.key}>
+          {/* Left — the rating; high scores (9–10) get a green background. */}
+          <span
+            className={`poster-sheet__review-rating${
+              r.rating >= 9 ? " poster-sheet__review-rating--high" : ""
+            }`}
+          >
+            {r.rating}
+          </span>
+          {/* Right — author and review text. */}
+          <span className="poster-sheet__review-body">
+            <span className="poster-sheet__review-author">{r.author}</span>
+            <span className="poster-sheet__review-text">{r.text}</span>
+          </span>
+        </li>
+      ))}
+    </ul>
+  );
+
   return (
     <>
       {!inline && (
@@ -153,8 +179,8 @@ export default function PosterBottomsheet({ data, onClose, leaving = false, vari
       )}
       <div
         className={`poster-sheet${inline ? " poster-sheet--inline" : ""}${
-          !inline && leaving ? " poster-sheet--leaving" : ""
-        }`}
+          combined ? " poster-sheet--combined" : ""
+        }${!inline && leaving ? " poster-sheet--leaving" : ""}`}
         role="dialog"
         aria-label={data.title}
       >
@@ -177,7 +203,7 @@ export default function PosterBottomsheet({ data, onClose, leaving = false, vari
               {/* Keyed on the tab so each switch remounts and replays the
                   fade + light-blur entrance. */}
               <div className="poster-sheet__tab-panel" key={tab}>
-              {tab === "info" && (
+              {tab === "info" && !combined && (
                 <div className="poster-sheet__info">
                   {/* Left — the trailer. */}
                   <div className="poster-sheet__trailer">
@@ -240,8 +266,113 @@ export default function PosterBottomsheet({ data, onClose, leaving = false, vari
                 </div>
               )}
 
+              {/* v6 «Совмещённый» — logo/description/meta/actions on the left, a
+                  left-faded trailer filling the right half. */}
+              {tab === "info" && combined && (
+                <div className="poster-sheet__combined">
+                  <div className="poster-sheet__combined-info">
+                    {data.logo && (
+                      <img
+                        className="poster-sheet__combined-logo"
+                        src={data.logo}
+                        alt={data.title}
+                      />
+                    )}
+                    <p className="poster-sheet__description">
+                      {data.longDescription || data.description}
+                    </p>
+                    {data.meta?.length > 0 && (
+                      <p className="poster-sheet__meta">
+                        {data.meta.map((chip, i) => (
+                          <span key={chip}>
+                            {i > 0 && <span className="poster-sheet__dot">·</span>}
+                            {chip}
+                          </span>
+                        ))}
+                      </p>
+                    )}
+                    <div className="poster-sheet__actions">
+                      <button type="button" className="poster-sheet__watch">
+                        <IconPlay />
+                        Смотреть
+                      </button>
+                      <button
+                        type="button"
+                        className="poster-sheet__fav poster-sheet__fav--icon"
+                        aria-label="В избранное"
+                      >
+                        <IconFavorite />
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="poster-sheet__combined-trailer">
+                    {data.trailer ? (
+                      <video
+                        ref={videoRef}
+                        className="poster-sheet__trailer-media"
+                        src={data.trailer}
+                        poster={trailerStill}
+                        autoPlay
+                        muted={muted}
+                        loop
+                        playsInline
+                      />
+                    ) : (
+                      <img className="poster-sheet__trailer-media" src={trailerStill} alt="" />
+                    )}
+                    {hasTrailer && (
+                      <button
+                        type="button"
+                        className="poster-sheet__sound"
+                        onClick={() => setMuted((m) => !m)}
+                        aria-label={muted ? "Включить звук" : "Выключить звук"}
+                        aria-pressed={!muted}
+                      >
+                        {muted ? <IconSoundOff /> : <IconSoundOn />}
+                      </button>
+                    )}
+                  </div>
+                </div>
+              )}
+
               {tab === "seasons" && (
                 <div className="poster-sheet__panel">
+                  {/* v6 — title logo, then the season numbers, above the strip. */}
+                  {combined && (
+                    <div className="poster-sheet__combined-seasons">
+                      {data.logo && (
+                        <img
+                          className="poster-sheet__combined-seasons-logo"
+                          src={data.logo}
+                          alt={data.title}
+                        />
+                      )}
+                      {seasons.length > 0 && (
+                        <div
+                          className="poster-sheet__combined-season-nums"
+                          role="tablist"
+                          aria-label="Сезоны"
+                        >
+                          {seasons.map((s, i) => (
+                            <button
+                              key={s.id}
+                              type="button"
+                              role="tab"
+                              aria-selected={i === seasonIndex}
+                              aria-label={s.title}
+                              className={`poster-sheet__tab${
+                                i === seasonIndex ? " poster-sheet__tab--active" : ""
+                              }`}
+                              onClick={() => setSeasonIndex(i)}
+                            >
+                              {i + 1}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  )}
                   <ul className="poster-sheet__list poster-sheet__list--episodes">
                     {episodes.map((ep) => (
                       <li className="poster-sheet__episode" key={ep.key}>
@@ -263,45 +394,22 @@ export default function PosterBottomsheet({ data, onClose, leaving = false, vari
                 </div>
               )}
 
-              {tab === "reviews" && (
-                <ul className="poster-sheet__list poster-sheet__list--reviews">
-                  {reviews.map((r) => (
-                    <li className="poster-sheet__review" key={r.key}>
-                      {/* Left — the rating, in its own large block. High
-                          scores (9–10) get a green background. */}
-                      <span
-                        className={`poster-sheet__review-rating${
-                          r.rating >= 9 ? " poster-sheet__review-rating--high" : ""
-                        }`}
-                      >
-                        {r.rating}
-                      </span>
-
-                      {/* Right — author, review text, then like / dislike. */}
-                      <span className="poster-sheet__review-body">
-                        <span className="poster-sheet__review-author">{r.author}</span>
-                        <span className="poster-sheet__review-text">{r.text}</span>
-                        {/* <span className="poster-sheet__review-votes">
-                          <button
-                            type="button"
-                            className="poster-sheet__review-vote"
-                            aria-label="Полезный отзыв"
-                          >
-                            <IconThumbUp />
-                          </button>
-                          <button
-                            type="button"
-                            className="poster-sheet__review-vote"
-                            aria-label="Бесполезный отзыв"
-                          >
-                            <IconThumbDown />
-                          </button>
-                        </span> */}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              )}
+              {tab === "reviews" &&
+                (combined ? (
+                  /* v6 — a (smaller) title logo above the reviews, like seasons. */
+                  <div className="poster-sheet__panel">
+                    {data.logo && (
+                      <img
+                        className="poster-sheet__combined-reviews-logo"
+                        src={data.logo}
+                        alt={data.title}
+                      />
+                    )}
+                    {reviewsList}
+                  </div>
+                ) : (
+                  reviewsList
+                ))}
               </div>
             </div>
 
@@ -309,7 +417,10 @@ export default function PosterBottomsheet({ data, onClose, leaving = false, vari
               {visibleTabs.map((t) => {
                 // While «Сезоны» is open, the active-tab highlight moves off the
                 // Сезоны tab and onto the selected season number instead.
-                const seasonsOpen = t.id === "seasons" && tab === "seasons" && seasons.length > 0;
+                // In «Совмещённый» the season numbers live in the content, not
+                // the tab bar, so the Сезоны tab highlights normally there.
+                const seasonsOpen =
+                  !combined && t.id === "seasons" && tab === "seasons" && seasons.length > 0;
                 const showActive = tab === t.id && !seasonsOpen;
                 return (
                   <Fragment key={t.id}>
@@ -325,8 +436,9 @@ export default function PosterBottomsheet({ data, onClose, leaving = false, vari
 
                     {/* Season numbers sit right after the «Сезоны» tab. The nav
                         stays mounted so its width can animate open when Seasons
-                        is selected and closed again when you leave. */}
-                    {t.id === "seasons" && seasons.length > 0 && (
+                        is selected and closed again when you leave. (Not in the
+                        combined variant — the numbers move into the content.) */}
+                    {!combined && t.id === "seasons" && seasons.length > 0 && (
                       <div
                         className={`poster-sheet__season-nav${
                           seasonsOpen ? " poster-sheet__season-nav--open" : ""

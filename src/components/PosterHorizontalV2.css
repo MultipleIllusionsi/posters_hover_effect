@@ -262,3 +262,51 @@
 }
 .poster-h2__fav:hover,
 .poster-h2__sound:hover { background: rgba(255, 255, 255, 0.16); }
+
+/* v6 «Совмещённый» — hover like the vertical poster: the artwork stays but
+   blurs, a full darken scrim appears, and the text sits centered at the bottom
+   instead of on the right. */
+.poster-h2--combined .poster-h2__image {
+  transition: filter 200ms ease-out, transform 200ms ease-out;
+}
+.poster-h2--combined.poster-h2--hovered .poster-h2__image {
+  opacity: 1;
+  filter: blur(6px);
+  transform: scale(1.06);
+  transition-delay: var(--v2-delay);
+}
+
+/* Uniform darken edge to edge, not the trailer's right-fade. */
+.poster-h2--combined .poster-h2__scrim {
+  background: rgba(10, 10, 10, 0.9);
+}
+
+.poster-h2--combined .poster-h2__panel {
+  left: 0;
+  right: 0;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  /* +4px more room below the text than the other posters' 24px. */
+  padding: 24px 24px 28px;
+}
+
+.poster-h2--combined .poster-h2__text {
+  align-items: center;
+  width: auto;
+  max-width: 72%;
+}
+
+/* Centre the logo + meta block above the description (align-self, not just the
+   items, since the base rule pins the brand to the left). */
+.poster-h2--combined .poster-h2__brand {
+  align-self: center;
+  align-items: center;
+  text-align: center;
+}
+
+.poster-h2--combined .poster-h2__logo {
+  width: auto;
+  min-width: 0;
+  max-width: 320px;
+}

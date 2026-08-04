@@ -101,6 +101,10 @@ export default function PosterGrid({ horizontalPosters, verticalPosters, vertica
   const useCard = verticalHover === "v1";
   const useSheet = verticalHover === "v4";
   const useShift = verticalHover === "v5";
+  const useCombined = verticalHover === "v6";
+  // v5 and v6 share the inline-expander machinery below; only the poster hover
+  // treatment and the expander's variant/height differ.
+  const useExpander = useShift || useCombined;
 
   // One flat list so a poster is addressed by a single index, whichever row
   // it's in. Horizontal posters come first, matching the render order.
@@ -325,32 +329,43 @@ export default function PosterGrid({ horizontalPosters, verticalPosters, vertica
   // soon as the exit starts, so the gallery brightens as the card fades.
   const dimOthers = active !== null && !leaving;
 
-  // v4 and v5 both make posters clickable; only the open handler and the
+  // v4/v5/v6 all make posters clickable; only the open handler and the
   // selected-poster highlight differ.
-  const clickable = useSheet || useShift;
-  const selectedId = useSheet ? sheetItem?.id : useShift ? shiftItem?.id : null;
+  const clickable = useSheet || useExpander;
+  const selectedId = useSheet ? sheetItem?.id : useExpander ? shiftItem?.id : null;
   const onPosterClick = (poster, variant, el) => {
     if (useSheet) openSheet({ ...poster, variant }, el);
-    else if (useShift) openShift({ ...poster, variant });
+    else if (useExpander) openShift({ ...poster, variant });
+  };
+  // Selection classes for the clicked poster: the gradient ring for v4/v5, and
+  // — for the expander variants (v5/v6) — a downward pointer under it, aimed at
+  // the card that opens below.
+  const posterSelClass = (poster) => {
+    if (selectedId !== poster.id) return "";
+    const ring = useSheet || useShift ? " poster--selected" : "";
+    const pointer = useCombined ? " poster--pointer" : "";
+    return ring + pointer;
   };
 
-  // v5 — the inline expander, rendered right after the row of the clicked poster
-  // so it opens from that row's bottom and pushes everything below it down. Each
-  // row renders at most one: the active (opening/closing) expander, or — during a
-  // cross-row switch — the collapsing ghost left behind in the old row.
+  // v5/v6 — the inline expander, rendered right after the row of the clicked
+  // poster so it opens from that row's bottom and pushes everything below it
+  // down. Each row renders at most one: the active (opening/closing) expander,
+  // or — during a cross-row switch — the collapsing ghost left in the old row.
+  const shiftVariant = useCombined ? "combined" : "inline";
+  const shiftWrapClass = useCombined ? " poster-shift--combined" : "";
   const renderShift = (rowVariant) => {
-    if (!useShift) return null;
+    if (!useExpander) return null;
     if (shiftItem && shiftItem.variant === rowVariant) {
       return (
-        <div className={`poster-shift${shiftLeaving ? " poster-shift--leaving" : ""}`}>
-          <PosterBottomsheet data={shiftItem} onClose={closeShift} variant="inline" />
+        <div className={`poster-shift${shiftWrapClass}${shiftLeaving ? " poster-shift--leaving" : ""}`}>
+          <PosterBottomsheet data={shiftItem} onClose={closeShift} variant={shiftVariant} />
         </div>
       );
     }
     if (closingShift && closingShift.variant === rowVariant) {
       return (
-        <div className="poster-shift poster-shift--leaving" aria-hidden="true">
-          <PosterBottomsheet data={closingShift} onClose={() => {}} variant="inline" />
+        <div className={`poster-shift${shiftWrapClass} poster-shift--leaving`} aria-hidden="true">
+          <PosterBottomsheet data={closingShift} onClose={() => {}} variant={shiftVariant} />
         </div>
       );
     }
@@ -375,13 +390,22 @@ export default function PosterGrid({ horizontalPosters, verticalPosters, vertica
               dimmed={dimOthers && active !== i}
               onMouseEnter={() => show(i)}
             />
+          ) : useCombined ? (
+            /* v6 — the v2 hover treatment (logo, no trailer) AND clickable. */
+            <PosterHorizontalV2
+              key={poster.id}
+              data={poster}
+              variant="combined"
+              className={`poster--clickable${posterSelClass(poster)}`}
+              onClick={(e) => onPosterClick(poster, "horizontal", e.currentTarget)}
+            />
           ) : clickable ? (
             /* v4 / v5 — the poster is a button that opens its panel. */
             <PosterHorizontal
               key={poster.id}
               src={poster.src}
               alt={poster.alt}
-              className={`poster--clickable${selectedId === poster.id ? " poster--selected" : ""}`}
+              className={`poster--clickable${posterSelClass(poster)}`}
               onClick={(e) => onPosterClick(poster, "horizontal", e.currentTarget)}
             />
           ) : (
@@ -409,7 +433,19 @@ export default function PosterGrid({ horizontalPosters, verticalPosters, vertica
                 key={poster.id}
                 src={poster.src}
                 alt={poster.alt}
-                className={`poster--clickable${selectedId === poster.id ? " poster--selected" : ""}`}
+                className={`poster--clickable${posterSelClass(poster)}`}
+                onClick={(e) => onPosterClick(poster, "vertical", e.currentTarget)}
+              />
+            );
+          }
+          if (verticalHover === "v6") {
+            // v3 hover (logo instead of trailer) AND clickable to open the card.
+            return (
+              <PosterVerticalV3
+                key={poster.id}
+                data={poster}
+                variant="combined"
+                className={`poster--clickable${posterSelClass(poster)}`}
                 onClick={(e) => onPosterClick(poster, "vertical", e.currentTarget)}
               />
             );
