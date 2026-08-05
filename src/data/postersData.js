@@ -59,6 +59,36 @@ import lv3 from "../../assets/logotypes/vertical_3.webp";
 import lv4 from "../../assets/logotypes/vertical_4.webp";
 import lv5 from "../../assets/logotypes/vertical_5.webp";
 import lv6 from "../../assets/logotypes/vertical_6.png";
+// Real title logos fetched from ivi.ru (img.title__image), for the shows in the
+// galleries beyond the first one. Transparent PNG wordmarks.
+import iviV7 from "../../assets/logotypes/ivi/v7.png";
+import iviV8 from "../../assets/logotypes/ivi/v8.png";
+import iviV9 from "../../assets/logotypes/ivi/v9.png";
+import iviV10 from "../../assets/logotypes/ivi/v10.png";
+import iviV11 from "../../assets/logotypes/ivi/v11.png";
+import iviV12 from "../../assets/logotypes/ivi/v12.png";
+import iviX13 from "../../assets/logotypes/ivi/x13.png";
+import iviX14 from "../../assets/logotypes/ivi/x14.png";
+import iviX17 from "../../assets/logotypes/ivi/x17.png";
+import iviX18 from "../../assets/logotypes/ivi/x18.png";
+import iviX19 from "../../assets/logotypes/ivi/x19.png";
+import iviX20 from "../../assets/logotypes/ivi/x20.png";
+import iviX21 from "../../assets/logotypes/ivi/x21.png";
+import iviX22 from "../../assets/logotypes/ivi/x22.png";
+import iviX23 from "../../assets/logotypes/ivi/x23.png";
+import iviX24 from "../../assets/logotypes/ivi/x24.png";
+import iviX25 from "../../assets/logotypes/ivi/x25.png";
+import iviX26 from "../../assets/logotypes/ivi/x26.png";
+import iviX28 from "../../assets/logotypes/ivi/x28.png";
+import iviX29 from "../../assets/logotypes/ivi/x29.png";
+import iviX30 from "../../assets/logotypes/ivi/x30.png";
+import iviX31 from "../../assets/logotypes/ivi/x31.png";
+import iviX32 from "../../assets/logotypes/ivi/x32.png";
+import iviX33 from "../../assets/logotypes/ivi/x33.png";
+import iviX34 from "../../assets/logotypes/ivi/x34.png";
+import iviX35 from "../../assets/logotypes/ivi/x35.png";
+import iviX36 from "../../assets/logotypes/ivi/x36.png";
+import { badgeForMeta, BADGES } from "./badges";
 
 /**
  * Page content: two gallery sections, each with a row of horizontal posters and
@@ -375,6 +405,7 @@ const newReleasesHorizontal = [
     id: "h3",
     src: h3,
     logo: lh3,
+    badgeId: "iviSeries",
     alt: "Постер сериала «Холод»",
     title: "Холод",
     meta: ["2026", "драма", "1 сезон"],
@@ -405,6 +436,7 @@ const newReleasesHorizontal = [
     id: "h4",
     src: h4,
     logo: lh4,
+    badgeId: "iviSeries",
     alt: "Постер сериала «Золотое дно 2»",
     title: "Золотое дно 2",
     meta: ["2026", "драма", "2 сезона"],
@@ -445,14 +477,14 @@ const newReleasesVertical = [
   {
     id: "v7",
     src: v7,
-    logo: lv1,
+    logo: iviV7,
     alt: "Постер сериала «Затмение»",
     title: "Затмение",
     meta: ["2025", "триллер", "1 сезон"],
     description:
       "Закрытый город, вспышка неизвестной болезни и следователь, которому запрещено называть вещи своими именами.",
     longDescription:
-      "Закрытый город, вспышка неизвестной болезни и следователь, которому сверху запрещено называть вещи своими именами. Чем больше он узнаёт, тем яснее видит: настоящая опасность исходит не от вируса, а от тех, кто готов на всё, чтобы правда не вышла за оцепление.",
+      "1960 год. Расследуя вспышку чёрной оспы в Москве, принципиальный полковник КГБ понимает, что вирус связан с подпольной стороной столичной жизни. Захватывающая детективная драма с Дмитрием Миллером.",
     trailer: t3,
     still: h3,
     seasons: [
@@ -475,14 +507,15 @@ const newReleasesVertical = [
   {
     id: "v8",
     src: v10,
-    logo: lv2,
+    logo: iviV8,
+    badgeId: "iviSeries",
     alt: "Постер сериала «История его служанки»",
     title: "История его служанки",
     meta: ["2026", "мелодрама", "1 сезон"],
     description:
       "Служанка в богатом поместье оказывается втянута в историю, которая может стоить ей и места, и сердца.",
     longDescription:
-      "Молодая служанка в богатом поместье оказывается втянута в историю, которая может стоить ей и места, и доброго имени, и сердца. Между строгими правилами господского дома и запретным чувством ей приходится выбирать почти каждый день, а любой неверный шаг грозит скандалом.",
+      "Москва, XIX век. Пока высший свет пытается женить молодого графа Николая Шереметьева, завидный холостяк влюбляется в упрямую, но искреннюю дворянку Анну, которая вынуждена работать его горничной.",
     trailer: t4,
     still: h4,
     seasons: [
@@ -505,14 +538,14 @@ const newReleasesVertical = [
   {
     id: "v9",
     src: v11,
-    logo: lv3,
+    logo: iviV9,
     alt: "Постер сериала «Анатомия чувств»",
     title: "Анатомия чувств",
     meta: ["2026", "мелодрама", "1 сезон"],
     description:
       "Три врача одной клиники пытаются совместить дежурства, диагнозы и совершенно неуместные чувства.",
     longDescription:
-      "Три врача одной клиники пытаются совместить бесконечные дежурства, сложные диагнозы и совершенно неуместные чувства друг к другу. Между обходами и ночными сменами они выясняют, что поставить диагноз чужому сердцу проще, чем разобраться в собственном.",
+      "В больнице работа и личные отношения тесно переплетены. Врачи здесь не только спасают пациентов — они влюбляются, ревнуют, ошибаются и снова надеются на счастье.",
     trailer: t1,
     still: h1,
     seasons: [
@@ -534,14 +567,14 @@ const newReleasesVertical = [
   {
     id: "v10",
     src: v8,
-    logo: lv4,
+    logo: iviV10,
     alt: "Постер сериала «Страх над Невой. Огненный круг»",
     title: "Страх над Невой. Огненный круг",
     meta: ["2026", "триллер", "1 сезон"],
     description:
       "В Петербурге появляется убийца, оставляющий на набережных огненные знаки, — и следствие идёт по кругу.",
     longDescription:
-      "В Петербурге появляется убийца, оставляющий на ночных набережных огненные знаки, и следствие раз за разом возвращается к тому, с чего начинало. Разведённые мосты отрезают город от помощи, а почерк преступника словно вписан в саму историю Невы.",
+      "1967 год. В центре Ленинграда происходит серия загадочных убийств женщин. Поймать маньяка, оставляющего рядом с жертвами таинственные знаки, поручают майору КГБ Чубину и капитану милиции Фёдорову.",
     trailer: t2,
     still: h2,
     seasons: [
@@ -564,14 +597,14 @@ const newReleasesVertical = [
   {
     id: "v11",
     src: v12,
-    logo: lv5,
+    logo: iviV11,
     alt: "Постер сериала «Такси под прикрытием 2»",
     title: "Такси под прикрытием 2",
     meta: ["2026", "боевик", "2 сезона"],
     description:
       "Оперативник снова садится за руль жёлтой машины: новый город, новая банда, те же методы.",
     longDescription:
-      "Оперативник снова садится за руль жёлтой машины: новый город, новая банда и всё те же методы, от которых у начальства седеют виски. Под видом обычного таксиста он возит по ночным улицам и пассажиров, и чужие секреты, подбираясь к главарям всё ближе.",
+      "Молодой оперативник под видом таксиста ловит бандитов на улицах Петербурга. Дмитрий Власкин, Кирилл Гребенщиков и Виктория Маслова в захватывающем экшен-детективе на высоких скоростях.",
     trailer: t3,
     still: h1,
     seasons: [
@@ -602,14 +635,14 @@ const newReleasesVertical = [
   {
     id: "v12",
     src: v9,
-    logo: lv6,
+    logo: iviV12,
     alt: "Постер сериала «Искусство соблазна 2»",
     title: "Искусство соблазна 2",
     meta: ["2026", "мелодрама", "2 сезона"],
     description:
       "Три подруги открывают собственное агентство и выясняют, что чужие романы устраивать проще своих.",
     longDescription:
-      "Три подруги открывают собственное агентство знакомств и быстро выясняют, что устраивать чужие романы куда проще, чем разбираться в своих. Пока клиенты находят любовь по их сценарию, у самих сводниц она превращается в череду забавных провалов.",
+      "Новое агентство трёх соблазнительниц помогает угнетённым женщинам и противостоит беспринципному конкуренту. Продолжение авантюрной комедии с Лизой Моряк от создателей «Жизни по вызову».",
     trailer: t4,
     still: h4,
     seasons: [
@@ -832,22 +865,75 @@ function makeExtraReviews(i) {
   ];
 }
 
+// Real logo + synopsis pulled from ivi.ru for each added poster, keyed by its
+// index in extraMeta. `logo` is omitted where ivi has no wordmark image, and the
+// entry is absent entirely where the title isn't on ivi (index 14 «Одержимость»
+// / Whiplash), so its original synopsis is kept. `long` replaces longDescription;
+// the short `description` is left untouched.
+const iviExtra = {
+  0: { logo: iviX13, long: "Студентка Таня отправляется в деревню на встречу с матерью, с которой она потерялась во время войны. Новый мир сначала пугает девушку, но вскоре она искренне проникается деревенской жизнью." },
+  1: { logo: iviX14, long: "Вера сообщает своему мужу Алексу, что ждет ребенка, но не от него. Ошеломленный мужчина не может найти себе места и пытается понять, что выбрать: месть или прощение. Второй фильм Андрея Звягинцева." },
+  2: { long: "Фильм рассказывает о двух влюбленных – Борисе и Веронике, которые собираются пожениться, но начинается Вторая мировая война, и их планы рушатся." },
+  3: { long: "История о девушке из бедной семьи, которую выдают замуж за богатого мужчину в возрасте. Она не питает чувств к своему мужу и вскоре влюбляется в другого…" },
+  4: { logo: iviX17, long: "Кузьма Иорданов — спивающийся фронтовик без работы и семьи. Случайно узнав о сироте Наташе, он едет в деревню, чтобы выдать себя за её отца, и это меняет жизни обоих. Драма с Юрием Никулиным." },
+  5: { logo: iviX18, long: "Отработав долгие годы директором института, Никодим Сретенский уходит на пенсию, а в это время к нему приезжает дочь и внучка. Будучи тяжелым человеком, герой не может найти с семьёй общего языка…" },
+  6: { logo: iviX19, long: "Старшеклассница Нэко теряет память и пробуждается на пороге мистического отеля, расположенного между миром живых и мёртвых. Ей предстоит раскрыть тайны этого места и его обитателей." },
+  7: { logo: iviX20, long: "Завистливая интриганка меняется телами с императорской фавориткой, чтобы украсть её жизнь. Но вместе с тем она забирает себе её тяжёлую болезнь, а бывшая красавица обретает силы и свободу." },
+  8: { logo: iviX21, long: "Люси приходит в себя, не помня ничего о своём прошлом. Скоро она узнаёт, что является клоном, созданным в научной лаборатории. Спин-офф научно-фантастического сериала «Тёмное дитя»." },
+  9: { logo: iviX22, long: "В недалёком будущем люди находят идеальных партнёров с помощью новых технологий, но наука всё равно не избавляет их от ссор, измен и предательств. Фантастическая мелодрама с Биллом Скарсгардом." },
+  10: { logo: iviX23, long: "Воскрешённая воительница становится служанкой своего убийцы-демона и помогает ему заботиться о земном ребёнке — последней надежде человечества. Тёмное фэнтези на основе манги Юдзи Ивахара." },
+  11: { logo: iviX24, badge: "iviChoice", long: "Антология, созданная Джеймсом Уордом Биркитом, как продолжение его фантастического фильма «Связь». Каждый эпизод – самостоятельная история, вдохновлённая безграничными возможностями нашего сознания." },
+  12: { logo: iviX25, long: "История изощренного и педантичного серийного убийцы Джека, который за двенадцать лет разными способами убил более шестидесяти человек, считая это своим искусством." },
+  13: { logo: iviX26, long: "История про парня, который занимает пустую квартиру своего друга, не зная, что стал целью номер один крупного мафиозного босса…" },
+  15: { logo: iviX28, long: "Вожатые пионерлагеря, которые в действительности — сбежавшие уголовники. Зато они справляются со своими обязанностями, и дети их любят. Но бежавшие — они на то и бежавшие, чтобы быть пойманными." },
+  16: { logo: iviX29, long: "Накануне Второй мировой обычный биржевой брокер Николас Уинтон организует спасение 669 детей-беженцев из Чехословакии. Драма по реальной истории с Энтони Хопкинсом и Хеленой Бонем Картер." },
+  17: { logo: iviX30, long: "Девять человек учатся жить вместе – в одной трёшке в Воронеже 2000-х. Юлия Александрова, Дмитрий Лысенков, Николай Наумов и другие звёзды в комедии от режиссёра «Патриота»." },
+  18: { logo: iviX31, long: "Даша уходит из семьи, и Веник, как и его тесть много лет назад, становится отцом-одиночкой. Весёлая семейка Васнецовых помогает ему растить четырёх дочерей. Продолжение культового российского ситкома." },
+  19: { logo: iviX32, badge: "iviChoice", long: "Зухра выдаёт себя за невесту на свадьбе своей сестры-близнеца Фатимы, которая не успела вернуться из командировки. Романтическая комедия о фиктивном браке и настоящей любви." },
+  20: { logo: iviX33, long: "Продолжение семейного фэнтези о приключениях обаятельного домовёнка. Кузя и его друзья отправляются в путешествие с загадочной Тихоней, чтобы спасти волшебный мир от коварных замыслов Кощея." },
+  21: { logo: iviX34, long: "Хоккейная команда «Акулы» находится на грани роспуска. Казанцев, занимающий важный пост в вузе, решает дать им второй шанс, пригласив игрока «Медведей» Андрея Кисляка стать новым тренером." },
+  22: { logo: iviX35, long: "Петя и Тома помогают Доктору найти украденный волшебный чемоданчик с лекарствами, которые лечат не только болезни, но и страхи. Семейная приключенческая комедия по мотивам повести Софьи Прокофьевой." },
+  23: { logo: iviX36, long: "Школьник Макс и его друзья на каникулах решают открыть амбициозный стартап — продажа драников из фудтрака, переделанного из старого УАЗика дедушки. Добрая комедия для всей семьи." },
+};
+
 const extraVerticalPosters = extraImages.map((src, i) => {
   const m = extraMeta[i];
   const isFilm = m.kind === "фильм";
+  const ivi = iviExtra[i];
   return {
     id: `x${i + 13}`,
     src,
+    logo: ivi?.logo,
+    badgeId: ivi?.badge,
     alt: `Постер «${m.title}»`,
     title: m.title,
     meta: [m.year, m.genre, m.kind],
     description: m.description,
-    longDescription: m.longDescription,
+    // Real ivi synopsis where we have it; otherwise the original generated one.
+    longDescription: ivi?.long ?? m.longDescription,
     trailer: extraTrailers[i % extraTrailers.length],
     still: extraStills[i % extraStills.length],
     // Films get a single "season" so the episode strip still has content.
     seasons: makeExtraSeasons(i, isFilm),
     reviews: makeExtraReviews(i),
+  };
+});
+
+/* --------------------------------------------------------------------------
+ * «Похожее» rail — a horizontal-card list shown in the combined card's Similar
+ * tab: landscape artwork on top, a short description under it, the meta line
+ * below that. Built from the page's own horizontal shows so the strip always
+ * has enough cards to overflow (and get the same edge mask as the other lists).
+ * ------------------------------------------------------------------------ */
+const similarSource = [...bestSeriesHorizontal, ...newReleasesHorizontal];
+export const similarItems = Array.from({ length: 8 }, (_, i) => {
+  const s = similarSource[i % similarSource.length];
+  return {
+    id: `sim-${i + 1}`,
+    src: s.src,
+    title: s.title,
+    description: s.description,
+    meta: s.meta,
   };
 });
 
@@ -877,3 +963,16 @@ export const galleries = [
   { id: "shelf-c", title: "Из твоего избранного", horizontalPosters: [], verticalPosters: extraShelfC },
   { id: "shelf-d", title: "Лучшие комедии", horizontalPosters: [], verticalPosters: extraShelfD },
 ];
+
+// Tag every poster with a content-appropriate TextBadge (shown in the hover
+// overlay in place of the meta line). A running index seeds the picker so the
+// shelves get variety instead of the same badge over and over.
+let __badgeIndex = 0;
+for (const gallery of galleries) {
+  for (const poster of [...gallery.horizontalPosters, ...gallery.verticalPosters]) {
+    // Always advance the index so non-overridden posters keep their assignment.
+    const auto = badgeForMeta(poster.meta, __badgeIndex++);
+    // A `badgeId` on the poster forces a specific badge (e.g. «сериал Иви»).
+    poster.badge = (poster.badgeId && BADGES[poster.badgeId]) || auto;
+  }
+}

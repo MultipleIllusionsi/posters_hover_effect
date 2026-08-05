@@ -1,0 +1,25 @@
+/* TextBadge — icon + label chip. Matches the Figma spec: 16px icon, 6px gap,
+   15/20 «IVI Sans Base» Medium label. Colour comes from the `color` prop (the
+   icon SVGs already carry their own colour). */
+.text-badge {
+  --ivi-font: "iviSans Base", "IVI Sans Base", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--ivi-font);
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.text-badge__icon {
+  display: block;
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+}
+
+.text-badge__text {
+  color: inherit;
+}

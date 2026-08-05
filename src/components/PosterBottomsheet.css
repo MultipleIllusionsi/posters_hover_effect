@@ -133,7 +133,7 @@
    surface; the tabs float over the top-center so the content (and the trailer)
    can reach the card edges. */
 .poster-sheet--combined {
-  --sheet-h: 60vh;
+  --sheet-h: 70vh;
   position: relative;
   /* No dark panel — the content sits straight on the page. */
   background: transparent;
@@ -149,23 +149,6 @@
 /* Make the selected tab read more clearly — brighter fill (+8% white). */
 .poster-sheet--combined .poster-sheet__tab--active {
   background: rgba(255, 255, 255, 0.2);
-}
-
-/* Larger info type. */
-.poster-sheet--combined .poster-sheet__description {
-  font-size: 20px;
-}
-.poster-sheet--combined .poster-sheet__meta {
-  font-size: 17px;
-}
-
-/* Watch / favourite — 17px label, 16px radius. */
-.poster-sheet--combined .poster-sheet__watch,
-.poster-sheet--combined .poster-sheet__fav {
-  border-radius: 16px;
-}
-.poster-sheet--combined .poster-sheet__watch {
-  font-size: 17px;
 }
 
 /* No inner padding — the trailer runs edge to edge on the right. */
@@ -200,26 +183,222 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 16px;
+  gap: 24px;
   /* Its own padding (the inner has none) + top room to clear the pinned tabs. */
-  padding: 72px 0 32px 56px;
+  padding: 120px 0 32px 56px;
   box-sizing: border-box;
 }
 
 .poster-sheet__combined-logo {
   width: auto;
   max-width: 100%;
-  max-height: 148px;
+  max-height: 120px;
   object-fit: contain;
   object-position: left center;
   /* Extra breathing room below the logo, before the description. */
   margin-bottom: 12px;
 }
 
-/* Description here can be long — clamp it so the column stays centered. */
-.poster-sheet--combined .poster-sheet__description {
+/* Fallback when a title has no wordmark image — the title set as a text logo,
+   sized to sit in roughly the same space as the image logo would. */
+.poster-sheet__combined-logo-text {
+  margin: 0 0 12px;
+  max-width: 100%;
+  max-height: 120px;
+  overflow: hidden;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: #fff;
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Short synopsis — clamped so the column stays centered. */
+.poster-sheet__combined-description {
+  margin: 0 0 0 4px;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.3;
+  color: #fff;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Badge + meta on one line — the badge sits to the left of the meta. The
+   negative top margin trims the column's 16px gap down to 8px between the
+   description and this row (the other gaps stay 16px). */
+.poster-sheet__combined-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: -8px 0 0 4px;
+}
+
+.poster-sheet__combined-meta {
+  margin: 0;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--ivi-text-dim);
+}
+
+.poster-sheet__combined-dot {
+  margin: 0 4px;
+}
+
+/* Watch / favourite pair. */
+.poster-sheet__combined-actions {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.poster-sheet__combined-watch,
+.poster-sheet__combined-fav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  border: 0;
+  border-radius: 16px;
+  color: #fff;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 160ms ease-out;
+}
+
+.poster-sheet__combined-watch {
+  padding: 0 24px;
+  background: var(--ivi-accent);
+}
+.poster-sheet__combined-watch:hover {
+  background: #ff1d57;
+}
+
+/* Favourite is icon-only — a square-ish pill, no label. */
+.poster-sheet__combined-fav {
+  width: 48px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.12);
+}
+.poster-sheet__combined-fav:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Reviews rail under the actions — half the column's width, scrolling sideways
+   with the same edge mask as the other lists. Extra top margin sets it apart
+   from the action buttons above. */
+.poster-sheet__combined-reviews {
+  flex: 0 0 auto;
+  margin: 64px 0 0;
+  padding: 0 0 4px;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 12px;
+  min-height: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 0%, #000 85%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 0%, #000 85%, transparent 100%);
+}
+.poster-sheet__combined-reviews::-webkit-scrollbar {
+  display: none;
+}
+
+.poster-sheet__combined-review {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 12px;
+  width: 340px;
+  padding: 12px 0;
+  box-sizing: border-box;
+  /* No card background here (unlike the summary block) — the individual reviews
+     sit straight on the surface. */
+}
+
+/* Summary block — the collective score + one-liner, to the LEFT of the reviews.
+   Keeps the card background so it reads as a distinct aggregate block. */
+.poster-sheet__combined-review-summary {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 12px;
+  width: 420px;
+  padding: 12px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* 8px dot separating the summary block from the individual reviews. */
+.poster-sheet__combined-review-sep {
+  flex: 0 0 auto;
+  align-self: center;
+  width: 8px;
+  height: 8px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.poster-sheet__combined-review-rating {
+  flex: 0 0 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1;
+  color: #fff;
+}
+.poster-sheet__combined-review-rating--high {
+  background: #00bf4c;
+}
+
+.poster-sheet__combined-review-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.poster-sheet__combined-review-author {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 20px;
+  color: #fff;
+}
+
+.poster-sheet__combined-review-text {
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--ivi-text-dim);
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -237,15 +416,38 @@
   mask-image: linear-gradient(to right, transparent 0%, #000 42%);
 }
 
-/* The «В избранное» button here is icon-only — a round pill, no label. The
-   double class beats the base `.poster-sheet__fav { padding: 0 24px }` that
-   comes later in the file (otherwise the 48px pad collapses the icon to 0). */
-.poster-sheet__fav.poster-sheet__fav--icon {
-  width: 48px;
-  padding: 0;
+.poster-sheet__combined-trailer-media {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-/* Keep the seasons/reviews strips a sane size in the much taller card. */
+/* Sound toggle over the trailer's top-right corner. */
+.poster-sheet__combined-sound {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background-color 160ms ease-out;
+}
+.poster-sheet__combined-sound:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Keep the seasons strip a sane size in the much taller card. */
 .poster-sheet--combined .poster-sheet__episode-poster {
   height: 200px;
 }
@@ -259,16 +461,9 @@
   padding: 72px 0 32px 56px;
   box-sizing: border-box;
 }
-.poster-sheet--combined .poster-sheet__list--episodes,
-.poster-sheet--combined .poster-sheet__list--reviews {
+.poster-sheet--combined .poster-sheet__list--episodes {
   flex: 0 0 auto;
   align-items: center;
-}
-/* Let the reviews strip shrink to its cards (it's height:100% by default) so the
-   logo + list centre together as one group, instead of the logo floating up
-   while the tall list keeps its cards vertically centred below it. */
-.poster-sheet--combined .poster-sheet__list--reviews {
-  height: auto;
 }
 .poster-sheet--combined .poster-sheet__list--episodes .poster-sheet__episode {
   height: auto;
@@ -295,15 +490,99 @@
   gap: 4px;
 }
 
-/* v6 reviews header logo — same idea as seasons, but smaller than the info one. */
-.poster-sheet__combined-reviews-logo {
-  flex-shrink: 0;
+/* Caption to the left of the season numbers — "Сезоны (1)(2)…". */
+.poster-sheet__combined-seasons-caption {
+  margin-right: 8px;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.2;
+  color: var(--ivi-text-dim);
+}
+
+/* v6 «Похожее» — a sideways rail of landscape cards: artwork on top, a short
+   description under it, the meta line below. Same edge mask as the other rails.
+   Scoped under .poster-sheet--combined so it beats the base list rule that comes
+   later in the file (equal specificity would otherwise reset flex-direction). */
+.poster-sheet--combined .poster-sheet__list--similar {
+  flex: 0 0 auto;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 16px;
+  height: auto;
+  min-height: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 0%, #000 85%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 0%, #000 85%, transparent 100%);
+}
+.poster-sheet__list--similar::-webkit-scrollbar { display: none; }
+
+.poster-sheet__similar {
+  flex: 0 0 auto;
+  /* Shrink-wrap the poster so the card is exactly as wide as the artwork — the
+     same width as a seasons episode card (same 200px-tall 16:9 poster). */
   width: auto;
-  max-width: 100%;
-  max-height: 100px;
-  object-fit: contain;
-  object-position: left center;
-  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.poster-sheet__similar-poster {
+  display: block;
+  width: auto;
+  /* Matches the combined seasons episode poster (height 200px, 16:9). */
+  height: 200px;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.poster-sheet__similar-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text sits under the poster and never widens the card past it. */
+.poster-sheet__similar-description {
+  width: 0;
+  min-width: 100%;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  color: #fff;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.poster-sheet__similar-meta {
+  width: 0;
+  min-width: 100%;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: rgba(255, 255, 255, 0.56);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* «Похожее» filter chips — a centered row of pills above the rail (reuse the
+   tab-pill look, already enlarged for the combined variant). */
+.poster-sheet__similar-filters {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
 }
 
 /* Exit — slide down and fade away. */

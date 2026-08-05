@@ -53,7 +53,7 @@
    of sight. Roughly 1 + 2 × blur / poster width. */
 .poster-v3:hover .poster-v3__image {
   filter: blur(var(--v3-blur));
-  transform: scale(1.06);
+  /* transform: scale(1.04); */
   transition-delay: var(--v3-delay);
 }
 
@@ -64,6 +64,18 @@
   inset: 0;
   background: rgba(10, 10, 10, 0.92);
   pointer-events: none;
+}
+
+/* v6 «Совмещённый» — a distinct darken: no flat edge-to-edge dim (and no
+   artwork blur, see below), just a black gradient rising from 92% at the bottom
+   to 0% at the top, so the poster art stays visible above the text. */
+.poster-v3__scrim--combined {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 12%, rgba(0, 0, 0, 0.92) 52%, rgba(0, 0, 0, 0.96) 100%);
+}
+
+/* No blur on the artwork for the combined treatment. */
+.poster-v3--combined:hover .poster-v3__image {
+  filter: none;
 }
 
 /* Trailer: pinned to the top, full width, over the dimmed poster. The media's
@@ -237,6 +249,11 @@
   min-width: 100%;
   height: auto;
   margin-bottom: 20px;
+}
+
+/* v6 «Совмещённый» — logo stays in the markup but is hidden on hover. */
+.poster-v3--combined .poster-v3__logo {
+  display: none;
 }
 
 .poster-v3__description {

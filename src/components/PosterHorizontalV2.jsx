@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { IconFavorite, IconPlay, IconSoundOff, IconSoundOn } from "./icons";
+import TextBadge from "./TextBadge";
 import "./PosterHorizontalV2.css";
 
 /**
@@ -98,16 +99,8 @@ export default function PosterHorizontalV2({ data, variant = "trailer", classNam
               so the two stay the same width; the description sits below them. */}
           <div className="poster-h2__brand">
             {data.logo && <img className="poster-h2__logo" src={data.logo} alt="" />}
-            {data.meta?.length > 0 && (
-              <p className="poster-h2__meta">
-                {data.meta.map((chip, i) => (
-                  <span key={chip}>
-                    {i > 0 && <span className="poster-h2__dot">·</span>}
-                    {chip}
-                  </span>
-                ))}
-              </p>
-            )}
+            {/* Content badge (icon + label) in place of the old meta line. */}
+            {data.badge && <TextBadge className="poster-h2__badge" {...data.badge} />}
           </div>
 
           <p className="poster-h2__description">{data.description}</p>

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { IconFavorite, IconPlay, IconSoundOff, IconSoundOn } from "./icons";
+import TextBadge from "./TextBadge";
 import "./PosterVerticalV3.css";
 
 /**
@@ -54,7 +55,10 @@ export default function PosterVerticalV3({ data, variant = "trailer", className 
       <div className="poster-v3__media">
         <img className="poster-v3__image" src={data.src} alt={data.alt} />
 
-        <span className="poster-v3__scrim" aria-hidden="true" />
+        <span
+          className={`poster-v3__scrim${combined ? " poster-v3__scrim--combined" : ""}`}
+          aria-hidden="true"
+        />
 
         {!combined && data.trailer && (
           <video
@@ -91,16 +95,8 @@ export default function PosterVerticalV3({ data, variant = "trailer", className 
               {combined && data.logo && (
                 <img className="poster-v3__logo" src={data.logo} alt="" />
               )}
-              {data.meta?.length > 0 && (
-                <p className="poster-v3__meta">
-                  {data.meta.map((chip, i) => (
-                    <span key={chip}>
-                      {i > 0 && <span className="poster-v3__dot">·</span>}
-                      {chip}
-                    </span>
-                  ))}
-                </p>
-              )}
+              {/* Content badge (icon + label) in place of the old meta line. */}
+              {data.badge && <TextBadge className="poster-v3__badge" {...data.badge} />}
             </div>
 
             <p className="poster-v3__description">{data.description}</p>

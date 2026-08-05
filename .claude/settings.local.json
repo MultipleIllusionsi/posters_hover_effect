@@ -10,7 +10,14 @@
       "Bash(node -e ' *)",
       "Bash(python3 -)",
       "Bash(grep -n \"14 MB\\\\|galleries\\\\` array\\\\|assets/posters\" README.md)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173)",
+      "mcp__950248e2-e159-49ca-9f4b-efbc58a4c708__get_figma_skill",
+      "Bash(curl -sS -o subscription-v0.svg \"https://www.figma.com/api/mcp/asset/aebd6332-9b2b-46c6-8d4e-92ca4a5dec68.svg\")",
+      "Bash(curl -sS -o subscription-v1.svg \"https://www.figma.com/api/mcp/asset/ac93b3b3-3288-41d7-8881-645cfb3132f5.svg\")",
+      "Bash(curl -sS -o subscription-v2.svg \"https://www.figma.com/api/mcp/asset/8785857d-d3dc-48df-a3d7-11369cb5f971.svg\")",
+      "Bash(sed -i '' 's/const serious=has\\(\"драма\",\"военная\",\"биография\"\\);/const isMel=genre.includes\\(\"мелодрама\"\\);const serious=has\\(\"драма\",\"военная\",\"биография\"\\)\\\\&\\\\&!isMel;/' badgecheck2.mjs)",
+      "Bash(sed -i '' 's/const light=has\\(\"комедия\",\"семейный\",\"спорт\",\"мелодрама\"\\);/const light=isMel||has\\(\"комедия\",\"семейный\",\"спорт\"\\);/' badgecheck2.mjs)",
+      "Bash(node badgecheck2.mjs)"
     ]
   }
 }

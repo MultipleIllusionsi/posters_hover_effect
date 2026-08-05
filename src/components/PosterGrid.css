@@ -47,6 +47,7 @@
   animation-name: poster-shift-open-combined;
   width: 100vw;
   margin-left: calc(50% - 50vw);
+  margin-top: 8px;
   border-radius: 0;
 }
 .poster-shift--combined.poster-shift--leaving {
@@ -55,11 +56,11 @@
 
 @keyframes poster-shift-open-combined {
   from { height: 0; }
-  to   { height: 60vh; }
+  to   { height: 70vh; }
 }
 
 @keyframes poster-shift-close-combined {
-  from { height: 60vh; }
+  from { height: 70vh; }
   to   { height: 0; }
 }
 

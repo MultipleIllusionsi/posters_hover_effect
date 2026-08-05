@@ -263,22 +263,33 @@
 .poster-h2__fav:hover,
 .poster-h2__sound:hover { background: rgba(255, 255, 255, 0.16); }
 
-/* v6 «Совмещённый» — hover like the vertical poster: the artwork stays but
-   blurs, a full darken scrim appears, and the text sits centered at the bottom
-   instead of on the right. */
+/* v6 «Совмещённый» — hover like the vertical poster: the artwork stays (no
+   blur), a black gradient darkens it from the bottom up, and the text sits
+   centered at the bottom instead of on the right. */
 .poster-h2--combined .poster-h2__image {
   transition: filter 200ms ease-out, transform 200ms ease-out;
 }
 .poster-h2--combined.poster-h2--hovered .poster-h2__image {
   opacity: 1;
-  filter: blur(6px);
-  transform: scale(1.06);
+  filter: none;
+  transform: scale(1.03);
   transition-delay: var(--v2-delay);
 }
 
-/* Uniform darken edge to edge, not the trailer's right-fade. */
+/* Same darken as the combined vertical poster — a black gradient rising from
+   92% at the bottom to 0% at the top, not the trailer's right-fade. */
 .poster-h2--combined .poster-h2__scrim {
-  background: rgba(10, 10, 10, 0.9);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.0) 20%,
+    rgba(0, 0, 0, 0.8) 60%,
+    rgba(0, 0, 0, 0.92) 100%
+  );
+}
+
+/* Logo stays in the markup but is hidden on hover (v6). */
+.poster-h2--combined .poster-h2__logo {
+  display: none;
 }
 
 .poster-h2--combined .poster-h2__panel {

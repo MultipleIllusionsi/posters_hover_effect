@@ -1,5 +1,7 @@
 import { Fragment, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { IconFavorite, IconPlay, IconSoundOff, IconSoundOn } from "./icons";
+import { similarItems } from "../data/postersData";
+import TextBadge from "./TextBadge";
 import "./PosterBottomsheet.css";
 
 /**
@@ -18,6 +20,23 @@ const TABS = [
   { id: "info", label: "Инфо" },
   { id: "seasons", label: "Сезоны" },
   { id: "reviews", label: "Отзывы" },
+];
+
+// v6 «Совмещённый» has its own tab set: the reviews move into the Info tab, and
+// «Отзывы» is replaced by «Похожее» (a rail of related titles).
+const COMBINED_TABS = [
+  { id: "info", label: "Инфо" },
+  { id: "seasons", label: "Сезоны" },
+  { id: "similar", label: "Похожее" },
+];
+
+// «Похожее» filter chips shown above the rail — how the related titles are
+// matched. Demo-only for now (the rail content is the same for each).
+const SIMILAR_FILTERS = [
+  { id: "genre", label: "По жанру" },
+  { id: "actors", label: "По актёрам" },
+  { id: "director", label: "По режиссёру" },
+  { id: "mood", label: "По настроению" },
 ];
 
 /** Thumbs-up / -down used by the review card's like/dislike controls. */
@@ -66,6 +85,7 @@ export default function PosterBottomsheet({ data, onClose, leaving = false, vari
   const inline = variant === "inline" || combined;
   const [tab, setTab] = useState("info");
   const [seasonIndex, setSeasonIndex] = useState(0);
+  const [similarFilter, setSimilarFilter] = useState(SIMILAR_FILTERS[0].id);
   // Trailers start silent — autoplay with sound is blocked by every browser.
   const [muted, setMuted] = useState(true);
   const videoRef = useRef(null);
@@ -81,6 +101,7 @@ export default function PosterBottomsheet({ data, onClose, leaving = false, vari
     setShownId(data.id);
     setTab("info");
     setSeasonIndex(0);
+    setSimilarFilter(SIMILAR_FILTERS[0].id);
     setMuted(true);
   }
 
@@ -111,7 +132,8 @@ export default function PosterBottomsheet({ data, onClose, leaving = false, vari
 
   // Films (meta chip "фильм") have no seasons — drop the «Сезоны» tab for them.
   const isFilm = data.meta?.includes("фильм");
-  const visibleTabs = isFilm ? TABS.filter((t) => t.id !== "seasons") : TABS;
+  const tabSet = combined ? COMBINED_TABS : TABS;
+  const visibleTabs = isFilm ? tabSet.filter((t) => t.id !== "seasons") : tabSet;
 
   // Measure the season-number strip so the open/close animation targets its
   // exact width. A ResizeObserver keeps it correct across font load and any
@@ -146,6 +168,15 @@ export default function PosterBottomsheet({ data, onClose, leaving = false, vari
           const r = baseReviews[i % baseReviews.length];
           return { ...r, key: `${r.id}-${i}` };
         });
+
+  // Aggregate figures for the combined card's reviews summary block — the
+  // average score across the real reviews, plus a collective one-liner.
+  const ratingValues = baseReviews.map((r) => r.rating).filter((n) => typeof n === "number");
+  const overallRating = ratingValues.length
+    ? (ratingValues.reduce((a, b) => a + b, 0) / ratingValues.length).toFixed(1)
+    : null;
+  const collectiveReview =
+    "Зрители хвалят крепкий сюжет и игру актёров — большинство советует к просмотру.";
 
   const reviewsList = (
     <ul className="poster-sheet__list poster-sheet__list--reviews">
@@ -266,51 +297,112 @@ export default function PosterBottomsheet({ data, onClose, leaving = false, vari
                 </div>
               )}
 
-              {/* v6 «Совмещённый» — logo/description/meta/actions on the left, a
-                  left-faded trailer filling the right half. */}
+              {/* v6 «Совмещённый» — Info tab. Every element here uses its own
+                  poster-sheet__combined-* class (no shared sheet classes), so the
+                  layout can be hand-tuned without affecting the other variants. */}
               {tab === "info" && combined && (
                 <div className="poster-sheet__combined">
                   <div className="poster-sheet__combined-info">
-                    {data.logo && (
+                    {data.logo ? (
                       <img
                         className="poster-sheet__combined-logo"
                         src={data.logo}
                         alt={data.title}
                       />
+                    ) : (
+                      /* No wordmark image — show the title as a text logo. */
+                      <h2 className="poster-sheet__combined-logo-text">{data.title}</h2>
                     )}
-                    <p className="poster-sheet__description">
+                    <p className="poster-sheet__combined-description">
                       {data.longDescription || data.description}
                     </p>
-                    {data.meta?.length > 0 && (
-                      <p className="poster-sheet__meta">
-                        {data.meta.map((chip, i) => (
-                          <span key={chip}>
-                            {i > 0 && <span className="poster-sheet__dot">·</span>}
-                            {chip}
-                          </span>
-                        ))}
-                      </p>
+                    {(data.badge || data.meta?.length > 0) && (
+                      <div className="poster-sheet__combined-meta-row">
+                        {/* Content badge to the left of the meta line. */}
+                        {data.badge && (
+                          <TextBadge className="poster-sheet__combined-badge" {...data.badge} />
+                        )}
+                        {data.meta?.length > 0 && (
+                          <p className="poster-sheet__combined-meta">
+                            {data.meta.map((chip, i) => (
+                              <span key={chip}>
+                                {i > 0 && <span className="poster-sheet__combined-dot">·</span>}
+                                {chip}
+                              </span>
+                            ))}
+                          </p>
+                        )}
+                      </div>
                     )}
-                    <div className="poster-sheet__actions">
-                      <button type="button" className="poster-sheet__watch">
+                    <div className="poster-sheet__combined-actions">
+                      <button type="button" className="poster-sheet__combined-watch">
                         <IconPlay />
                         Смотреть
                       </button>
                       <button
                         type="button"
-                        className="poster-sheet__fav poster-sheet__fav--icon"
+                        className="poster-sheet__combined-fav"
                         aria-label="В избранное"
                       >
                         <IconFavorite />
                       </button>
                     </div>
+                    {/* Reviews rail, tucked under the actions. Leads with a
+                        summary block (overall score + collective one-liner),
+                        then an 8px dot, then the individual reviews. */}
+                    <ul className="poster-sheet__combined-reviews">
+                      {overallRating && (
+                        <li className="poster-sheet__combined-review-summary">
+                          <span
+                            className={`poster-sheet__combined-review-rating${
+                              Number(overallRating) >= 9
+                                ? " poster-sheet__combined-review-rating--high"
+                                : ""
+                            }`}
+                          >
+                            {overallRating}
+                          </span>
+                          <span className="poster-sheet__combined-review-body">
+                            <span className="poster-sheet__combined-review-author">
+                              Общая оценка
+                            </span>
+                            <span className="poster-sheet__combined-review-text">
+                              {collectiveReview}
+                            </span>
+                          </span>
+                        </li>
+                      )}
+                      {overallRating && (
+                        <li
+                          className="poster-sheet__combined-review-sep"
+                          aria-hidden="true"
+                        />
+                      )}
+                      {reviews.map((r) => (
+                        <li className="poster-sheet__combined-review" key={r.key}>
+                          <span
+                            className={`poster-sheet__combined-review-rating${
+                              r.rating >= 9 ? " poster-sheet__combined-review-rating--high" : ""
+                            }`}
+                          >
+                            {r.rating}
+                          </span>
+                          <span className="poster-sheet__combined-review-body">
+                            <span className="poster-sheet__combined-review-author">
+                              {r.author}
+                            </span>
+                            <span className="poster-sheet__combined-review-text">{r.text}</span>
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
                   <div className="poster-sheet__combined-trailer">
                     {data.trailer ? (
                       <video
                         ref={videoRef}
-                        className="poster-sheet__trailer-media"
+                        className="poster-sheet__combined-trailer-media"
                         src={data.trailer}
                         poster={trailerStill}
                         autoPlay
@@ -319,12 +411,16 @@ export default function PosterBottomsheet({ data, onClose, leaving = false, vari
                         playsInline
                       />
                     ) : (
-                      <img className="poster-sheet__trailer-media" src={trailerStill} alt="" />
+                      <img
+                        className="poster-sheet__combined-trailer-media"
+                        src={trailerStill}
+                        alt=""
+                      />
                     )}
                     {hasTrailer && (
                       <button
                         type="button"
-                        className="poster-sheet__sound"
+                        className="poster-sheet__combined-sound"
                         onClick={() => setMuted((m) => !m)}
                         aria-label={muted ? "Включить звук" : "Выключить звук"}
                         aria-pressed={!muted}
@@ -341,12 +437,14 @@ export default function PosterBottomsheet({ data, onClose, leaving = false, vari
                   {/* v6 — title logo, then the season numbers, above the strip. */}
                   {combined && (
                     <div className="poster-sheet__combined-seasons">
-                      {data.logo && (
+                      {data.logo ? (
                         <img
                           className="poster-sheet__combined-seasons-logo"
                           src={data.logo}
                           alt={data.title}
                         />
+                      ) : (
+                        <h2 className="poster-sheet__combined-logo-text">{data.title}</h2>
                       )}
                       {seasons.length > 0 && (
                         <div
@@ -354,6 +452,7 @@ export default function PosterBottomsheet({ data, onClose, leaving = false, vari
                           role="tablist"
                           aria-label="Сезоны"
                         >
+                          <span className="poster-sheet__combined-seasons-caption">Сезоны</span>
                           {seasons.map((s, i) => (
                             <button
                               key={s.id}
@@ -394,22 +493,61 @@ export default function PosterBottomsheet({ data, onClose, leaving = false, vari
                 </div>
               )}
 
-              {tab === "reviews" &&
-                (combined ? (
-                  /* v6 — a (smaller) title logo above the reviews, like seasons. */
-                  <div className="poster-sheet__panel">
-                    {data.logo && (
-                      <img
-                        className="poster-sheet__combined-reviews-logo"
-                        src={data.logo}
-                        alt={data.title}
-                      />
-                    )}
-                    {reviewsList}
+              {/* Reviews get their own tab in the sheet/inline variants; in the
+                  combined card they live inside the Info tab instead. */}
+              {tab === "reviews" && !combined && reviewsList}
+
+              {/* v6 «Похожее» — a rail of related titles: landscape artwork, a
+                  short description under it, the meta line below. */}
+              {tab === "similar" && combined && (
+                <div className="poster-sheet__panel">
+                  {/* Filter chips — matched-by controls above the rail. */}
+                  <div
+                    className="poster-sheet__similar-filters"
+                    role="tablist"
+                    aria-label="Фильтр похожего"
+                  >
+                    {SIMILAR_FILTERS.map((f) => (
+                      <button
+                        key={f.id}
+                        type="button"
+                        role="tab"
+                        aria-selected={similarFilter === f.id}
+                        className={`poster-sheet__tab${
+                          similarFilter === f.id ? " poster-sheet__tab--active" : ""
+                        }`}
+                        onClick={() => setSimilarFilter(f.id)}
+                      >
+                        {f.label}
+                      </button>
+                    ))}
                   </div>
-                ) : (
-                  reviewsList
-                ))}
+                  <ul className="poster-sheet__list poster-sheet__list--similar">
+                    {similarItems.map((s) => (
+                      <li className="poster-sheet__similar" key={s.id}>
+                        <span className="poster-sheet__similar-poster">
+                          <img
+                            className="poster-sheet__similar-image"
+                            src={s.src}
+                            alt={s.title}
+                          />
+                        </span>
+                        <span className="poster-sheet__similar-description">
+                          {s.description}
+                        </span>
+                        <span className="poster-sheet__similar-meta">
+                          {s.meta.map((chip, i) => (
+                            <span key={chip}>
+                              {i > 0 && <span className="poster-sheet__dot">·</span>}
+                              {chip}
+                            </span>
+                          ))}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
               </div>
             </div>
 
