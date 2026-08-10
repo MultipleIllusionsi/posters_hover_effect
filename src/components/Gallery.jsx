@@ -1,20 +1,30 @@
-import PosterGrid from "./PosterGrid";
+import HoverGrid from "./hover/HoverGrid";
+import SheetGrid from "./sheet/SheetGrid";
+import CombinedGrid from "./combined/CombinedGrid";
 import "./Gallery.css";
 
+// Каждому режиму — свой самодостаточный грид.
+const GRIDS = {
+  hover: HoverGrid,
+  sheet: SheetGrid,
+  combined: CombinedGrid,
+};
+
 /**
- * Gallery — one titled section of the page (Figma node 1:29).
+ * Gallery — одна озаглавленная секция страницы.
  *
- * Layout:
- *   Row 1 — horizontal posters, full grid width.
- *   Row 2 — vertical posters, full grid width.
- * Grid width = 100% of the screen minus 32px gutters on each side
- * (the .gallery-page horizontal padding provides those gutters).
+ * Раскладка:
+ *   Ряд 1 — горизонтальные постеры, во всю ширину сетки.
+ *   Ряд 2 — вертикальные постеры, во всю ширину сетки.
+ * Ширина сетки = 100% экрана минус отступы по 32px с каждой стороны (их даёт
+ * горизонтальный паддинг .gallery-page).
  *
- * <PosterGrid> renders both rows and the single hover card they share. Each
- * section gets its own card, so the page can hold as many galleries as needed;
- * content comes from data/postersData.js.
+ * По `mode` выбирается грид взаимодействия (Ховер / Шторка / Совмещённый); он
+ * рендерит оба ряда и всю свою логику. Контент — из data/postersData.js.
  */
-export default function Gallery({ title, horizontalPosters, verticalPosters, verticalHover }) {
+export default function Gallery({ title, horizontalPosters, verticalPosters, mode }) {
+  const Grid = GRIDS[mode] ?? HoverGrid;
+
   return (
     <section className="gallery-page">
       <header className="gallery-header">
@@ -32,11 +42,7 @@ export default function Gallery({ title, horizontalPosters, verticalPosters, ver
         </span>
       </header>
 
-      <PosterGrid
-        horizontalPosters={horizontalPosters}
-        verticalPosters={verticalPosters}
-        verticalHover={verticalHover}
-      />
+      <Grid horizontalPosters={horizontalPosters} verticalPosters={verticalPosters} />
     </section>
   );
 }

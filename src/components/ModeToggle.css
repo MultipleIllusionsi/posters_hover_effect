@@ -1,9 +1,9 @@
-/* Same pill treatment as the card's tab switcher, parked over the page. */
-.hover-mode {
+/* Пилюльный переключатель, припаркованный поверх страницы. */
+.mode-toggle {
   position: fixed;
   right: 24px;
   top: 24px;
-  /* Above the v1 hover card (z-index 20) and the v2 overlay. */
+  /* Выше любого контента вариантов. */
   z-index: 100;
 
   display: flex;
@@ -17,7 +17,7 @@
   font-family: "iviSans Base", "IVI Sans Base", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
-.hover-mode__option {
+.mode-toggle__option {
   padding: 10px 16px;
   border: 0;
   border-radius: 100px;
@@ -32,11 +32,11 @@
   transition: background-color 160ms ease-out, color 160ms ease-out;
 }
 
-.hover-mode__option:hover {
+.mode-toggle__option:hover {
   color: #fff;
 }
 
-.hover-mode__option--active {
+.mode-toggle__option--active {
   background: rgba(255, 255, 255, 0.12);
   color: #fff;
 }

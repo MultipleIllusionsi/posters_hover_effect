@@ -1,0 +1,222 @@
+/* HoverPosterVertical — «Ховер»: весь контент держится внутри постера.
+   Всё лежит в клипящемся боксе .__media, поэтому наружу ничего не вылезает. */
+
+.hover-vertical {
+  --ivi-font: "iviSans Base", "IVI Sans Base", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --ivi-accent: #f30745;
+  --ivi-text-dim: rgba(255, 255, 255, 0.56);
+  /* Отступ оверлея от краёв постера. */
+  --inset: 16px;
+  /* Блюр артворка под оверлеем. */
+  --blur: 4px;
+  /* Реквизит придерживается на долю секунды после прихода курсора. */
+  --delay: 200ms;
+
+  position: relative;
+  /* Делит ширину ряда поровну с соседями; min-width:0 разрешает сжатие. */
+  flex: 1 1 0;
+  min-width: 0;
+  aspect-ratio: 222.667 / 337;
+  font-family: var(--ivi-font);
+  transition: 160ms ease-in;
+}
+
+.hover-vertical:hover {
+  transform: scale(1.02);
+  transition: 200ms ease-out;
+}
+
+.hover-vertical__media {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.hover-vertical__image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 200ms ease-out;
+}
+
+.hover-vertical:hover .hover-vertical__image {
+  filter: blur(var(--blur));
+  transition-delay: var(--delay);
+}
+
+/* Затемняет постер от края до края — читаемость оверлея держится на этом,
+   а не на градиенте под текстом. */
+.hover-vertical__scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.92);
+  pointer-events: none;
+}
+
+/* Трейлер: приколот к верху, на всю ширину, поверх затемнённого постера. */
+.hover-vertical__trailer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  object-fit: cover;
+  /* Низ трейлера гасим МАСКОЙ, а не тёмным градиентом: маска роняет альфу
+     самого трейлера, и размытый затемнённый постер проступает сквозь него. */
+  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+}
+
+/* Кнопка звука: та же пилюля, что «в избранное», в правом верхнем углу. */
+.hover-vertical__sound {
+  position: absolute;
+  top: var(--inset);
+  right: var(--inset);
+  z-index: 2;
+}
+
+/* Приколот к низу постера и вжат со всех сторон — читается как панель на
+   артворке, а не как продолжение постера. */
+.hover-vertical__overlay {
+  position: absolute;
+  right: var(--inset);
+  bottom: var(--inset);
+  left: var(--inset);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Показ -------------------------------------------------------------------- */
+.hover-vertical__scrim,
+.hover-vertical__trailer,
+.hover-vertical__sound,
+.hover-vertical__overlay {
+  opacity: 0;
+  transition:
+    opacity 200ms ease-out,
+    transform 200ms ease-out,
+    /* Кнопка звука — часть показа, поэтому её hover-тинт живёт в этом же
+       списке: отдельное правило transition затёрло бы его. */
+    background-color 160ms ease-out;
+}
+
+.hover-vertical__overlay {
+  transform: translateY(12px);
+  pointer-events: none;
+}
+
+.hover-vertical:hover .hover-vertical__scrim,
+.hover-vertical:hover .hover-vertical__trailer,
+.hover-vertical:hover .hover-vertical__sound,
+.hover-vertical:hover .hover-vertical__overlay {
+  opacity: 1;
+  transition-delay: var(--delay);
+}
+
+.hover-vertical:hover .hover-vertical__overlay {
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hover-vertical__image,
+  .hover-vertical__scrim,
+  .hover-vertical__trailer,
+  .hover-vertical__sound,
+  .hover-vertical__overlay {
+    transition-duration: 1ms;
+  }
+  .hover-vertical__overlay {
+    transform: none;
+  }
+}
+
+/* Кнопки ------------------------------------------------------------------- */
+.hover-vertical__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.hover-vertical__watch,
+.hover-vertical__fav,
+.hover-vertical__sound {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border: 0;
+  border-radius: 100px;
+  color: #fff;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* transition кнопки звука приходит из группы показа выше; своё правило здесь
+   его бы затёрло и убило fade-in. */
+.hover-vertical__watch,
+.hover-vertical__fav {
+  transition: background-color 160ms ease-out;
+}
+
+.hover-vertical__watch {
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--ivi-accent);
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+.hover-vertical__watch:hover { background: #ff1d57; }
+
+.hover-vertical__fav,
+.hover-vertical__sound {
+  flex-shrink: 0;
+  width: 40px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.hover-vertical__fav:hover,
+.hover-vertical__sound:hover { background: rgba(255, 255, 255, 0.2); }
+
+/* Текст -------------------------------------------------------------------- */
+.hover-vertical__text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: center;
+}
+
+/* Сжимается до бейджа (его единственного ребёнка с собственной шириной),
+   затем центрируется в колонке. */
+.hover-vertical__brand {
+  align-self: center;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.hover-vertical__description {
+  margin: 0;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  color: #fff;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

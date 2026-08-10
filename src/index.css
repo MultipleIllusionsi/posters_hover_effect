@@ -74,8 +74,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* The hover card grows past the poster row; keep it from creating a horizontal
-   scrollbar while still allowing the page to scroll vertically. */
+/* Вариант «Совмещённый» раскрывает карточку на всю ширину вьюпорта (выходя за
+   боковые отступы галереи); прячем горизонтальный скролл, вертикальный оставляем. */
 body {
   overflow-x: hidden;
 }

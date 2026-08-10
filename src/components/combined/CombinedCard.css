@@ -1,0 +1,627 @@
+/* CombinedCard — карточка «Совмещённого». Раскрывается инлайн под рядом
+   кликнутого постера: обёртка .combined-expander анимирует высоту 0 → 70vh,
+   а карточка внутри — фиксированной высоты, её проявляет клип обёртки. */
+
+/* Экспандер: в flex-колонке галереи между рядами. Разрывает боковые отступы
+   галереи и растягивается на всю ширину вьюпорта, без радиуса. */
+.combined-expander {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-top: 8px;
+  overflow: hidden;
+  animation: combined-expander-open 360ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.combined-expander--leaving {
+  animation: combined-expander-close 300ms cubic-bezier(0.4, 0, 1, 1) both;
+}
+
+@keyframes combined-expander-open {
+  from { height: 0; }
+  to   { height: 70vh; }
+}
+@keyframes combined-expander-close {
+  from { height: 70vh; }
+  to   { height: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .combined-expander { animation-duration: 1ms; }
+}
+
+/* Карточка — фиксированная высота 70vh, во всю ширину, контент прямо на
+   странице (без тёмной панели). */
+.combined-card {
+  --ivi-font: "iviSans Base", "IVI Sans Base", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --ivi-accent: #f30745;
+  --ivi-text-dim: rgba(255, 255, 255, 0.56);
+
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  box-sizing: border-box;
+  background: transparent;
+  overflow: hidden;
+  font-family: var(--ivi-font);
+}
+
+/* Без внутреннего паддинга — трейлер уходит в правый край. */
+.combined-card__inner {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.combined-card__body {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* Контент таба прокручивается внутри карточки, а не растит её. */
+.combined-card__content {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.combined-card__content::-webkit-scrollbar { display: none; }
+
+/* Заполняет коробку контента (чтобы height:100% у info решался) и повторяет
+   fade + лёгкий блюр при каждой смене таба. */
+.combined-card__tab-panel {
+  height: 100%;
+  animation: combined-card-tab-in 260ms ease-out both;
+}
+
+@keyframes combined-card-tab-in {
+  from { opacity: 0; filter: blur(6px); }
+  to   { opacity: 1; filter: blur(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .combined-card__tab-panel { animation-duration: 1ms; }
+}
+
+/* Табы приколоты к верхнему центру — вне потока, чтобы не давать верхний
+   отступ; контент и трейлер могут доходить до краёв карточки. */
+.combined-card__tabs {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Крупные пилюли, радиус 16px. */
+.combined-card__tab {
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 16px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 160ms ease-out, color 160ms ease-out;
+}
+
+.combined-card__tab--active {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.combined-card__close {
+  flex-shrink: 0;
+  margin-left: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 160ms ease-out;
+}
+.combined-card__close:hover { background: rgba(255, 255, 255, 0.2); }
+
+/* Инфо: слева колонка (лого · описание · мета · кнопки · отзывы), справа
+   трейлер во всю правую половину, гаснущий влево в тёмную поверхность. */
+.combined-card__info {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  gap: 24px;
+}
+
+.combined-card__info-col {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 50%;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  /* Свой паддинг (у inner его нет) + верхний запас под приколотые табы. */
+  padding: 120px 0 32px 56px;
+  box-sizing: border-box;
+}
+
+.combined-card__logo {
+  width: auto;
+  max-width: 100%;
+  max-height: 120px;
+  object-fit: contain;
+  object-position: left center;
+  margin-bottom: 12px;
+}
+
+/* Фолбэк, когда у тайтла нет вордмарка — заголовок как текст-лого. */
+.combined-card__logo-text {
+  margin: 0 0 12px;
+  max-width: 100%;
+  max-height: 120px;
+  overflow: hidden;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: #fff;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.combined-card__description {
+  margin: 0 0 0 4px;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.3;
+  color: #fff;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Бейдж + мета в одну строку. Отрицательный верхний отступ ужимает 24px gap
+   колонки до 8px между описанием и этой строкой. */
+.combined-card__meta-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: -8px 0 0 4px;
+}
+
+.combined-card__meta {
+  margin: 0;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--ivi-text-dim);
+}
+
+.combined-card__dot {
+  margin: 0 4px;
+}
+
+.combined-card__actions {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.combined-card__watch,
+.combined-card__fav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  border: 0;
+  border-radius: 16px;
+  color: #fff;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 160ms ease-out;
+}
+
+.combined-card__watch {
+  padding: 0 24px;
+  background: var(--ivi-accent);
+}
+.combined-card__watch:hover { background: #ff1d57; }
+
+/* «В избранное» — только иконка, квадратная пилюля без подписи. */
+.combined-card__fav {
+  width: 48px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.12);
+}
+.combined-card__fav:hover { background: rgba(255, 255, 255, 0.2); }
+
+/* Рейл отзывов под кнопками — прокрутка вбок с тем же краевым фейдом. */
+.combined-card__reviews {
+  flex: 0 0 auto;
+  margin: 64px 0 0;
+  padding: 0 0 4px;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 12px;
+  min-height: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 0%, #000 85%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 0%, #000 85%, transparent 100%);
+}
+.combined-card__reviews::-webkit-scrollbar { display: none; }
+
+.combined-card__review {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 12px;
+  width: 340px;
+  padding: 12px 0;
+  box-sizing: border-box;
+  /* Без фона (в отличие от сводного блока) — отзывы прямо на поверхности. */
+}
+
+/* Сводный блок — коллективная оценка + фраза, слева от отзывов, с фоном. */
+.combined-card__review-summary {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 12px;
+  width: 420px;
+  padding: 12px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* 8px точка между сводным блоком и отзывами. */
+.combined-card__review-sep {
+  flex: 0 0 auto;
+  align-self: center;
+  width: 8px;
+  height: 8px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.combined-card__review-rating {
+  flex: 0 0 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1;
+  color: #fff;
+}
+.combined-card__review-rating--high {
+  background: #00bf4c;
+}
+
+.combined-card__review-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.combined-card__review-author {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 20px;
+  color: #fff;
+}
+
+.combined-card__review-text {
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--ivi-text-dim);
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.combined-card__trailer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 56%;
+  z-index: 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 42%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 42%);
+}
+
+.combined-card__trailer-media {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.combined-card__sound {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background-color 160ms ease-out;
+}
+.combined-card__sound:hover { background: rgba(255, 255, 255, 0.2); }
+
+/* Сезоны / Похожее — тот же инсет, что у Инфо, чтобы контент табов совпадал
+   (верх освобождает приколотые табы; левый — как у инфо-колонки). Блок
+   центрируется по вертикали как одна группа. */
+.combined-card__panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  height: 100%;
+  min-height: 0;
+  padding: 72px 0 32px 56px;
+  box-sizing: border-box;
+}
+
+/* Заголовок сезонов — лого над номерами, над полосой эпизодов. */
+.combined-card__seasons {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+.combined-card__seasons-logo {
+  width: auto;
+  max-width: 100%;
+  max-height: 100px;
+  object-fit: contain;
+  object-position: left center;
+}
+.combined-card__season-nums {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.combined-card__seasons-caption {
+  margin-right: 8px;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.2;
+  color: var(--ivi-text-dim);
+}
+
+.combined-card__list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Сезоны: горизонтальная полоса карточек эпизодов, прокрутка вбок. */
+.combined-card__list--episodes {
+  flex: 0 0 auto;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  min-height: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 0%, #000 85%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 0%, #000 85%, transparent 100%);
+}
+.combined-card__list--episodes::-webkit-scrollbar { display: none; }
+
+.combined-card__episode {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+
+/* Обёртка постера — клипует кадр в скруглённый бокс и якорит кнопку play. */
+.combined-card__episode-poster {
+  position: relative;
+  flex: 0 0 auto;
+  width: auto;
+  height: 200px;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.combined-card__episode-still {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.combined-card__episode-play {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 100px;
+  background: var(--ivi-accent);
+  color: #fff;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 160ms ease-out, transform 160ms ease-out;
+  pointer-events: none;
+}
+.combined-card__episode:hover .combined-card__episode-play {
+  opacity: 1;
+  transform: scale(1);
+}
+.combined-card__episode-play svg { translate: 1px; }
+
+/* Ширина карточки идёт от постера; текст не расширяет её (width:0 +
+   min-width:100%), строки клампятся. */
+.combined-card__episode-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 0;
+  min-width: 100%;
+  flex-shrink: 0;
+}
+
+.combined-card__episode-title,
+.combined-card__episode-subtitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.combined-card__episode-title {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 20px;
+  color: #fff;
+}
+
+.combined-card__episode-subtitle {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  color: var(--ivi-text-dim);
+}
+
+/* «Похожее» — чипы фильтра над рейлом, по центру. */
+.combined-card__similar-filters {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+/* Рейл ландшафтных карточек: кадр сверху, описание, мета ниже. */
+.combined-card__list--similar {
+  flex: 0 0 auto;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 16px;
+  min-height: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 0%, #000 85%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 0%, #000 85%, transparent 100%);
+}
+.combined-card__list--similar::-webkit-scrollbar { display: none; }
+
+.combined-card__similar {
+  flex: 0 0 auto;
+  /* Карточка ровно по ширине кадра (как эпизод сезона: 200px, 16:9). */
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.combined-card__similar-poster {
+  display: block;
+  width: auto;
+  height: 200px;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.combined-card__similar-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Текст под кадром, не шире его. */
+.combined-card__similar-description {
+  width: 0;
+  min-width: 100%;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  color: #fff;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.combined-card__similar-meta {
+  width: 0;
+  min-width: 100%;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--ivi-text-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

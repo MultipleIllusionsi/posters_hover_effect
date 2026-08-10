@@ -1,0 +1,244 @@
+/* HoverPosterHorizontal — «Ховер» для ландшафтного постера. Постер стоит на
+   месте, контент проявляется поверх: трейлер слева, текст и кнопки справа. */
+
+.hover-horizontal {
+  --ivi-font: "iviSans Base", "IVI Sans Base", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --ivi-accent: #f30745;
+  --ivi-text-dim: rgba(255, 255, 255, 0.56);
+  /* Доля карточки под трейлер; панель занимает остаток. */
+  --trailer-width: 75%;
+  /* Насколько текст заходит на затемнённый хвост трейлера. */
+  --overlap: 32px;
+  --panel-pad: 20px;
+  /* Чем заменяется артворк по наведению. Должно совпадать с концом градиента
+     ниже, иначе на стыке с трейлером виден шов. */
+  --surface: #0f0f0f;
+  --surface-0: rgba(15, 15, 15, 0);
+  /* Постер реагирует мгновенно, контент придерживается. */
+  --delay: 200ms;
+
+  position: relative;
+  /* Делит ширину ряда поровну с соседями; min-width:0 разрешает сжатие. */
+  flex: 1 1 0;
+  min-width: 0;
+  aspect-ratio: 676 / 380;
+  font-family: var(--ivi-font);
+}
+
+.hover-horizontal:hover {
+  z-index: 5;
+}
+
+/* Артворк, трейлер и градиент в одном клипящемся боксе. Сам постер по наведению
+   не двигается — появляются только слои поверх него. */
+.hover-horizontal__media {
+  position: absolute;
+  inset: 0;
+  border-radius: 32px;
+  overflow: hidden;
+  /* Лежит под артворком — проступает, когда постер гаснет. */
+  background: var(--surface);
+}
+
+.hover-horizontal__image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 200ms ease-out;
+}
+
+/* Артворк уступает место плоской поверхности, чтобы под панелью был чистый
+   цвет, а не затемнённый постер. Задержка — в такт показу. */
+.hover-horizontal--hovered .hover-horizontal__image {
+  opacity: 0;
+  transition-delay: var(--delay);
+}
+
+/* Трейлер: вровень с левым краем, во всю высоту, 75% ширины. */
+.hover-horizontal__trailer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: var(--trailer-width);
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Гасит трейлер к правому краю и садится на плоскую поверхность ровно там, где
+   трейлер кончается, — стыка между ними не видно. */
+.hover-horizontal__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    var(--surface-0) 26%,
+    rgba(15, 15, 15, 0.86) 58%,
+    var(--surface) var(--trailer-width)
+  );
+  pointer-events: none;
+}
+
+/* Остаток справа: текст, под ним кнопки, оба вровень слева. Отсчёт от края
+   трейлера, минус паддинг — чтобы край переходил именно контент. */
+.hover-horizontal__panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: calc(var(--trailer-width) - var(--overlap) - var(--panel-pad));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+  padding: var(--panel-pad);
+  box-sizing: border-box;
+  text-align: left;
+}
+
+/* Кнопка звука: та же пилюля, что «в избранное», над трейлером. */
+.hover-horizontal__sound {
+  position: absolute;
+  top: var(--panel-pad);
+  left: var(--panel-pad);
+  z-index: 2;
+}
+
+/* Показ -------------------------------------------------------------------- */
+.hover-horizontal__trailer,
+.hover-horizontal__scrim,
+.hover-horizontal__sound,
+.hover-horizontal__panel {
+  opacity: 0;
+  transition:
+    opacity 200ms ease-out,
+    transform 200ms ease-out,
+    /* Кнопка звука — часть показа, поэтому её hover-тинт объявлен здесь:
+       следующее правило transition затёрло бы весь список. */
+    background-color 160ms ease-out;
+}
+
+.hover-horizontal__panel {
+  transform: translateY(12px);
+}
+
+.hover-horizontal--hovered .hover-horizontal__trailer,
+.hover-horizontal--hovered .hover-horizontal__scrim,
+.hover-horizontal--hovered .hover-horizontal__sound,
+.hover-horizontal--hovered .hover-horizontal__panel {
+  opacity: 1;
+  transition-delay: var(--delay);
+}
+
+.hover-horizontal--hovered .hover-horizontal__panel {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hover-horizontal__media,
+  .hover-horizontal__trailer,
+  .hover-horizontal__scrim,
+  .hover-horizontal__sound,
+  .hover-horizontal__panel {
+    transition-duration: 1ms;
+  }
+  .hover-horizontal__panel {
+    transform: none;
+  }
+}
+
+/* Текст -------------------------------------------------------------------- */
+.hover-horizontal__text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  /* Панель прижимает детей к началу, поэтому текст сам берёт полную ширину —
+     иначе описание переносилось бы по самому длинному слову. */
+  width: 100%;
+}
+
+/* Сжимается до бейджа, затем логотип заполняет эту ширину — тот же приём,
+   что и в вертикальном постере, но с выравниванием влево под панель. */
+.hover-horizontal__brand {
+  align-self: flex-start;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.hover-horizontal__logo {
+  display: block;
+  width: 0;
+  min-width: 100%;
+  max-height: 148px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.hover-horizontal__description {
+  margin: 0;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  color: #fff;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Кнопки ------------------------------------------------------------------- */
+.hover-horizontal__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+}
+
+.hover-horizontal__watch,
+.hover-horizontal__fav,
+.hover-horizontal__sound {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border: 0;
+  border-radius: 100px;
+  color: #fff;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.hover-horizontal__watch,
+.hover-horizontal__fav {
+  transition: background-color 160ms ease-out;
+}
+
+.hover-horizontal__watch {
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--ivi-accent);
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+.hover-horizontal__watch:hover { background: #ff1d57; }
+
+.hover-horizontal__fav,
+.hover-horizontal__sound {
+  flex-shrink: 0;
+  width: 40px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.hover-horizontal__fav:hover,
+.hover-horizontal__sound:hover { background: rgba(255, 255, 255, 0.16); }

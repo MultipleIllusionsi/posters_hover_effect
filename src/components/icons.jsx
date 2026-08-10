@@ -1,9 +1,4 @@
-/**
- * Icons shared by the v2 hover components.
- *
- * The v1 card (PosterHover.jsx) keeps its own copies — that implementation is
- * finished and isn't being edited.
- */
+/** Иконки, общие для всех вариантов взаимодействия. */
 
 export function IconPlay() {
   return (

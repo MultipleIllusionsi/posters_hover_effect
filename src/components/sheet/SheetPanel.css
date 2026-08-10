@@ -1,0 +1,597 @@
+/* SheetPanel — «Шторка». Прибита к низу вьюпорта: 240px высотой, во всю
+   ширину, скруглена только по верхнему краю. */
+
+.sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  /* Без затемнения — страница и все невыбранные постеры остаются в полной
+     яркости. Держим прозрачным и «сквозным» только ради хуков анимации. */
+  pointer-events: none;
+  background: transparent;
+  animation: sheet-fade 420ms ease-out both;
+}
+
+.sheet-backdrop--leaving {
+  animation: sheet-fade-out 360ms ease-in both;
+}
+
+.sheet {
+  --ivi-font: "iviSans Base", "IVI Sans Base", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --ivi-accent: #f30745;
+  --ivi-text-dim: rgba(255, 255, 255, 0.56);
+  /* Фиксированная высота панели; карточки сезонов/отзывов сами под неё. */
+  --sheet-h: 240px;
+
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  /* Над фоном (40) и над приподнятым выбранным постером (45). */
+  z-index: 50;
+  width: 100vw;
+  height: var(--sheet-h);
+  box-sizing: border-box;
+  border-radius: 40px 40px 0 0;
+  background: transparent;
+  font-family: var(--ivi-font);
+  /* Видимо, чтобы градиентный скрим (::before) мог выйти за верхний край. */
+  overflow: visible;
+  /* Долгий мягкий подъём вместо резкого — плавный ease-out ~0.6s. */
+  animation: sheet-up 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Градиентный скрим без блюра: непрозрачный чёрный снизу, к верху прозрачный.
+   На псевдоэлементе, который уходит на 72px ВЫШЕ панели, чтобы фейд выходил за
+   её верхний край, а не обрезался по нему. */
+.sheet::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: -72px;
+  z-index: -1;
+  border-radius: 40px 40px 0 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 32%);
+  pointer-events: none;
+}
+
+/* Прогрессивный блюр — та же коробка, что и у скрима (панель + 72px запаса),
+   под контентом. Каждый слой размывает чуть сильнее и замаскирован ниже, так
+   что вместе они нарастают от почти нуля у прозрачного верха к сильному инею
+   у непрозрачного низа, вслед за градиентом. */
+.sheet__blur {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: -72px;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sheet__blur > span {
+  position: absolute;
+  inset: 0;
+}
+
+.sheet__blur > span:nth-child(1) {
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  -webkit-mask-image: linear-gradient(to top, #000 0%, #000 55%, transparent 90%);
+  mask-image: linear-gradient(to top, #000 0%, #000 55%, transparent 90%);
+}
+.sheet__blur > span:nth-child(2) {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  -webkit-mask-image: linear-gradient(to top, #000 0%, #000 40%, transparent 68%);
+  mask-image: linear-gradient(to top, #000 0%, #000 40%, transparent 68%);
+}
+.sheet__blur > span:nth-child(3) {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  -webkit-mask-image: linear-gradient(to top, #000 0%, #000 25%, transparent 50%);
+  mask-image: linear-gradient(to top, #000 0%, #000 25%, transparent 50%);
+}
+.sheet__blur > span:nth-child(4) {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 32%);
+  mask-image: linear-gradient(to top, #000 0%, transparent 32%);
+}
+
+/* Выход — съезжает вниз и гаснет. */
+.sheet--leaving {
+  animation: sheet-down 360ms cubic-bezier(0.4, 0, 1, 1) both;
+}
+
+@keyframes sheet-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes sheet-fade-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+@keyframes sheet-up {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+@keyframes sheet-down {
+  from { transform: translateY(0); opacity: 1; }
+  to   { transform: translateY(100%); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sheet-backdrop,
+  .sheet,
+  .sheet__tab-panel { animation-duration: 1ms; }
+  .sheet__season-nav { transition-duration: 1ms; }
+}
+
+/* Пока панель открыта, добавляем странице нижний запас, чтобы постер из
+   последнего ряда мог подняться над панелью (240px), а не остаться под ней. */
+body.has-bottom-sheet {
+  padding-bottom: calc(240px + 32px);
+}
+
+/* 16px паддинг со всех сторон; тело центрируется. */
+.sheet__inner {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+/* Слева — трейлер. 16:9 бокс от высоты, всегда влезает в панель. */
+.sheet__trailer {
+  position: relative;
+  flex: 0 0 auto;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #000;
+}
+
+.sheet__trailer-media {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* По центру — описание и табы. */
+.sheet__body {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  max-width: 1320px;
+  gap: 16px;
+  min-height: 0;
+}
+
+.sheet__tabs {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  /* Во всю ширину, чтобы номера сезонов могли якориться, а основные табы
+     оставались по центру экрана. */
+  align-self: stretch;
+}
+
+/* Номера сезонов, инлайн сразу после таба «Сезоны». Каждый — пилюля-таб;
+   выбранный берёт активную пилюлю. Нав открывается анимацией ШИРИНЫ от 0
+   (свёрнуто — виден только «Сезоны») до полной ширины контента (замер в JS,
+   применён инлайн) и обратно к 0 при уходе. */
+.sheet__season-nav {
+  flex: 0 0 auto;
+  width: 0;
+  margin-right: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    width 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    margin-right 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 220ms ease-out;
+}
+
+.sheet__season-nav--open {
+  margin-right: 8px;
+  opacity: 1;
+}
+
+/* Собственная (max-content) ширина фиксируется, пока ширина родителя
+   анимируется, — пилюли открываются/прячутся клипом, а не переносом. */
+.sheet__season-nav-inner {
+  display: flex;
+  align-items: center;
+  width: max-content;
+}
+
+.sheet__tab {
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 100px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 160ms ease-out, color 160ms ease-out;
+}
+
+.sheet__tab--active {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+/* Контент таба прокручивается внутри панели, а не растит её. */
+.sheet__content {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.sheet__content::-webkit-scrollbar { display: none; }
+
+/* Заполняет коробку контента (чтобы height:100% у info/seasons/reviews решался)
+   и повторяет fade + лёгкий блюр при каждой смене таба. */
+.sheet__tab-panel {
+  height: 100%;
+  animation: sheet-tab-in 260ms ease-out both;
+}
+
+@keyframes sheet-tab-in {
+  from { opacity: 0; filter: blur(6px); }
+  to   { opacity: 1; filter: blur(0); }
+}
+
+/* Таб «Инфо» — трейлер, затем мета + описание, затем кнопки. */
+.sheet__info {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 24px;
+  height: 100%;
+}
+
+.sheet__info-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+  align-self: center;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.sheet__info-text::-webkit-scrollbar { display: none; }
+
+.sheet__title {
+  margin: 0 0 6px 4px;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.15;
+  color: #fff;
+}
+
+.sheet__meta {
+  margin: 4px 0 8px 4px;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--ivi-text-dim);
+}
+
+.sheet__dot { margin: 0 4px; }
+
+.sheet__description {
+  margin: 0 0 0 4px;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.3;
+  color: #fff;
+}
+
+/* Сезоны / Отзывы ---------------------------------------------------------- */
+.sheet__panel {
+  margin-left: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  /* Заполняет область контента, чтобы полоса эпизодов взяла ровно остаток
+     высоты и не уходила в вертикальную прокрутку. */
+  height: 100%;
+  min-height: 0;
+}
+
+.sheet__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Сезоны: горизонтальная полоса карточек эпизодов (кадр сверху, текст под ним),
+   которая прокручивается вбок, а не вниз по короткой панели. */
+.sheet__list--episodes {
+  flex-direction: row;
+  align-items: stretch;
+  gap: 12px;
+  /* Берёт остаток высоты под табами сезонов; карточки под неё, так что полоса
+     влезает по вертикали и прокручивается только вбок. */
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+  /* Гасим обрезанный правый край, а не режем жёстко, — последняя карточка
+     растворяется, уходя из области прокрутки. */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 0%, #000 85%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 0%, #000 85%, transparent 100%);
+}
+.sheet__list--episodes::-webkit-scrollbar { display: none; }
+
+.sheet__episode {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Форма карточки внутри горизонтальной полосы сезонов: карточка обжимает
+   постер (у постера задана высота от панели, ширина из 16:9), кадр заполняет
+   карточку от края до края. */
+.sheet__list--episodes .sheet__episode {
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  height: 100%;
+}
+
+/* Обёртка постера — клипует кадр в скруглённый бокс и якорит кнопку play.
+   Задана высота (от панели, с полом, чтобы не исчезала) и ширина из 16:9. */
+.sheet__episode-poster {
+  position: relative;
+  flex: 0 0 auto;
+  width: auto;
+  height: max(40px, calc(var(--sheet-h) - 136px));
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.sheet__episode-still {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Круглая красная кнопка play, по ховеру в правом нижнем углу постера. */
+.sheet__episode-play {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 100px;
+  background: var(--ivi-accent);
+  color: #fff;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 160ms ease-out, transform 160ms ease-out;
+  pointer-events: none;
+}
+
+.sheet__episode:hover .sheet__episode-play {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.sheet__episode-play svg {
+  translate: 1px;
+}
+
+.sheet__episode-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex-shrink: 0;
+}
+
+/* В полосе ширина карточки идёт от постера; текст не должен её расширять
+   (width:0 + min-width:100%), а строки клампятся, чтобы высота была фиксирована. */
+.sheet__list--episodes .sheet__episode-text {
+  width: 0;
+  min-width: 100%;
+}
+
+.sheet__list--episodes .sheet__episode-title,
+.sheet__list--episodes .sheet__episode-subtitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sheet__episode-title {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 20px;
+  color: #fff;
+}
+
+.sheet__episode-subtitle {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  color: var(--ivi-text-dim);
+}
+
+/* Отзывы: горизонтальная полоса карточек, прокрутка вбок, как у сезонов. */
+.sheet__list--reviews {
+  flex-direction: row;
+  height: 100%;
+  align-items: center;
+  gap: 12px;
+  min-height: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 0%, #000 85%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 0%, #000 85%, transparent 100%);
+}
+.sheet__list--reviews::-webkit-scrollbar { display: none; }
+
+/* Карточка: крупный блок оценки слева, автор + текст справа. */
+.sheet__list--reviews .sheet__review {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 12px;
+  width: 340px;
+  padding: 12px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.sheet__review-rating {
+  flex: 0 0 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1;
+  color: #fff;
+}
+
+/* Высокие оценки (9–10) — зелёный блок. */
+.sheet__review-rating--high {
+  background: #00bf4c;
+}
+
+.sheet__review-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.sheet__review-author {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 20px;
+  color: #fff;
+}
+
+.sheet__review-text {
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--ivi-text-dim);
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Кнопки — горизонтальная пара рядом с мета/описанием на табе «Инфо». */
+.sheet__actions {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.sheet__watch,
+.sheet__fav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 100px;
+  color: #fff;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 160ms ease-out;
+}
+
+.sheet__watch { background: var(--ivi-accent); }
+.sheet__watch:hover { background: #ff1d57; }
+
+.sheet__fav { background: rgba(255, 255, 255, 0.12); }
+.sheet__fav:hover { background: rgba(255, 255, 255, 0.2); }
+
+/* Кнопка звука, припаркована над правым верхним углом трейлера. */
+.sheet__sound {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background-color 160ms ease-out;
+}
+.sheet__sound:hover { background: rgba(255, 255, 255, 0.2); }
+
+/* Стоит инлайн в баре табов, сразу справа от таба «Отзывы». */
+.sheet__close {
+  flex-shrink: 0;
+  margin-left: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 160ms ease-out;
+}
+.sheet__close:hover { background: rgba(255, 255, 255, 0.2); }

@@ -1,7 +1,8 @@
 # Gallery — «Онлайн-кинотеатр Иви»
 
-React + Vite implementation of Figma node `1:29`, with the vertical-poster hover
-card from node `10:417`.
+React + Vite demo for trying different poster-interaction treatments. The page
+renders a few galleries of posters; a fixed toggle (top right) switches the whole
+page between **three** interaction variants.
 
 ## Getting started
 
@@ -31,6 +32,18 @@ subfolder (GitHub Pages project sites, S3 prefixes) without changes.
 
 There is no client-side router, so no SPA rewrite rule is needed.
 
+## The three variants
+
+Each variant is a **self-contained module** with its own components *and* its own
+CSS classes — nothing is shared between them, so restyling one can never affect
+another. `Gallery` picks the grid for the current `mode`.
+
+| mode | UI label | What it does |
+| --- | --- | --- |
+| `hover` | **Ховер** | Pure CSS hover: the poster darkens and reveals a trailer, badge, description and actions *inside its own box*. No state. |
+| `sheet` | **Шторка** | Click a poster to raise one shared panel pinned to the bottom of the screen (trailer + Инфо / Сезоны / Отзывы tabs). |
+| `combined` | **Совмещённый** | Hover shows the logo/description on the poster; a click expands a full-width card inline under the row (Инфо / Сезоны / Похожее), pushing content below it down. |
+
 ## Structure
 
 ```
@@ -38,80 +51,70 @@ index.html              Vite entry
 vite.config.js
 src/
   main.jsx              React root
-  App.jsx               renders <Gallery />
-  index.css             page baseline (black bg, font stack)
+  App.jsx               mode state + <Gallery /> per gallery + <ModeToggle />
+  index.css             page baseline (black bg, iviSans font faces)
   components/
-    Gallery.jsx/.css          the section: header + <PosterGrid />
-    PosterGrid.jsx/.css       both rows + the one hover card they all share
-    PosterHorizontal.jsx/.css landscape poster (presentational only)
-    PosterVertical.jsx/.css   portrait poster (presentational only)
-    PosterHover.jsx/.css      the contents of the hover card
+    Gallery.jsx/.css          section header + the grid for the active mode
+    ModeToggle.jsx/.css       fixed toggle that switches the variant
+    TextBadge.jsx/.css        shared icon + label chip
+    icons.jsx                 shared inline SVG icons
+    hover/                    ── variant «Ховер»
+      HoverGrid.jsx                   two rows, no state
+      HoverPosterHorizontal.jsx/.css
+      HoverPosterVertical.jsx/.css
+    sheet/                    ── variant «Шторка»
+      SheetGrid.jsx                   clickable posters + the bottom panel
+      SheetPoster.jsx/.css            simple poster-button (shape: vertical|horizontal)
+      SheetPanel.jsx/.css             the bottom sheet
+    combined/                 ── variant «Совмещённый»
+      CombinedGrid.jsx                clickable posters + the inline expander
+      CombinedPosterHorizontal.jsx/.css
+      CombinedPosterVertical.jsx/.css
+      CombinedCard.jsx/.css           the inline-expanding card
   data/
-    postersData.js      content of every poster — this is the file you edit
+    postersData.js      content of every poster + the galleries — edit this
+    badges.js           the TextBadge catalog
 ```
 
-## Hover behaviour
-- **One card for the whole section, not one per poster.** `PosterGrid` owns a
-  single `<PosterHover>` instance, positions it over the active poster and slides
-  it when you move to another one. Switching posters is a content swap plus a
-  `transform` animation — the card is never unmounted and remounted, so there's
-  no flicker. Because the card lives at *grid* level (not row level), moving
-  from a vertical poster to a horizontal one is the same smooth slide.
-- Hovering a poster for **500 ms** (`HOVER_DELAY` in `PosterGrid.jsx`) opens the
-  card. That delay applies **only to opening from scratch** — while the card is
-  up, moving to another poster switches instantly.
-- The card closes when the pointer leaves the grid. The card is a DOM descendant
-  of the grid, so moving onto the card itself never counts as leaving.
-- **Enter**: fade + scale in over 220 ms, `cubic-bezier(.16,1,.3,1)`
-  (`@keyframes poster-hover-in`). **Slide** between posters: 320 ms, same curve.
-  **Exit**: opacity 1 → 0 and `blur(0)` → `blur(40px)` over 240 ms `ease-in`; the
-  card stays mounted for that long (`EXIT_DURATION`), then unmounts. Coming back
-  mid-fade just drops the class, so the transition reverses instead of
-  restarting. All respect `prefers-reduced-motion`.
-- **Size**: `CARD_RATIOS` in `PosterGrid.jsx` gives the card's size as a multiple
-  of the poster it covers.
-  - `vertical` — the Figma ratios (380 ÷ 222.667 and 388 ÷ 337) scaled by **0.9**
-    so the card covers less of its neighbours. Both scale together, so the card
-    keeps its 380:388 shape — change the single `0.9` to retune.
-  - `horizontal` — `1 × 1`: the card is exactly the poster's size. The landscape
-    poster is already big enough to hold the trailer, text and actions.
-- The card is centred on its poster, then clamped to the grid's horizontal
-  bounds, so the first and last posters of a row can't push it off the page.
-- Switching posters resets the card to the «Инфо» tab.
-- **Horizontal variant** (`.poster-hover--horizontal`): same card, but the
-  trailer is 2/3 of the card width with gradients fading its left and right edges
-  into the background, and everything is centred — the tags + description within
-  that same 2/3 column, the season tabs, the episode list and reviews, and the
-  action bar (the watch button is fixed at 160px there so the group centres as
-  one block). Episode rows keep their own left-to-right rhythm (still, then
-  title); it's the list as a block that is centred.
-- Tabs **Инфо / Сезоны / Отзывы** switch the body only; the bottom action bar
-  (tabs + В избранное + red Смотреть) never moves. Under «Сезоны», a second row
-  of season tabs appears when the show has more than one season.
-- The red Смотреть button still fills the leftover row width, but is capped at
-  `max-width: 160px`.
+Each variant's CSS classes are namespaced by variant (`.hover-*`, `.sheet-*`,
+`.combined-*`), so a class only ever styles the variant it belongs to.
+
+## How each variant works
+
+- **Ховер** — entirely CSS `:hover`; the small JS only drives the trailer
+  (play/pause on hover, mute toggle). Nothing leaves the poster's rounded box.
+- **Шторка** — the panel is a page-level **singleton**: each gallery renders its
+  own, and opening one closes any other still up. Clicking another poster swaps
+  the panel's content instead of closing it; ✕ or a click on empty space closes.
+  On open the page scrolls just enough (`revealPoster` in `SheetGrid.jsx`) to
+  clear the panel, and `body.has-bottom-sheet` adds bottom room for it.
+- **Совмещённый** — the card expands inline right after the row of the clicked
+  poster (so it opens from that row and pushes everything below down). Switching
+  to a poster in the *other* row keeps the old card collapsing in place while the
+  new one opens, so a cross-row switch looks continuous. Also a singleton.
+
+All animations respect `prefers-reduced-motion`.
 
 ## Content
-Every poster renders **its own** payload — nothing is hard-coded in the
-component. See the shape documented at the top of `src/data/postersData.js`:
-`meta`, `description`, `trailer`, `still`, `seasons[].episodes[]`, `reviews[]`.
 
-- **Trailer**: set `trailer` to a video URL and it autoplays muted/looped inside
-  the card (`<video autoplay muted loop playsinline>`). Without it the card falls
-  back to the still frame (`still`, else the poster art) — the sample data has no
-  trailer URLs, so add yours to see the video path.
-- **Отзывы** has no Figma variant; it reuses the episode-list styling. Adjust
-  `.poster-hover__review*` once the design lands.
-- **Images** point to temporary Figma asset URLs that expire ~7 days after they
-  were generated — swap in your own CDN sources before deploying. The four
-  episode stills are reused across shows for the demo.
-- **Font**: the design uses `iviSans Base`. Load it in your app (`@font-face` or
-  your font pipeline); `src/index.css` falls back to the system sans-serif.
+Every poster renders **its own** payload — nothing is hard-coded in the
+components. See the shape documented at the top of `src/data/postersData.js`:
+`meta`, `badge`, `description`, `longDescription`, `logo`, `trailer`, `still`,
+`seasons[].episodes[]`, `reviews[]`. Related titles for «Похожее» come from the
+`similarItems` export; badges come from `src/data/badges.js`.
+
+- **Trailer**: set `trailer` to a video URL and it plays muted/looped in the
+  reveal. Without it the components fall back to the still (`still`, else the
+  poster art).
+- **Images** may point to temporary Figma asset URLs that expire — swap in your
+  own CDN sources before deploying.
+- **Font**: the design uses `iviSans Base`, loaded via `@font-face` in
+  `src/index.css` from `assets/fonts/`.
 
 ## Layout
-- Page has 32px side padding, so the grid spans `100vw − 32px` on each side.
-- Both rows are flex; each poster is `flex: 1 1 0` so they split the row width evenly.
-- Row gaps: 8px. Radii: 32px (horizontal), 24px (vertical), 28px (hover card).
-- The hover card is absolutely positioned inside `.poster-row`, which is the
-  only positioned ancestor — that's what makes its `offsetLeft`-based placement
-  and the row-bounds clamping work.
+
+- Page has 32px side padding, so a row spans `100vw − 64px`.
+- Both rows are flex; each poster is `flex: 1 1 0`, so they split the row evenly.
+- Row gaps: 8px. Radii: 32px (horizontal), 24px (vertical).
+- The «Совмещённый» card breaks out of the side gutters to span the full viewport
+  width; `body { overflow-x: hidden }` keeps that from adding a horizontal scroll.
