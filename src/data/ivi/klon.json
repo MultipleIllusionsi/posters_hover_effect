@@ -1,0 +1,324 @@
+{
+  "slug": "klon",
+  "id": 17835,
+  "title": "Клон",
+  "year": 2001,
+  "country": "Бразилия",
+  "genres": [
+    "Драмы",
+    "Мелодрамы",
+    "Фантастика",
+    "Латино",
+    "Зарубежные"
+  ],
+  "meta": [
+    "2001",
+    "драмы",
+    "1 сезон"
+  ],
+  "ratings": {
+    "kp": 7.53,
+    "imdb": 8.1,
+    "ivi": 9.31
+  },
+  "shortDescription": "Юная мусульманка Жади встречает бразильца Лукаса, которому суждено стать любовью всей её жизни.",
+  "synopsis": "Юная мусульманка Жади после смерти матери уезжает из Рио в Марокко, где живёт семья её дяди. Здесь её пути пересекаются с бразильцем Лукасом Феррасом, которому суждено стать любовью её жизни.",
+  "description": "1980-е. Юная мусульманка Жади выросла в бразильском Рио, но после смерти матери вынуждена вернуться в Марокко, где живёт её дядя Али. В Фесе свободолюбивой девушке всё кажется чуждым и непривычным, ей непросто следовать строгим религиозным традициям. Неожиданно здесь пути героини пересекаются с Лукасом, сыном богатого промышленника Леонидаса Ферраса, приехавшего в Марокко на отдых. Молодые люди влюбляются, однако принадлежность к разным мирам и культурам оказывается серьёзным препятствием для их любви. Тем временем в Рио близнец Лукаса Диогу погибает в авиакатастрофе. Его смерть полностью рушит все мечты и планы семьи Феррас. Лукас вынужден занять место брата в семейном бизнесе. А крёстный отец Диогу, доктор Альбьери, не оправившись от потери, решает совершить революционную, но незаконную процедуру – первым клонировать человека. Какие перипетии ждут главных героев на пути к счастью, ты узнаешь, посмотрев онлайн бразильский сериал «Клон» на Иви.",
+  "images": {
+    "posterVertical": "https://thumbs.dfs.ivi.ru/storage0/contents/f/0/46e1cef0dc46c693ac63961be6dcf6.jpg/445x675/?q=85&mod=to_webp",
+    "posterHorizontal": "https://thumbs.dfs.ivi.ru/storage0/contents/0/a/561ba111354014b6d2f60d3bbb5087.jpg/1352x760/?q=85&mod=to_webp",
+    "logo": "https://thumbs.dfs.ivi.ru/storage0/contents/a/2/06b23561e64ec486cc745da62d34e5.png",
+    "background": "https://thumbs.dfs.ivi.ru/storage0/contents/2/6/869c30b5954635931898c716f240d3.jpg/1280x720/?q=85&mod=to_webp",
+    "shots": [
+      "https://thumbs.dfs.ivi.ru/storage0/contents/8/e/79dd4936da42f78be4d7b67efcf289.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/c/b/224459a6784de29babb383ccd08b74.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/0/7/a769574deb4bb591d333486c32c63a.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/8/9/99deb518e3448c882d81f5282f15c8.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/b/0/a237cb5d7244b498d8c5df8c6e95f6.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/8/4/a20e286c6f4d7ca576d8f60af56b5d.jpg/1280x720/?q=85&mod=to_webp"
+    ],
+    "trailerPreview": "https://thumbs.dfs.ivi.ru/storage0/contents/8/c/55425d75e44381a0be22eb5a772a56.jpg"
+  },
+  "seasons": [
+    {
+      "id": "s1",
+      "title": "Сезон 1",
+      "episodes": [
+        {
+          "id": "e1",
+          "title": "Серия 1",
+          "subtitle": "1 серия · 48 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/f/0/5220af42164ff5b63b7f1a6534a375.jpg"
+        },
+        {
+          "id": "e2",
+          "title": "Серия 2",
+          "subtitle": "2 серия · 46 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/7/5/8c7d9d377948f090ab39675166daea.jpg"
+        },
+        {
+          "id": "e3",
+          "title": "Серия 3",
+          "subtitle": "3 серия · 47 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/7/1/50bac161eb4197ae2132a91e62f388.jpg"
+        },
+        {
+          "id": "e4",
+          "title": "Серия 4",
+          "subtitle": "4 серия · 47 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/8/1/69ab24736e4da3975dbea837906fd6.jpg"
+        },
+        {
+          "id": "e5",
+          "title": "Серия 5",
+          "subtitle": "5 серия · 48 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/7/0/97509c212e4924bf29f2f89e5e6186.jpg"
+        },
+        {
+          "id": "e6",
+          "title": "Серия 6",
+          "subtitle": "6 серия · 47 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/6/1/5917adfeff4f82981b0a6df48a6e91.jpg"
+        },
+        {
+          "id": "e7",
+          "title": "Серия 7",
+          "subtitle": "7 серия · 46 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/f/8/c74d7a0e5c4b5e826b8a28fdd6715d.jpg"
+        },
+        {
+          "id": "e8",
+          "title": "Серия 8",
+          "subtitle": "8 серия · 48 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/b/4/b5e514728d41adbd8949f10da69d7e.jpg"
+        },
+        {
+          "id": "e9",
+          "title": "Серия 9",
+          "subtitle": "9 серия · 46 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/9/0/6e4bca10a847b2b8036160f1ebfd14.jpg"
+        },
+        {
+          "id": "e10",
+          "title": "Серия 10",
+          "subtitle": "10 серия · 47 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/4/6/2c9eb9cb4945e1adbcffff59b0bc14.jpg"
+        },
+        {
+          "id": "e11",
+          "title": "Серия 11",
+          "subtitle": "11 серия · 47 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/4/e/724ccb0edd4bc2a86b509902c6a2f6.jpg"
+        },
+        {
+          "id": "e12",
+          "title": "Серия 12",
+          "subtitle": "12 серия · 47 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/2/5/fd205d15f0424b953ec7f0462fc897.jpg"
+        },
+        {
+          "id": "e13",
+          "title": "Серия 13",
+          "subtitle": "13 серия · 48 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/e/b/bf37255c42430c85dfa1ab5a7036a8.jpg"
+        },
+        {
+          "id": "e14",
+          "title": "Серия 14",
+          "subtitle": "14 серия · 45 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/b/d/1b9b1a234145dbae4387c470b19bcd.jpg"
+        },
+        {
+          "id": "e15",
+          "title": "Серия 15",
+          "subtitle": "15 серия · 48 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/8/4/67184e15104026bf01b8f95ec44f0f.jpg"
+        },
+        {
+          "id": "e16",
+          "title": "Серия 16",
+          "subtitle": "16 серия · 47 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/2/1/1d43bbd0a6484cba2d92efd48e3207.jpg"
+        },
+        {
+          "id": "e17",
+          "title": "Серия 17",
+          "subtitle": "17 серия · 46 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/5/b/7cd94756db4d2aa4c989fc19308c68.jpg"
+        },
+        {
+          "id": "e18",
+          "title": "Серия 18",
+          "subtitle": "18 серия · 45 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/1/4/5c964bac6a4fca8b9be78ecbd5368f.jpg"
+        },
+        {
+          "id": "e19",
+          "title": "Серия 19",
+          "subtitle": "19 серия · 46 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/7/e/261ad47a09419b8e929a66b919da47.jpg"
+        },
+        {
+          "id": "e20",
+          "title": "Серия 20",
+          "subtitle": "20 серия · 46 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/7/8/5c9cc8352d4052bc6011fc34964fca.jpg"
+        }
+      ]
+    }
+  ],
+  "comments": [
+    {
+      "id": "c1",
+      "author": "Аккаунт",
+      "text": "Урааа! Бразильские сериалы в Иви! Спасибо! Просто чудо! Очень ждали, особенно Клон!"
+    },
+    {
+      "id": "c2",
+      "author": "Натали",
+      "text": "Это самый топовый сериал из всех что я видела. Очень красивые актеры и профессиональная игра. Режиссеру отдельное спасибо. Столько любви, страсти и страданий. А музыка! Все песни исполняет Лара Фабиан. Прошло 23 года, а я опять его смотрю."
+    },
+    {
+      "id": "c3",
+      "author": "ирина",
+      "text": "Спустя столько лет - и снова смотрится на одном дыхании. Актёры сыграли бесподобно. Чарующая музыка, восточные чувственные мотивы. Непредсказуемый сюжет. Яркий восточный колорит. Актрисы приятные, да и актёры тоже. Прекрасная озвучка. К сожалению, в новых бразильских сериалах нет для меня той изюминки, что была в сериалах 90-х, начала 2000-х. С удовольствием пересматриваю старые. Спасибо Иви, что выкладываете."
+    },
+    {
+      "id": "c4",
+      "author": "катя",
+      "text": "Лучший сериа, который я когда-либо видела!!!"
+    },
+    {
+      "id": "c5",
+      "author": "Аккаунт",
+      "text": "Сериал поразил поднятыми социальным темами, очень удивительно, что сериал даже в 2025 году не теряет своей актуальности."
+    },
+    {
+      "id": "c6",
+      "author": "san4yy",
+      "text": "Спустя 23 года вновь пересмотрела сериал. Смотрела с новыми эмоциями. Но все, что и тогда бесили Лукас и доктор ха свою нерешительнность."
+    },
+    {
+      "id": "c7",
+      "author": "Аккаунт",
+      "text": "Мой любимый сериал. Он учит увидеть этот мир глубже, изысканней. Мир не идеален, но сюжет дает понять, что все зависит от человека, его решений, его выбора!"
+    },
+    {
+      "id": "c8",
+      "author": "Zali",
+      "text": "Лучший сериал всех времен. Хочется пересматривать снова и снова. Музыка просто невероятная..."
+    },
+    {
+      "id": "c9",
+      "author": "Pavel-RF",
+      "text": "Лучший сериал! Спасибо Иви! Ждем новинки и топовые сериалы Бразилии и дальше"
+    },
+    {
+      "id": "c10",
+      "author": "♡Алечка♡",
+      "text": "Самый любимый сериал,три раза в год его пересматриваю))"
+    }
+  ],
+  "similar": [
+    {
+      "id": "sim-18274",
+      "title": "Холод",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/f/6/aaee0d71cb4626ba26b6719eba0f50.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Несправедливо осуждённая Женя бежит из тюрьмы, чтобы отомстить тем, кто отнял у неё семью и свободу.",
+      "meta": [
+        "2026",
+        "драмы"
+      ]
+    },
+    {
+      "id": "sim-17468",
+      "title": "Рваный ветер",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/1/2/af5966a0a1468ba98f8e759e2476ea.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Бизнесмен Градов ввязывается в корпоративную войну за завод, которая перерастает в войну за любовь.",
+      "meta": [
+        "2024",
+        "драмы"
+      ]
+    },
+    {
+      "id": "sim-20829",
+      "title": "Затмение",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/e/b/b34825b8fb4507b1948897c9792837.jpg/640x360/?q=85&mod=to_webp",
+      "description": "1960, Москва. Полковник КГБ расследует вспышку чёрной оспы, чтобы предотвратить смертельную эпидемию",
+      "meta": [
+        "2026",
+        "драмы"
+      ]
+    },
+    {
+      "id": "sim-15662",
+      "title": "Матрёшка",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/b/d/2957f1d8774091b3fa76ddbffe9c98.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Простая студентка становится важнейшей шпионкой в детективе от режиссёра «28 панфиловцев».",
+      "meta": [
+        "2024",
+        "драмы"
+      ]
+    },
+    {
+      "id": "sim-20802",
+      "title": "Двойная жизнь Ми",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/e/6/4815dcfc584ba2bf30665cd9ec526c.jpg/640x360/?q=85&mod=to_webp",
+      "description": "У школьницы Милы есть секрет: она суперзвезда. Комедия с Миланой Хаметовой и Давидом Манукяном.",
+      "meta": [
+        "2026",
+        "драмы"
+      ]
+    },
+    {
+      "id": "sim-21330",
+      "title": "Потерянная жизнь",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/2/4/5a0fd5133e4e669011c64b481942e5.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Тайны прошлого настигают Катерину, ставя под угрозу её брак и карьеру. Драма с Татьяной Арнтгольц.",
+      "meta": [
+        "2026",
+        "драмы"
+      ]
+    },
+    {
+      "id": "sim-17043",
+      "title": "Точка ноль",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/d/e/7487c940bd4494b0f99d7e4c5bf7d3.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Тихая деревня на Алтае стала очагом загадочной эпидемии. Медицинская драма с Мариной Александровой.",
+      "meta": [
+        "2024",
+        "драмы"
+      ]
+    },
+    {
+      "id": "sim-18651",
+      "title": "Минута тишины",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/2/b/e104d6189c4cdf86f2337c3d0cc887.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Бизнесмен с амнезией, спасённый после землетрясения, скрывается от спецслужб на Ближнем Востоке.",
+      "meta": [
+        "2025",
+        "драмы"
+      ]
+    },
+    {
+      "id": "sim-21474",
+      "title": "Выход есть всегда",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/a/2/29428cef8e46bbb3fbda765bc1315f.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Борьба за опеку над сыном оборачивается для Ирины чередой угроз и опасных происшествий.",
+      "meta": [
+        "2026",
+        "драмы"
+      ]
+    },
+    {
+      "id": "sim-16784",
+      "title": "Золотое дно",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/e/1/65edbacc5440e7a127e573560afc03.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Бизнес-империи Градовых угрожают новые враги, санкции и семейные склоки. Продолжение хитовой саги.",
+      "meta": [
+        "2024",
+        "драмы"
+      ]
+    }
+  ]
+}

@@ -16,7 +16,7 @@ export default function CombinedPosterHorizontal({ data, selected = false, ...re
       {...rest}
     >
       <span className="combined-horizontal__media">
-        <img className="combined-horizontal__image" src={data.src} alt={data.alt} />
+        <img className="combined-horizontal__image" src={data.src} alt={data.alt} loading="lazy" />
         <span className="combined-horizontal__scrim" aria-hidden="true" />
       </span>
 

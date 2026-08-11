@@ -1,0 +1,218 @@
+{
+  "slug": "peregovorschik",
+  "id": 16689,
+  "title": "Переговорщик",
+  "year": 2022,
+  "country": "Россия",
+  "genres": [
+    "Детективы",
+    "Российские"
+  ],
+  "meta": [
+    "2022",
+    "детективы",
+    "1 сезон"
+  ],
+  "ratings": {
+    "kp": 7.8,
+    "imdb": null,
+    "ivi": 8.52
+  },
+  "shortDescription": "Гений переговоров предотвращает преступления и ищет тайного врага. Детектив от автора «Хрустального»",
+  "synopsis": "Мастер переговоров предотвращает преступления и расследует гибель дочери, подозревая тайного врага. Детектив с Кириллом Пироговым от режиссёра «Алиби» и сценариста «Хрустального».",
+  "description": "Гениальный психолог-переговорщик обезвреживает преступников силой слова и расследует гибель дочери, подозревая тайного врага. Напряжённый детектив с Кириллом Пироговым от режиссёра «Алиби» и сценариста «Хрустального». На счету у мастера переговоров Александра Максимова множество спасённых жизней. Ему не раз удавалось предотвращать теракты, отговаривать самоубийц и освобождать заложников. При этом, несмотря на уникальную методику и талант манипулятора, Максимов не избежал и страшных ошибок. Одна из них стоила жизни его маленькой дочери. А через девять лет на пути у опального переговорщика снова появляется загадочный враг, виновный в роковой трагедии. Смотреть остросюжетный сериал «Переговорщик» можно онлайн.",
+  "images": {
+    "posterVertical": "https://thumbs.dfs.ivi.ru/storage0/contents/3/6/dffd3f68a04d5290b963be567e42ed.jpg/445x675/?q=85&mod=to_webp",
+    "posterHorizontal": "https://thumbs.dfs.ivi.ru/storage0/contents/e/1/804fbc259842dda52a5274b713919a.jpg/1352x760/?q=85&mod=to_webp",
+    "logo": "https://thumbs.dfs.ivi.ru/storage0/contents/6/c/6152f4319a44beafd5b08030c09e43.jpg",
+    "background": "https://thumbs.dfs.ivi.ru/storage0/contents/0/f/b004cb79e2466d888a100937793590.jpg/1280x720/?q=85&mod=to_webp",
+    "shots": [
+      "https://thumbs.dfs.ivi.ru/storage0/contents/2/e/3addd59b514e93ae3a7b5009676215.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/8/7/b7604865a1451ead2c4c0cd1292e1d.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/e/a/594456651845f087fed9ad9164ebee.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/c/c/e2e8ab8447464089357fb6951d6f25.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/6/2/a42584268a415ab3b34771452d703f.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/1/d/f1da6e3917400fb79af64a8e49102e.jpg/1280x720/?q=85&mod=to_webp"
+    ],
+    "trailerPreview": "https://thumbs.dfs.ivi.ru/storage0/contents/b/e/9b5c302da44daf934f91b52d55306e.jpg"
+  },
+  "seasons": [
+    {
+      "id": "s1",
+      "title": "Сезон 1",
+      "episodes": [
+        {
+          "id": "e1",
+          "title": "Серия 1",
+          "subtitle": "1 серия · 44 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/9/0/2cde8f849043d996e274f53d25d5b0.jpg"
+        },
+        {
+          "id": "e2",
+          "title": "Серия 2",
+          "subtitle": "2 серия · 51 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/5/a/afdc1f825245ad8f7db221dc165655.jpg"
+        },
+        {
+          "id": "e3",
+          "title": "Серия 3",
+          "subtitle": "3 серия · 46 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/5/8/2f0c7074bf4d3f86d373d3aa34de09.jpg"
+        },
+        {
+          "id": "e4",
+          "title": "Серия 4",
+          "subtitle": "4 серия · 46 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/a/2/cc6353ad5b420b9e3dcb5dc5095d6e.jpg"
+        },
+        {
+          "id": "e5",
+          "title": "Серия 5",
+          "subtitle": "5 серия · 40 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/6/0/6ac0552f9647b1a2bbea7b09f6ada9.jpg"
+        },
+        {
+          "id": "e6",
+          "title": "Серия 6",
+          "subtitle": "6 серия · 43 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/b/9/da9fe179f04e1c9497e452daf36f59.jpg"
+        },
+        {
+          "id": "e7",
+          "title": "Серия 7",
+          "subtitle": "7 серия · 44 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/5/a/4a2dffd46343458cba4864b97df5fe.jpg"
+        }
+      ]
+    }
+  ],
+  "comments": [
+    {
+      "id": "c1",
+      "author": "Аккаунт",
+      "text": "Классный сериал."
+    },
+    {
+      "id": "c2",
+      "author": "av.bolgarov1980",
+      "text": "Откуда столько восторженных отзывов и хорошие рецензии? Хорошая задумка, рабочая тематика, вполне удачный актерский состав и отличная работа оператора. Мог бы получиться классный триллер, но кто-то вмешался. и получилась фантастика для детей младшего школьного возраста, на фоне которой Электроник - крутой блокбастер."
+    },
+    {
+      "id": "c3",
+      "author": "виталий",
+      "text": "когда капитан ездит на джипе за 40 млн как то смотреть уже не хочется"
+    },
+    {
+      "id": "c4",
+      "author": "Аккаунт",
+      "text": "хороший фильм. даже немного познавательный в плане психологии."
+    },
+    {
+      "id": "c5",
+      "author": "Аккаунт",
+      "text": "Один из лучших,если не лучший,сериал за последнии годы.Огромное спасибо всей команде.Кирилл Пирогов отдельная тема;талантливый,не пиарится,не скалится,простите,виниловой улыбкой,но при этом очень притягателен и ему веришь.Видела его в спектакле\"Сон в летнюю ночь\",там у него эпизод,но КАКОЙ!"
+    }
+  ],
+  "similar": [
+    {
+      "id": "sim-18038",
+      "title": "Прометей",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/1/c/f5778db2c44944bed7409b15f01429.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Журналистка расследует дело об исчезновении самолёта много лет назад. Триллер с Любовью Аксёновой.",
+      "meta": [
+        "2024",
+        "детективы"
+      ]
+    },
+    {
+      "id": "sim-20029",
+      "title": "Нерождённая",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/a/8/569de0211b433cbbe273e2362161a6.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Школьница, видящая призраков, узнаёт тайну своего сверхъестественного дара.",
+      "meta": [
+        "2024",
+        "детективы"
+      ]
+    },
+    {
+      "id": "sim-18044",
+      "title": "Кордон",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/5/4/7715c7bd4c4c339a422d9a18769a45.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Несправедливо уволенный пограничник продолжает ловить контрабандистов. Детектив с Петром Рыковым.",
+      "meta": [
+        "2024",
+        "детективы"
+      ]
+    },
+    {
+      "id": "sim-20829",
+      "title": "Затмение",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/e/b/b34825b8fb4507b1948897c9792837.jpg/640x360/?q=85&mod=to_webp",
+      "description": "1960, Москва. Полковник КГБ расследует вспышку чёрной оспы, чтобы предотвратить смертельную эпидемию",
+      "meta": [
+        "2026",
+        "детективы"
+      ]
+    },
+    {
+      "id": "sim-12120",
+      "title": "Майя",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/f/0/7741c32ffe4889b07a9e32453cfa79.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Майя, мечтающая найти убийцу своего отца, начинает расследовать исчезновение «королевы» школы.",
+      "meta": [
+        "2014",
+        "детективы"
+      ]
+    },
+    {
+      "id": "sim-17306",
+      "title": "Такси под прикрытием",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/0/9/574c058b394ab3956ec21041e7ee07.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Оперативник под видом таксиста ловит бандитов на улицах Петербурга. Детектив на высоких скоростях.",
+      "meta": [
+        "2023",
+        "детективы"
+      ]
+    },
+    {
+      "id": "sim-21421",
+      "title": "Скамейка запасных",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/2/9/12b6f012884e3fb32aa80e06dbd2d9.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Отдел неудачливых в карьере, но целеустремлённых следователей распутывает самые сложные преступления",
+      "meta": [
+        "2026",
+        "детективы"
+      ]
+    },
+    {
+      "id": "sim-17385",
+      "title": "Страх над Невой",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/e/6/3de87e0997417c901e3fa379d4900f.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Ленинград, 1967 год. Майор КГБ и капитан милиции расследуют таинственные убийства женщин.",
+      "meta": [
+        "2024",
+        "детективы"
+      ]
+    },
+    {
+      "id": "sim-14436",
+      "title": "Объявлен мёртвым (2021)",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/3/5/3e6516ac9d4013a8b47937ba0fe3b9.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Полицейский, считавшийся убитым, возвращается из плена два года спустя. Детектив с Евгением Прониным",
+      "meta": [
+        "2020",
+        "детективы"
+      ]
+    },
+    {
+      "id": "sim-10979",
+      "title": "Обратный отсчёт",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/f/5/02ccad499148ddb37af22169a834ae.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Юрий Колокольников и Полина Максимова в роли полицейских раскрывают убийства наперегонки со временем",
+      "meta": [
+        "2018",
+        "детективы"
+      ]
+    }
+  ]
+}

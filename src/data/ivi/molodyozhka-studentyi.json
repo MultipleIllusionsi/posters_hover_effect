@@ -1,0 +1,229 @@
+{
+  "slug": "molodyozhka-studentyi",
+  "id": 17830,
+  "title": "Молодёжка. Новая смена",
+  "year": 2024,
+  "country": "Россия",
+  "genres": [
+    "Спорт",
+    "Драмы",
+    "Комедийные",
+    "Российские"
+  ],
+  "meta": [
+    "2024",
+    "спорт",
+    "1 сезон"
+  ],
+  "ratings": {
+    "kp": 8.88,
+    "imdb": null,
+    "ivi": 9.14
+  },
+  "shortDescription": "Игрок «Медведей» Андрей Кисляк должен помочь студенческой команде выбиться в чемпионы.",
+  "synopsis": "Хоккейная команда «Акулы» находится на грани роспуска. Казанцев, занимающий важный пост в вузе, решает дать им второй шанс, пригласив игрока «Медведей» Андрея Кисляка стать новым тренером.",
+  "description": "В центре истории – студенческая хоккейная команда «Акулы», выступающая за Политехнический институт. Дела у неё идут не лучшим образом, и она оказывается на грани роспуска. Узнав об этом, Казанцев, занимающий теперь важную должность в вузе, решает дать молодым спортсменам второй шанс. Неожиданной помощью в деле оказывается Андрей Кисляк, которого Вадим Юрьевич случайно встретил в такси. Он приглашает игрока «Медведей» стать тренером для «Акул». Но, чтобы сохранить команду, новому наставнику необходимо превратить аутсайдеров турнирной таблицы в настоящих чемпионов. Ради амбициозного плана Андрей должен не только найти общий язык с подопечными, но и измениться сам. Получится ли у героев добиться успеха? Чтобы узнать, смотри онлайн сериал «Молодёжка. Новая смена» на Иви.",
+  "images": {
+    "posterVertical": "https://thumbs.dfs.ivi.ru/storage0/contents/7/8/c2c808fb504df6ac1ed0f0378f5dd9.jpg/445x675/?q=85&mod=to_webp",
+    "posterHorizontal": "https://thumbs.dfs.ivi.ru/storage0/contents/c/3/3c8ac0e6dc4ad3b1727b91a493580a.jpg/1352x760/?q=85&mod=to_webp",
+    "logo": "https://thumbs.dfs.ivi.ru/storage0/contents/6/6/5a122278bc41649d881f3deb882096.jpg",
+    "background": "https://thumbs.dfs.ivi.ru/storage0/contents/0/5/0004817fe2476e9b2afddf78b3072b.jpg/1280x720/?q=85&mod=to_webp",
+    "shots": [
+      "https://thumbs.dfs.ivi.ru/storage0/contents/9/a/d13c36528e4f1ebaa2e13bb84861a7.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/8/8/168554006144b69bdad1be8ce4addd.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/e/5/c543dcffba457cbe9e7d0d0b20d4b3.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/0/b/3f93f6809a4b4e9005b7a202f79f8c.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/0/b/4843a440e84364b941077151d9bb23.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/4/2/c5a5e93ae041998d2268568e01bca8.jpg/1280x720/?q=85&mod=to_webp"
+    ],
+    "trailerPreview": "https://thumbs.dfs.ivi.ru/storage0/contents/9/f/c65be231a549c18f24e67584c4b115.jpg"
+  },
+  "seasons": [
+    {
+      "id": "s1",
+      "title": "Сезон 1",
+      "episodes": [
+        {
+          "id": "e1",
+          "title": "Серия 1",
+          "subtitle": "1 серия · 51 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/4/8/8bebe511254997b7ed3b6e6e8cc258.jpg"
+        },
+        {
+          "id": "e2",
+          "title": "Серия 2",
+          "subtitle": "2 серия · 48 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/c/8/cc5e5b19f04660b71d804a08f57f79.jpg"
+        },
+        {
+          "id": "e3",
+          "title": "Серия 3",
+          "subtitle": "3 серия · 48 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/9/6/18032054e942fea64cc78ef153fb35.jpg"
+        },
+        {
+          "id": "e4",
+          "title": "Серия 4",
+          "subtitle": "4 серия · 49 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/f/7/f7a7dd745c48f8b94748cb565c159b.jpg"
+        },
+        {
+          "id": "e5",
+          "title": "Серия 5",
+          "subtitle": "5 серия · 48 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/1/e/654776c6e849f5b6aecef4795ff412.jpg"
+        },
+        {
+          "id": "e6",
+          "title": "Серия 6",
+          "subtitle": "6 серия · 48 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/1/d/acf920d6604629bc5e0d07f0289631.jpg"
+        },
+        {
+          "id": "e7",
+          "title": "Серия 7",
+          "subtitle": "7 серия · 48 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/5/7/ee12d679634da5a79e98f8c8280b6e.jpg"
+        },
+        {
+          "id": "e8",
+          "title": "Серия 8",
+          "subtitle": "8 серия · 48 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/6/0/036f069ace408e8e5ecc30203eabec.jpg"
+        },
+        {
+          "id": "e9",
+          "title": "Серия 9",
+          "subtitle": "9 серия · 48 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/0/7/b423f001184210a4b25301ca0d764d.jpg"
+        },
+        {
+          "id": "e10",
+          "title": "Серия 10",
+          "subtitle": "10 серия · 48 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/8/a/b3eaaf97934bd685bbeb2d3bd2a7ac.jpg"
+        },
+        {
+          "id": "e11",
+          "title": "Серия 11",
+          "subtitle": "11 серия · 48 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/b/0/ef57790a3d49948173f5ef4999c838.jpg"
+        },
+        {
+          "id": "e12",
+          "title": "Серия 12",
+          "subtitle": "12 серия · 48 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/4/6/45248ec5214b8287cf4ccb8ed1c4a3.jpg"
+        },
+        {
+          "id": "e13",
+          "title": "Серия 13",
+          "subtitle": "13 серия · 48 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/c/7/76aafefaff464cacb48ad04845a6f2.jpg"
+        },
+        {
+          "id": "e14",
+          "title": "Серия 14",
+          "subtitle": "14 серия · 48 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/a/2/aa3bb4a9dc49d899700a18cb4e29fe.jpg"
+        },
+        {
+          "id": "e15",
+          "title": "Серия 15",
+          "subtitle": "15 серия · 48 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/c/5/c4956ea09b41fcb74618df03132852.jpg"
+        },
+        {
+          "id": "e16",
+          "title": "Серия 16",
+          "subtitle": "16 серия · 47 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/5/8/7dd19017b34b339fffcd2892d45adf.jpg"
+        }
+      ]
+    }
+  ],
+  "comments": [
+    {
+      "id": "c1",
+      "author": "fokin47",
+      "text": "Давно ждал продолжение сериала, и вот он! На мой взгляд интересный сюжет получается. Ждем развития событий. Первое впечатление отличное!!"
+    },
+    {
+      "id": "c2",
+      "author": "Аккаунт",
+      "text": "Видим Молодежку - ставим 10 баллов. Хорошо, что проект продолжается."
+    },
+    {
+      "id": "c3",
+      "author": "Айко",
+      "text": "Наконец то продолжение!!!! Супер сериал!!! Лучший!!! Аж всплакнула!!! ************"
+    },
+    {
+      "id": "c4",
+      "author": "helga-fo",
+      "text": "а мне нравится! Очень захватывает сюжет! и новые линии хороши! и старички порадовали! ОЧЕНЬ приятно"
+    },
+    {
+      "id": "c5",
+      "author": "Аккаунт",
+      "text": "Сам по себе сериал неплохой. Но не вернулись к тому с чего начинали, а именно в 1 и 2 сезоне было больше хокеея, а сейчас это обычный сериал с маленьким показом команды и игр"
+    },
+    {
+      "id": "c6",
+      "author": "Аккаунт",
+      "text": "Перевыпуски Букиных, Папиных дочек не зашли вообще, а вот Молодежка держит удар. В первых сериях привыкаешь к персам, запоминаешь, потом интересно следить за сюжетом. Персонажи все новые, никаких параллелей со старой молодежкой нет. Сценаристам респект. Актерам тоже."
+    },
+    {
+      "id": "c7",
+      "author": "Аккаунт",
+      "text": "Не хватает мелодий которые были в предыдущих сезонах"
+    },
+    {
+      "id": "c8",
+      "author": "ВитяСаратовский",
+      "text": "Дождались молодежку 7 сезон, жду с нетерпением, когда можно будет уже посмотреть"
+    },
+    {
+      "id": "c9",
+      "author": "fraxt2016",
+      "text": "Привет обоятельный человек, который читает сейчас это надпись, скажу так : приятно смотреть, приятное впечатление, а тонкий юмор, как лед в равнодушие не оставлет )))"
+    },
+    {
+      "id": "c10",
+      "author": "yanmai",
+      "text": "молодежка-самый лучший сериа"
+    }
+  ],
+  "similar": [
+    {
+      "id": "sim-15850",
+      "title": "Слава",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/0/f/278120c7d649bba8ac9be8b4b43bc9.jpg/640x360/?q=85&mod=to_webp",
+      "description": "История спортивного пути и жизни знаменитого хоккеиста Вячеслава Фетисова.",
+      "meta": [
+        "2015",
+        "спорт"
+      ]
+    },
+    {
+      "id": "sim-8830",
+      "title": "Жаркий лёд",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/5/9/a521745a4f409f9a053bb5cc91d6e5.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Несколько пар фигуристов борются за успех и любовь. Мелодрама с Екатериной Гусевой.",
+      "meta": [
+        "2008",
+        "спорт"
+      ]
+    },
+    {
+      "id": "sim-20271",
+      "title": "OUT",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/b/6/9894bc2cbc4f2c92b08ba8a8b06f4a.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Молодой футболист с травмой начинает работать на букмекерскую мафию, влияя на исход матчей.",
+      "meta": [
+        "2025",
+        "спорт"
+      ]
+    }
+  ]
+}

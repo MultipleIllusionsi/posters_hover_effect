@@ -1,0 +1,263 @@
+{
+  "slug": "iskusstvo-soblazna",
+  "id": 18140,
+  "title": "Искусство соблазна",
+  "year": 2025,
+  "country": "Россия",
+  "genres": [
+    "Комедийные",
+    "Мелодрамы",
+    "Драмы",
+    "Российские"
+  ],
+  "meta": [
+    "2025",
+    "комедийные",
+    "1 сезон"
+  ],
+  "ratings": {
+    "kp": 6.82,
+    "imdb": null,
+    "ivi": 8.09
+  },
+  "shortDescription": "Агентство по соблазнению мужчин начинает помогать обманутым женщинам. Продолжение хита с Лизой Моряк",
+  "synopsis": "Новое агентство трёх соблазнительниц помогает угнетённым женщинам и противостоит беспринципному конкуренту. Продолжение авантюрной комедии с Лизой Моряк от создателей «Жизни по вызову».",
+  "description": "Новое агентство трёх соблазнительниц помогает угнетённым женщинам и противостоит беспринципному конкуренту. Авантюрная комедия с Лизой Моряк от создателей «Жизни по вызову». Также в ярком касте – Анна Глаубэ, Ольга Смирнова, Матвей Лыков, Кирилл Дыцевич и многие другие. Расчётливая авантюристка Анфиса, преподаватель философии София и многодетная мама Милена в совершенстве освоили искусство соблазнения и психологических манипуляций. Они решают использовать свои навыки для новой миссии – защищать обманутых женщин и восстанавливать справедливость. Но кто поможет им самим, когда они столкнутся с опасным противником и собственным прошлым? Смотри хитовый сериал «Искусство соблазна» онлайн вместе с Иви.",
+  "images": {
+    "posterVertical": "https://thumbs.dfs.ivi.ru/storage0/contents/0/d/5fba7db02f4e7aaaf6e271f34747c4.jpg/445x675/?q=85&mod=to_webp",
+    "posterHorizontal": "https://thumbs.dfs.ivi.ru/storage0/contents/2/1/05b996d76649198e31ac1073260f6e.jpg/1352x760/?q=85&mod=to_webp",
+    "logo": "https://thumbs.dfs.ivi.ru/storage0/contents/1/1/61e94149eb472db31343627cd5d0de.jpg",
+    "background": "https://thumbs.dfs.ivi.ru/storage0/contents/7/1/cfcdbb8c2f4f3f9f57d157b92ad775.jpg/1280x720/?q=85&mod=to_webp",
+    "shots": [
+      "https://thumbs.dfs.ivi.ru/storage0/contents/7/4/2ad9368aab42e9b67a442b9e0494a7.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/b/4/eeb3433321420c8f8a74a03823f9c1.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/c/4/1f235576784f8590d61a82718614c5.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/7/6/0746d9efb144cda396baafe0a7376c.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/b/9/94ac0ef7cf4594ba7f1697fdb9dbca.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/8/2/e6355ecc3b41768c05b0854fba9b73.jpg/1280x720/?q=85&mod=to_webp"
+    ],
+    "trailerPreview": "https://thumbs.dfs.ivi.ru/storage0/contents/c/0/1b09168fa74385b42c4d453ae8e503.jpg"
+  },
+  "seasons": [
+    {
+      "id": "s1",
+      "title": "Сезон 1",
+      "episodes": [
+        {
+          "id": "e1",
+          "title": "Серия 1",
+          "subtitle": "1 серия · 24 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/1/f/d23d2ea0e6430ea94be41f4298cb0f.jpg"
+        },
+        {
+          "id": "e2",
+          "title": "Серия 2",
+          "subtitle": "2 серия · 30 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/f/5/2b27bac6f243969ab608563621b1d8.jpg"
+        },
+        {
+          "id": "e3",
+          "title": "Серия 3",
+          "subtitle": "3 серия · 25 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/5/7/6b6b9a0e7940df8e40faf8fae50813.jpg"
+        },
+        {
+          "id": "e4",
+          "title": "Серия 4",
+          "subtitle": "4 серия · 30 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/5/0/9bdb4615554c3996fed176a37c7ef5.jpg"
+        },
+        {
+          "id": "e5",
+          "title": "Серия 5",
+          "subtitle": "5 серия · 26 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/7/f/156d9369804dc9b345420426010a69.jpg"
+        },
+        {
+          "id": "e6",
+          "title": "Серия 6",
+          "subtitle": "6 серия · 30 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/e/c/1499cce3f64b3eb1fc03f6d1733751.jpg"
+        },
+        {
+          "id": "e7",
+          "title": "Серия 7",
+          "subtitle": "7 серия · 25 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/6/9/f52ee5db304ea698fd609986fc0d23.jpg"
+        },
+        {
+          "id": "e8",
+          "title": "Серия 8",
+          "subtitle": "8 серия · 25 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/b/0/bac1a37d0f4f0783aa710b0971c3e2.jpg"
+        },
+        {
+          "id": "e9",
+          "title": "Серия 9",
+          "subtitle": "9 серия · 26 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/f/5/06bf2066c74fcba586e87a22a70805.jpg"
+        },
+        {
+          "id": "e10",
+          "title": "Серия 10",
+          "subtitle": "10 серия · 26 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/d/8/acdaf364374cec90fd9c25252f23ca.jpg"
+        }
+      ]
+    }
+  ],
+  "comments": [
+    {
+      "id": "c1",
+      "author": "marysya_leto",
+      "text": "Куда? Куда катится наш кинематограф......."
+    },
+    {
+      "id": "c2",
+      "author": "poroshinv35",
+      "text": "Фильм из серии \"Влажные фантазии бездарного режиссёра Андреасяна\". Рейтинг - ноль!"
+    },
+    {
+      "id": "c3",
+      "author": "Аккаунт",
+      "text": "Отвратительный сериал, унижение и женщин и мужчин."
+    },
+    {
+      "id": "c4",
+      "author": "Манучер",
+      "text": "Пришлось выключить на 10 минуте"
+    },
+    {
+      "id": "c5",
+      "author": "Аккаунт",
+      "text": "чушь полная, так ещё и мужиков выставилии как дурвков. что за прикол такой, начало было много обещающе а дальше такая хрень"
+    },
+    {
+      "id": "c6",
+      "author": "Взрослый",
+      "text": "пошло и мерзко"
+    },
+    {
+      "id": "c7",
+      "author": "and2011",
+      "text": "такая гаденькая пошлятина, пачкающая семейную жизнь.Дурной и выдуманный пример для молодежи."
+    },
+    {
+      "id": "c8",
+      "author": "Аккаунт",
+      "text": "Сериал эскорт на минималках"
+    },
+    {
+      "id": "c9",
+      "author": "masha",
+      "text": "Это смотреть в принципе нельзя, меня хватило на 1,5 серии с учетом перемотки, там точно был режиссер и эти актеры?"
+    },
+    {
+      "id": "c10",
+      "author": "maclonas",
+      "text": "конец странный. вообще непонятный"
+    }
+  ],
+  "similar": [
+    {
+      "id": "sim-17228",
+      "title": "Папины дочки. Новые",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/f/5/884abc703f45ebb36d2670b84d6334.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Даша уходит из семьи, и Веник, как и его тесть много лет назад, становится отцом-одиночкой.",
+      "meta": [
+        "2023",
+        "комедийные"
+      ]
+    },
+    {
+      "id": "sim-20802",
+      "title": "Двойная жизнь Ми",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/e/6/4815dcfc584ba2bf30665cd9ec526c.jpg/640x360/?q=85&mod=to_webp",
+      "description": "У школьницы Милы есть секрет: она суперзвезда. Комедия с Миланой Хаметовой и Давидом Манукяном.",
+      "meta": [
+        "2026",
+        "комедийные"
+      ]
+    },
+    {
+      "id": "sim-7498",
+      "title": "Папины дочки",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/0/b/38af6767b541d19859913534cdc9f6.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Легендарный ситком о жизни большой семьи Васнецовых, где подрастают пять очень разных дочек.",
+      "meta": [
+        "2007",
+        "комедийные"
+      ]
+    },
+    {
+      "id": "sim-21690",
+      "title": "Дневник новой русской",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/7/5/cc2fed1b844206b6b2b3ef76c1b77c.jpg/640x360/?q=85&mod=to_webp",
+      "description": "У психолога Нади три мужчины, три проблемы и ни одного решения. Ромком с Еленой Подкаминской.",
+      "meta": [
+        "2020",
+        "комедийные"
+      ]
+    },
+    {
+      "id": "sim-20276",
+      "title": "Во всём виноват Стамбул",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/1/e/90f7530b934a9ca7c8d0d8d6254b09.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Зухра выдаёт себя за невесту на свадьбе своей сестры-близнеца Фатимы, задержавшейся в Стамбуле.",
+      "meta": [
+        "2025",
+        "комедийные"
+      ]
+    },
+    {
+      "id": "sim-17830",
+      "title": "Молодёжка. Новая смена",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/c/3/3c8ac0e6dc4ad3b1727b91a493580a.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Игрок «Медведей» Андрей Кисляк должен помочь студенческой команде выбиться в чемпионы.",
+      "meta": [
+        "2024",
+        "комедийные"
+      ]
+    },
+    {
+      "id": "sim-17331",
+      "title": "Мама будет против",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/4/d/9e92afd0b84e5fb6f43f848339a2c2.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Харизматичная тёща против непутёвого жениха. Комедийный сериал от команды «Уральские пельмени».",
+      "meta": [
+        "2023",
+        "комедийные"
+      ]
+    },
+    {
+      "id": "sim-19528",
+      "title": "Склиф",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/6/d/4fc5f7aa4e4a39a4747cd25025f90c.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Хирург Покровская борется за жизни пациентов и признание коллег. Медицинская драма с Кристиной Асмус",
+      "meta": [
+        "2025",
+        "комедийные"
+      ]
+    },
+    {
+      "id": "sim-21100",
+      "title": "Оливка, Игорёк и Рекс",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/4/5/8976f4648643c88494f023fd7fd100.jpg/640x360/?q=85&mod=to_webp",
+      "description": "СССР, 1980-е. Деревенская девочка Оливка переезжает в город, где ей предстоит снова искать друзей.",
+      "meta": [
+        "2026",
+        "комедийные"
+      ]
+    },
+    {
+      "id": "sim-14194",
+      "title": "Нежность",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/9/3/0fcab2e5ab47af9fbf3b3e89b7f441.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Самая нежная комедия зимы. Как одна ночь в гостинице «Астория» изменила судьбу мужчины и женщины.",
+      "meta": [
+        "2020",
+        "комедийные"
+      ]
+    }
+  ]
+}

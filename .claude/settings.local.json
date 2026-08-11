@@ -17,7 +17,25 @@
       "Bash(curl -sS -o subscription-v2.svg \"https://www.figma.com/api/mcp/asset/8785857d-d3dc-48df-a3d7-11369cb5f971.svg\")",
       "Bash(sed -i '' 's/const serious=has\\(\"драма\",\"военная\",\"биография\"\\);/const isMel=genre.includes\\(\"мелодрама\"\\);const serious=has\\(\"драма\",\"военная\",\"биография\"\\)\\\\&\\\\&!isMel;/' badgecheck2.mjs)",
       "Bash(sed -i '' 's/const light=has\\(\"комедия\",\"семейный\",\"спорт\",\"мелодрама\"\\);/const light=isMel||has\\(\"комедия\",\"семейный\",\"спорт\"\\);/' badgecheck2.mjs)",
-      "Bash(node badgecheck2.mjs)"
+      "Bash(node badgecheck2.mjs)",
+      "Bash(curl -sS -m 25 -A 'Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/126 Safari/537.36' https://www.ivi.ru/watch/hrustalnyij -o /tmp/ivi_page.html -w 'HTTP %{http_code}  size=%{size_download}B\\\\n')",
+      "Read(//tmp/**)",
+      "Bash(curl -sS -m 20 -I -e http://localhost:5173/ https://thumbs.dfs.ivi.ru/storage0/contents/7/7/3aeb9f120148d19d702ce0ea7a7f9b.jpg -w 'HTTP %{http_code} type=%{content_type}\\\\n')",
+      "Bash(curl -sS -m 25 -A 'Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/126 Safari/537.36' -L https://www.ivi.ru/watch/hrustalnyij -o /tmp/ivi_page2.html -w 'final=%{url_effective}\\\\nHTTP %{http_code}  size=%{size_download}B\\\\n')",
+      "Bash(grep -ao 'window.__INITIAL_STATE__ = .\\\\{0,80\\\\}' /tmp/ivi_page2.html)",
+      "Bash(node scripts/ivi-extract.mjs hrustalnyij)",
+      "Bash(node --input-type=module -e ' *)",
+      "Bash(node --check scripts/ivi-extract.mjs)",
+      "Bash(node -e \"JSON.parse\\(require\\('fs'\\).readFileSync\\('src/data/ivi/hrustalnyij.json','utf8'\\)\\); console.log\\('✓ hrustalnyij.json valid, reviews:', JSON.parse\\(require\\('fs'\\).readFileSync\\('src/data/ivi/hrustalnyij.json','utf8'\\)\\).reviews.length\\)\")",
+      "Bash(echo \"=== current unix time ===\")",
+      "Bash(date +%s)",
+      "Bash(echo \"=== plain \\(foreign IP\\), range request ===\")",
+      "Bash(curl -sS -m 20 -r 0-1000 -A 'Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/126 Safari/537.36' -o /dev/null -w 'HTTP %{http_code} type=%{content_type} size=%{size_download}\\\\n' https://region.dfs.ivi.ru/jW1KPs2JXD6cFmVejHm0UzN3KmxstrvMgB13V8pqzN62Mx59nhaC53043/mp4-hi/x4CX2mB3orPStpX6Li4trA,1786470280/storage0/contents/d/9/6118450e04497780d357c2a16effa6.mp4)",
+      "Bash(echo \"=== with X-Forwarded-For RU ===\")",
+      "Bash(curl -sS -m 20 -A 'Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/126 Safari/537.36' -D - -o /dev/null https://region.dfs.ivi.ru/jW1KPs2JXD6cFmVejHm0UzN3KmxstrvMgB13V8pqzN62Mx59nhaC53043/mp4-hi/x4CX2mB3orPStpX6Li4trA,1786470280/storage0/contents/d/9/6118450e04497780d357c2a16effa6.mp4)",
+      "Bash(F=\"/Users/szakharov/Downloads/player_20260811_124442.log\" *)",
+      "Bash(grep -oE '.{120}\"resolution_title\":\"400\",\"title\":\"SD 400\".{400}' /Users/szakharov/Downloads/player_20260811_124442.log)",
+      "Bash(curl -sS -m 25 -A 'Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/126 Safari/537.36' -H 'X-Forwarded-For: 95.108.213.1' -L https://www.ivi.ru/watch/26594/trailers -o /tmp/tr.html -w 'HTTP %{http_code} size=%{size_download} final=%{url_effective}\\\\n')"
     ]
   }
 }

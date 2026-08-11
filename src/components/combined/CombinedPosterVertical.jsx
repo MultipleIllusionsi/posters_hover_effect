@@ -15,7 +15,7 @@ export default function CombinedPosterVertical({ data, selected = false, ...rest
       {...rest}
     >
       <span className="combined-vertical__media">
-        <img className="combined-vertical__image" src={data.src} alt={data.alt} />
+        <img className="combined-vertical__image" src={data.src} alt={data.alt} loading="lazy" />
         <span className="combined-vertical__scrim" aria-hidden="true" />
 
         <span className="combined-vertical__overlay">

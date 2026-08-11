@@ -111,6 +111,42 @@ components. See the shape documented at the top of `src/data/postersData.js`:
 - **Font**: the design uses `iviSans Base`, loaded via `@font-face` in
   `src/index.css` from `assets/fonts/`.
 
+### Real data from ivi.ru
+
+**Every gallery card** is wired to real ivi.ru content. `scripts/ivi-extract.mjs`
+pulls from **two sources** and writes the normalized fields to
+`src/data/ivi/<slug>.json`, which `postersData.js` builds each card from:
+
+1. **ivi mobile API** (clean JSON, works headless, CORS `*`) — the base info and
+   posters: `videoinfo/v7?id=<numeric id>` for a film, `compilationinfo/v7?hru=<slug>`
+   for a series. Gives title, year, ratings, `description` (long) / `synopsis`
+   (short), the real `poster-vertical` / `poster-horizontal`, logo, backgrounds.
+   The «Похожее» rail is a genre-based `catalogue/v7?category=&genre=` query (same
+   category+genre as the title) — the site's personalised «С этим смотрят» rail is
+   session/anti-bot gated and can't be pulled headless.
+2. **SSR watch page** (`window.__INITIAL_STATE__`) — what the API omits: the
+   genre/country name dictionaries, the per-episode stills, and viewer comments
+   «отзывы» (author + text only, first 10 — the site shows no per-comment rating).
+
+The extractor auto-detects the type: a numeric argument is a film (`videoinfo` by
+id); a text `hru` is tried as a series first, then as a film. Pass any mix:
+
+```bash
+npm run extract:ivi hrustalnyij 112399 mazhor draniki   # hrus and ids together
+```
+
+Notes:
+- Images are hotlinked from `thumbs.dfs.ivi.ru` (CORS `*`), resized on the fly via
+  the CDN's `/<W>x<H>/?q=85&mod=to_webp` path; grid posters are `loading="lazy"`.
+- **Geo**: episodes/comments live only in the `www.ivi.ru` (Russian) SSR render;
+  from other regions the page redirects to `www.ivi.tv` (empty). The extractor
+  sends `X-Forwarded-For` with a Russian IP (`IVI_HEADERS`) so everything pulls
+  headless from any region.
+- **Trailer video** can't be pulled — ivi's streams are DRM-protected (only a
+  preview frame is public), so trailers stay local `assets/` files (cycled t1–t4)
+  until real per-title links are supplied.
+- Re-run any card any time: `npm run extract:ivi <hru|id>` regenerates its JSON.
+
 ## Layout
 
 - Page has 32px side padding, so a row spans `100vw − 64px`.

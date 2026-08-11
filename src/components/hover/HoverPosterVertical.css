@@ -19,6 +19,7 @@
   aspect-ratio: 222.667 / 337;
   font-family: var(--ivi-font);
   transition: 160ms ease-in;
+  cursor: pointer;
 }
 
 .hover-vertical:hover {

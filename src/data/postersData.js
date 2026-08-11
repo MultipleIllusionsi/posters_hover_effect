@@ -1,978 +1,148 @@
-import h1 from "../../assets/posters/poster_horizontal_01.jpg";
-import h2 from "../../assets/posters/poster_horizontal_02.jpg";
-import h3 from "../../assets/posters/poster_horizontal_03.jpg";
-import h4 from "../../assets/posters/poster_horizontal_04.jpg";
-import v1 from "../../assets/posters/poster_vertical_01.jpg";
-import v2 from "../../assets/posters/poster_vertical_02.jpg";
-import v3 from "../../assets/posters/poster_vertical_03.jpg";
-import v4 from "../../assets/posters/poster_vertical_04.jpg";
-import v5 from "../../assets/posters/poster_vertical_05.jpg";
-import v6 from "../../assets/posters/poster_vertical_06.jpg";
-import v7 from "../../assets/posters/poster_vertical_07.jpg";
-import v8 from "../../assets/posters/poster_vertical_08.jpg";
-import v9 from "../../assets/posters/poster_vertical_09.jpg";
-import v10 from "../../assets/posters/poster_vertical_10.jpg";
-import v11 from "../../assets/posters/poster_vertical_11.jpg";
-import v12 from "../../assets/posters/poster_vertical_12.jpg";
-import v13 from "../../assets/posters/poster_vertical_13.jpg";
-import v14 from "../../assets/posters/poster_vertical_14.jpg";
-import v15 from "../../assets/posters/poster_vertical_15.jpg";
-import v16 from "../../assets/posters/poster_vertical_16.jpg";
-import v17 from "../../assets/posters/poster_vertical_17.jpg";
-import v18 from "../../assets/posters/poster_vertical_18.jpg";
-import v19 from "../../assets/posters/poster_vertical_19.jpg";
-import v20 from "../../assets/posters/poster_vertical_20.jpg";
-import v21 from "../../assets/posters/poster_vertical_21.jpg";
-import v22 from "../../assets/posters/poster_vertical_22.jpg";
-import v23 from "../../assets/posters/poster_vertical_23.jpg";
-import v24 from "../../assets/posters/poster_vertical_24.jpg";
-import v25 from "../../assets/posters/poster_vertical_25.jpg";
-import v26 from "../../assets/posters/poster_vertical_26.jpg";
-import v27 from "../../assets/posters/poster_vertical_27.jpg";
-import v28 from "../../assets/posters/poster_vertical_28.jpg";
-import v29 from "../../assets/posters/poster_vertical_29.jpg";
-import v30 from "../../assets/posters/poster_vertical_30.jpg";
-import v31 from "../../assets/posters/poster_vertical_31.jpg";
-import v32 from "../../assets/posters/poster_vertical_32.jpg";
-import v33 from "../../assets/posters/poster_vertical_33.jpg";
-import v34 from "../../assets/posters/poster_vertical_34.jpg";
-import v35 from "../../assets/posters/poster_vertical_35.jpg";
-import v36 from "../../assets/posters/poster_vertical_36.jpg";
-import sp1 from "../../assets/series_posters/series_poster_01.png";
-import sp2 from "../../assets/series_posters/series_poster_02.png";
-import sp3 from "../../assets/series_posters/series_poster_03.png";
-import sp4 from "../../assets/series_posters/series_poster_04.png";
+// Трейлеры — локальные (видео Иви под DRM); заменишь ссылками позже.
 import t1 from "../../assets/video_trailers/trailer_1.mp4";
 import t2 from "../../assets/video_trailers/trailer_2.mp4";
 import t3 from "../../assets/video_trailers/trailer_3.mp4";
 import t4 from "../../assets/video_trailers/trailer_4.mp4";
-// Title wordmarks — one per first-gallery show (positional). The v3 hover shows
-// them above the genre line. The second gallery has none, so those posters
-// simply render no logo.
-import lh1 from "../../assets/logotypes/horizontal_1.webp";
-import lh2 from "../../assets/logotypes/horizontal_2.webp";
-import lh3 from "../../assets/logotypes/horizontal_3.webp";
-import lh4 from "../../assets/logotypes/horizontal_4.webp";
-import lv1 from "../../assets/logotypes/vertical_1.webp";
-import lv2 from "../../assets/logotypes/vertical_2.webp";
-import lv3 from "../../assets/logotypes/vertical_3.webp";
-import lv4 from "../../assets/logotypes/vertical_4.webp";
-import lv5 from "../../assets/logotypes/vertical_5.webp";
-import lv6 from "../../assets/logotypes/vertical_6.png";
-// Real title logos fetched from ivi.ru (img.title__image), for the shows in the
-// galleries beyond the first one. Transparent PNG wordmarks.
-import iviV7 from "../../assets/logotypes/ivi/v7.png";
-import iviV8 from "../../assets/logotypes/ivi/v8.png";
-import iviV9 from "../../assets/logotypes/ivi/v9.png";
-import iviV10 from "../../assets/logotypes/ivi/v10.png";
-import iviV11 from "../../assets/logotypes/ivi/v11.png";
-import iviV12 from "../../assets/logotypes/ivi/v12.png";
-import iviX13 from "../../assets/logotypes/ivi/x13.png";
-import iviX14 from "../../assets/logotypes/ivi/x14.png";
-import iviX17 from "../../assets/logotypes/ivi/x17.png";
-import iviX18 from "../../assets/logotypes/ivi/x18.png";
-import iviX19 from "../../assets/logotypes/ivi/x19.png";
-import iviX20 from "../../assets/logotypes/ivi/x20.png";
-import iviX21 from "../../assets/logotypes/ivi/x21.png";
-import iviX22 from "../../assets/logotypes/ivi/x22.png";
-import iviX23 from "../../assets/logotypes/ivi/x23.png";
-import iviX24 from "../../assets/logotypes/ivi/x24.png";
-import iviX25 from "../../assets/logotypes/ivi/x25.png";
-import iviX26 from "../../assets/logotypes/ivi/x26.png";
-import iviX28 from "../../assets/logotypes/ivi/x28.png";
-import iviX29 from "../../assets/logotypes/ivi/x29.png";
-import iviX30 from "../../assets/logotypes/ivi/x30.png";
-import iviX31 from "../../assets/logotypes/ivi/x31.png";
-import iviX32 from "../../assets/logotypes/ivi/x32.png";
-import iviX33 from "../../assets/logotypes/ivi/x33.png";
-import iviX34 from "../../assets/logotypes/ivi/x34.png";
-import iviX35 from "../../assets/logotypes/ivi/x35.png";
-import iviX36 from "../../assets/logotypes/ivi/x36.png";
-import { badgeForMeta, BADGES } from "./badges";
+
+// Реальные данные каждой карточки, вытащенные с ivi.ru скриптом
+// scripts/ivi-extract.mjs. Картинки — публичные URL CDN Иви (грузятся вживую).
+import aleksLyutyij from "./ivi/aleks-lyutyij.json";
+import hrustalnyij from "./ivi/hrustalnyij.json";
+import peregovorschik from "./ivi/peregovorschik.json";
+import kazanova from "./ivi/kazanova-2020.json";
+import sherlok from "./ivi/sherlok_holms_i_doktor_vatson.json";
+import lepila from "./ivi/lepila.json";
+import akusher from "./ivi/akusher.json";
+import delfin from "./ivi/delfin.json";
+import otchiyDom from "./ivi/168196.json";
+import izgnanie from "./ivi/96320.json";
+import letyatZhuravli from "./ivi/53159.json";
+import moyLaskovyj from "./ivi/53130.json";
+import kogdaDerevya from "./ivi/51505.json";
+import monolog from "./ivi/26594.json";
+import otelTasokare from "./ivi/otel-tasokare.json";
+import bezdarnayaZlodejka from "./ivi/hot-i-bezdarnaya-zlodejka.json";
+import temnoeDitya from "./ivi/temnoe-ditya-otgoloski.json";
+import rodstvennyeDushi from "./ivi/rodstvennyie-dushi-2020.json";
+import klevatess from "./ivi/klevatess-korol-demonicheskih-zverej-mladenets-i-geroj-nezhit.json";
+import liniyaRazloma from "./ivi/liniya-razloma.json";
+import holod from "./ivi/holod.json";
+import zolotoeDno from "./ivi/zolotoe-dno.json";
+import zatmenie from "./ivi/zatmenie-2025.json";
+import istoriyaSluzhanki from "./ivi/istoriya-ego-sluzhanki.json";
+import pirogovka from "./ivi/pirogovka.json";
+import strahNadNevoj from "./ivi/strah-nad-nevoj.json";
+import taksi from "./ivi/taksi-pod-prikryitiem.json";
+import iskusstvoSoblazna from "./ivi/iskusstvo-soblazna.json";
+import mazhor from "./ivi/mazhor.json";
+import kuhnya from "./ivi/kuhnya_2012.json";
+import klon from "./ivi/klon.json";
+import proslushka from "./ivi/proslushka.json";
+import besprintsipnyie from "./ivi/besprintsipnyie-2020.json";
+import velikolepnyjVek from "./ivi/velikolepnyij-vek.json";
+import papinyDochki from "./ivi/papinyi-dochki-novyie.json";
+import stambul from "./ivi/vo-vsyom-vinovat-stambul.json";
+import domovyonokKuzya from "./ivi/domovyonok-kuzya-2.json";
+import molodyozhka from "./ivi/molodyozhka-studentyi.json";
+import zheltyjChemodanchik from "./ivi/priklyucheniya-zhyoltogo-chemodanchika-2026.json";
+import draniki from "./ivi/draniki.json";
+import { badgeForMeta } from "./badges";
 
 /**
- * Page content: two gallery sections, each with a row of horizontal posters and
- * a row of vertical ones.
- *
- * Artwork comes from `assets/posters/` — Vite hashes and bundles it, so nothing
- * is fetched from a remote host. Poster shape (identical for both orientations):
- *
- *   id          string, unique across the page
- *   src         poster artwork
- *   alt         alt text
- *   title       show title (used for the card's a11y label)
- *   meta        string[] — chips in the "Инфо" tab ("2026 · детектив · 3 сезона")
- *   description short synopsis (shown in the "ховер" / v3 poster)
- *   longDescription 2–3× longer synopsis (shown in the "шторка" / v4 bottom sheet)
- *   trailer     optional video URL; autoplays muted inside the card.
- *               When absent the card falls back to `still`, then to `src`.
- *   still       optional 16:9 frame shown while / instead of the trailer
- *   seasons     [{ id, title, episodes: [{ id, title, subtitle, still }] }]
- *   reviews     [{ id, author, rating, text }]
- *
- * Trailers come from `assets/video_trailers/` and episode stills from
- * `assets/series_posters/`; there are four of each, cycled across the shows.
+ * Каждая карточка строится из JSON'а, вытащенного с ivi.ru. Форма карточки:
+ *   id           slug контента (уникален на странице)
+ *   src          постер (горизонтальный для гор. ряда, вертикальный для верт.)
+ *   logo         лого-вордмарк
+ *   alt, title   название
+ *   meta         чипы («2021 · детективы · 1 сезон» или «… · фильм»)
+ *   description  короткое описание (ховер)
+ *   longDescription  синопсис (шторка/совмещённый)
+ *   trailer      ЛОКАЛЬНОЕ видео (циклично t1–t4) — видео Иви под DRM
+ *   still        кадр-заставка для трейлера
+ *   seasons      [{ id, title, episodes:[{ id, title, subtitle, still }] }]
+ *   reviews      отзывы Иви [{ id, author, text }] — без оценки
+ *   similar      «похожее» (жанровая подборка Иви)
+ *   badge        назначается ниже по meta (локальный каталог badges.js)
  */
+const TRAILERS = [t1, t2, t3, t4];
+let trailerIndex = 0;
 
-const bestSeriesHorizontal = [
-  {
-    id: "h1",
-    src: h1,
-    logo: lh1,
-    alt: "Постер сериала «Алекс Лютый. Дело сирот»",
-    title: "Алекс Лютый. Дело сирот",
-    meta: ["2025", "детектив", "2 сезона"],
-    description:
-      "Следователь идёт по следу человека, которого все считали погибшим двадцать лет назад.",
-    longDescription:
-      "Следователь идёт по следу человека, которого все двадцать лет считали погибшим. Чем ближе он к правде, тем яснее видит: старое дело связано с исчезновением детей из приюта, и кому-то очень выгодно, чтобы прошлое осталось похоронённым.",
-    trailer: t1,
-    still: h1,
-    seasons: [
-      {
-        id: "s1",
-        title: "Сезон 1",
-        episodes: [
-          { id: "e1", title: "Старое дело", subtitle: "1 серия · 51 мин", still: sp1 },
-          { id: "e2", title: "Свидетель", subtitle: "2 серия · 49 мин", still: sp2 },
-          { id: "e3", title: "Тот самый почерк", subtitle: "3 серия · 53 мин", still: sp3 },
-          { id: "e4", title: "Улика", subtitle: "4 серия · 50 мин", still: sp4 },
-        ],
-      },
-      {
-        id: "s2",
-        title: "Сезон 2",
-        episodes: [
-          { id: "e1", title: "Дом на окраине", subtitle: "1 серия · 52 мин", still: sp1 },
-          { id: "e2", title: "Признание", subtitle: "2 серия · 56 мин", still: sp2 },
-          { id: "e3", title: "Развязка", subtitle: "3 серия · 58 мин", still: sp3 },
-        ],
-      },
-    ],
-    reviews: [
-      { id: "r1", author: "Роман Ш.", rating: 9, text: "Держит в напряжении с первой сцены и не отпускает." },
-      { id: "r2", author: "Алина Г.", rating: 8, text: "Отличная работа с эпохой — веришь каждой детали." },
-    ],
-  },
-  {
-    id: "h2",
-    src: h2,
-    logo: lh2,
-    alt: "Постер сериала «Хрустальный»",
-    title: "Хрустальный",
-    meta: ["2024", "триллер", "1 сезон"],
-    description:
-      "Оперативник возвращается в родной город расследовать дело, которое переворачивает его прошлое.",
-    longDescription:
-      "Оперативник возвращается в родной город расследовать убийство, но каждый новый свидетель отбрасывает его всё дальше в собственное прошлое. Знакомые улицы и давно забытые обиды складываются в картину, признать которую он не готов.",
-    trailer: t2,
-    still: h2,
-    seasons: [
-      {
-        id: "s1",
-        title: "Сезон 1",
-        episodes: [
-          { id: "e1", title: "Возвращение домой", subtitle: "1 серия · 47 мин", still: sp4 },
-          { id: "e2", title: "Городской пляж", subtitle: "2 серия · 45 мин", still: sp1 },
-          { id: "e3", title: "Школьный двор", subtitle: "3 серия · 48 мин", still: sp2 },
-          { id: "e4", title: "Ничего не забыто", subtitle: "4 серия · 52 мин", still: sp3 },
-        ],
-      },
-    ],
-    reviews: [
-      { id: "r1", author: "Тимур К.", rating: 10, text: "Один из сильнейших российских триллеров последних лет." },
-      { id: "r2", author: "Соня В.", rating: 8, text: "Тяжёлый, но честный. Смотреть подряд не советую." },
-    ],
-  },
-];
+// Слаги без трейлера на Иви (проверено по SSR) — у них вместо видео показываем
+// BackgroundImage. У остальных трейлер есть (пока локальная заглушка, дальше —
+// реальные mp4 с CDN).
+const NO_TRAILER = new Set(["aleks-lyutyij", "168196", "53130", "51505"]);
 
-const bestSeriesVertical = [
-  {
-    id: "v1",
-    src: v1,
-    logo: lv1,
-    alt: "Постер сериала «Переговорщик»",
-    title: "Переговорщик",
-    meta: ["2025", "криминал", "2 сезона"],
-    description:
-      "Лучший переговорщик города выходит на захват, где по другую сторону — человек из его прошлого.",
-    longDescription:
-      "Лучший переговорщик города выходит на очередной захват заложников и по голосу в трубке узнаёт человека из своего прошлого. Каждое слово теперь весит вдвое больше: одна ошибка стоит чужой жизни, а верный ответ грозит разрушить его собственную.",
-    trailer: t3,
-    still: h2,
-    seasons: [
-      {
-        id: "s1",
-        title: "Сезон 1",
-        episodes: [
-          { id: "e1", title: "Первый контакт", subtitle: "1 серия · 48 мин", still: sp4 },
-          { id: "e2", title: "Условия", subtitle: "2 серия · 46 мин", still: sp1 },
-          { id: "e3", title: "Восемь минут", subtitle: "3 серия · 50 мин", still: sp2 },
-          { id: "e4", title: "Обмен", subtitle: "4 серия · 52 мин", still: sp3 },
-        ],
-      },
-      {
-        id: "s2",
-        title: "Сезон 2",
-        episodes: [
-          { id: "e1", title: "Тишина в эфире", subtitle: "1 серия · 49 мин", still: sp4 },
-          { id: "e2", title: "Голос", subtitle: "2 серия · 47 мин", still: sp1 },
-          { id: "e3", title: "Последнее слово", subtitle: "3 серия · 54 мин", still: sp2 },
-        ],
-      },
-    ],
-    reviews: [
-      { id: "r1", author: "Анна К.", rating: 9, text: "Диалоги — лучшее, что здесь есть. Смотрится на одном дыхании." },
-      { id: "r2", author: "Игорь П.", rating: 8, text: "Второй сезон неожиданно сильнее первого." },
-    ],
-  },
-  {
-    id: "v2",
-    src: v3,
-    logo: lv2,
-    alt: "Постер сериала «Казанова. Возвращение»",
-    title: "Казанова. Возвращение",
-    meta: ["2025", "комедия", "1 сезон"],
-    description:
-      "Обаятельный аферист возвращается в город, где его слишком хорошо помнят — и не только женщины.",
-    longDescription:
-      "Обаятельный аферист с блеском возвращается в город, где его слишком хорошо помнят — и не только обманутые женщины, но и кредиторы, бывшие подельники и один очень терпеливый следователь. Чтобы провернуть последнее дело и красиво исчезнуть, ему приходится импровизировать на ходу.",
-    trailer: t4,
-    still: h4,
-    seasons: [
-      {
-        id: "s1",
-        title: "Сезон 1",
-        episodes: [
-          { id: "e1", title: "Билет в один конец", subtitle: "1 серия · 44 мин", still: sp3 },
-          { id: "e2", title: "Старые знакомые", subtitle: "2 серия · 42 мин", still: sp4 },
-          { id: "e3", title: "Гастроли", subtitle: "3 серия · 45 мин", still: sp1 },
-          { id: "e4", title: "Расплата", subtitle: "4 серия · 47 мин", still: sp2 },
-        ],
-      },
-    ],
-    reviews: [
-      { id: "r1", author: "Артём Б.", rating: 8, text: "Лёгкий, обаятельный и очень точный по эпохе." },
-      { id: "r2", author: "Юлия М.", rating: 9, text: "Идеально на вечер. Юмор живой, без пошлости." },
-    ],
-  },
-  {
-    id: "v3",
-    src: v2,
-    logo: lv3,
-    alt: "Постер сериала «Шерлок Холмс и доктор Ватсон»",
-    title: "Шерлок Холмс и доктор Ватсон",
-    meta: ["1979", "детектив", "1 сезон"],
-    description:
-      "Классическая экранизация: знакомство на Бейкер-стрит и первые дела великого сыщика.",
-    longDescription:
-      "Классическая экранизация, с которой началась легенда: случайное знакомство на Бейкер-стрит перерастает в крепкую дружбу, а первые совместные дела доказывают, что дедуктивный метод раскроет даже самое запутанное преступление. Лондон, туман, скрипка и неизменная трубка.",
-    trailer: t1,
-    still: h1,
-    seasons: [
-      {
-        id: "s1",
-        title: "Сезон 1",
-        episodes: [
-          { id: "e1", title: "Знакомство", subtitle: "1 серия · 64 мин", still: sp3 },
-          { id: "e2", title: "Кровавая надпись", subtitle: "2 серия · 68 мин", still: sp4 },
-          { id: "e3", title: "Король шантажа", subtitle: "3 серия · 66 мин", still: sp1 },
-        ],
-      },
-    ],
-    reviews: [
-      { id: "r1", author: "Мария Л.", rating: 10, text: "Эталон. Пересматриваю каждый год и всё так же хорошо." },
-      { id: "r2", author: "Пётр Н.", rating: 10, text: "Ливанов и Соломин — лучшая пара в истории экранизаций." },
-    ],
-  },
-  {
-    id: "v4",
-    src: v6,
-    logo: lv4,
-    alt: "Постер сериала «Лепила»",
-    title: "Лепила",
-    meta: ["2026", "криминал", "1 сезон"],
-    description:
-      "Талантливый хирург вынужден лечить тех, кому нельзя в больницу, и постепенно теряет право на выбор.",
-    longDescription:
-      "Талантливый хирург однажды соглашается заштопать человека, которому нельзя в больницу, — и с этой ночи его жизнь перестаёт ему принадлежать. Чем чаще к нему приходят с чужой кровью на руках, тем меньше остаётся права на отказ, а клятва врача и законы улицы тянут его в разные стороны.",
-    trailer: t2,
-    still: h3,
-    seasons: [
-      {
-        id: "s1",
-        title: "Сезон 1",
-        episodes: [
-          { id: "e1", title: "Ночной вызов", subtitle: "1 серия · 46 мин", still: sp2 },
-          { id: "e2", title: "Долг", subtitle: "2 серия · 44 мин", still: sp3 },
-          { id: "e3", title: "Операционная", subtitle: "3 серия · 48 мин", still: sp4 },
-          { id: "e4", title: "Без наркоза", subtitle: "4 серия · 51 мин", still: sp1 },
-        ],
-      },
-    ],
-    reviews: [
-      { id: "r1", author: "Сергей Ж.", rating: 8, text: "Жёстко и без романтизации. Главный герой отличный." },
-      { id: "r2", author: "Ника Т.", rating: 7, text: "Середина провисает, но финал вытягивает." },
-    ],
-  },
-  {
-    id: "v5",
-    src: v5,
-    logo: lv5,
-    alt: "Постер сериала «Акушер 2»",
-    title: "Акушер 2",
-    meta: ["2025", "драма", "2 сезона"],
-    description:
-      "Новый сезон о врачах роддома, где каждая смена — чья-то самая важная ночь в жизни.",
-    longDescription:
-      "Новый сезон о врачах роддома, где за одну смену умещается целая жизнь: чьё-то первое дыхание, чей-то самый большой страх и решения, которые нельзя отложить до утра. В их профессии чудо и трагедия часто разделены всего парой минут.",
-    trailer: t3,
-    still: h4,
-    seasons: [
-      {
-        id: "s1",
-        title: "Сезон 1",
-        episodes: [
-          { id: "e1", title: "Смена", subtitle: "1 серия · 42 мин", still: sp2 },
-          { id: "e2", title: "Двойня", subtitle: "2 серия · 44 мин", still: sp3 },
-          { id: "e3", title: "Решение", subtitle: "3 серия · 41 мин", still: sp4 },
-        ],
-      },
-      {
-        id: "s2",
-        title: "Сезон 2",
-        episodes: [
-          { id: "e1", title: "Новый заведующий", subtitle: "1 серия · 43 мин", still: sp1 },
-          { id: "e2", title: "Ошибка", subtitle: "2 серия · 45 мин", still: sp2 },
-          { id: "e3", title: "Рассвет", subtitle: "3 серия · 46 мин", still: sp3 },
-        ],
-      },
-    ],
-    reviews: [
-      { id: "r1", author: "Елена Р.", rating: 9, text: "Плакала три раза за сезон. Актёры невероятные." },
-      { id: "r2", author: "Дмитрий В.", rating: 7, text: "Местами слишком мелодраматично, но смотрится легко." },
-    ],
-  },
-  {
-    id: "v6",
-    src: v4,
-    logo: lv6,
-    alt: "Постер сериала «Соммердаль»",
-    title: "Соммердаль",
-    meta: ["2024", "детектив", "3 сезона"],
-    description:
-      "В тихом приморском городке комиссар расследует убийства среди людей, которых знает с детства.",
-    longDescription:
-      "В тихом приморском городке, где все знают друг друга с детства, комиссар расследует убийства среди собственных соседей и друзей. Чем глубже он копает, тем очевиднее: самые страшные тайны прячутся за самыми приветливыми улыбками.",
-    trailer: t4,
-    still: h3,
-    seasons: [
-      {
-        id: "s1",
-        title: "Сезон 1",
-        episodes: [
-          { id: "e1", title: "Тело на берегу", subtitle: "1 серия · 45 мин", still: sp4 },
-          { id: "e2", title: "Соседи", subtitle: "2 серия · 43 мин", still: sp1 },
-          { id: "e3", title: "Прилив", subtitle: "3 серия · 44 мин", still: sp2 },
-        ],
-      },
-      {
-        id: "s2",
-        title: "Сезон 2",
-        episodes: [
-          { id: "e1", title: "Яхт-клуб", subtitle: "1 серия · 44 мин", still: sp3 },
-          { id: "e2", title: "Свадьба", subtitle: "2 серия · 46 мин", still: sp4 },
-        ],
-      },
-      {
-        id: "s3",
-        title: "Сезон 3",
-        episodes: [
-          { id: "e1", title: "Возвращение", subtitle: "1 серия · 45 мин", still: sp1 },
-          { id: "e2", title: "Последний сезон", subtitle: "2 серия · 47 мин", still: sp2 },
-        ],
-      },
-    ],
-    reviews: [
-      { id: "r1", author: "Вера Д.", rating: 8, text: "Уютный скандинавский детектив, идеально на выходные." },
-      { id: "r2", author: "Кирилл А.", rating: 7, text: "Предсказуемо, но атмосфера искупает всё." },
-    ],
-  },
-];
-
-const newReleasesHorizontal = [
-  {
-    id: "h3",
-    src: h3,
-    logo: lh3,
-    badgeId: "iviSeries",
-    alt: "Постер сериала «Холод»",
-    title: "Холод",
-    meta: ["2026", "драма", "1 сезон"],
-    description:
-      "Женщина попадает в колонию за преступление, которого не совершала, и учится выживать по чужим правилам.",
-    longDescription:
-      "Женщина попадает в колонию за преступление, которого не совершала, и в одночасье лишается имени, дома и права на будущее. Чтобы выжить по чужим жестоким правилам, ей приходится учиться заново там, где сломать человека проще, чем оправдать.",
-    trailer: t1,
-    still: h3,
-    seasons: [
-      {
-        id: "s1",
-        title: "Сезон 1",
-        episodes: [
-          { id: "e1", title: "Этап", subtitle: "1 серия · 50 мин", still: sp3 },
-          { id: "e2", title: "Первый барак", subtitle: "2 серия · 48 мин", still: sp4 },
-          { id: "e3", title: "Смотрящая", subtitle: "3 серия · 52 мин", still: sp1 },
-          { id: "e4", title: "Свидание", subtitle: "4 серия · 49 мин", still: sp2 },
-        ],
-      },
-    ],
-    reviews: [
-      { id: "r1", author: "Ольга С.", rating: 9, text: "Смотреть тяжело, оторваться невозможно." },
-      { id: "r2", author: "Максим Е.", rating: 8, text: "Сильная главная роль, очень сдержанная режиссура." },
-    ],
-  },
-  {
-    id: "h4",
-    src: h4,
-    logo: lh4,
-    badgeId: "iviSeries",
-    alt: "Постер сериала «Золотое дно 2»",
-    title: "Золотое дно 2",
-    meta: ["2026", "драма", "2 сезона"],
-    description:
-      "Наследники семейной империи снова делят состояние — и на этот раз проигравших будет больше.",
-    longDescription:
-      "Наследники семейной империи снова садятся делить состояние, но на этот раз ставки выше, союзники ненадёжнее, а проигравших будет куда больше. Старые обиды маскируются под деловые решения, и каждый готов предать первым, лишь бы не остаться ни с чем.",
-    trailer: t2,
-    still: h4,
-    seasons: [
-      {
-        id: "s1",
-        title: "Сезон 1",
-        episodes: [
-          { id: "e1", title: "Завещание", subtitle: "1 серия · 47 мин", still: sp3 },
-          { id: "e2", title: "Доля", subtitle: "2 серия · 45 мин", still: sp4 },
-          { id: "e3", title: "Совет директоров", subtitle: "3 серия · 48 мин", still: sp1 },
-        ],
-      },
-      {
-        id: "s2",
-        title: "Сезон 2",
-        episodes: [
-          { id: "e1", title: "Новый управляющий", subtitle: "1 серия · 46 мин", still: sp2 },
-          { id: "e2", title: "Аудит", subtitle: "2 серия · 44 мин", still: sp3 },
-          { id: "e3", title: "Вода прибывает", subtitle: "3 серия · 50 мин", still: sp4 },
-        ],
-      },
-    ],
-    reviews: [
-      { id: "r1", author: "Григорий Л.", rating: 8, text: "Семейные интриги на уровне хорошего западного сериала." },
-      { id: "r2", author: "Инна Ф.", rating: 9, text: "Второй сезон закрутили так, что не оторваться." },
-    ],
-  },
-];
-
-const newReleasesVertical = [
-  {
-    id: "v7",
-    src: v7,
-    logo: iviV7,
-    alt: "Постер сериала «Затмение»",
-    title: "Затмение",
-    meta: ["2025", "триллер", "1 сезон"],
-    description:
-      "Закрытый город, вспышка неизвестной болезни и следователь, которому запрещено называть вещи своими именами.",
-    longDescription:
-      "1960 год. Расследуя вспышку чёрной оспы в Москве, принципиальный полковник КГБ понимает, что вирус связан с подпольной стороной столичной жизни. Захватывающая детективная драма с Дмитрием Миллером.",
-    trailer: t3,
-    still: h3,
-    seasons: [
-      {
-        id: "s1",
-        title: "Сезон 1",
-        episodes: [
-          { id: "e1", title: "Карантин", subtitle: "1 серия · 49 мин", still: sp1 },
-          { id: "e2", title: "Первый случай", subtitle: "2 серия · 47 мин", still: sp2 },
-          { id: "e3", title: "Приказ", subtitle: "3 серия · 51 мин", still: sp3 },
-          { id: "e4", title: "Затмение", subtitle: "4 серия · 55 мин", still: sp4 },
-        ],
-      },
-    ],
-    reviews: [
-      { id: "r1", author: "Валерий Н.", rating: 9, text: "Атмосфера давит с первой минуты. Очень стильно снято." },
-      { id: "r2", author: "Лиза О.", rating: 8, text: "Историческая фактура сделана с уважением." },
-    ],
-  },
-  {
-    id: "v8",
-    src: v10,
-    logo: iviV8,
-    badgeId: "iviSeries",
-    alt: "Постер сериала «История его служанки»",
-    title: "История его служанки",
-    meta: ["2026", "мелодрама", "1 сезон"],
-    description:
-      "Служанка в богатом поместье оказывается втянута в историю, которая может стоить ей и места, и сердца.",
-    longDescription:
-      "Москва, XIX век. Пока высший свет пытается женить молодого графа Николая Шереметьева, завидный холостяк влюбляется в упрямую, но искреннюю дворянку Анну, которая вынуждена работать его горничной.",
-    trailer: t4,
-    still: h4,
-    seasons: [
-      {
-        id: "s1",
-        title: "Сезон 1",
-        episodes: [
-          { id: "e1", title: "Новое место", subtitle: "1 серия · 43 мин", still: sp1 },
-          { id: "e2", title: "Бал", subtitle: "2 серия · 41 мин", still: sp2 },
-          { id: "e3", title: "Письмо", subtitle: "3 серия · 44 мин", still: sp3 },
-          { id: "e4", title: "Признание", subtitle: "4 серия · 46 мин", still: sp4 },
-        ],
-      },
-    ],
-    reviews: [
-      { id: "r1", author: "Дарья П.", rating: 8, text: "Красивая картинка и приятная история без надрыва." },
-      { id: "r2", author: "Ксения М.", rating: 7, text: "Предсказуемо, но именно этого от жанра и ждёшь." },
-    ],
-  },
-  {
-    id: "v9",
-    src: v11,
-    logo: iviV9,
-    alt: "Постер сериала «Анатомия чувств»",
-    title: "Анатомия чувств",
-    meta: ["2026", "мелодрама", "1 сезон"],
-    description:
-      "Три врача одной клиники пытаются совместить дежурства, диагнозы и совершенно неуместные чувства.",
-    longDescription:
-      "В больнице работа и личные отношения тесно переплетены. Врачи здесь не только спасают пациентов — они влюбляются, ревнуют, ошибаются и снова надеются на счастье.",
-    trailer: t1,
-    still: h1,
-    seasons: [
-      {
-        id: "s1",
-        title: "Сезон 1",
-        episodes: [
-          { id: "e1", title: "Первый обход", subtitle: "1 серия · 42 мин", still: sp1 },
-          { id: "e2", title: "Дежурство", subtitle: "2 серия · 40 мин", still: sp2 },
-          { id: "e3", title: "Диагноз", subtitle: "3 серия · 43 мин", still: sp3 },
-        ],
-      },
-    ],
-    reviews: [
-      { id: "r1", author: "Наталья В.", rating: 8, text: "Тёплый сериал про врачей, смотрится очень легко." },
-      { id: "r2", author: "Егор С.", rating: 6, text: "Медицины мало, чувств много — но так и задумано." },
-    ],
-  },
-  {
-    id: "v10",
-    src: v8,
-    logo: iviV10,
-    alt: "Постер сериала «Страх над Невой. Огненный круг»",
-    title: "Страх над Невой. Огненный круг",
-    meta: ["2026", "триллер", "1 сезон"],
-    description:
-      "В Петербурге появляется убийца, оставляющий на набережных огненные знаки, — и следствие идёт по кругу.",
-    longDescription:
-      "1967 год. В центре Ленинграда происходит серия загадочных убийств женщин. Поймать маньяка, оставляющего рядом с жертвами таинственные знаки, поручают майору КГБ Чубину и капитану милиции Фёдорову.",
-    trailer: t2,
-    still: h2,
-    seasons: [
-      {
-        id: "s1",
-        title: "Сезон 1",
-        episodes: [
-          { id: "e1", title: "Первый круг", subtitle: "1 серия · 50 мин", still: sp4 },
-          { id: "e2", title: "Мосты разведены", subtitle: "2 серия · 48 мин", still: sp1 },
-          { id: "e3", title: "Канал", subtitle: "3 серия · 47 мин", still: sp2 },
-          { id: "e4", title: "Огненный круг", subtitle: "4 серия · 54 мин", still: sp3 },
-        ],
-      },
-    ],
-    reviews: [
-      { id: "r1", author: "Антон Ж.", rating: 9, text: "Петербург здесь — полноценный герой. Мрачно и красиво." },
-      { id: "r2", author: "Полина И.", rating: 8, text: "Детективная линия держится до самого финала." },
-    ],
-  },
-  {
-    id: "v11",
-    src: v12,
-    logo: iviV11,
-    alt: "Постер сериала «Такси под прикрытием 2»",
-    title: "Такси под прикрытием 2",
-    meta: ["2026", "боевик", "2 сезона"],
-    description:
-      "Оперативник снова садится за руль жёлтой машины: новый город, новая банда, те же методы.",
-    longDescription:
-      "Молодой оперативник под видом таксиста ловит бандитов на улицах Петербурга. Дмитрий Власкин, Кирилл Гребенщиков и Виктория Маслова в захватывающем экшен-детективе на высоких скоростях.",
-    trailer: t3,
-    still: h1,
-    seasons: [
-      {
-        id: "s1",
-        title: "Сезон 1",
-        episodes: [
-          { id: "e1", title: "Смена начинается", subtitle: "1 серия · 45 мин", still: sp4 },
-          { id: "e2", title: "Ночной пассажир", subtitle: "2 серия · 43 мин", still: sp1 },
-          { id: "e3", title: "Погоня", subtitle: "3 серия · 46 мин", still: sp2 },
-        ],
-      },
-      {
-        id: "s2",
-        title: "Сезон 2",
-        episodes: [
-          { id: "e1", title: "Новый маршрут", subtitle: "1 серия · 44 мин", still: sp3 },
-          { id: "e2", title: "Конкуренты", subtitle: "2 серия · 46 мин", still: sp4 },
-          { id: "e3", title: "Конечная", subtitle: "3 серия · 49 мин", still: sp1 },
-        ],
-      },
-    ],
-    reviews: [
-      { id: "r1", author: "Марк Ш.", rating: 8, text: "Динамично, с юмором и отличными погонями." },
-      { id: "r2", author: "Рита К.", rating: 7, text: "Не оригинально, но развлекает ровно как надо." },
-    ],
-  },
-  {
-    id: "v12",
-    src: v9,
-    logo: iviV12,
-    alt: "Постер сериала «Искусство соблазна 2»",
-    title: "Искусство соблазна 2",
-    meta: ["2026", "мелодрама", "2 сезона"],
-    description:
-      "Три подруги открывают собственное агентство и выясняют, что чужие романы устраивать проще своих.",
-    longDescription:
-      "Новое агентство трёх соблазнительниц помогает угнетённым женщинам и противостоит беспринципному конкуренту. Продолжение авантюрной комедии с Лизой Моряк от создателей «Жизни по вызову».",
-    trailer: t4,
-    still: h4,
-    seasons: [
-      {
-        id: "s1",
-        title: "Сезон 1",
-        episodes: [
-          { id: "e1", title: "Первый клиент", subtitle: "1 серия · 41 мин", still: sp2 },
-          { id: "e2", title: "Правила игры", subtitle: "2 серия · 40 мин", still: sp3 },
-          { id: "e3", title: "Ошибка", subtitle: "3 серия · 42 мин", still: sp4 },
-        ],
-      },
-      {
-        id: "s2",
-        title: "Сезон 2",
-        episodes: [
-          { id: "e1", title: "Новый офис", subtitle: "1 серия · 42 мин", still: sp1 },
-          { id: "e2", title: "Соперницы", subtitle: "2 серия · 44 мин", still: sp2 },
-          { id: "e3", title: "Красная лента", subtitle: "3 серия · 45 мин", still: sp3 },
-        ],
-      },
-    ],
-    reviews: [
-      { id: "r1", author: "Алиса Т.", rating: 8, text: "Второй сезон стал бодрее и смешнее первого." },
-      { id: "r2", author: "Жанна Р.", rating: 7, text: "Чистое удовольствие под конец дня." },
-    ],
-  },
-];
-
-/* --------------------------------------------------------------------------
- * Extra single-row shelves — vertical posters only, built from the newly added
- * artwork (poster_vertical_13…30). Their content is generated from small pools
- * so the cards stay interactive without hand-writing 18 more full entries.
- * ------------------------------------------------------------------------ */
-
-const extraImages = [
-  v13, v14, v15, v16, v17, v18, v19, v20, v21, v22,
-  v23, v24, v25, v26, v27, v28, v29, v30, v31, v32,
-  v33, v34, v35, v36,
-];
-
-// Real metadata for each added poster (v13…v36), read off the artwork. `kind`
-// is the third meta chip: "фильм" for films, a season count for series.
-const extraMeta = [
-  {
-    title: "Отчий дом", year: "1959", genre: "драма", kind: "фильм",
-    description: "Городская девушка едет в деревню на поиски родной матери и открывает совсем другую жизнь.",
-    longDescription:
-      "Выросшая в городе девушка отправляется в деревню, чтобы найти родную мать, которую никогда не знала. Встреча переворачивает её представления о доме, семье и о самой себе — и заставляет заново решить, где её настоящие корни.",
-  },
-  {
-    title: "Изгнание", year: "2007", genre: "драма", kind: "фильм",
-    description: "Семья приезжает в родовой дом, где давняя ложь и молчание приводят к трагедии.",
-    longDescription:
-      "Семья перебирается в старый родовой дом вдали от города в надежде на покой, но признание жены запускает цепочку событий, которую уже не остановить. Тягучая драма о вине, недосказанности и цене, которую платят за молчание.",
-  },
-  {
-    title: "Летят журавли", year: "1957", genre: "военная драма", kind: "фильм",
-    description: "Влюблённых разлучает война: он уходит на фронт, она остаётся ждать вопреки всему.",
-    longDescription:
-      "Молодых влюблённых разлучает война — он добровольцем уходит на фронт, она остаётся ждать в тылу, где каждый день проверяет её верность на прочность. Пронзительная история о любви, потере и надежде, ставшая символом целой эпохи.",
-  },
-  {
-    title: "Мой ласковый и нежный зверь", year: "1978", genre: "мелодрама", kind: "фильм",
-    description: "В усадьбе конца XIX века вспыхивает роковая страсть, губящая всех, кого касается.",
-    longDescription:
-      "По мотивам Чехова: в дворянской усадьбе следователь и юная дочь лесничего оказываются во власти страсти, которой нет места в их размеренном мире. Красивая и печальная история о любви, ревности и неизбежной расплате под знаменитый вальс.",
-  },
-  {
-    title: "Когда деревья были большими", year: "1961", genre: "драма", kind: "фильм",
-    description: "Опустившийся человек выдаёт себя за отца незнакомой девушки — и эта ложь меняет его самого.",
-    longDescription:
-      "Одинокий, опустившийся мужчина решает начать жизнь заново и выдаёт себя за отца девушки, потерявшей родителей на войне. Обман, задуманный ради корысти, постепенно превращается в настоящую привязанность и возвращает герою забытое чувство дома.",
-  },
-  {
-    title: "Монолог", year: "1972", genre: "драма", kind: "фильм",
-    description: "Пожилой академик пытается сохранить связь с дочерью и внучкой, пока жизнь идёт своим чередом.",
-    longDescription:
-      "Известный академик, посвятивший жизнь науке, на склоне лет обнаруживает, что самое важное происходило дома, пока он был занят делом. Тихая, мудрая драма о трёх поколениях одной семьи и о любви, которую не всегда умеют высказать вовремя.",
-  },
-  {
-    title: "Отель Тасокарэ", year: "2025", genre: "аниме", kind: "1 сезон",
-    description: "В отеле на границе жизни и смерти гостям дают последний шанс разобраться с прошлым.",
-    longDescription:
-      "На границе между миром живых и мёртвых стоит отель Тасокарэ, куда попадают те, кто ещё не решил, отпускать ли прошлое. Работники отеля помогают гостям вспомнить, что было важным, и найти покой — атмосферная аниме-история о памяти и прощании.",
-  },
-  {
-    title: "Хоть я и бездарная злодейка", year: "2025", genre: "аниме", kind: "1 сезон",
-    description: "Героиня перерождается злодейкой из игры и пытается избежать уготованной ей гибели.",
-    longDescription:
-      "Девушка приходит в себя в теле второстепенной злодейки из отомэ-игры — героини, которой по сюжету уготован бесславный финал. Вооружившись знанием сюжета и полным отсутствием магических талантов, она изобретательно ломает сценарий, чтобы выжить и обрести собственное счастье.",
-  },
-  {
-    title: "Тёмное дитя: Отголоски", year: "2024", genre: "фантастика", kind: "1 сезон",
-    description: "Женщина без прошлого узнаёт, что она — часть тайного эксперимента с человеческими копиями.",
-    longDescription:
-      "Очнувшись без памяти, героиня выясняет, что она не единственная: где-то есть люди с её лицом и её ДНК. Продолжение истории о клонировании превращается в напряжённый триллер о том, что делает человека собой, когда его личность можно скопировать.",
-  },
-  {
-    title: "Родственные души", year: "2020", genre: "драма", kind: "1 сезон",
-    description: "В мире, где наука находит идеальную пару каждому, любовь оборачивается неожиданной стороной.",
-    longDescription:
-      "Антология о недалёком будущем, где простой тест безошибочно определяет твою вторую половину. Каждая серия — отдельная история о том, что обещание идеальной любви меняет в людях, и о цене, которую платят решившиеся узнать правду.",
-  },
-  {
-    title: "Клеватесс", year: "2025", genre: "аниме", kind: "1 сезон",
-    description: "В мире, захваченном демонами, древний повелитель драконов решает судьбу человечества.",
-    longDescription:
-      "Королевство гибнет под натиском чудовищ, и последней надеждой становится древнее существо, которого люди веками боялись сильнее, чем самих демонов. Мрачное тёмное фэнтези о хрупкой границе между спасителем и разрушителем.",
-  },
-  {
-    title: "Линия разлома", year: "2024", genre: "триллер", kind: "1 сезон",
-    description: "Компания друзей во время вечеринки оказывается в эпицентре события, которое меняет всё.",
-    longDescription:
-      "Обычный вечер большой компании превращается в испытание, когда за окнами начинает происходить необъяснимое. Отрезанные от мира, герои вынуждены довериться друг другу — и выясняют, что главная опасность может оказаться внутри их собственного круга.",
-  },
-  {
-    title: "Дом, который построил Джек", year: "2018", genre: "триллер", kind: "фильм",
-    description: "Хладнокровный убийца рассказывает о пяти эпизодах, превративших преступление в извращённое искусство.",
-    longDescription:
-      "На протяжении двенадцати лет инженер-перфекционист совершает серию убийств, каждое из которых считает произведением искусства. Провокационный фильм-исповедь о природе зла, таланта и о том, как человек оправдывает самому себе непростительное.",
-  },
-  {
-    title: "Счастливое число Слевина", year: "2006", genre: "криминал", kind: "фильм",
-    description: "Случайного парня принимают за должника и втягивают в войну двух криминальных боссов.",
-    longDescription:
-      "Оказавшись не в том месте не в то время, обычный парень становится пешкой в противостоянии двух враждующих боссов преступного мира. Но чем дальше закручивается интрига, тем яснее, что случайностей здесь не было, а каждый ход был просчитан заранее.",
-  },
-  {
-    title: "Одержимость", year: "2014", genre: "драма", kind: "фильм",
-    description: "Молодой барабанщик и деспотичный наставник доводят друг друга до предела в погоне за величием.",
-    longDescription:
-      "Талантливый студент джазовой консерватории мечтает стать великим, а его наставник готов на любую жестокость, лишь бы выжать из ученика гения. История о цене совершенства, где грань между мотивацией и разрушением стирается с каждым ударом по барабанам.",
-  },
-  {
-    title: "Каникулы строгого режима", year: "2009", genre: "комедия", kind: "фильм",
-    description: "Двое беглых заключённых прячутся вожатыми в детском лагере — и неожиданно меняются сами.",
-    longDescription:
-      "Скрываясь от закона, двое сбежавших заключённых устраиваются вожатыми в летний лагерь и оказываются один на один с отрядом непослушных детей. Комедия о том, как чужие проблемы и детская искренность способны исправить даже самых пропащих.",
-  },
-  {
-    title: "Одна жизнь", year: "2023", genre: "драма", kind: "фильм",
-    description: "История биржевого маклера, спасшего сотни детей накануне Второй мировой войны.",
-    longDescription:
-      "Основанная на реальных событиях история британца, который накануне войны организовал спасение сотен детей из оккупированной Европы. Спустя полвека он всё ещё сомневается, достаточно ли сделал, — пока прошлое не возвращается, чтобы дать ответ.",
-  },
-  {
-    title: "Трёшка", year: "2023", genre: "комедия", kind: "1 сезон",
-    description: "Большая семья вынуждена ужиться в тесной квартире, и каждый день превращается в испытание.",
-    longDescription:
-      "Три поколения одной шумной семьи оказываются под одной крышей маленькой квартиры, где нет ни минуты покоя и ни метра личного пространства. Тёплая комедия положений о том, что даже в самой тесноте можно оставаться близкими людьми.",
-  },
-  {
-    title: "Новые папины дочки", year: "2023", genre: "комедия", kind: "1 сезон",
-    description: "Двое родителей-одиночек создают большую семью, где детей — целая команда.",
-    longDescription:
-      "Мама троих дочек и папа с собственными детьми решают жить вместе — и превращают обычную квартиру в весёлый хаос. Продолжение любимой истории о большой семье, где ссоры, примирения и общие праздники учат всех быть терпимее и дружнее.",
-  },
-  {
-    title: "Во всём виноват Стамбул", year: "2023", genre: "мелодрама", kind: "1 сезон",
-    description: "Две сестры едут в Стамбул за наследством и находят там любовь, тайны и себя.",
-    longDescription:
-      "Две очень разные сестры отправляются в Стамбул, чтобы разобраться с наследством, а находят запутанные семейные секреты, неожиданные чувства и совсем не тот город, который представляли. Тёплая мелодрама о родстве, прощении и втором шансе.",
-  },
-  {
-    title: "Домовёнок Кузя 2", year: "2025", genre: "семейный", kind: "фильм",
-    description: "Добрый домовёнок снова спешит на помощь, чтобы спасти дом и друзей от злых чар.",
-    longDescription:
-      "Домовёнок Кузя и его друзья вновь оказываются втянуты в волшебное приключение, где на кону покой родного дома и судьба сказочного мира. Яркая семейная история о дружбе, смелости и о том, что настоящий дом там, где тебя любят.",
-  },
-  {
-    title: "Молодёжка. Новая смена", year: "2024", genre: "спорт", kind: "1 сезон",
-    description: "Новое поколение хоккеистов борется за место в команде и за большую мечту.",
-    longDescription:
-      "Молодая хоккейная команда получает второй шанс и нового тренера, который верит в них больше, чем они сами. Спортивная драма о том, как из амбициозных одиночек рождается настоящая команда, а из поражений — характер.",
-  },
-  {
-    title: "Приключения жёлтого чемоданчика", year: "2022", genre: "семейный", kind: "фильм",
-    description: "Волшебные средства из жёлтого чемоданчика доктора отправляют героев в весёлое приключение.",
-    longDescription:
-      "Чудо-доктор с жёлтым чемоданчиком, полным волшебных средств от страха и грусти, оказывается в центре забавной погони, в которую втянута целая семья. Добрая семейная сказка о смелости, находчивости и о том, что от настоящих проблем не спрячешься за таблеткой.",
-  },
-  {
-    title: "Драники", year: "2024", genre: "комедия", kind: "фильм",
-    description: "В деревне закручивается весёлая история вокруг праздника, любви и знаменитых драников.",
-    longDescription:
-      "Тихая деревня готовится к празднику, а вместе с ним — к череде недоразумений, вспыхнувших чувств и семейных разборок. Тёплая народная комедия о простых людях, большой родне и о том, что вкус дома можно почувствовать в самой обычной тарелке драников.",
-  },
-];
-
-const extraTrailers = [t1, t2, t3, t4];
-const extraStills = [h1, h2, h3, h4];
-const extraEpisodeStills = [sp1, sp2, sp3, sp4];
-
-function makeExtraSeasons(i, isFilm = false) {
-  const count = isFilm ? 1 : 1 + (i % 3);
-  return Array.from({ length: count }, (_, s) => ({
-    id: `s${s + 1}`,
-    title: `Сезон ${s + 1}`,
-    episodes: Array.from({ length: 4 }, (_, e) => ({
-      id: `e${e + 1}`,
-      title: `${e + 1} серия`,
-      subtitle: `${e + 1} серия · ${42 + ((i + e) % 12)} мин`,
-      still: extraEpisodeStills[(i + e) % 4],
-    })),
-  }));
+function card(data, shape) {
+  const poster = shape === "horizontal" ? data.images.posterHorizontal : data.images.posterVertical;
+  return {
+    id: data.slug,
+    // Ссылка на страницу контента на ivi.ru (по ней открывается «Подробнее»
+    // и клик по карточке в «Ховере»).
+    link: `https://www.ivi.ru/watch/${data.slug}`,
+    src: poster,
+    logo: data.images.logo,
+    alt: `Постер «${data.title}»`,
+    title: data.title,
+    meta: data.meta,
+    description: data.shortDescription,
+    longDescription: data.synopsis,
+    trailer: NO_TRAILER.has(data.slug) ? null : TRAILERS[trailerIndex++ % TRAILERS.length],
+    // BackgroundImage-1280x720: poster у трейлера (до загрузки видео) и картинка
+    // вместо трейлера у контента без него.
+    still: data.images.background || data.images.shots?.[0] || poster,
+    seasons: data.seasons,
+    reviews: data.comments,
+    similar: data.similar,
+  };
 }
 
-function makeExtraReviews(i) {
-  const authors = ["Игорь М.", "Анна В.", "Павел С.", "Мария Д.", "Олег Т.", "Юлия К."];
-  const texts = [
-    "Затягивает с первой серии — редкий случай для жанра.",
-    "Смотрится ровно, без провисаний. Отличный каст.",
-    "Финал вытягивает всё, даже спорные моменты.",
-    "Атмосфера сделана с любовью, веришь происходящему.",
-  ];
-  return [
-    { id: "r1", author: authors[i % authors.length], rating: 8 + (i % 2), text: texts[i % texts.length] },
-    { id: "r2", author: authors[(i + 3) % authors.length], rating: 7 + (i % 3), text: texts[(i + 2) % texts.length] },
-  ];
-}
-
-// Real logo + synopsis pulled from ivi.ru for each added poster, keyed by its
-// index in extraMeta. `logo` is omitted where ivi has no wordmark image, and the
-// entry is absent entirely where the title isn't on ivi (index 14 «Одержимость»
-// / Whiplash), so its original synopsis is kept. `long` replaces longDescription;
-// the short `description` is left untouched.
-const iviExtra = {
-  0: { logo: iviX13, long: "Студентка Таня отправляется в деревню на встречу с матерью, с которой она потерялась во время войны. Новый мир сначала пугает девушку, но вскоре она искренне проникается деревенской жизнью." },
-  1: { logo: iviX14, long: "Вера сообщает своему мужу Алексу, что ждет ребенка, но не от него. Ошеломленный мужчина не может найти себе места и пытается понять, что выбрать: месть или прощение. Второй фильм Андрея Звягинцева." },
-  2: { long: "Фильм рассказывает о двух влюбленных – Борисе и Веронике, которые собираются пожениться, но начинается Вторая мировая война, и их планы рушатся." },
-  3: { long: "История о девушке из бедной семьи, которую выдают замуж за богатого мужчину в возрасте. Она не питает чувств к своему мужу и вскоре влюбляется в другого…" },
-  4: { logo: iviX17, long: "Кузьма Иорданов — спивающийся фронтовик без работы и семьи. Случайно узнав о сироте Наташе, он едет в деревню, чтобы выдать себя за её отца, и это меняет жизни обоих. Драма с Юрием Никулиным." },
-  5: { logo: iviX18, long: "Отработав долгие годы директором института, Никодим Сретенский уходит на пенсию, а в это время к нему приезжает дочь и внучка. Будучи тяжелым человеком, герой не может найти с семьёй общего языка…" },
-  6: { logo: iviX19, long: "Старшеклассница Нэко теряет память и пробуждается на пороге мистического отеля, расположенного между миром живых и мёртвых. Ей предстоит раскрыть тайны этого места и его обитателей." },
-  7: { logo: iviX20, long: "Завистливая интриганка меняется телами с императорской фавориткой, чтобы украсть её жизнь. Но вместе с тем она забирает себе её тяжёлую болезнь, а бывшая красавица обретает силы и свободу." },
-  8: { logo: iviX21, long: "Люси приходит в себя, не помня ничего о своём прошлом. Скоро она узнаёт, что является клоном, созданным в научной лаборатории. Спин-офф научно-фантастического сериала «Тёмное дитя»." },
-  9: { logo: iviX22, long: "В недалёком будущем люди находят идеальных партнёров с помощью новых технологий, но наука всё равно не избавляет их от ссор, измен и предательств. Фантастическая мелодрама с Биллом Скарсгардом." },
-  10: { logo: iviX23, long: "Воскрешённая воительница становится служанкой своего убийцы-демона и помогает ему заботиться о земном ребёнке — последней надежде человечества. Тёмное фэнтези на основе манги Юдзи Ивахара." },
-  11: { logo: iviX24, badge: "iviChoice", long: "Антология, созданная Джеймсом Уордом Биркитом, как продолжение его фантастического фильма «Связь». Каждый эпизод – самостоятельная история, вдохновлённая безграничными возможностями нашего сознания." },
-  12: { logo: iviX25, long: "История изощренного и педантичного серийного убийцы Джека, который за двенадцать лет разными способами убил более шестидесяти человек, считая это своим искусством." },
-  13: { logo: iviX26, long: "История про парня, который занимает пустую квартиру своего друга, не зная, что стал целью номер один крупного мафиозного босса…" },
-  15: { logo: iviX28, long: "Вожатые пионерлагеря, которые в действительности — сбежавшие уголовники. Зато они справляются со своими обязанностями, и дети их любят. Но бежавшие — они на то и бежавшие, чтобы быть пойманными." },
-  16: { logo: iviX29, long: "Накануне Второй мировой обычный биржевой брокер Николас Уинтон организует спасение 669 детей-беженцев из Чехословакии. Драма по реальной истории с Энтони Хопкинсом и Хеленой Бонем Картер." },
-  17: { logo: iviX30, long: "Девять человек учатся жить вместе – в одной трёшке в Воронеже 2000-х. Юлия Александрова, Дмитрий Лысенков, Николай Наумов и другие звёзды в комедии от режиссёра «Патриота»." },
-  18: { logo: iviX31, long: "Даша уходит из семьи, и Веник, как и его тесть много лет назад, становится отцом-одиночкой. Весёлая семейка Васнецовых помогает ему растить четырёх дочерей. Продолжение культового российского ситкома." },
-  19: { logo: iviX32, badge: "iviChoice", long: "Зухра выдаёт себя за невесту на свадьбе своей сестры-близнеца Фатимы, которая не успела вернуться из командировки. Романтическая комедия о фиктивном браке и настоящей любви." },
-  20: { logo: iviX33, long: "Продолжение семейного фэнтези о приключениях обаятельного домовёнка. Кузя и его друзья отправляются в путешествие с загадочной Тихоней, чтобы спасти волшебный мир от коварных замыслов Кощея." },
-  21: { logo: iviX34, long: "Хоккейная команда «Акулы» находится на грани роспуска. Казанцев, занимающий важный пост в вузе, решает дать им второй шанс, пригласив игрока «Медведей» Андрея Кисляка стать новым тренером." },
-  22: { logo: iviX35, long: "Петя и Тома помогают Доктору найти украденный волшебный чемоданчик с лекарствами, которые лечат не только болезни, но и страхи. Семейная приключенческая комедия по мотивам повести Софьи Прокофьевой." },
-  23: { logo: iviX36, long: "Школьник Макс и его друзья на каникулах решают открыть амбициозный стартап — продажа драников из фудтрака, переделанного из старого УАЗика дедушки. Добрая комедия для всей семьи." },
-};
-
-const extraVerticalPosters = extraImages.map((src, i) => {
-  const m = extraMeta[i];
-  const isFilm = m.kind === "фильм";
-  const ivi = iviExtra[i];
-  return {
-    id: `x${i + 13}`,
-    src,
-    logo: ivi?.logo,
-    badgeId: ivi?.badge,
-    alt: `Постер «${m.title}»`,
-    title: m.title,
-    meta: [m.year, m.genre, m.kind],
-    description: m.description,
-    // Real ivi synopsis where we have it; otherwise the original generated one.
-    longDescription: ivi?.long ?? m.longDescription,
-    trailer: extraTrailers[i % extraTrailers.length],
-    still: extraStills[i % extraStills.length],
-    // Films get a single "season" so the episode strip still has content.
-    seasons: makeExtraSeasons(i, isFilm),
-    reviews: makeExtraReviews(i),
-  };
-});
-
-/* --------------------------------------------------------------------------
- * «Похожее» rail — a horizontal-card list shown in the combined card's Similar
- * tab: landscape artwork on top, a short description under it, the meta line
- * below that. Built from the page's own horizontal shows so the strip always
- * has enough cards to overflow (and get the same edge mask as the other lists).
- * ------------------------------------------------------------------------ */
-const similarSource = [...bestSeriesHorizontal, ...newReleasesHorizontal];
-export const similarItems = Array.from({ length: 8 }, (_, i) => {
-  const s = similarSource[i % similarSource.length];
-  return {
-    id: `sim-${i + 1}`,
-    src: s.src,
-    title: s.title,
-    description: s.description,
-    meta: s.meta,
-  };
-});
-
-// Split the 24 new posters across the four single-row shelves — 6 each.
-const extraShelfA = extraVerticalPosters.slice(0, 6); // v13–v18
-const extraShelfB = extraVerticalPosters.slice(6, 12); // v19–v24
-const extraShelfC = extraVerticalPosters.slice(12, 18); // v25–v30
-const extraShelfD = extraVerticalPosters.slice(18, 24); // v31–v36
+const h = (data) => card(data, "horizontal");
+const v = (data) => card(data, "vertical");
 
 export const galleries = [
   {
     id: "best-series",
     title: "Лучшие сериалы",
-    horizontalPosters: bestSeriesHorizontal,
-    verticalPosters: bestSeriesVertical,
+    horizontalPosters: [h(aleksLyutyij), h(hrustalnyij)],
+    verticalPosters: [v(peregovorschik), v(kazanova), v(sherlok), v(lepila), v(akusher), v(delfin)],
   },
-  // Two single-row (vertical-only) shelves after the first two-row gallery.
-  { id: "shelf-a", title: "Фильмы Каннского кинофестиваля", horizontalPosters: [], verticalPosters: extraShelfA },
-  { id: "shelf-b", title: "Фантастические сериалы", horizontalPosters: [], verticalPosters: extraShelfB },
+  {
+    id: "shelf-cannes",
+    title: "Фильмы Каннского кинофестиваля",
+    horizontalPosters: [],
+    verticalPosters: [v(otchiyDom), v(izgnanie), v(letyatZhuravli), v(moyLaskovyj), v(kogdaDerevya), v(monolog)],
+  },
+  {
+    id: "shelf-fantastic",
+    title: "Фантастические сериалы",
+    horizontalPosters: [],
+    verticalPosters: [v(otelTasokare), v(bezdarnayaZlodejka), v(temnoeDitya), v(rodstvennyeDushi), v(klevatess), v(liniyaRazloma)],
+  },
   {
     id: "100-main-series-of-the-year",
     title: "100 главных сериалов года",
-    horizontalPosters: newReleasesHorizontal,
-    verticalPosters: newReleasesVertical,
+    horizontalPosters: [h(holod), h(zolotoeDno)],
+    verticalPosters: [v(zatmenie), v(istoriyaSluzhanki), v(pirogovka), v(strahNadNevoj), v(taksi), v(iskusstvoSoblazna)],
   },
-  // Two more single-row shelves after the second two-row gallery.
-  { id: "shelf-c", title: "Из твоего избранного", horizontalPosters: [], verticalPosters: extraShelfC },
-  { id: "shelf-d", title: "Лучшие комедии", horizontalPosters: [], verticalPosters: extraShelfD },
+  {
+    id: "top-250",
+    title: "Топ-250 Иви",
+    horizontalPosters: [],
+    verticalPosters: [v(mazhor), v(kuhnya), v(klon), v(proslushka), v(besprintsipnyie), v(velikolepnyjVek)],
+  },
+  {
+    id: "shelf-comedies",
+    title: "Лучшие комедии",
+    horizontalPosters: [],
+    verticalPosters: [v(papinyDochki), v(stambul), v(domovyonokKuzya), v(molodyozhka), v(zheltyjChemodanchik), v(draniki)],
+  },
 ];
 
-// Tag every poster with a content-appropriate TextBadge (shown in the hover
-// overlay in place of the meta line). A running index seeds the picker so the
-// shelves get variety instead of the same badge over and over.
-let __badgeIndex = 0;
+// Каждой карточке — свой TextBadge (иконка + подпись) по meta. Бегущий индекс
+// даёт разнообразие вместо одного и того же бейджа подряд.
+let badgeIndex = 0;
 for (const gallery of galleries) {
   for (const poster of [...gallery.horizontalPosters, ...gallery.verticalPosters]) {
-    // Always advance the index so non-overridden posters keep their assignment.
-    const auto = badgeForMeta(poster.meta, __badgeIndex++);
-    // A `badgeId` on the poster forces a specific badge (e.g. «сериал Иви»).
-    poster.badge = (poster.badgeId && BADGES[poster.badgeId]) || auto;
+    poster.badge = badgeForMeta(poster.meta, badgeIndex++);
   }
 }

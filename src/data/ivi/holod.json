@@ -1,0 +1,262 @@
+{
+  "slug": "holod",
+  "id": 18274,
+  "title": "Холод",
+  "year": 2026,
+  "country": "Россия",
+  "genres": [
+    "Драмы",
+    "Криминал",
+    "Российские"
+  ],
+  "meta": [
+    "2026",
+    "драмы",
+    "1 сезон"
+  ],
+  "ratings": {
+    "kp": 7.97,
+    "imdb": null,
+    "ivi": 8.04
+  },
+  "shortDescription": "Несправедливо осуждённая Женя бежит из тюрьмы, чтобы отомстить тем, кто отнял у неё семью и свободу.",
+  "synopsis": "Женю несправедливо обвиняют в аварии, унёсшей жизни её близких. В тюрьме она встречает наставницу, которая помогает ей найти силы для мести. Криминальная драма с Любовью Аксёновой.",
+  "description": "Женю несправедливо обвиняют в аварии, унёсшей жизни её близких. В тюрьме она встречает наставницу, которая помогает ей найти силы для мести. Шокирующая криминальная драма с Любовью Аксёновой и Ларисой Гузеевой. Возвращаясь домой с семейного праздника, Женя с близкими попадает в аварию на Кутузовском проспекте. Из-за подставы на дороге машина переворачивается, а её муж и дочь погибают. Потеряв самое дорогое, Женя решает любой ценой добиться правосудия, но влиятельный отец виновника трагедии отправляет за решётку её саму. В тюрьме героиня спасает заключённую Яну, которая обучает её, как стать сильнее, вырваться на свободу и отомстить тем, кто отнял у неё всё. Чтобы узнать, как будут развиваться события, смотри онлайн на Иви «Холод».",
+  "images": {
+    "posterVertical": "https://thumbs.dfs.ivi.ru/storage0/contents/2/7/3389572bb049e0b88332db33da9884.jpg/445x675/?q=85&mod=to_webp",
+    "posterHorizontal": "https://thumbs.dfs.ivi.ru/storage0/contents/f/6/aaee0d71cb4626ba26b6719eba0f50.jpg/1352x760/?q=85&mod=to_webp",
+    "logo": "https://thumbs.dfs.ivi.ru/storage0/contents/e/8/596ae962864f61bc13a7eddfa9e2be.jpg",
+    "background": "https://thumbs.dfs.ivi.ru/storage0/contents/3/0/df9794130342a3a9d36559dafd4307.jpg/1280x720/?q=85&mod=to_webp",
+    "shots": [
+      "https://thumbs.dfs.ivi.ru/storage0/contents/4/6/452446a2184ebdb8b1afbaee1a2ecb.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/e/3/f2d3ba0f774697b9008209ff0b6453.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/f/e/b36eb767e942359adec5c5fbf31fd2.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/6/e/1ee8ad5f374428973cd460df896396.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/a/4/61422bbebf4986a2917f9f4d9ac206.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/0/e/7cb54ee54a4fce8e04ac8f12c1eb44.jpg/1280x720/?q=85&mod=to_webp"
+    ],
+    "trailerPreview": "https://thumbs.dfs.ivi.ru/storage0/contents/e/8/cdf5d7fd704cf69ed65f8308b99025.jpg"
+  },
+  "seasons": [
+    {
+      "id": "s1",
+      "title": "Сезон 1",
+      "episodes": [
+        {
+          "id": "e1",
+          "title": "Серия 1",
+          "subtitle": "1 серия · 47 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/b/6/1629d46119449eb96a63d718b01447.jpg"
+        },
+        {
+          "id": "e2",
+          "title": "Серия 2",
+          "subtitle": "2 серия · 58 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/4/d/902fac8dd24cafb7589a03f65db9c4.jpg"
+        },
+        {
+          "id": "e3",
+          "title": "Серия 3",
+          "subtitle": "3 серия · 46 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/2/8/b17190b03045af9a8444dac607474d.jpg"
+        },
+        {
+          "id": "e4",
+          "title": "Серия 4",
+          "subtitle": "4 серия · 44 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/6/6/eeaea23bb741329d8d762cc8c4d7f9.jpg"
+        },
+        {
+          "id": "e5",
+          "title": "Серия 5",
+          "subtitle": "5 серия",
+          "still": null
+        },
+        {
+          "id": "e6",
+          "title": "Серия 6",
+          "subtitle": "6 серия",
+          "still": null
+        },
+        {
+          "id": "e7",
+          "title": "Серия 7",
+          "subtitle": "7 серия",
+          "still": null
+        },
+        {
+          "id": "e8",
+          "title": "Серия 8",
+          "subtitle": "8 серия",
+          "still": null
+        },
+        {
+          "id": "e9",
+          "title": "Серия 9",
+          "subtitle": "9 серия",
+          "still": null
+        },
+        {
+          "id": "e10",
+          "title": "Серия 10",
+          "subtitle": "10 серия",
+          "still": null
+        }
+      ]
+    }
+  ],
+  "comments": [
+    {
+      "id": "c1",
+      "author": "Елизавета",
+      "text": "Жду этот сериал. Девочке нечего терять, а этим барыгам, обнаглевшим от безнаказанности, есть, что терять."
+    },
+    {
+      "id": "c2",
+      "author": "Аристарх",
+      "text": "Суперская АКТРИССА!!!! Жду сериал,хоть и знаю что будет )) Люба Огонь!!!!!!!!"
+    },
+    {
+      "id": "c3",
+      "author": "cherednichenko.i",
+      "text": "Это очень мощно! мороз по коже и ком в горле от первой же серии. Любовь Аксенова невероятно крутая!"
+    },
+    {
+      "id": "c4",
+      "author": "Исма",
+      "text": "Кажется, мы ждём Холод уже года полтора. Уверен, что Аксёнова здесь будет, как всегда, классная."
+    },
+    {
+      "id": "c5",
+      "author": "Аккаунт",
+      "text": "Буду смотреть"
+    },
+    {
+      "id": "c6",
+      "author": "Аккаунт",
+      "text": "какая ЖЕСТЬ...."
+    },
+    {
+      "id": "c7",
+      "author": "Аккаунт",
+      "text": "Буду смотреть"
+    },
+    {
+      "id": "c8",
+      "author": "Лена",
+      "text": "Судя по трейлерам и описаниям в интернете, Холод — весьма неоднозначный сериал. И интересно, при чём тут холод, если по сценарию это больше похоже на Графа Монте-Кристо в московских декорациях."
+    },
+    {
+      "id": "c9",
+      "author": "Аккаунт",
+      "text": "Очень жду продолжения) Действительно сериал года. Но назвала бы его по-другому - Неприкасаемые."
+    },
+    {
+      "id": "c10",
+      "author": "yurmikhay",
+      "text": "Точно буду смотреть, да."
+    }
+  ],
+  "similar": [
+    {
+      "id": "sim-17468",
+      "title": "Рваный ветер",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/1/2/af5966a0a1468ba98f8e759e2476ea.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Бизнесмен Градов ввязывается в корпоративную войну за завод, которая перерастает в войну за любовь.",
+      "meta": [
+        "2024",
+        "драмы"
+      ]
+    },
+    {
+      "id": "sim-20829",
+      "title": "Затмение",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/e/b/b34825b8fb4507b1948897c9792837.jpg/640x360/?q=85&mod=to_webp",
+      "description": "1960, Москва. Полковник КГБ расследует вспышку чёрной оспы, чтобы предотвратить смертельную эпидемию",
+      "meta": [
+        "2026",
+        "драмы"
+      ]
+    },
+    {
+      "id": "sim-15662",
+      "title": "Матрёшка",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/b/d/2957f1d8774091b3fa76ddbffe9c98.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Простая студентка становится важнейшей шпионкой в детективе от режиссёра «28 панфиловцев».",
+      "meta": [
+        "2024",
+        "драмы"
+      ]
+    },
+    {
+      "id": "sim-20802",
+      "title": "Двойная жизнь Ми",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/e/6/4815dcfc584ba2bf30665cd9ec526c.jpg/640x360/?q=85&mod=to_webp",
+      "description": "У школьницы Милы есть секрет: она суперзвезда. Комедия с Миланой Хаметовой и Давидом Манукяном.",
+      "meta": [
+        "2026",
+        "драмы"
+      ]
+    },
+    {
+      "id": "sim-21330",
+      "title": "Потерянная жизнь",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/2/4/5a0fd5133e4e669011c64b481942e5.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Тайны прошлого настигают Катерину, ставя под угрозу её брак и карьеру. Драма с Татьяной Арнтгольц.",
+      "meta": [
+        "2026",
+        "драмы"
+      ]
+    },
+    {
+      "id": "sim-17043",
+      "title": "Точка ноль",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/d/e/7487c940bd4494b0f99d7e4c5bf7d3.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Тихая деревня на Алтае стала очагом загадочной эпидемии. Медицинская драма с Мариной Александровой.",
+      "meta": [
+        "2024",
+        "драмы"
+      ]
+    },
+    {
+      "id": "sim-18651",
+      "title": "Минута тишины",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/2/b/e104d6189c4cdf86f2337c3d0cc887.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Бизнесмен с амнезией, спасённый после землетрясения, скрывается от спецслужб на Ближнем Востоке.",
+      "meta": [
+        "2025",
+        "драмы"
+      ]
+    },
+    {
+      "id": "sim-21474",
+      "title": "Выход есть всегда",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/a/2/29428cef8e46bbb3fbda765bc1315f.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Борьба за опеку над сыном оборачивается для Ирины чередой угроз и опасных происшествий.",
+      "meta": [
+        "2026",
+        "драмы"
+      ]
+    },
+    {
+      "id": "sim-16784",
+      "title": "Золотое дно",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/e/1/65edbacc5440e7a127e573560afc03.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Бизнес-империи Градовых угрожают новые враги, санкции и семейные склоки. Продолжение хитовой саги.",
+      "meta": [
+        "2024",
+        "драмы"
+      ]
+    },
+    {
+      "id": "sim-18140",
+      "title": "Искусство соблазна",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/2/1/05b996d76649198e31ac1073260f6e.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Агентство по соблазнению мужчин начинает помогать обманутым женщинам. Продолжение хита с Лизой Моряк",
+      "meta": [
+        "2025",
+        "драмы"
+      ]
+    }
+  ]
+}

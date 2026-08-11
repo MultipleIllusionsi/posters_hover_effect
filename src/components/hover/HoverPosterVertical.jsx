@@ -36,14 +36,25 @@ export default function HoverPosterVertical({ data }) {
     if (videoRef.current) videoRef.current.muted = muted;
   });
 
+  const openLink = () => {
+    if (data.link) window.open(data.link, "_blank", "noopener,noreferrer");
+  };
+
   return (
-    <div className="hover-vertical" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
+    <div
+      className="hover-vertical"
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
+      onClick={openLink}
+    >
       <div className="hover-vertical__media">
-        <img className="hover-vertical__image" src={data.src} alt={data.alt} />
+        <img className="hover-vertical__image" src={data.src} alt={data.alt} loading="lazy" />
 
         <span className="hover-vertical__scrim" aria-hidden="true" />
 
-        {data.trailer && (
+        {/* Трейлер — видео (poster=BackgroundImage до загрузки); если трейлера
+            нет, на его месте статичный BackgroundImage. */}
+        {data.trailer ? (
           <video
             ref={videoRef}
             className="hover-vertical__trailer"
@@ -54,13 +65,18 @@ export default function HoverPosterVertical({ data }) {
             loop
             playsInline
           />
-        )}
+        ) : data.still ? (
+          <img className="hover-vertical__trailer" src={data.still} alt="" />
+        ) : null}
 
         {data.trailer && (
           <button
             type="button"
             className="hover-vertical__sound"
-            onClick={() => setMuted((m) => !m)}
+            onClick={(e) => {
+              e.stopPropagation();
+              setMuted((m) => !m);
+            }}
             aria-label={muted ? "Включить звук" : "Выключить звук"}
             aria-pressed={!muted}
           >

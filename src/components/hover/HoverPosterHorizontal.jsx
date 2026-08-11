@@ -43,13 +43,16 @@ export default function HoverPosterHorizontal({ data }) {
         // Следующее наведение снова начинается без звука.
         setMuted(true);
       }}
+      onClick={() => data.link && window.open(data.link, "_blank", "noopener,noreferrer")}
     >
       {/* Всё масштабируемое живёт в __media: артворк, трейлер и градиент
           двигаются как одно целое. Кнопки ниже стоят на месте. */}
       <div className="hover-horizontal__media">
-        <img className="hover-horizontal__image" src={data.src} alt={data.alt} />
+        <img className="hover-horizontal__image" src={data.src} alt={data.alt} loading="lazy" />
 
-        {data.trailer && (
+        {/* Трейлер — видео (poster=BackgroundImage до загрузки); если трейлера
+            нет, на его месте статичный BackgroundImage. */}
+        {data.trailer ? (
           <video
             ref={videoRef}
             className="hover-horizontal__trailer"
@@ -60,7 +63,9 @@ export default function HoverPosterHorizontal({ data }) {
             loop
             playsInline
           />
-        )}
+        ) : data.still ? (
+          <img className="hover-horizontal__trailer" src={data.still} alt="" />
+        ) : null}
 
         <span className="hover-horizontal__scrim" aria-hidden="true" />
       </div>
@@ -69,7 +74,10 @@ export default function HoverPosterHorizontal({ data }) {
         <button
           type="button"
           className="hover-horizontal__sound"
-          onClick={() => setMuted((m) => !m)}
+          onClick={(e) => {
+            e.stopPropagation();
+            setMuted((m) => !m);
+          }}
           aria-label={muted ? "Включить звук" : "Выключить звук"}
           aria-pressed={!muted}
         >

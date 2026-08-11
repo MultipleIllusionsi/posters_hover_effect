@@ -279,27 +279,14 @@
 }
 .combined-card__reviews::-webkit-scrollbar { display: none; }
 
+/* Карточка отзыва: имя автора сверху, текст под ним (как на ivi.ru — без оценки). */
 .combined-card__review {
   flex: 0 0 auto;
   display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  gap: 12px;
-  width: 340px;
-  padding: 12px 0;
-  box-sizing: border-box;
-  /* Без фона (в отличие от сводного блока) — отзывы прямо на поверхности. */
-}
-
-/* Сводный блок — коллективная оценка + фраза, слева от отзывов, с фоном. */
-.combined-card__review-summary {
-  flex: 0 0 auto;
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  gap: 12px;
-  width: 420px;
-  padding: 12px;
+  flex-direction: column;
+  gap: 8px;
+  width: 360px;
+  padding: 16px;
   box-sizing: border-box;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.06);
@@ -307,55 +294,19 @@
   -webkit-backdrop-filter: blur(12px);
 }
 
-/* 8px точка между сводным блоком и отзывами. */
-.combined-card__review-sep {
-  flex: 0 0 auto;
-  align-self: center;
-  width: 8px;
-  height: 8px;
-  border-radius: 100px;
-  background: rgba(255, 255, 255, 0.4);
-}
-
-.combined-card__review-rating {
-  flex: 0 0 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 80px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.1);
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 1;
-  color: #fff;
-}
-.combined-card__review-rating--high {
-  background: #00bf4c;
-}
-
-.combined-card__review-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 4px;
-  flex: 1 1 auto;
-  min-width: 0;
-}
-
 .combined-card__review-author {
-  font-weight: 500;
-  font-size: 15px;
+  font-weight: 600;
+  font-size: 16px;
   line-height: 20px;
   color: #fff;
 }
 
 .combined-card__review-text {
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 15px;
+  line-height: 20px;
   color: var(--ivi-text-dim);
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }

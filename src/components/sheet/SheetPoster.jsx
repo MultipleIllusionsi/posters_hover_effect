@@ -19,7 +19,7 @@ export default function SheetPoster({ src, alt = "", shape = "vertical", selecte
       {...rest}
     >
       <span className="sheet-poster__media">
-        <img className="sheet-poster__image" src={src} alt={alt} />
+        <img className="sheet-poster__image" src={src} alt={alt} loading="lazy" />
       </span>
     </button>
   );

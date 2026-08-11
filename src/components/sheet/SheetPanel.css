@@ -236,6 +236,16 @@ body.has-bottom-sheet {
   color: #fff;
 }
 
+/* «Подробнее» — таб-ссылка (открывает страницу контента в новой вкладке). */
+.sheet__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.sheet__more svg {
+  opacity: 0.7;
+}
+
 /* Контент таба прокручивается внутри панели, а не растит её. */
 .sheet__content {
   flex: 1 1 auto;
@@ -460,15 +470,14 @@ body.has-bottom-sheet {
 }
 .sheet__list--reviews::-webkit-scrollbar { display: none; }
 
-/* Карточка: крупный блок оценки слева, автор + текст справа. */
+/* Карточка отзыва: имя автора сверху, текст под ним (как на ivi.ru — без оценки). */
 .sheet__list--reviews .sheet__review {
   flex: 0 0 auto;
   display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  gap: 12px;
+  flex-direction: column;
+  gap: 8px;
   width: 340px;
-  padding: 12px;
+  padding: 14px 16px;
   box-sizing: border-box;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.06);
@@ -476,35 +485,8 @@ body.has-bottom-sheet {
   -webkit-backdrop-filter: blur(12px);
 }
 
-.sheet__review-rating {
-  flex: 0 0 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 80px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.1);
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 1;
-  color: #fff;
-}
-
-/* Высокие оценки (9–10) — зелёный блок. */
-.sheet__review-rating--high {
-  background: #00bf4c;
-}
-
-.sheet__review-body {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  flex: 1 1 auto;
-  min-width: 0;
-}
-
 .sheet__review-author {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 15px;
   line-height: 20px;
   color: #fff;
@@ -515,7 +497,7 @@ body.has-bottom-sheet {
   line-height: 18px;
   color: var(--ivi-text-dim);
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }

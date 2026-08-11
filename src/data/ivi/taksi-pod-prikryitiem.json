@@ -1,0 +1,299 @@
+{
+  "slug": "taksi-pod-prikryitiem",
+  "id": 17306,
+  "title": "Такси под прикрытием",
+  "year": 2023,
+  "country": "Россия",
+  "genres": [
+    "Детективы",
+    "Криминал",
+    "Триллеры",
+    "Российские"
+  ],
+  "meta": [
+    "2023",
+    "детективы",
+    "1 сезон"
+  ],
+  "ratings": {
+    "kp": 8.08,
+    "imdb": null,
+    "ivi": 8.74
+  },
+  "shortDescription": "Оперативник под видом таксиста ловит бандитов на улицах Петербурга. Детектив на высоких скоростях.",
+  "synopsis": "Молодой оперативник под видом таксиста ловит бандитов на улицах Петербурга. Дмитрий Власкин, Кирилл Гребенщиков и Виктория Маслова в захватывающем экшен-детективе на высоких скоростях.",
+  "description": "Молодой оперативник под прикрытием таксиста ловит преступников на улицах Петербурга. Дмитрий Власкин, Кирилл Гребенщиков и Виктория Маслова в захватывающем экшен-детективе на высоких скоростях. Полицейский Алексей Турбин стал изгоем на своём участке после того, как отказался выгораживать сослуживца. Тот неоправданно жестоко обошёлся с задержанным. Но вместо нового напарника Турбину неожиданно выдают... такси. Алексей становится участником секретного проекта полиции и начинает патрулировать улицы под видом неприметного водителя. Почти каждый его выезд превращается в смертельную гонку с бандитами, маньяками, похитителями и грабителями, которые слишком поздно понимают, что связались не с тем таксистом. Смотреть динамичный детектив «Такси под прикрытием» можно онлайн.",
+  "images": {
+    "posterVertical": "https://thumbs.dfs.ivi.ru/storage0/contents/9/d/bf2d96065146809c504b6a637f35a0.jpg/445x675/?q=85&mod=to_webp",
+    "posterHorizontal": "https://thumbs.dfs.ivi.ru/storage0/contents/0/9/574c058b394ab3956ec21041e7ee07.jpg/1352x760/?q=85&mod=to_webp",
+    "logo": "https://thumbs.dfs.ivi.ru/storage0/contents/9/f/da377a87954c978116bf0664698a26.jpg",
+    "background": "https://thumbs.dfs.ivi.ru/storage0/contents/f/b/abecaa864d4e17b8dd482da8b47afa.jpg/1280x720/?q=85&mod=to_webp",
+    "shots": [
+      "https://thumbs.dfs.ivi.ru/storage0/contents/4/f/9d3d8129784f7c8c8e307fdd018dcc.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/6/8/70f35c0ad54a95871790480a859c6a.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/1/4/fdfb383f4944a9856daed03bc2053b.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/0/d/83783f51b145729cbfddd520bbf65e.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/4/c/f36491ac3549108011e7092022e93a.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/e/6/66db685a134a66b4df52a1acacbe3d.jpg/1280x720/?q=85&mod=to_webp"
+    ],
+    "trailerPreview": "https://thumbs.dfs.ivi.ru/storage0/contents/1/6/2dfb37aa5643a99d773a3c159fc552.jpg"
+  },
+  "seasons": [
+    {
+      "id": "s1",
+      "title": "Сезон 1",
+      "episodes": [
+        {
+          "id": "e1",
+          "title": "Серия 1",
+          "subtitle": "1 серия · 50 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/7/3/4612098d6a448c9fbc3fec7c288b9b.jpg"
+        },
+        {
+          "id": "e2",
+          "title": "Серия 2",
+          "subtitle": "2 серия · 52 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/3/f/549c7d03074cc990d299b401bd9567.jpg"
+        },
+        {
+          "id": "e3",
+          "title": "Серия 3",
+          "subtitle": "3 серия · 50 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/9/2/2552f076d341ab9b6019c4e7e97c6e.jpg"
+        },
+        {
+          "id": "e4",
+          "title": "Серия 4",
+          "subtitle": "4 серия · 49 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/e/e/1d1366fc324d6f9af49a71addf77b5.jpg"
+        },
+        {
+          "id": "e5",
+          "title": "Серия 5",
+          "subtitle": "5 серия · 48 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/f/9/43f1c0fce0430081c23b0c53e47ac4.jpg"
+        },
+        {
+          "id": "e6",
+          "title": "Серия 6",
+          "subtitle": "6 серия · 49 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/7/5/254e4db06b46b9b081ac01422c260a.jpg"
+        },
+        {
+          "id": "e7",
+          "title": "Серия 7",
+          "subtitle": "7 серия · 49 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/7/9/85044087d3450bb9c01fee08b09f4c.jpg"
+        },
+        {
+          "id": "e8",
+          "title": "Серия 8",
+          "subtitle": "8 серия · 48 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/9/2/a97e95e2c34660ba4fe85b62b8186d.jpg"
+        },
+        {
+          "id": "e9",
+          "title": "Серия 9",
+          "subtitle": "9 серия · 51 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/e/d/67961477054ce398759ee61fdeafcf.jpg"
+        },
+        {
+          "id": "e10",
+          "title": "Серия 10",
+          "subtitle": "10 серия · 48 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/5/7/ce4d6b8a2a4f61ba74037d7550b75a.jpg"
+        },
+        {
+          "id": "e11",
+          "title": "Серия 11",
+          "subtitle": "11 серия · 52 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/5/3/08f226c6774fbea003e0d724be8c34.jpg"
+        },
+        {
+          "id": "e12",
+          "title": "Серия 12",
+          "subtitle": "12 серия · 49 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/b/e/f6debd220c48449259197ba1628b54.jpg"
+        },
+        {
+          "id": "e13",
+          "title": "Серия 13",
+          "subtitle": "13 серия · 51 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/5/1/733e0c1b3243c499b6b6672a3b751a.jpg"
+        },
+        {
+          "id": "e14",
+          "title": "Серия 14",
+          "subtitle": "14 серия · 50 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/4/a/5fbb95ee8148c794b9c55f5f0ada30.jpg"
+        },
+        {
+          "id": "e15",
+          "title": "Серия 15",
+          "subtitle": "15 серия · 51 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/d/d/05a475e579485f93ebf9e7dae16aa6.jpg"
+        },
+        {
+          "id": "e16",
+          "title": "Серия 16",
+          "subtitle": "16 серия · 53 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/c/2/76d9ae460840c2aa16592b8b2e13ac.jpg"
+        }
+      ]
+    }
+  ],
+  "comments": [
+    {
+      "id": "c1",
+      "author": "Алька Носова",
+      "text": "Классный сериал, очень надо продолжение)))))"
+    },
+    {
+      "id": "c2",
+      "author": "LANA",
+      "text": "Понравился. Интересный сюжет. Хорошие актеры, особенно понравился Батон."
+    },
+    {
+      "id": "c3",
+      "author": "Oleg",
+      "text": "Обычно не смотрю сериалы. Но посмотрел этот и не пожалел! Интересный сюжет, отличная игра актеров, красиво снято и смонтировано! Сериал хорош!"
+    },
+    {
+      "id": "c4",
+      "author": "Аккаунт",
+      "text": "Спасибо за красивый Петербург! но.....зная свой город, у меня дергался глаз от несоответствия улиц, районов и картинки. И зачем опять из Питера делать побоище..."
+    },
+    {
+      "id": "c5",
+      "author": "ellacanary67",
+      "text": "Отличный сериал! Главный герой очень нравится. А какие бесподобные локации, музыкальное сопровождение."
+    },
+    {
+      "id": "c6",
+      "author": "Людмила",
+      "text": "Фильм супер!!!"
+    },
+    {
+      "id": "c7",
+      "author": "оля",
+      "text": "Классный сериал, посмотрела на одном дыхании"
+    },
+    {
+      "id": "c8",
+      "author": "Amelia993",
+      "text": "Сериал отличный! Смотрела на одном дыхании Очень динамичный Давно у нас таких сериалов не было Главный герой очень симпатичен, прямо супер полицейский) Собака Батон просто милаха) События разворачиваются в любимом Питере, это ещё один плюс Буду с нетерпением ждать продолжения сериала Моя оценка 10 из 10!"
+    },
+    {
+      "id": "c9",
+      "author": "isagito2011",
+      "text": "Закрученный непредсказуемый сюжет, прекрасная игра актеров, особенно пса по имени Бато"
+    },
+    {
+      "id": "c10",
+      "author": "ОльгаШ",
+      "text": "Понравились приключения одинокого рейнджера- Хоть и неправдоподобно, но увлекательно. Гг-й симпатичный, сериал без пошлости и слишком кровавых сцен. За это добавила 1 балл. Поэтому итоговая оценка-9. Ну, и куда уж без неубиваемого главного злодея))). Буду ждать продолжения. Отдельное спасибо обаятельному пёсику."
+    }
+  ],
+  "similar": [
+    {
+      "id": "sim-18038",
+      "title": "Прометей",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/1/c/f5778db2c44944bed7409b15f01429.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Журналистка расследует дело об исчезновении самолёта много лет назад. Триллер с Любовью Аксёновой.",
+      "meta": [
+        "2024",
+        "детективы"
+      ]
+    },
+    {
+      "id": "sim-20029",
+      "title": "Нерождённая",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/a/8/569de0211b433cbbe273e2362161a6.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Школьница, видящая призраков, узнаёт тайну своего сверхъестественного дара.",
+      "meta": [
+        "2024",
+        "детективы"
+      ]
+    },
+    {
+      "id": "sim-18044",
+      "title": "Кордон",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/5/4/7715c7bd4c4c339a422d9a18769a45.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Несправедливо уволенный пограничник продолжает ловить контрабандистов. Детектив с Петром Рыковым.",
+      "meta": [
+        "2024",
+        "детективы"
+      ]
+    },
+    {
+      "id": "sim-20829",
+      "title": "Затмение",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/e/b/b34825b8fb4507b1948897c9792837.jpg/640x360/?q=85&mod=to_webp",
+      "description": "1960, Москва. Полковник КГБ расследует вспышку чёрной оспы, чтобы предотвратить смертельную эпидемию",
+      "meta": [
+        "2026",
+        "детективы"
+      ]
+    },
+    {
+      "id": "sim-12120",
+      "title": "Майя",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/f/0/7741c32ffe4889b07a9e32453cfa79.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Майя, мечтающая найти убийцу своего отца, начинает расследовать исчезновение «королевы» школы.",
+      "meta": [
+        "2014",
+        "детективы"
+      ]
+    },
+    {
+      "id": "sim-21421",
+      "title": "Скамейка запасных",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/2/9/12b6f012884e3fb32aa80e06dbd2d9.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Отдел неудачливых в карьере, но целеустремлённых следователей распутывает самые сложные преступления",
+      "meta": [
+        "2026",
+        "детективы"
+      ]
+    },
+    {
+      "id": "sim-17385",
+      "title": "Страх над Невой",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/e/6/3de87e0997417c901e3fa379d4900f.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Ленинград, 1967 год. Майор КГБ и капитан милиции расследуют таинственные убийства женщин.",
+      "meta": [
+        "2024",
+        "детективы"
+      ]
+    },
+    {
+      "id": "sim-14436",
+      "title": "Объявлен мёртвым (2021)",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/3/5/3e6516ac9d4013a8b47937ba0fe3b9.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Полицейский, считавшийся убитым, возвращается из плена два года спустя. Детектив с Евгением Прониным",
+      "meta": [
+        "2020",
+        "детективы"
+      ]
+    },
+    {
+      "id": "sim-10979",
+      "title": "Обратный отсчёт",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/f/5/02ccad499148ddb37af22169a834ae.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Юрий Колокольников и Полина Максимова в роли полицейских раскрывают убийства наперегонки со временем",
+      "meta": [
+        "2018",
+        "детективы"
+      ]
+    },
+    {
+      "id": "sim-18651",
+      "title": "Минута тишины",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/2/b/e104d6189c4cdf86f2337c3d0cc887.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Бизнесмен с амнезией, спасённый после землетрясения, скрывается от спецслужб на Ближнем Востоке.",
+      "meta": [
+        "2025",
+        "детективы"
+      ]
+    }
+  ]
+}

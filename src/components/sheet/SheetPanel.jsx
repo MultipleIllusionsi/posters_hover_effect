@@ -213,20 +213,10 @@ export default function SheetPanel({ data, onClose, leaving = false }) {
                 {tab === "reviews" && (
                   <ul className="sheet__list sheet__list--reviews">
                     {reviews.map((r) => (
+                      /* Как на ivi.ru — только имя автора и текст, без оценки. */
                       <li className="sheet__review" key={r.key}>
-                        {/* Слева — оценка; высокие (9–10) на зелёном фоне. */}
-                        <span
-                          className={`sheet__review-rating${
-                            r.rating >= 9 ? " sheet__review-rating--high" : ""
-                          }`}
-                        >
-                          {r.rating}
-                        </span>
-                        {/* Справа — автор и текст отзыва. */}
-                        <span className="sheet__review-body">
-                          <span className="sheet__review-author">{r.author}</span>
-                          <span className="sheet__review-text">{r.text}</span>
-                        </span>
+                        <span className="sheet__review-author">{r.author}</span>
+                        <span className="sheet__review-text">{r.text}</span>
                       </li>
                     ))}
                   </ul>
@@ -286,6 +276,27 @@ export default function SheetPanel({ data, onClose, leaving = false }) {
                   </Fragment>
                 );
               })}
+
+              {/* Последний таб — не переключает контент, а открывает страницу
+                  контента на ivi.ru в новой вкладке. */}
+              {data.link && (
+                <button
+                  type="button"
+                  className="sheet__tab sheet__more"
+                  onClick={() => window.open(data.link, "_blank", "noopener,noreferrer")}
+                >
+                  Подробнее
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <path
+                      d="M4 10L10 4M10 4H5.5M10 4V8.5"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+              )}
 
               <button type="button" className="sheet__close" onClick={onClose} aria-label="Закрыть">
                 ✕

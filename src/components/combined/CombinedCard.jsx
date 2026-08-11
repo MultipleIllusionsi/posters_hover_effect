@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { IconFavorite, IconPlay, IconSoundOff, IconSoundOn } from "../icons";
-import { similarItems } from "../../data/postersData";
 import TextBadge from "../TextBadge";
 import "./CombinedCard.css";
 
@@ -98,13 +97,8 @@ export default function CombinedCard({ data, onClose }) {
           return { ...r, key: `${r.id}-${i}` };
         });
 
-  // Средняя оценка и коллективная фраза для сводного блока отзывов.
-  const ratingValues = baseReviews.map((r) => r.rating).filter((n) => typeof n === "number");
-  const overallRating = ratingValues.length
-    ? (ratingValues.reduce((a, b) => a + b, 0) / ratingValues.length).toFixed(1)
-    : null;
-  const collectiveReview =
-    "Зрители хвалят крепкий сюжет и игру актёров — большинство советует к просмотру.";
+  // «Похожее»: реальная жанровая подборка с Иви.
+  const similar = data.similar ?? [];
 
   return (
     <div className="combined-card" role="dialog" aria-label={data.title}>
@@ -151,40 +145,13 @@ export default function CombinedCard({ data, onClose }) {
                         <IconFavorite />
                       </button>
                     </div>
-                    {/* Рейл отзывов под кнопками: сводный блок (общая оценка +
-                        коллективная фраза), точка-разделитель, затем отзывы. */}
+                    {/* Рейл отзывов под кнопками — как на ivi.ru: имя автора и
+                        текст, без оценки. */}
                     <ul className="combined-card__reviews">
-                      {overallRating && (
-                        <li className="combined-card__review-summary">
-                          <span
-                            className={`combined-card__review-rating${
-                              Number(overallRating) >= 9 ? " combined-card__review-rating--high" : ""
-                            }`}
-                          >
-                            {overallRating}
-                          </span>
-                          <span className="combined-card__review-body">
-                            <span className="combined-card__review-author">Общая оценка</span>
-                            <span className="combined-card__review-text">{collectiveReview}</span>
-                          </span>
-                        </li>
-                      )}
-                      {overallRating && (
-                        <li className="combined-card__review-sep" aria-hidden="true" />
-                      )}
                       {reviews.map((r) => (
                         <li className="combined-card__review" key={r.key}>
-                          <span
-                            className={`combined-card__review-rating${
-                              r.rating >= 9 ? " combined-card__review-rating--high" : ""
-                            }`}
-                          >
-                            {r.rating}
-                          </span>
-                          <span className="combined-card__review-body">
-                            <span className="combined-card__review-author">{r.author}</span>
-                            <span className="combined-card__review-text">{r.text}</span>
-                          </span>
+                          <span className="combined-card__review-author">{r.author}</span>
+                          <span className="combined-card__review-text">{r.text}</span>
                         </li>
                       ))}
                     </ul>
@@ -294,7 +261,7 @@ export default function CombinedCard({ data, onClose }) {
                     ))}
                   </div>
                   <ul className="combined-card__list combined-card__list--similar">
-                    {similarItems.map((s) => (
+                    {similar.map((s) => (
                       <li className="combined-card__similar" key={s.id}>
                         <span className="combined-card__similar-poster">
                           <img className="combined-card__similar-image" src={s.src} alt={s.title} />

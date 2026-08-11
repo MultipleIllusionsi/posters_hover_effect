@@ -1,0 +1,234 @@
+{
+  "slug": "proslushka",
+  "id": 13727,
+  "title": "Прослушка",
+  "year": 2002,
+  "country": "США",
+  "genres": [
+    "Криминал",
+    "Драмы",
+    "Триллеры",
+    "Зарубежные"
+  ],
+  "meta": [
+    "2002",
+    "криминал",
+    "1 сезон"
+  ],
+  "ratings": {
+    "kp": 8.48,
+    "imdb": 9.3,
+    "ivi": 8.49
+  },
+  "shortDescription": "Легендарный полицейский сериал о преступном мире Балтимора и тех, кто призван с ним бороться.",
+  "synopsis": "Знаменитый полицейский сериал о преступном мире Балтимора и тех, кто призван с ним бороться: в трущобах, портах и школах; в администрации и СМИ. Это не война, потому что «войны заканчиваются».",
+  "description": "Знаменитый полицейский сериал о преступном мире Балтимора и тех, кто призван с ним бороться: в трущобах, портах и школах; в администрации и СМИ. Это не война, потому что «войны заканчиваются». Резонансный и бескомпромиссный проект НВО, за которым многие критики закрепили славу величайшего сериала в истории телевидения. Каждый сезон посвящен разным сферам городской жизни. В первой истории проблемный детектив МакНалти вместе с командой пытается выловить преступника, опутавшего сетью наркоторговли улицы Балтимора. Для этого МакНалти предлагает сменить тактику и взять на вооружение методы слежки, включая прослушку. Во втором сезоне завязывается расследование серийных убийств женщин в неблагополучном морском порту. Далее фокус смещается на политическую сцену города, где правит коррупция. Как показывает четвертый сезон, преступность не обходит даже школы, а в финале проекта поднимается проблема вымирания честной журналистики. Достоверность, живые герои и портрет непарадной Америки, – этим славится легендарный сериал «Прослушка», который можно смотреть онлайн.",
+  "images": {
+    "posterVertical": "https://thumbs.dfs.ivi.ru/storage0/contents/e/0/29dd4a9a66420c82220328aea213b4.jpg/445x675/?q=85&mod=to_webp",
+    "posterHorizontal": "https://thumbs.dfs.ivi.ru/storage0/contents/6/3/ded2d30cb3485e8430f553807c032e.jpg/1352x760/?q=85&mod=to_webp",
+    "logo": "https://thumbs.dfs.ivi.ru/storage0/contents/a/a/681c16025f456d895507bc70bd0c5f.png",
+    "background": "https://thumbs.dfs.ivi.ru/storage0/contents/b/2/39819f49b64b31b85772491349b485.jpg/1280x720/?q=85&mod=to_webp",
+    "shots": [],
+    "trailerPreview": "https://thumbs.dfs.ivi.ru/storage0/contents/4/2/ac4e30387a4341b4f240e56c18c763.jpg"
+  },
+  "seasons": [
+    {
+      "id": "s1",
+      "title": "Сезон 1",
+      "episodes": [
+        {
+          "id": "e1",
+          "title": "Мишень",
+          "subtitle": "1 серия · 59 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/3/9/eed66bab3a41aaa517f8eca2b86940.jpg"
+        },
+        {
+          "id": "e2",
+          "title": "Задание",
+          "subtitle": "2 серия · 55 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/6/a/82a1ed234243ceaf90eac12bb76729.jpg"
+        },
+        {
+          "id": "e3",
+          "title": "Покупатели",
+          "subtitle": "3 серия · 53 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/b/e/eaaf67e9354d17a69d46f3649679b7.jpg"
+        },
+        {
+          "id": "e4",
+          "title": "Старые дела",
+          "subtitle": "4 серия · 56 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/0/7/86bbd97aa04791af6ef8f865bba769.jpg"
+        },
+        {
+          "id": "e5",
+          "title": "Пейджер",
+          "subtitle": "5 серия · 57 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/f/a/81f94a42dc4f9597182cc26af6fd8e.jpg"
+        },
+        {
+          "id": "e6",
+          "title": "Таксофон",
+          "subtitle": "6 серия · 57 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/f/a/2ff3dc89e44f4eaaa550de367f4eb0.jpg"
+        },
+        {
+          "id": "e7",
+          "title": "Арест",
+          "subtitle": "7 серия · 56 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/9/8/b7ebb9646047f49158c6aa833a75a6.jpg"
+        },
+        {
+          "id": "e8",
+          "title": "Уроки",
+          "subtitle": "8 серия · 54 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/2/7/69e8d6bf204388819dcd0becfb5206.jpg"
+        },
+        {
+          "id": "e9",
+          "title": "День игр",
+          "subtitle": "9 серия · 54 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/0/9/b88b1a8ebd40cba609ac84a84aa635.jpg"
+        },
+        {
+          "id": "e10",
+          "title": "Издержки",
+          "subtitle": "10 серия · 53 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/6/d/b9589770c34fd1a74e7313cca6160d.jpg"
+        },
+        {
+          "id": "e11",
+          "title": "Охота",
+          "subtitle": "11 серия · 54 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/8/9/62867d1ec042e0a9844ce5c6db1482.jpg"
+        },
+        {
+          "id": "e12",
+          "title": "Уборка",
+          "subtitle": "12 серия · 54 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/0/6/9fc3a23e994593bee7e2297cf1f200.jpg"
+        },
+        {
+          "id": "e13",
+          "title": "Приговоры",
+          "subtitle": "13 серия · 63 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/d/d/f434b8846346d68ae449dd02f6389c.jpg"
+        }
+      ]
+    }
+  ],
+  "comments": [
+    {
+      "id": "c1",
+      "author": "1",
+      "text": "Один из лучших, с философским подтекстом"
+    },
+    {
+      "id": "c2",
+      "author": "Аккаунт",
+      "text": "Отличное кино про деградацию всего. Зачем в принципе что-то расследовать, убили и убили."
+    }
+  ],
+  "similar": [
+    {
+      "id": "sim-18274",
+      "title": "Холод",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/f/6/aaee0d71cb4626ba26b6719eba0f50.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Несправедливо осуждённая Женя бежит из тюрьмы, чтобы отомстить тем, кто отнял у неё семью и свободу.",
+      "meta": [
+        "2026",
+        "криминал"
+      ]
+    },
+    {
+      "id": "sim-12120",
+      "title": "Майя",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/f/0/7741c32ffe4889b07a9e32453cfa79.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Майя, мечтающая найти убийцу своего отца, начинает расследовать исчезновение «королевы» школы.",
+      "meta": [
+        "2014",
+        "криминал"
+      ]
+    },
+    {
+      "id": "sim-21330",
+      "title": "Потерянная жизнь",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/2/4/5a0fd5133e4e669011c64b481942e5.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Тайны прошлого настигают Катерину, ставя под угрозу её брак и карьеру. Драма с Татьяной Арнтгольц.",
+      "meta": [
+        "2026",
+        "криминал"
+      ]
+    },
+    {
+      "id": "sim-17306",
+      "title": "Такси под прикрытием",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/0/9/574c058b394ab3956ec21041e7ee07.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Оперативник под видом таксиста ловит бандитов на улицах Петербурга. Детектив на высоких скоростях.",
+      "meta": [
+        "2023",
+        "криминал"
+      ]
+    },
+    {
+      "id": "sim-21689",
+      "title": "Украденная жизнь",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/6/8/f34d8c89da4798ac66fbdfe3553259.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Прошлое военного Василия возвращается спустя годы, сталкивая его дочек Машу и Василису лицом к лицу.",
+      "meta": [
+        "2023",
+        "криминал"
+      ]
+    },
+    {
+      "id": "sim-14436",
+      "title": "Объявлен мёртвым (2021)",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/3/5/3e6516ac9d4013a8b47937ba0fe3b9.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Полицейский, считавшийся убитым, возвращается из плена два года спустя. Детектив с Евгением Прониным",
+      "meta": [
+        "2020",
+        "криминал"
+      ]
+    },
+    {
+      "id": "sim-15715",
+      "title": "Химера",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/2/1/6481be1c774e08a1b8e944e96b8f03.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Три преступных мира борются за передел черного рынка, убивающего миллионы и приносящего миллиарды",
+      "meta": [
+        "2022",
+        "криминал"
+      ]
+    },
+    {
+      "id": "sim-17657",
+      "title": "Чужие деньги",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/7/1/d3154381174556bed23217333dce01.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Неудачник Юра, похожий на босса криптомафии, получит его жизнь. Криминальная драма от Сергея Минаева",
+      "meta": [
+        "2025",
+        "криминал"
+      ]
+    },
+    {
+      "id": "sim-10663",
+      "title": "Ищейка",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/d/d/1aaa0e055745cfa81e0ae65a4cfe91.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Начальница угрозыска охраняет покой курортного городка. Популярный детектив о прирождённой сыщице.",
+      "meta": [
+        "2016",
+        "криминал"
+      ]
+    },
+    {
+      "id": "sim-20881",
+      "title": "Зов русалки",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/5/d/65ab6471144fd9b68e92fa31b96e26.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Специалист по маньякам возвращается в родной город, чтобы расследовать загадочные убийства.",
+      "meta": [
+        "2026",
+        "криминал"
+      ]
+    }
+  ]
+}
