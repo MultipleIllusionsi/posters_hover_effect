@@ -44,43 +44,43 @@
         {
           "id": "e1",
           "title": "Серия 1",
-          "subtitle": "1 серия · 44 мин",
+          "subtitle": "1 серия · 45 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/9/0/2cde8f849043d996e274f53d25d5b0.jpg"
         },
         {
           "id": "e2",
           "title": "Серия 2",
-          "subtitle": "2 серия · 51 мин",
+          "subtitle": "2 серия · 45 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/5/a/afdc1f825245ad8f7db221dc165655.jpg"
         },
         {
           "id": "e3",
           "title": "Серия 3",
-          "subtitle": "3 серия · 46 мин",
+          "subtitle": "3 серия · 45 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/5/8/2f0c7074bf4d3f86d373d3aa34de09.jpg"
         },
         {
           "id": "e4",
           "title": "Серия 4",
-          "subtitle": "4 серия · 46 мин",
+          "subtitle": "4 серия · 45 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/a/2/cc6353ad5b420b9e3dcb5dc5095d6e.jpg"
         },
         {
           "id": "e5",
           "title": "Серия 5",
-          "subtitle": "5 серия · 40 мин",
+          "subtitle": "5 серия · 45 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/6/0/6ac0552f9647b1a2bbea7b09f6ada9.jpg"
         },
         {
           "id": "e6",
           "title": "Серия 6",
-          "subtitle": "6 серия · 43 мин",
+          "subtitle": "6 серия · 45 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/b/9/da9fe179f04e1c9497e452daf36f59.jpg"
         },
         {
           "id": "e7",
           "title": "Серия 7",
-          "subtitle": "7 серия · 44 мин",
+          "subtitle": "7 серия · 45 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/5/a/4a2dffd46343458cba4864b97df5fe.jpg"
         }
       ]
@@ -165,22 +165,22 @@
       ]
     },
     {
-      "id": "sim-17306",
-      "title": "Такси под прикрытием",
-      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/0/9/574c058b394ab3956ec21041e7ee07.jpg/640x360/?q=85&mod=to_webp",
-      "description": "Оперативник под видом таксиста ловит бандитов на улицах Петербурга. Детектив на высоких скоростях.",
-      "meta": [
-        "2023",
-        "детективы"
-      ]
-    },
-    {
       "id": "sim-21421",
       "title": "Скамейка запасных",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/2/9/12b6f012884e3fb32aa80e06dbd2d9.jpg/640x360/?q=85&mod=to_webp",
       "description": "Отдел неудачливых в карьере, но целеустремлённых следователей распутывает самые сложные преступления",
       "meta": [
         "2026",
+        "детективы"
+      ]
+    },
+    {
+      "id": "sim-17306",
+      "title": "Такси под прикрытием",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/0/9/574c058b394ab3956ec21041e7ee07.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Оперативник под видом таксиста ловит бандитов на улицах Петербурга. Детектив на высоких скоростях.",
+      "meta": [
+        "2023",
         "детективы"
       ]
     },

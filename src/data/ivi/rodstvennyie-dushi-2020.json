@@ -52,13 +52,13 @@
         {
           "id": "e2",
           "title": "Влюбленные",
-          "subtitle": "2 серия · 40 мин",
+          "subtitle": "2 серия · 42 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/c/9/6970a581f54c24aff628bf6daaf0de.jpg"
         },
         {
           "id": "e3",
           "title": "Маленькие приключения",
-          "subtitle": "3 серия · 34 мин",
+          "subtitle": "3 серия · 42 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/9/4/4df3e308784e148488f96b3c262a1f.jpg"
         },
         {
@@ -70,7 +70,7 @@
         {
           "id": "e6",
           "title": "Баллада о (силе) Кейтлин Джонс",
-          "subtitle": "6 серия · 50 мин",
+          "subtitle": "6 серия · 42 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/a/b/cfcbbd6aa04c6b80dcf1b22652269e.jpg"
         }
       ]
@@ -170,22 +170,22 @@
       ]
     },
     {
-      "id": "sim-7233",
-      "title": "Крах инженера Гарина",
-      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/9/a/9f975cddc243b7856460eda9dd6c67.jpg/640x360/?q=85&mod=to_webp",
-      "description": "Учёный изобретает опасное оружие, чтобы с помощью него захватить господство над всем миром.",
-      "meta": [
-        "1973",
-        "фантастика"
-      ]
-    },
-    {
       "id": "sim-19341",
       "title": "Академия дружбы",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/d/3/588a07335c4556baa608e18207d955.jpg/640x360/?q=85&mod=to_webp",
       "description": "Актёры-подростки из супергеройского сериала попадают в будущее и спасают мир от цифрового тирана.",
       "meta": [
         "2025",
+        "фантастика"
+      ]
+    },
+    {
+      "id": "sim-7233",
+      "title": "Крах инженера Гарина",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/9/a/9f975cddc243b7856460eda9dd6c67.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Учёный изобретает опасное оружие, чтобы с помощью него захватить господство над всем миром.",
+      "meta": [
+        "1973",
         "фантастика"
       ]
     }

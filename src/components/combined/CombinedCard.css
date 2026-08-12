@@ -260,10 +260,10 @@
 }
 .combined-card__fav:hover { background: rgba(255, 255, 255, 0.2); }
 
-/* Рейл отзывов под кнопками — прокрутка вбок с тем же краевым фейдом. */
+/* Рейл отзывов под кнопками — прокрутка вбок с тем же краевым фейдом.
+   Внешний отступ живёт на обёртке .scroll-rail (см. ниже). */
 .combined-card__reviews {
-  flex: 0 0 auto;
-  margin: 64px 0 0;
+  margin: 0;
   padding: 0 0 4px;
   list-style: none;
   display: flex;
@@ -274,10 +274,23 @@
   overflow-x: auto;
   overflow-y: hidden;
   scrollbar-width: none;
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 0%, #000 85%, transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0%, #000 0%, #000 85%, transparent 100%);
+  /* Краевой фейд — общий динамический (см. .scroll-rail__list в ScrollRail.css). */
 }
 .combined-card__reviews::-webkit-scrollbar { display: none; }
+
+/* Обёртки ScrollRail занимают слот бывших списков в своих колонках. */
+.combined-card__info-col > .scroll-rail {
+  flex: 0 0 auto;
+  margin: 64px 0 0;
+  min-height: 0;
+}
+.combined-card__panel > .scroll-rail {
+  flex: 0 0 auto;
+  min-height: 0;
+  /* Зазор справа, чтобы правая кнопка наползала на кромку списка, а не
+     обрезалась краем карточки (слева зазор даёт паддинг панели). */
+  margin-right: 24px;
+}
 
 /* Карточка отзыва: имя автора сверху, текст под ним (как на ivi.ru — без оценки). */
 .combined-card__review {
@@ -361,7 +374,7 @@
   gap: 12px;
   height: 100%;
   min-height: 0;
-  padding: 72px 0 32px 56px;
+  padding: 72px 56px 32px 56px;
   box-sizing: border-box;
 }
 
@@ -412,8 +425,7 @@
   overflow-y: hidden;
   padding-bottom: 4px;
   scrollbar-width: none;
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 0%, #000 85%, transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0%, #000 0%, #000 85%, transparent 100%);
+  /* Краевой фейд — общий динамический (см. .scroll-rail__list в ScrollRail.css). */
 }
 .combined-card__list--episodes::-webkit-scrollbar { display: none; }
 
@@ -498,17 +510,6 @@
   color: var(--ivi-text-dim);
 }
 
-/* «Похожее» — чипы фильтра над рейлом, по центру. */
-.combined-card__similar-filters {
-  flex: 0 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 20px;
-}
-
 /* Рейл ландшафтных карточек: кадр сверху, описание, мета ниже. */
 .combined-card__list--similar {
   flex: 0 0 auto;
@@ -520,8 +521,7 @@
   overflow-y: hidden;
   padding-bottom: 4px;
   scrollbar-width: none;
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 0%, #000 85%, transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0%, #000 0%, #000 85%, transparent 100%);
+  /* Краевой фейд — общий динамический (см. .scroll-rail__list в ScrollRail.css). */
 }
 .combined-card__list--similar::-webkit-scrollbar { display: none; }
 

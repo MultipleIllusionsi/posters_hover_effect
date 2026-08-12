@@ -53,3 +53,32 @@ export function IconFavorite() {
     </svg>
   );
 }
+
+/** Шеврон для кнопок листания рейлов; `left` разворачивает влево. */
+export function IconChevron({ left = false }) {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d={left ? "M15 5 8 12l7 7" : "M9 5l7 7-7 7"}
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+/** Незаполненная закладка — состояние «не в избранном» (по клику → IconFavorite). */
+export function IconFavoriteOutline() {
+  return (
+    <svg width="12" height="16" viewBox="0 0 12 16" fill="none" aria-hidden="true">
+      <path
+        d="M2 1h8a1 1 0 0 1 1 1v12.2a.8.8 0 0 1-1.27.65L6 12.3l-3.73 2.55A.8.8 0 0 1 1 14.2V2a1 1 0 0 1 1-1Z"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}

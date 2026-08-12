@@ -333,6 +333,20 @@ body.has-bottom-sheet {
   list-style: none;
 }
 
+/* Обёртка ScrollRail занимает слот бывшего списка: полоса эпизодов берёт
+   остаток высоты панели, полоса отзывов — всю высоту таба. */
+.sheet__panel > .scroll-rail {
+  flex: 1 1 auto;
+  min-height: 0;
+  /* Боковой зазор, чтобы кнопки наползали на кромку списка, а не обрезались
+     клипом области контента панели. */
+  margin: 0 24px;
+}
+.sheet__tab-panel > .scroll-rail {
+  height: 100%;
+  margin: 0 24px;
+}
+
 /* Сезоны: горизонтальная полоса карточек эпизодов (кадр сверху, текст под ним),
    которая прокручивается вбок, а не вниз по короткой панели. */
 .sheet__list--episodes {
@@ -347,10 +361,7 @@ body.has-bottom-sheet {
   overflow-y: hidden;
   padding-bottom: 4px;
   scrollbar-width: none;
-  /* Гасим обрезанный правый край, а не режем жёстко, — последняя карточка
-     растворяется, уходя из области прокрутки. */
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 0%, #000 85%, transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0%, #000 0%, #000 85%, transparent 100%);
+  /* Краевой фейд — общий динамический (см. .scroll-rail__list в ScrollRail.css). */
 }
 .sheet__list--episodes::-webkit-scrollbar { display: none; }
 
@@ -465,8 +476,7 @@ body.has-bottom-sheet {
   overflow-y: hidden;
   padding-bottom: 4px;
   scrollbar-width: none;
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 0%, #000 85%, transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0%, #000 0%, #000 85%, transparent 100%);
+  /* Краевой фейд — общий динамический (см. .scroll-rail__list в ScrollRail.css). */
 }
 .sheet__list--reviews::-webkit-scrollbar { display: none; }
 

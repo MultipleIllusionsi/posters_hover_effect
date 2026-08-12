@@ -13,7 +13,7 @@
   "meta": [
     "2023",
     "детективы",
-    "1 сезон"
+    "2 сезона"
   ],
   "ratings": {
     "kp": 8.08,
@@ -52,7 +52,7 @@
         {
           "id": "e2",
           "title": "Серия 2",
-          "subtitle": "2 серия · 52 мин",
+          "subtitle": "2 серия · 50 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/3/f/549c7d03074cc990d299b401bd9567.jpg"
         },
         {
@@ -64,80 +64,110 @@
         {
           "id": "e4",
           "title": "Серия 4",
-          "subtitle": "4 серия · 49 мин",
+          "subtitle": "4 серия · 50 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/e/e/1d1366fc324d6f9af49a71addf77b5.jpg"
         },
         {
           "id": "e5",
           "title": "Серия 5",
-          "subtitle": "5 серия · 48 мин",
+          "subtitle": "5 серия · 50 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/f/9/43f1c0fce0430081c23b0c53e47ac4.jpg"
         },
         {
           "id": "e6",
           "title": "Серия 6",
-          "subtitle": "6 серия · 49 мин",
+          "subtitle": "6 серия · 50 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/7/5/254e4db06b46b9b081ac01422c260a.jpg"
         },
         {
           "id": "e7",
           "title": "Серия 7",
-          "subtitle": "7 серия · 49 мин",
+          "subtitle": "7 серия · 50 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/7/9/85044087d3450bb9c01fee08b09f4c.jpg"
         },
         {
           "id": "e8",
           "title": "Серия 8",
-          "subtitle": "8 серия · 48 мин",
+          "subtitle": "8 серия · 50 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/9/2/a97e95e2c34660ba4fe85b62b8186d.jpg"
         },
         {
           "id": "e9",
           "title": "Серия 9",
-          "subtitle": "9 серия · 51 мин",
+          "subtitle": "9 серия · 50 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/e/d/67961477054ce398759ee61fdeafcf.jpg"
         },
         {
           "id": "e10",
           "title": "Серия 10",
-          "subtitle": "10 серия · 48 мин",
+          "subtitle": "10 серия · 50 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/5/7/ce4d6b8a2a4f61ba74037d7550b75a.jpg"
         },
         {
           "id": "e11",
           "title": "Серия 11",
-          "subtitle": "11 серия · 52 мин",
+          "subtitle": "11 серия · 50 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/5/3/08f226c6774fbea003e0d724be8c34.jpg"
         },
         {
           "id": "e12",
           "title": "Серия 12",
-          "subtitle": "12 серия · 49 мин",
+          "subtitle": "12 серия · 50 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/b/e/f6debd220c48449259197ba1628b54.jpg"
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Сезон 2",
+      "episodes": [
+        {
+          "id": "e1",
+          "title": "Серия 1",
+          "subtitle": "1 серия · 50 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/5/9/76c54b656449a58830d56bc64a5497.jpg"
         },
         {
-          "id": "e13",
-          "title": "Серия 13",
-          "subtitle": "13 серия · 51 мин",
-          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/5/1/733e0c1b3243c499b6b6672a3b751a.jpg"
+          "id": "e2",
+          "title": "Серия 2",
+          "subtitle": "2 серия · 50 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/2/5/832c9d0f854db687de4f17cafddfcd.jpg"
         },
         {
-          "id": "e14",
-          "title": "Серия 14",
-          "subtitle": "14 серия · 50 мин",
-          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/4/a/5fbb95ee8148c794b9c55f5f0ada30.jpg"
+          "id": "e3",
+          "title": "Серия 3",
+          "subtitle": "3 серия · 50 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/d/b/bb4d379bc34fa299d86e9f1322179e.jpg"
         },
         {
-          "id": "e15",
-          "title": "Серия 15",
-          "subtitle": "15 серия · 51 мин",
-          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/d/d/05a475e579485f93ebf9e7dae16aa6.jpg"
+          "id": "e4",
+          "title": "Серия 4",
+          "subtitle": "4 серия · 50 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/e/6/2e8df0890b464ab1971c8a745b3fab.jpg"
         },
         {
-          "id": "e16",
-          "title": "Серия 16",
-          "subtitle": "16 серия · 53 мин",
-          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/c/2/76d9ae460840c2aa16592b8b2e13ac.jpg"
+          "id": "e5",
+          "title": "Серия 5",
+          "subtitle": "5 серия · 50 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/3/6/c8ae50731d40b5ba310fbc18e5c47f.jpg"
+        },
+        {
+          "id": "e6",
+          "title": "Серия 6",
+          "subtitle": "6 серия · 50 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/9/a/f55de699904d539d86cfd0eb35f59c.jpg"
+        },
+        {
+          "id": "e7",
+          "title": "Серия 7",
+          "subtitle": "7 серия · 50 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/7/9/aaa544670c4e93842428fa31e96102.jpg"
+        },
+        {
+          "id": "e8",
+          "title": "Серия 8",
+          "subtitle": "8 серия · 50 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/1/e/9d19811e4a47179410b428e3c0b81f.jpg"
         }
       ]
     }
@@ -286,12 +316,12 @@
       ]
     },
     {
-      "id": "sim-18651",
-      "title": "Минута тишины",
-      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/2/b/e104d6189c4cdf86f2337c3d0cc887.jpg/640x360/?q=85&mod=to_webp",
-      "description": "Бизнесмен с амнезией, спасённый после землетрясения, скрывается от спецслужб на Ближнем Востоке.",
+      "id": "sim-21474",
+      "title": "Выход есть всегда",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/a/2/29428cef8e46bbb3fbda765bc1315f.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Борьба за опеку над сыном оборачивается для Ирины чередой угроз и опасных происшествий.",
       "meta": [
-        "2025",
+        "2026",
         "детективы"
       ]
     }

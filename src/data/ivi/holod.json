@@ -45,62 +45,62 @@
         {
           "id": "e1",
           "title": "Серия 1",
-          "subtitle": "1 серия · 47 мин",
+          "subtitle": "1 серия · 24 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/b/6/1629d46119449eb96a63d718b01447.jpg"
         },
         {
           "id": "e2",
           "title": "Серия 2",
-          "subtitle": "2 серия · 58 мин",
+          "subtitle": "2 серия · 24 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/4/d/902fac8dd24cafb7589a03f65db9c4.jpg"
         },
         {
           "id": "e3",
           "title": "Серия 3",
-          "subtitle": "3 серия · 46 мин",
+          "subtitle": "3 серия · 24 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/2/8/b17190b03045af9a8444dac607474d.jpg"
         },
         {
           "id": "e4",
           "title": "Серия 4",
-          "subtitle": "4 серия · 44 мин",
+          "subtitle": "4 серия · 24 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/6/6/eeaea23bb741329d8d762cc8c4d7f9.jpg"
         },
         {
           "id": "e5",
           "title": "Серия 5",
-          "subtitle": "5 серия",
-          "still": null
+          "subtitle": "5 серия · 24 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/e/9/db8f0067b84fefba2e52a0a5928ba1.jpg"
         },
         {
           "id": "e6",
           "title": "Серия 6",
-          "subtitle": "6 серия",
-          "still": null
+          "subtitle": "6 серия · 24 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/4/6/452446a2184ebdb8b1afbaee1a2ecb.jpg"
         },
         {
           "id": "e7",
           "title": "Серия 7",
-          "subtitle": "7 серия",
-          "still": null
+          "subtitle": "7 серия · 24 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/e/3/f2d3ba0f774697b9008209ff0b6453.jpg"
         },
         {
           "id": "e8",
           "title": "Серия 8",
-          "subtitle": "8 серия",
-          "still": null
+          "subtitle": "8 серия · 24 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/f/e/b36eb767e942359adec5c5fbf31fd2.jpg"
         },
         {
           "id": "e9",
           "title": "Серия 9",
-          "subtitle": "9 серия",
-          "still": null
+          "subtitle": "9 серия · 24 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/6/e/1ee8ad5f374428973cd460df896396.jpg"
         },
         {
           "id": "e10",
           "title": "Серия 10",
-          "subtitle": "10 серия",
-          "still": null
+          "subtitle": "10 серия · 24 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/a/4/61422bbebf4986a2917f9f4d9ac206.jpg"
         }
       ]
     }
@@ -179,16 +179,6 @@
       ]
     },
     {
-      "id": "sim-15662",
-      "title": "Матрёшка",
-      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/b/d/2957f1d8774091b3fa76ddbffe9c98.jpg/640x360/?q=85&mod=to_webp",
-      "description": "Простая студентка становится важнейшей шпионкой в детективе от режиссёра «28 панфиловцев».",
-      "meta": [
-        "2024",
-        "драмы"
-      ]
-    },
-    {
       "id": "sim-20802",
       "title": "Двойная жизнь Ми",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/e/6/4815dcfc584ba2bf30665cd9ec526c.jpg/640x360/?q=85&mod=to_webp",
@@ -209,6 +199,16 @@
       ]
     },
     {
+      "id": "sim-15662",
+      "title": "Матрёшка",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/b/d/2957f1d8774091b3fa76ddbffe9c98.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Простая студентка становится важнейшей шпионкой в детективе от режиссёра «28 панфиловцев».",
+      "meta": [
+        "2024",
+        "драмы"
+      ]
+    },
+    {
       "id": "sim-17043",
       "title": "Точка ноль",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/d/e/7487c940bd4494b0f99d7e4c5bf7d3.jpg/640x360/?q=85&mod=to_webp",
@@ -219,22 +219,22 @@
       ]
     },
     {
-      "id": "sim-18651",
-      "title": "Минута тишины",
-      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/2/b/e104d6189c4cdf86f2337c3d0cc887.jpg/640x360/?q=85&mod=to_webp",
-      "description": "Бизнесмен с амнезией, спасённый после землетрясения, скрывается от спецслужб на Ближнем Востоке.",
-      "meta": [
-        "2025",
-        "драмы"
-      ]
-    },
-    {
       "id": "sim-21474",
       "title": "Выход есть всегда",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/a/2/29428cef8e46bbb3fbda765bc1315f.jpg/640x360/?q=85&mod=to_webp",
       "description": "Борьба за опеку над сыном оборачивается для Ирины чередой угроз и опасных происшествий.",
       "meta": [
         "2026",
+        "драмы"
+      ]
+    },
+    {
+      "id": "sim-18651",
+      "title": "Минута тишины",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/2/b/e104d6189c4cdf86f2337c3d0cc887.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Бизнесмен с амнезией, спасённый после землетрясения, скрывается от спецслужб на Ближнем Востоке.",
+      "meta": [
+        "2025",
         "драмы"
       ]
     },

@@ -1,0 +1,84 @@
+/* Обёртка рейла: позиционирующий контекст для кнопок, плотно облегает список. */
+.scroll-rail {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* Список-скроллер внутри занимает всю обёртку. */
+.scroll-rail > :first-child {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* Краевой фейд по краям списка. Ширина фейда каждого края (--fade-left/right)
+   задаётся из JS по состоянию прокрутки: 0 — край не гаснет (начало слева,
+   конец справа), --rail-fade — гаснет. @property делает переход плавным. */
+@property --fade-left {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --fade-right {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+.scroll-rail__list {
+  --rail-fade: 56px;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 var(--fade-left, 0px),
+    #000 calc(100% - var(--fade-right, 0px)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 var(--fade-left, 0px),
+    #000 calc(100% - var(--fade-right, 0px)),
+    transparent 100%
+  );
+  transition: --fade-left 160ms ease-out, --fade-right 160ms ease-out;
+}
+
+/* Круглая кнопка листания: 0.12 от белого с блюром на фоне. */
+.scroll-rail__arrow {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease-out, background-color 160ms ease-out;
+}
+
+/* Кнопки наползают на край списка — центром на кромку, половиной наружу, чтобы
+   меньше перекрывать контент (обёртки ниже дают им зазор, чтобы не обрезаться). */
+.scroll-rail__arrow--left { left: -20px; }
+.scroll-rail__arrow--right { right: -20px; }
+
+.scroll-rail__arrow:hover { background: rgba(255, 255, 255, 0.22); }
+
+/* Кнопка появляется по ховеру рейла — и только в ту сторону, куда есть прокрутка. */
+.scroll-rail:hover .scroll-rail__arrow[data-visible="true"] {
+  opacity: 1;
+  pointer-events: auto;
+}

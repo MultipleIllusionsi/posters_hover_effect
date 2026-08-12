@@ -56,7 +56,11 @@ const IVI_HEADERS = { "User-Agent": UA, "Accept-Language": "ru-RU,ru", "X-Forwar
 const CDN_RESIZE = (url, w, h) => `${url}/${w}x${h}/?q=85&mod=to_webp`;
 
 const MOBILE_API = "https://api.ivi.ru/mobileapi";
+// Список серий сериала живёт на api2 (не на основном api) — см. fetchCompilationVideos.
+const MOBILE_API2 = "https://api2.ivi.ru/mobileapi";
 const MOBILE_PARAMS = "app_version=870&country_place_id=41207";
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 /**
  * Базовая инфа + постеры из мобильного API Иви. Числовой аргумент — это фильм
@@ -86,6 +90,47 @@ async function fetchMobileInfo(idOrHru) {
   const film = await tryInfo(`${MOBILE_API}/videoinfo/v7/?${MOBILE_PARAMS}&hru=${enc}`);
   if (film) return { info: film, isSeries: false };
   throw new Error(`mobileapi: пустой result для «${key}»`);
+}
+
+/**
+ * Все серии сериала по всем сезонам — из videofromcompilation на api2.ivi.ru.
+ * Тонкости, выясненные опытным путём:
+ *   · эндпоинт живёт на api2 (не на основном api.ivi.ru);
+ *   · обязателен параметр `fields` ровно этим набором — с лишними полями или
+ *     вовсе без `fields` ответ приходит пустым;
+ *   · многие сериалы — «fake»-компиляции (comp.fake === true), и без `fake=true`
+ *     их список серий пуст; для не-fake этот флаг безвреден, поэтому шлём всегда;
+ *   · ответ страничный (from/to) — листаем по 100, пока страница полная.
+ * У каждого элемента: season, episode, title, thumbs[0].url — настоящий кадр.
+ */
+async function fetchCompilationVideos(compId) {
+  const PAGE = 100;
+  const all = [];
+  for (let from = 0; from < 1000; from += PAGE) {
+    let arr = null;
+    for (let attempt = 0; attempt < 4; attempt++) {
+      try {
+        const res = await fetch(
+          `${MOBILE_API2}/videofromcompilation/v7/?app_version=870&id=${compId}` +
+            `&fake=true&fields=thumbs,episode,title,season&from=${from}&to=${from + PAGE - 1}`,
+          { headers: IVI_HEADERS }
+        );
+        const body = await res.json();
+        if (Array.isArray(body.result)) {
+          arr = body.result;
+          break;
+        }
+      } catch {
+        /* сеть моргнула — повторим */
+      }
+      await sleep(500);
+    }
+    if (!arr) break;
+    all.push(...arr);
+    if (arr.length < PAGE) break;
+    await sleep(150);
+  }
+  return all;
 }
 
 /**
@@ -188,8 +233,9 @@ const pickShots = (promo = []) =>
   promo.filter((im) => /^Shots-/.test(im.content_format || "")).map((im) => im.url);
 
 // `comp` — объект из мобильного API (базовая инфа + постеры), `state` — SSR-стейт
-// (нужен для словарей жанров/стран, списка серий и отзывов).
-function normalize(comp, state, slug, isSeries) {
+// (словари жанров/стран, отзывы, фолбэк-серии), `apiEpisodes` — полный список
+// серий по всем сезонам из videofromcompilation (api2).
+function normalize(comp, state, slug, isSeries, apiEpisodes = []) {
   const genresById = state.genres || {};
   const countriesById = state.countries || {};
   const genres = (comp.genres || []).map((id) => genresById[id]?.title).filter(Boolean);
@@ -225,33 +271,85 @@ function normalize(comp, state, slug, isSeries) {
   };
 
   // ── Серии и сезоны ──────────────────────────────────────────────────────────
-  // Объекты серий лежат в common.content, привязка к сериалу — по полю
-  // compilation (оно бывает объектом {id,...} или голым id — учитываем оба).
-  const contentMap = state?.common?.content || {};
-  const compIdOf = (c) =>
-    c && c.compilation && typeof c.compilation === "object" ? c.compilation.id : c?.compilation;
-  const allEpisodes = Object.values(contentMap)
-    .filter((c) => c && compIdOf(c) === comp.id && typeof c.episode === "number")
-    .sort((a, b) => (a.season - b.season) || (a.episode - b.episode));
+  // Полный список серий по всем сезонам берём из videofromcompilation на api2
+  // (fetchCompilationVideos) — там настоящие кадры, номер сезона и серии. SSR
+  // рендерит только первый сезон, так что оставляем его лишь как фолбэк.
+  const EPISODES_CAP = 12; // полосе эпизодов хватает; UI всё равно повторяет их
+  // Подпись серии — со средней длительностью: у api2-серий поминутной длины нет,
+  // зато у компиляции есть суммарная — делим на число серий.
+  const avgMin =
+    comp.duration && comp.episode_count ? Math.round(comp.duration / comp.episode_count / 60) : null;
 
-  const bySeason = new Map();
-  for (const ep of allEpisodes) {
-    const sn = ep.season || 1;
-    if (!bySeason.has(sn)) bySeason.set(sn, []);
-    const durationSec = ep.localizations?.[0]?.duration || 0;
-    const minutes = durationSec ? Math.round(durationSec / 60) : null;
-    bySeason.get(sn).push({
-      id: `e${ep.episode}`,
-      title: ep.title || `Серия ${ep.episode}`,
-      subtitle: minutes ? `${ep.episode} серия · ${minutes} мин` : `${ep.episode} серия`,
-      still: (ep.thumbs || [])[0]?.url || null,
-    });
+  // Заглушка для серий без кадра (обычно ещё не вышедшие): промо-шоты, фон и
+  // постеры — намеренно НЕ кадры других серий, чтобы такая серия не выглядела
+  // кадром из другого сезона. Фон/постер есть всегда, так что пул не пуст.
+  const fillPool = [
+    ...pickShots(comp.promo_images),
+    images.background,
+    images.posterHorizontal,
+    images.posterVertical,
+  ].filter(Boolean);
+  const fallbackStill = (n) => (fillPool.length ? fillPool[n % fillPool.length] : null);
+
+  const bySeasonApi = new Map();
+  for (const v of apiEpisodes) {
+    const sn = v.season || 1;
+    if (!bySeasonApi.has(sn)) bySeasonApi.set(sn, []);
+    bySeasonApi.get(sn).push(v);
   }
-  const seasons = [...bySeason.entries()].map(([sn, episodes]) => ({
-    id: `s${sn}`,
-    title: `Сезон ${sn}`,
-    episodes,
-  }));
+
+  let seasons;
+  if (bySeasonApi.size) {
+    seasons = [...bySeasonApi.entries()]
+      .sort((a, b) => a[0] - b[0])
+      .map(([sn, eps]) => ({
+        id: `s${sn}`,
+        title: `Сезон ${sn}`,
+        episodes: eps
+          .slice()
+          .sort((a, b) => a.episode - b.episode)
+          .slice(0, EPISODES_CAP)
+          .map((v) => ({
+            id: `e${v.episode}`,
+            title: v.title || `Серия ${v.episode}`,
+            subtitle: avgMin ? `${v.episode} серия · ${avgMin} мин` : `${v.episode} серия`,
+            still: (v.thumbs || [])[0]?.url || null,
+          })),
+      }));
+  } else {
+    // Фолбэк — эпизоды из SSR (обычно только первый сезон; у фильмов пусто).
+    // Серии лежат в common.content, привязка по полю compilation (объект {id} или
+    // голый id — учитываем оба).
+    const contentMap = state?.common?.content || {};
+    const compIdOf = (c) =>
+      c && c.compilation && typeof c.compilation === "object" ? c.compilation.id : c?.compilation;
+    const ssrEpisodes = Object.values(contentMap)
+      .filter((c) => c && compIdOf(c) === comp.id && typeof c.episode === "number")
+      .sort((a, b) => (a.season - b.season) || (a.episode - b.episode));
+    const bySeason = new Map();
+    for (const ep of ssrEpisodes) {
+      const sn = ep.season || 1;
+      if (!bySeason.has(sn)) bySeason.set(sn, []);
+      const durationSec = ep.localizations?.[0]?.duration || 0;
+      const minutes = durationSec ? Math.round(durationSec / 60) : null;
+      bySeason.get(sn).push({
+        id: `e${ep.episode}`,
+        title: ep.title || `Серия ${ep.episode}`,
+        subtitle: minutes ? `${ep.episode} серия · ${minutes} мин` : `${ep.episode} серия`,
+        still: (ep.thumbs || [])[0]?.url || null,
+      });
+    }
+    seasons = [...bySeason.entries()].map(([sn, episodes]) => ({
+      id: `s${sn}`,
+      title: `Сезон ${sn}`,
+      episodes,
+    }));
+  }
+
+  // У отдельных серий (чаще анонсовых) кадр может отсутствовать — подставим из
+  // пула, чтобы в UI не оставалось битых картинок.
+  let fillIdx = 0;
+  for (const s of seasons) for (const ep of s.episodes) if (!ep.still) ep.still = fallbackStill(fillIdx++);
 
   const seasonCount = seasons.length || (comp.seasons || []).length || 1;
 
@@ -316,7 +414,10 @@ async function extractSlug(idOrHru) {
   const html = await res.text();
   const state = extractInitialState(html);
 
-  const data = normalize(info, state, hru, isSeries);
+  // 2b) Полный список серий по всем сезонам (api2, только для сериалов).
+  const apiEpisodes = isSeries ? await fetchCompilationVideos(info.id) : [];
+
+  const data = normalize(info, state, hru, isSeries, apiEpisodes);
 
   // 3) «Похожее» — жанровая подборка из каталога (мобильный API, headless ok).
   data.similar = await fetchSimilar(info, state.genres || {}, 10);

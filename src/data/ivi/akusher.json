@@ -12,7 +12,7 @@
   "meta": [
     "2023",
     "детективы",
-    "1 сезон"
+    "3 сезона"
   ],
   "ratings": {
     "kp": 7.69,
@@ -45,98 +45,230 @@
         {
           "id": "e1",
           "title": "Серия 1",
-          "subtitle": "1 серия · 48 мин",
+          "subtitle": "1 серия · 32 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/9/e/5cfa0f89384477a615375dca451246.jpg"
         },
         {
           "id": "e2",
           "title": "Серия 2",
-          "subtitle": "2 серия · 49 мин",
+          "subtitle": "2 серия · 32 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/4/1/5a50042fc848dd9e343bdca3f1276d.jpg"
         },
         {
           "id": "e3",
           "title": "Серия 3",
-          "subtitle": "3 серия · 50 мин",
+          "subtitle": "3 серия · 32 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/a/3/8bd65400f84f6d803be490c84f08d4.jpg"
         },
         {
           "id": "e4",
           "title": "Серия 4",
-          "subtitle": "4 серия · 51 мин",
+          "subtitle": "4 серия · 32 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/5/4/c59be041ea4db89d4d2d4117f97cc3.jpg"
         },
         {
           "id": "e5",
           "title": "Серия 5",
-          "subtitle": "5 серия · 51 мин",
+          "subtitle": "5 серия · 32 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/9/e/4d6c8bf8dd4ef881a890f2f169f934.jpg"
         },
         {
           "id": "e6",
           "title": "Серия 6",
-          "subtitle": "6 серия · 47 мин",
+          "subtitle": "6 серия · 32 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/d/3/0b352fe4284e93b8c528f12e8bbc48.jpg"
         },
         {
           "id": "e7",
           "title": "Серия 7",
-          "subtitle": "7 серия · 47 мин",
+          "subtitle": "7 серия · 32 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/8/1/e2d1343ae746b7b73acd4605cbbb9b.jpg"
         },
         {
           "id": "e8",
           "title": "Серия 8",
-          "subtitle": "8 серия · 49 мин",
+          "subtitle": "8 серия · 32 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/8/a/a3a4043bb448069bca24d9714bde59.jpg"
         },
         {
           "id": "e9",
           "title": "Серия 9",
-          "subtitle": "9 серия · 47 мин",
+          "subtitle": "9 серия · 32 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/7/f/f8033542e2440c8d6859d6e017d2e1.jpg"
         },
         {
           "id": "e10",
           "title": "Серия 10",
-          "subtitle": "10 серия · 48 мин",
+          "subtitle": "10 серия · 32 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/3/c/897259829842ea89b21c1c494af89b.jpg"
         },
         {
           "id": "e11",
           "title": "Серия 11",
-          "subtitle": "11 серия · 49 мин",
+          "subtitle": "11 серия · 32 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/a/c/e89615918f4db4999e50efb50410f6.jpg"
         },
         {
           "id": "e12",
           "title": "Серия 12",
-          "subtitle": "12 серия · 50 мин",
+          "subtitle": "12 серия · 32 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/a/f/4ad11473544057a808d9355da06569.jpg"
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Сезон 2",
+      "episodes": [
+        {
+          "id": "e1",
+          "title": "Серия 1",
+          "subtitle": "1 серия · 32 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/c/5/8544a9d4554e00b16ef294c9f90ef0.jpg"
         },
         {
-          "id": "e13",
-          "title": "Серия 13",
-          "subtitle": "13 серия · 49 мин",
-          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/e/f/d72b259e8e45cc82607c4f6a5cb594.jpg"
+          "id": "e2",
+          "title": "Серия 2",
+          "subtitle": "2 серия · 32 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/e/4/9153c7e7af48b6a2bd7503f16ed1c8.jpg"
         },
         {
-          "id": "e14",
-          "title": "Серия 14",
-          "subtitle": "14 серия · 48 мин",
-          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/0/e/8132aa2a2d483eb39b63d9b504690e.jpg"
+          "id": "e3",
+          "title": "Серия 3",
+          "subtitle": "3 серия · 32 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/f/6/d8e1c6f8114c9c98a82bf59b3be538.jpg"
         },
         {
-          "id": "e15",
-          "title": "Серия 15",
-          "subtitle": "15 серия · 49 мин",
-          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/1/c/93c8838cbf4bf2908cccd3fb8eccb5.jpg"
+          "id": "e4",
+          "title": "Серия 4",
+          "subtitle": "4 серия · 32 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/b/7/2a927d5ae94fd783275eb4ad09bf94.jpg"
         },
         {
-          "id": "e16",
-          "title": "Серия 16",
-          "subtitle": "16 серия · 50 мин",
-          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/2/c/c44535701b4304b0e2a228afe5c79f.jpg"
+          "id": "e5",
+          "title": "Серия 5",
+          "subtitle": "5 серия · 32 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/6/7/b7d3a9157740089abd02ce210e61b5.jpg"
+        },
+        {
+          "id": "e6",
+          "title": "Серия 6",
+          "subtitle": "6 серия · 32 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/6/2/67120280464788b2ad7c7cb1320f17.jpg"
+        },
+        {
+          "id": "e7",
+          "title": "Серия 7",
+          "subtitle": "7 серия · 32 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/c/e/b6ba6e4f3f4ddfaf000387e712c3b0.jpg"
+        },
+        {
+          "id": "e8",
+          "title": "Серия 8",
+          "subtitle": "8 серия · 32 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/0/8/55599c995c4e14904fd3960554cefb.jpg"
+        },
+        {
+          "id": "e9",
+          "title": "Серия 9",
+          "subtitle": "9 серия · 32 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/1/b/cdfd6cadfb47788ea36cea1bdd03c7.jpg"
+        },
+        {
+          "id": "e10",
+          "title": "Серия 10",
+          "subtitle": "10 серия · 32 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/4/3/eeb28a2a6e4e58a4aaaecd1eec0d81.jpg"
+        },
+        {
+          "id": "e11",
+          "title": "Серия 11",
+          "subtitle": "11 серия · 32 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/c/7/b87857f16c4bb28f69490a21f23a26.jpg"
+        },
+        {
+          "id": "e12",
+          "title": "Серия 12",
+          "subtitle": "12 серия · 32 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/1/0/3d502fbb2748e3a20c60d0e5e621ec.jpg"
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Сезон 3",
+      "episodes": [
+        {
+          "id": "e1",
+          "title": "Серия 1",
+          "subtitle": "1 серия · 32 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/c/1/b608f9d71b4aabbf06d5c45099ccb3.jpg"
+        },
+        {
+          "id": "e2",
+          "title": "Серия 2",
+          "subtitle": "2 серия · 32 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/7/4/9dcd3090914a02b99fbee30dce0b31.jpg"
+        },
+        {
+          "id": "e3",
+          "title": "Серия 3",
+          "subtitle": "3 серия · 32 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/f/0/70ea15f5a547e4bb439e2d96c6dadb.jpg"
+        },
+        {
+          "id": "e4",
+          "title": "Серия 4",
+          "subtitle": "4 серия · 32 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/9/f/67292fe62145b3b9461199f098b74a.jpg"
+        },
+        {
+          "id": "e5",
+          "title": "Серия 5",
+          "subtitle": "5 серия · 32 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/7/d/1c7eb209504b7789c81cc0a8135b0e.jpg"
+        },
+        {
+          "id": "e6",
+          "title": "Серия 6",
+          "subtitle": "6 серия · 32 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/e/5/43eb5c079b4cde9585bfafef927a02.jpg"
+        },
+        {
+          "id": "e7",
+          "title": "Серия 7",
+          "subtitle": "7 серия · 32 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/9/e/13e4a1c2154a38a3883a0999b98deb.jpg"
+        },
+        {
+          "id": "e8",
+          "title": "Серия 8",
+          "subtitle": "8 серия · 32 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/5/d/288979b74e40409f18ac0afa528be1.jpg/1280x720/?q=85&mod=to_webp"
+        },
+        {
+          "id": "e9",
+          "title": "Серия 9",
+          "subtitle": "9 серия · 32 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/e/2/6af027cc824c51896bb61d7f0f8838.jpg/1352x760/?q=85&mod=to_webp"
+        },
+        {
+          "id": "e10",
+          "title": "Серия 10",
+          "subtitle": "10 серия · 32 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/2/c/68357e966341aaaf01b6a8d9fee9a5.jpg/445x675/?q=85&mod=to_webp"
+        },
+        {
+          "id": "e11",
+          "title": "Серия 11",
+          "subtitle": "11 серия · 32 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/c/1/b608f9d71b4aabbf06d5c45099ccb3.jpg"
+        },
+        {
+          "id": "e12",
+          "title": "Серия 12",
+          "subtitle": "12 серия · 32 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/7/4/9dcd3090914a02b99fbee30dce0b31.jpg"
         }
       ]
     }
@@ -245,22 +377,22 @@
       ]
     },
     {
-      "id": "sim-17306",
-      "title": "Такси под прикрытием",
-      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/0/9/574c058b394ab3956ec21041e7ee07.jpg/640x360/?q=85&mod=to_webp",
-      "description": "Оперативник под видом таксиста ловит бандитов на улицах Петербурга. Детектив на высоких скоростях.",
-      "meta": [
-        "2023",
-        "детективы"
-      ]
-    },
-    {
       "id": "sim-21421",
       "title": "Скамейка запасных",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/2/9/12b6f012884e3fb32aa80e06dbd2d9.jpg/640x360/?q=85&mod=to_webp",
       "description": "Отдел неудачливых в карьере, но целеустремлённых следователей распутывает самые сложные преступления",
       "meta": [
         "2026",
+        "детективы"
+      ]
+    },
+    {
+      "id": "sim-17306",
+      "title": "Такси под прикрытием",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/0/9/574c058b394ab3956ec21041e7ee07.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Оперативник под видом таксиста ловит бандитов на улицах Петербурга. Детектив на высоких скоростях.",
+      "meta": [
+        "2023",
         "детективы"
       ]
     },

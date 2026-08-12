@@ -46,7 +46,7 @@ import domovyonokKuzya from "./ivi/domovyonok-kuzya-2.json";
 import molodyozhka from "./ivi/molodyozhka-studentyi.json";
 import zheltyjChemodanchik from "./ivi/priklyucheniya-zhyoltogo-chemodanchika-2026.json";
 import draniki from "./ivi/draniki.json";
-import { badgeForMeta } from "./badges";
+import { badgeForMeta, BADGES } from "./badges";
 
 /**
  * Каждая карточка строится из JSON'а, вытащенного с ivi.ru. Форма карточки:
@@ -138,11 +138,23 @@ export const galleries = [
   },
 ];
 
-// Каждой карточке — свой TextBadge (иконка + подпись) по meta. Бегущий индекс
-// даёт разнообразие вместо одного и того же бейджа подряд.
+// Точечные бейджи по slug (переопределяют авто-подбор):
+//  · «сериал Иви» — только на эти четыре тайтла;
+//  · «Летят журавли» — легендарная классика (а не «посмотреть за раз»).
+const BADGE_OVERRIDES = {
+  holod: "iviSeries",
+  "zolotoe-dno": "iviSeries",
+  "istoriya-ego-sluzhanki": "iviSeries",
+  "iskusstvo-soblazna": "iviSeries",
+  "53159": "legendary", // Летят журавли
+};
+
+// Каждой карточке — свой TextBadge (иконка + подпись): точечный override по slug,
+// иначе авто-подбор по meta. Бегущий индекс даёт разнообразие.
 let badgeIndex = 0;
 for (const gallery of galleries) {
   for (const poster of [...gallery.horizontalPosters, ...gallery.verticalPosters]) {
-    poster.badge = badgeForMeta(poster.meta, badgeIndex++);
+    const auto = badgeForMeta(poster.meta, badgeIndex++);
+    poster.badge = BADGES[BADGE_OVERRIDES[poster.id]] || auto;
   }
 }

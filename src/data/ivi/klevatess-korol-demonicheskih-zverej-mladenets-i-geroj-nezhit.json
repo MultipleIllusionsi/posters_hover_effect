@@ -17,7 +17,7 @@
   "meta": [
     "2025",
     "аниме",
-    "1 сезон"
+    "2 сезона"
   ],
   "ratings": {
     "kp": 7.78,
@@ -50,74 +50,152 @@
         {
           "id": "e1",
           "title": "Владыка тёмных тварей",
-          "subtitle": "1 серия · 44 мин",
+          "subtitle": "1 серия · 16 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/6/c/ef5a5962a64cf18d39e71ad5f28112.jpg"
         },
         {
           "id": "e2",
           "title": "Владыка в плену",
-          "subtitle": "2 серия · 23 мин",
+          "subtitle": "2 серия · 16 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/5/9/8bd77c4cfe4f19a2746508062b73bc.jpg"
         },
         {
           "id": "e3",
           "title": "Обязанности Героя",
-          "subtitle": "3 серия · 23 мин",
+          "subtitle": "3 серия · 16 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/2/6/9a20a5d2d64c14b1a7ed8c42fa4c2a.jpg"
         },
         {
           "id": "e4",
           "title": "Подходящая магия",
-          "subtitle": "4 серия · 23 мин",
+          "subtitle": "4 серия · 16 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/8/a/b1c0bba3e34a96a2ded93705a24a00.jpg"
         },
         {
           "id": "e5",
           "title": "Балет выступает",
-          "subtitle": "5 серия · 23 мин",
+          "subtitle": "5 серия · 16 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/b/c/7f234aebf44da0acf00b7bfff528c3.jpg"
         },
         {
           "id": "e6",
           "title": "Повелитель  насекомых",
-          "subtitle": "6 серия · 23 мин",
+          "subtitle": "6 серия · 16 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/b/5/7bd83eb98e4cd291f723c7e7e71f36.jpg"
         },
         {
           "id": "e7",
           "title": "Тайны магии",
-          "subtitle": "7 серия · 23 мин",
+          "subtitle": "7 серия · 16 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/7/5/eaa8e7d9034c38913146166124a43c.jpg"
         },
         {
           "id": "e8",
           "title": "Рой насекомых",
-          "subtitle": "8 серия · 23 мин",
+          "subtitle": "8 серия · 16 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/2/0/698fdde62f4a56be3f91a5a9553499.jpg"
         },
         {
           "id": "e9",
           "title": "Поле битвы – Хайдерат",
-          "subtitle": "9 серия · 23 мин",
+          "subtitle": "9 серия · 16 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/2/5/1daf6114dc4b658d5982f6726299ae.jpg"
         },
         {
           "id": "e10",
           "title": "Марго и Дрел",
-          "subtitle": "10 серия · 23 мин",
+          "subtitle": "10 серия · 16 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/f/7/4e1666b17c44deb11355fd92ddf72b.jpg"
         },
         {
           "id": "e11",
           "title": "Фальшивый герой",
-          "subtitle": "11 серия · 23 мин",
+          "subtitle": "11 серия · 16 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/e/1/907c4e83d44a798ee8e2411925522d.jpg"
         },
         {
           "id": "e12",
           "title": "Возвращение короля",
-          "subtitle": "12 серия · 23 мин",
+          "subtitle": "12 серия · 16 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/1/4/6048ba455248a4ac6908546460c553.jpg"
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Сезон 2",
+      "episodes": [
+        {
+          "id": "e1",
+          "title": "Солсейн, Божественная Академия",
+          "subtitle": "1 серия · 16 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/8/f/3a112d808f4ababa9a8fdcd6e49441.jpg"
+        },
+        {
+          "id": "e2",
+          "title": "Другой мир",
+          "subtitle": "2 серия · 16 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/7/2/34ab8efabc4bab93f5fd8777750674.jpg"
+        },
+        {
+          "id": "e3",
+          "title": "Легенда о герое и город истоков",
+          "subtitle": "3 серия · 16 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/0/7/69c826c89643368bb9b8f548585a43.jpg"
+        },
+        {
+          "id": "e4",
+          "title": "Владыка тёмных тварей и легенда о лжегерое",
+          "subtitle": "4 серия · 16 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/c/9/61ed5a26e54b529a8af8c0934e1f1c.jpg"
+        },
+        {
+          "id": "e5",
+          "title": "Битва с самим собой",
+          "subtitle": "5 серия · 16 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/f/3/ed533f39f746a7ba5c20b9df986342.jpg"
+        },
+        {
+          "id": "e6",
+          "title": "Серия 6",
+          "subtitle": "6 серия · 16 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/2/5/4ecf28737d4d27b8539b4e38aa40a1.jpg"
+        },
+        {
+          "id": "e7",
+          "title": "Серия 7",
+          "subtitle": "7 серия · 16 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/6/d/f97d2061c04ecab05db150d99bee78.jpg"
+        },
+        {
+          "id": "e8",
+          "title": "Серия 8",
+          "subtitle": "8 серия · 16 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/7/9/f831838c4b44e582e8b42b234ecd24.jpg"
+        },
+        {
+          "id": "e9",
+          "title": "Серия 9",
+          "subtitle": "9 серия · 16 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/3/b/a908ab6c5a424c831b64e784963bf9.jpg"
+        },
+        {
+          "id": "e10",
+          "title": "Серия 10",
+          "subtitle": "10 серия · 16 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/2/3/23a6498bbc4b638cab2efe35274358.jpg"
+        },
+        {
+          "id": "e11",
+          "title": "Серия 11",
+          "subtitle": "11 серия · 16 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/8/a/31c62b2ea646a4a3ee0724f88c1338.jpg"
+        },
+        {
+          "id": "e12",
+          "title": "Серия 12",
+          "subtitle": "12 серия · 16 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/7/6/dc139815ed448691a713ba363014ca.jpg"
         }
       ]
     }

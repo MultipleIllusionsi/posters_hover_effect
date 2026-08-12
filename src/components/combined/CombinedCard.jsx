@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { IconFavorite, IconPlay, IconSoundOff, IconSoundOn } from "../icons";
+import { IconFavorite, IconFavoriteOutline, IconPlay, IconSoundOff, IconSoundOn } from "../icons";
+import ScrollRail from "../ScrollRail";
 import TextBadge from "../TextBadge";
 import "./CombinedCard.css";
 
@@ -16,27 +17,19 @@ const TABS = [
   { id: "similar", label: "Похожее" },
 ];
 
-// Чипы фильтра над рейлом «Похожее» — как подобраны родственные тайтлы.
-// Пока демо (содержимое рейла одинаковое для каждого).
-const SIMILAR_FILTERS = [
-  { id: "genre", label: "По жанру" },
-  { id: "actors", label: "По актёрам" },
-  { id: "director", label: "По режиссёру" },
-  { id: "mood", label: "По настроению" },
-];
-
 /** Эпизоды в полосе сезонов — список добивается до этого числа. */
 const MIN_EPISODES = 9;
 
-/** Отзывы в рейле — добиваются до этого числа. */
-const MIN_REVIEWS = 8;
+/** Блок отзывов показываем только если их хотя бы столько. */
+const MIN_REVIEWS = 3;
 
 export default function CombinedCard({ data, onClose }) {
   const [tab, setTab] = useState("info");
   const [seasonIndex, setSeasonIndex] = useState(0);
-  const [similarFilter, setSimilarFilter] = useState(SIMILAR_FILTERS[0].id);
   // Трейлеры стартуют без звука — автоплей со звуком блокируют все браузеры.
   const [muted, setMuted] = useState(true);
+  // «В избранное» — визуальный тумблер (сбрасывается при смене контента ниже).
+  const [fav, setFav] = useState(false);
   const videoRef = useRef(null);
 
   // Карточка переиспользуется при клике на другой постер — сбрасываем состояние
@@ -46,8 +39,8 @@ export default function CombinedCard({ data, onClose }) {
     setShownId(data.id);
     setTab("info");
     setSeasonIndex(0);
-    setSimilarFilter(SIMILAR_FILTERS[0].id);
     setMuted(true);
+    setFav(false);
   }
 
   // React применяет `muted` только при первом монтировании <video>; синхроним.
@@ -73,9 +66,12 @@ export default function CombinedCard({ data, onClose }) {
   const trailerStill = data.still || data.src;
   const hasTrailer = Boolean(data.trailer) && tab === "info";
 
-  // У фильмов (чип «фильм») нет сезонов — убираем для них таб «Сезоны».
+  // У фильмов (чип «фильм») нет сезонов — убираем для них таб «Сезоны», а «Инфо»
+  // подписываем «О фильме»/«О сериале».
   const isFilm = data.meta?.includes("фильм");
-  const visibleTabs = isFilm ? TABS.filter((t) => t.id !== "seasons") : TABS;
+  const visibleTabs = (isFilm ? TABS.filter((t) => t.id !== "seasons") : TABS).map((t) =>
+    t.id === "info" ? { ...t, label: isFilm ? "О фильме" : "О сериале" } : t
+  );
 
   // Повторяем эпизоды сезона, пока полоса не переполнит область прокрутки.
   const baseEpisodes = season?.episodes ?? [];
@@ -87,15 +83,14 @@ export default function CombinedCard({ data, onClose }) {
           return { ...ep, key: `${ep.id}-${i}`, label: `${i + 1} серия` };
         });
 
-  // Та же добивка для отзывов.
-  const baseReviews = data.reviews ?? [];
-  const reviews =
-    baseReviews.length === 0
-      ? []
-      : Array.from({ length: Math.max(MIN_REVIEWS, baseReviews.length) }, (_, i) => {
-          const r = baseReviews[i % baseReviews.length];
-          return { ...r, key: `${r.id}-${i}` };
-        });
+  // Отзывы — только уникальные (по тексту), без повторов-добивки.
+  const seenReviews = new Set();
+  const reviews = (data.reviews ?? []).filter((r) => {
+    const k = (r.text || "").trim();
+    if (!k || seenReviews.has(k)) return false;
+    seenReviews.add(k);
+    return true;
+  });
 
   // «Похожее»: реальная жанровая подборка с Иви.
   const similar = data.similar ?? [];
@@ -141,20 +136,28 @@ export default function CombinedCard({ data, onClose }) {
                         <IconPlay />
                         Смотреть
                       </button>
-                      <button type="button" className="combined-card__fav" aria-label="В избранное">
-                        <IconFavorite />
+                      <button
+                        type="button"
+                        className="combined-card__fav"
+                        aria-label="В избранное"
+                        aria-pressed={fav}
+                        onClick={() => setFav((f) => !f)}
+                      >
+                        {fav ? <IconFavorite /> : <IconFavoriteOutline />}
                       </button>
                     </div>
                     {/* Рейл отзывов под кнопками — как на ivi.ru: имя автора и
-                        текст, без оценки. */}
-                    <ul className="combined-card__reviews">
-                      {reviews.map((r) => (
-                        <li className="combined-card__review" key={r.key}>
-                          <span className="combined-card__review-author">{r.author}</span>
-                          <span className="combined-card__review-text">{r.text}</span>
-                        </li>
-                      ))}
-                    </ul>
+                        текст, без оценки. Показываем только если их достаточно. */}
+                    {reviews.length >= MIN_REVIEWS && (
+                      <ScrollRail className="combined-card__reviews">
+                        {reviews.map((r) => (
+                          <li className="combined-card__review" key={r.id}>
+                            <span className="combined-card__review-author">{r.author}</span>
+                            <span className="combined-card__review-text">{r.text}</span>
+                          </li>
+                        ))}
+                      </ScrollRail>
+                    )}
                   </div>
 
                   <div className="combined-card__trailer">
@@ -217,7 +220,7 @@ export default function CombinedCard({ data, onClose }) {
                       </div>
                     )}
                   </div>
-                  <ul className="combined-card__list combined-card__list--episodes">
+                  <ScrollRail className="combined-card__list combined-card__list--episodes">
                     {episodes.map((ep) => (
                       <li className="combined-card__episode" key={ep.key}>
                         <span className="combined-card__episode-poster">
@@ -232,7 +235,7 @@ export default function CombinedCard({ data, onClose }) {
                         </span>
                       </li>
                     ))}
-                  </ul>
+                  </ScrollRail>
                 </div>
               )}
 
@@ -240,27 +243,7 @@ export default function CombinedCard({ data, onClose }) {
                   описание под ним, мета ниже. */}
               {tab === "similar" && (
                 <div className="combined-card__panel">
-                  <div
-                    className="combined-card__similar-filters"
-                    role="tablist"
-                    aria-label="Фильтр похожего"
-                  >
-                    {SIMILAR_FILTERS.map((f) => (
-                      <button
-                        key={f.id}
-                        type="button"
-                        role="tab"
-                        aria-selected={similarFilter === f.id}
-                        className={`combined-card__tab${
-                          similarFilter === f.id ? " combined-card__tab--active" : ""
-                        }`}
-                        onClick={() => setSimilarFilter(f.id)}
-                      >
-                        {f.label}
-                      </button>
-                    ))}
-                  </div>
-                  <ul className="combined-card__list combined-card__list--similar">
+                  <ScrollRail className="combined-card__list combined-card__list--similar">
                     {similar.map((s) => (
                       <li className="combined-card__similar" key={s.id}>
                         <span className="combined-card__similar-poster">
@@ -277,7 +260,7 @@ export default function CombinedCard({ data, onClose }) {
                         </span>
                       </li>
                     ))}
-                  </ul>
+                  </ScrollRail>
                 </div>
               )}
             </div>

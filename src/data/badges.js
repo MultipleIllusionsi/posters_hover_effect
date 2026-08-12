@@ -96,7 +96,8 @@ export function badgeForMeta(meta = [], salt = 0) {
   if (isSeries) pool.push("shortEpisodes");
   if (isNew) pool.push("new");
   if (isSeries) pool.push("allEpisodes");
-  if (isSeries) pool.push("iviSeries");
+  // «сериал Иви» (iviSeries) намеренно НЕ в авто-пуле — он назначается точечно
+  // по slug в postersData (только на конкретные тайтлы).
   // Broadly-applicable tail — always meaningful, used only when nothing more
   // specific applies (or to round out the rotation window).
   pool.push("popular", "instantly", "watchingNow", "bestInSub", "iviChoice");

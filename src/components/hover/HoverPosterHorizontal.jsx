@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { IconFavorite, IconPlay, IconSoundOff, IconSoundOn } from "../icons";
+import { IconFavorite, IconFavoriteOutline, IconPlay, IconSoundOff, IconSoundOn } from "../icons";
 import TextBadge from "../TextBadge";
 import "./HoverPosterHorizontal.css";
 
@@ -15,6 +15,8 @@ export default function HoverPosterHorizontal({ data }) {
   const [hovered, setHovered] = useState(false);
   // Трейлеры стартуют без звука — автоплей со звуком блокируют все браузеры.
   const [muted, setMuted] = useState(true);
+  // «В избранное» — визуальный тумблер: незаполненная → заполненная по клику.
+  const [fav, setFav] = useState(false);
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -102,8 +104,17 @@ export default function HoverPosterHorizontal({ data }) {
             <IconPlay />
             Смотреть
           </button>
-          <button type="button" className="hover-horizontal__fav" aria-label="В избранное">
-            <IconFavorite />
+          <button
+            type="button"
+            className="hover-horizontal__fav"
+            aria-label="В избранное"
+            aria-pressed={fav}
+            onClick={(e) => {
+              e.stopPropagation();
+              setFav((f) => !f);
+            }}
+          >
+            {fav ? <IconFavorite /> : <IconFavoriteOutline />}
           </button>
         </div>
       </div>

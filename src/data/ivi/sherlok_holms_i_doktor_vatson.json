@@ -16,7 +16,7 @@
   "ratings": {
     "kp": 8.63,
     "imdb": 8.5,
-    "ivi": 8.83
+    "ivi": 8.84
   },
   "shortDescription": "Советская экранизация книг Артура Конан Дойля о приключениях легендарного сыщика Шерлока Холмса.",
   "synopsis": "Классические расследования знаменитого Шерлока Холмса, в которых ему помогает его бессменный напарник доктор Ватсон.",
@@ -37,67 +37,67 @@
         {
           "id": "e1",
           "title": "Знакомство",
-          "subtitle": "1 серия · 68 мин",
+          "subtitle": "1 серия · 70 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/0/3/6c16a246bc4c668d2df3bf10dbbee0.jpg"
         },
         {
           "id": "e2",
           "title": "Кровавая надпись",
-          "subtitle": "2 серия · 66 мин",
+          "subtitle": "2 серия · 70 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/3/2/4ad625b33940fcb53ee129b00856cf.jpg"
         },
         {
           "id": "e3",
           "title": "Король шантажа",
-          "subtitle": "3 серия · 63 мин",
+          "subtitle": "3 серия · 70 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/6/9/56e8ce3e25474c8349af9104cd2ccf.jpg"
         },
         {
           "id": "e4",
           "title": "Смертельная схватка",
-          "subtitle": "4 серия · 65 мин",
+          "subtitle": "4 серия · 70 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/b/9/ead6ea71e54c648c04e6d32bd8493c.jpg"
         },
         {
           "id": "e5",
           "title": "Охота на тигра",
-          "subtitle": "5 серия · 65 мин",
+          "subtitle": "5 серия · 70 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/2/4/82506c56b948a38d54748d2ff69d09.jpg"
         },
         {
           "id": "e6",
           "title": "Собака Баскервилей. Серия 1",
-          "subtitle": "6 серия · 74 мин",
+          "subtitle": "6 серия · 70 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/9/a/f4153dcde04730929b228d5d9cdac6.jpg"
         },
         {
           "id": "e7",
           "title": "Собака Баскервилей. Серия 2",
-          "subtitle": "7 серия · 72 мин",
+          "subtitle": "7 серия · 70 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/6/b/9a5f709f994d14810829b165ba788e.jpg"
         },
         {
           "id": "e8",
           "title": "Сокровища Агры. Серия 1",
-          "subtitle": "8 серия · 72 мин",
+          "subtitle": "8 серия · 70 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/b/c/5721578a5643928fbbee8543ae6d82.jpg"
         },
         {
           "id": "e9",
           "title": "Сокровища Агры. Серия 2",
-          "subtitle": "9 серия · 73 мин",
+          "subtitle": "9 серия · 70 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/0/a/397f6fa66d44a3859e37dc17fa6f47.jpg"
         },
         {
           "id": "e10",
           "title": "Двадцатый век начинается. Серия 1",
-          "subtitle": "10 серия · 77 мин",
+          "subtitle": "10 серия · 70 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/9/c/9b136368824721925060ec68139b8f.jpg"
         },
         {
           "id": "e11",
           "title": "Двадцатый век начинается. Серия 2",
-          "subtitle": "11 серия · 71 мин",
+          "subtitle": "11 серия · 70 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/7/f/e291519d2a48d196ffc54185eff950.jpg"
         }
       ]
@@ -207,22 +207,22 @@
       ]
     },
     {
-      "id": "sim-17306",
-      "title": "Такси под прикрытием",
-      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/0/9/574c058b394ab3956ec21041e7ee07.jpg/640x360/?q=85&mod=to_webp",
-      "description": "Оперативник под видом таксиста ловит бандитов на улицах Петербурга. Детектив на высоких скоростях.",
-      "meta": [
-        "2023",
-        "детективы"
-      ]
-    },
-    {
       "id": "sim-21421",
       "title": "Скамейка запасных",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/2/9/12b6f012884e3fb32aa80e06dbd2d9.jpg/640x360/?q=85&mod=to_webp",
       "description": "Отдел неудачливых в карьере, но целеустремлённых следователей распутывает самые сложные преступления",
       "meta": [
         "2026",
+        "детективы"
+      ]
+    },
+    {
+      "id": "sim-17306",
+      "title": "Такси под прикрытием",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/0/9/574c058b394ab3956ec21041e7ee07.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Оперативник под видом таксиста ловит бандитов на улицах Петербурга. Детектив на высоких скоростях.",
+      "meta": [
+        "2023",
         "детективы"
       ]
     },

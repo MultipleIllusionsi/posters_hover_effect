@@ -1,5 +1,6 @@
 import { Fragment, useEffect, useLayoutEffect, useRef, useState } from "react";
-import { IconFavorite, IconPlay, IconSoundOff, IconSoundOn } from "../icons";
+import { IconFavorite, IconFavoriteOutline, IconPlay, IconSoundOff, IconSoundOn } from "../icons";
+import ScrollRail from "../ScrollRail";
 import "./SheetPanel.css";
 
 /**
@@ -18,14 +19,16 @@ const TABS = [
  *  переполнять область прокрутки и обрезать последнюю карточку. */
 const MIN_EPISODES = 9;
 
-/** Отзывы в полосе — добиваются до этого числа (у демо-постера их всего пара). */
-const MIN_REVIEWS = 8;
+/** Отзывы показываем только если их хотя бы столько (иначе таб скрыт). */
+const MIN_REVIEWS = 3;
 
 export default function SheetPanel({ data, onClose, leaving = false }) {
   const [tab, setTab] = useState("info");
   const [seasonIndex, setSeasonIndex] = useState(0);
   // Трейлеры стартуют без звука — автоплей со звуком блокируют все браузеры.
   const [muted, setMuted] = useState(true);
+  // «В избранное» — визуальный тумблер (сбрасывается при смене контента ниже).
+  const [fav, setFav] = useState(false);
   const videoRef = useRef(null);
   // Собственная ширина полосы номеров сезонов, чтобы контейнер анимировал свою
   // ширину от 0 (свёрнуто) ровно до неё при выборе таба «Сезоны».
@@ -40,6 +43,7 @@ export default function SheetPanel({ data, onClose, leaving = false }) {
     setTab("info");
     setSeasonIndex(0);
     setMuted(true);
+    setFav(false);
   }
 
   // React применяет `muted` только при первом монтировании <video>; синхроним.
@@ -66,9 +70,25 @@ export default function SheetPanel({ data, onClose, leaving = false }) {
   const trailerStill = data.still || data.src;
   const hasTrailer = Boolean(data.trailer) && tab === "info";
 
-  // У фильмов (чип «фильм») нет сезонов — убираем для них таб «Сезоны».
+  // У фильмов (чип «фильм») нет сезонов, поэтому у них и таба «Сезоны» нет.
   const isFilm = data.meta?.includes("фильм");
-  const visibleTabs = isFilm ? TABS.filter((t) => t.id !== "seasons") : TABS;
+
+  // Отзывы — только уникальные (по тексту), без повторов-добивки.
+  const seenReviews = new Set();
+  const reviews = (data.reviews ?? []).filter((r) => {
+    const k = (r.text || "").trim();
+    if (!k || seenReviews.has(k)) return false;
+    seenReviews.add(k);
+    return true;
+  });
+
+  // Табы: «Инфо» → «О сериале»/«О фильме»; «Сезоны» скрываем у фильмов; «Отзывы»
+  // — только если их хотя бы MIN_REVIEWS (иначе таб не показываем совсем).
+  const visibleTabs = TABS.filter((t) => {
+    if (t.id === "seasons") return !isFilm;
+    if (t.id === "reviews") return reviews.length >= MIN_REVIEWS;
+    return true;
+  }).map((t) => (t.id === "info" ? { ...t, label: isFilm ? "О фильме" : "О сериале" } : t));
 
   // Меряем полосу номеров сезонов, чтобы анимация открытия/закрытия целилась в
   // её точную ширину. ResizeObserver держит замер верным после загрузки шрифта
@@ -92,16 +112,6 @@ export default function SheetPanel({ data, onClose, leaving = false }) {
       : Array.from({ length: Math.max(MIN_EPISODES, baseEpisodes.length) }, (_, i) => {
           const ep = baseEpisodes[i % baseEpisodes.length];
           return { ...ep, key: `${ep.id}-${i}`, label: `${i + 1} серия` };
-        });
-
-  // Та же добивка для отзывов, чтобы в полосе было больше двух демо-карточек.
-  const baseReviews = data.reviews ?? [];
-  const reviews =
-    baseReviews.length === 0
-      ? []
-      : Array.from({ length: Math.max(MIN_REVIEWS, baseReviews.length) }, (_, i) => {
-          const r = baseReviews[i % baseReviews.length];
-          return { ...r, key: `${r.id}-${i}` };
         });
 
   return (
@@ -180,8 +190,14 @@ export default function SheetPanel({ data, onClose, leaving = false }) {
                         <IconPlay />
                         Смотреть
                       </button>
-                      <button type="button" className="sheet__fav" aria-label="В избранное">
-                        <IconFavorite />
+                      <button
+                        type="button"
+                        className="sheet__fav"
+                        aria-label="В избранное"
+                        aria-pressed={fav}
+                        onClick={() => setFav((f) => !f)}
+                      >
+                        {fav ? <IconFavorite /> : <IconFavoriteOutline />}
                       </button>
                     </div>
                   </div>
@@ -189,7 +205,7 @@ export default function SheetPanel({ data, onClose, leaving = false }) {
 
                 {tab === "seasons" && (
                   <div className="sheet__panel">
-                    <ul className="sheet__list sheet__list--episodes">
+                    <ScrollRail className="sheet__list sheet__list--episodes">
                       {episodes.map((ep) => (
                         <li className="sheet__episode" key={ep.key}>
                           <span className="sheet__episode-poster">
@@ -206,20 +222,20 @@ export default function SheetPanel({ data, onClose, leaving = false }) {
                           </span>
                         </li>
                       ))}
-                    </ul>
+                    </ScrollRail>
                   </div>
                 )}
 
                 {tab === "reviews" && (
-                  <ul className="sheet__list sheet__list--reviews">
+                  <ScrollRail className="sheet__list sheet__list--reviews">
                     {reviews.map((r) => (
                       /* Как на ivi.ru — только имя автора и текст, без оценки. */
-                      <li className="sheet__review" key={r.key}>
+                      <li className="sheet__review" key={r.id}>
                         <span className="sheet__review-author">{r.author}</span>
                         <span className="sheet__review-text">{r.text}</span>
                       </li>
                     ))}
-                  </ul>
+                  </ScrollRail>
                 )}
               </div>
             </div>
