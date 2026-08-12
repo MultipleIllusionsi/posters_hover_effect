@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { IconFavorite, IconFavoriteOutline, IconPlay, IconSoundOff, IconSoundOn } from "../icons";
+import { openExternal } from "../../openExternal";
 import TextBadge from "../TextBadge";
 import "./HoverPosterHorizontal.css";
 
@@ -45,7 +46,7 @@ export default function HoverPosterHorizontal({ data }) {
         // Следующее наведение снова начинается без звука.
         setMuted(true);
       }}
-      onClick={() => data.link && window.open(data.link, "_blank", "noopener,noreferrer")}
+      onClick={() => openExternal(data.link)}
     >
       {/* Всё масштабируемое живёт в __media: артворк, трейлер и градиент
           двигаются как одно целое. Кнопки ниже стоят на месте. */}

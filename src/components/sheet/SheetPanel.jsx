@@ -1,5 +1,6 @@
 import { Fragment, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { IconFavorite, IconFavoriteOutline, IconPlay, IconSoundOff, IconSoundOn } from "../icons";
+import { openExternal } from "../../openExternal";
 import ScrollRail from "../ScrollRail";
 import "./SheetPanel.css";
 
@@ -299,7 +300,7 @@ export default function SheetPanel({ data, onClose, leaving = false }) {
                 <button
                   type="button"
                   className="sheet__tab sheet__more"
-                  onClick={() => window.open(data.link, "_blank", "noopener,noreferrer")}
+                  onClick={() => openExternal(data.link)}
                 >
                   Подробнее
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">

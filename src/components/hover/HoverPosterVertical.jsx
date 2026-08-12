@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { IconFavorite, IconFavoriteOutline, IconPlay, IconSoundOff, IconSoundOn } from "../icons";
+import { openExternal } from "../../openExternal";
 import TextBadge from "../TextBadge";
 import "./HoverPosterVertical.css";
 
@@ -38,16 +39,12 @@ export default function HoverPosterVertical({ data }) {
     if (videoRef.current) videoRef.current.muted = muted;
   });
 
-  const openLink = () => {
-    if (data.link) window.open(data.link, "_blank", "noopener,noreferrer");
-  };
-
   return (
     <div
       className="hover-vertical"
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
-      onClick={openLink}
+      onClick={() => openExternal(data.link)}
     >
       <div className="hover-vertical__media">
         <img className="hover-vertical__image" src={data.src} alt={data.alt} loading="lazy" />
