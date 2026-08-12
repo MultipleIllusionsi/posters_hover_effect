@@ -17,9 +17,9 @@
     "1 сезон"
   ],
   "ratings": {
-    "kp": 8.59,
+    "kp": 8.6,
     "imdb": 8.1,
-    "ivi": 8.88
+    "ivi": 8.9
   },
   "shortDescription": "Злая завистница меняется телами с придворной фавориткой и невольно освобождает её от тяжёлой болезни",
   "synopsis": "Завистливая интриганка меняется телами с императорской фавориткой, чтобы украсть её жизнь. Но вместе с тем она забирает себе её тяжёлую болезнь, а бывшая красавица обретает силы и свободу.",
@@ -40,74 +40,81 @@
         {
           "id": "e1",
           "title": "Возможно, я довольно неумелая злодейка",
-          "subtitle": "1 серия · 10 мин",
+          "subtitle": "1 серия · 23 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/4/b/20983745db446ab7f90e6501627ae9.jpg"
         },
         {
           "id": "e2",
           "title": "Я буду здесь жить?",
-          "subtitle": "2 серия · 10 мин",
+          "subtitle": "2 серия · 23 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/d/5/d9e33500cf401099c5af5797728007.jpg"
         },
         {
           "id": "e3",
           "title": "Буду ли я здесь жить?",
-          "subtitle": "3 серия · 10 мин",
+          "subtitle": "3 серия · 23 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/0/f/f5d323305649f59e9b5ddfae000142.jpg"
         },
         {
           "id": "e4",
           "title": "Моя чудесная комета",
-          "subtitle": "4 серия · 10 мин",
+          "subtitle": "4 серия · 23 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/2/c/06dc9184bc4a3884c93eb3458d34ae.jpg"
         },
         {
           "id": "e5",
           "title": "Кто эта девушка?",
-          "subtitle": "5 серия · 10 мин",
+          "subtitle": "5 серия · 23 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/e/9/7c313211b94303b502f2efcf5bb334.jpg"
         },
         {
           "id": "e6",
           "title": "Серия 6",
-          "subtitle": "6 серия · 10 мин",
-          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/1/4/a39cfa9d5547fb83efbc7a444af836.jpg/1280x720/?q=85&mod=to_webp"
+          "subtitle": "6 серия",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/1/4/a39cfa9d5547fb83efbc7a444af836.jpg/1280x720/?q=85&mod=to_webp",
+          "soon": true
         },
         {
           "id": "e7",
           "title": "Серия 7",
-          "subtitle": "7 серия · 10 мин",
-          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/0/7/6fb5298ef8449490b00367abc202e2.jpg/1352x760/?q=85&mod=to_webp"
+          "subtitle": "7 серия",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/0/7/6fb5298ef8449490b00367abc202e2.jpg/1352x760/?q=85&mod=to_webp",
+          "soon": true
         },
         {
           "id": "e8",
           "title": "Серия 8",
-          "subtitle": "8 серия · 10 мин",
-          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/b/5/147b21a76a4da5a305c6892f7670e3.jpg/445x675/?q=85&mod=to_webp"
+          "subtitle": "8 серия",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/b/5/147b21a76a4da5a305c6892f7670e3.jpg/445x675/?q=85&mod=to_webp",
+          "soon": true
         },
         {
           "id": "e9",
           "title": "Серия 9",
-          "subtitle": "9 серия · 10 мин",
-          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/1/4/a39cfa9d5547fb83efbc7a444af836.jpg/1280x720/?q=85&mod=to_webp"
+          "subtitle": "9 серия",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/1/4/a39cfa9d5547fb83efbc7a444af836.jpg/1280x720/?q=85&mod=to_webp",
+          "soon": true
         },
         {
           "id": "e10",
           "title": "Серия 10",
-          "subtitle": "10 серия · 10 мин",
-          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/0/7/6fb5298ef8449490b00367abc202e2.jpg/1352x760/?q=85&mod=to_webp"
+          "subtitle": "10 серия",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/0/7/6fb5298ef8449490b00367abc202e2.jpg/1352x760/?q=85&mod=to_webp",
+          "soon": true
         },
         {
           "id": "e11",
           "title": "Серия 11",
-          "subtitle": "11 серия · 10 мин",
-          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/b/5/147b21a76a4da5a305c6892f7670e3.jpg/445x675/?q=85&mod=to_webp"
+          "subtitle": "11 серия",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/b/5/147b21a76a4da5a305c6892f7670e3.jpg/445x675/?q=85&mod=to_webp",
+          "soon": true
         },
         {
           "id": "e12",
           "title": "Серия 12",
-          "subtitle": "12 серия · 10 мин",
-          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/1/4/a39cfa9d5547fb83efbc7a444af836.jpg/1280x720/?q=85&mod=to_webp"
+          "subtitle": "12 серия",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/1/4/a39cfa9d5547fb83efbc7a444af836.jpg/1280x720/?q=85&mod=to_webp",
+          "soon": true
         }
       ]
     }
@@ -117,6 +124,7 @@
     {
       "id": "sim-214197",
       "title": "Исповедь неполноценного человека",
+      "link": "https://www.ivi.ru/watch/214197",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/1/5/8ab4e1f18f4a3eb4a8eb26c0e33ca0.jpg/640x360/?q=85&mod=to_webp",
       "description": "В будущем все болезни побеждены благодаря нанороботам. Но у изобретения есть обратная сторона.",
       "meta": [

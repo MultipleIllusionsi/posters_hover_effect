@@ -15,7 +15,7 @@
     "1 сезон"
   ],
   "ratings": {
-    "kp": 6.84,
+    "kp": 6.87,
     "imdb": null,
     "ivi": 8.49
   },
@@ -51,7 +51,7 @@
         {
           "id": "e2",
           "title": "Серия 2",
-          "subtitle": "2 серия · 48 мин",
+          "subtitle": "2 серия · 47 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/4/e/60ec01c91b48819b5c5debc7972aba.jpg"
         },
         {
@@ -69,7 +69,7 @@
         {
           "id": "e5",
           "title": "Серия 5",
-          "subtitle": "5 серия · 48 мин",
+          "subtitle": "5 серия · 49 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/0/c/7ec5d2c1e74edf896a2e91c2b48a67.jpg"
         },
         {
@@ -87,7 +87,7 @@
         {
           "id": "e8",
           "title": "Серия 8",
-          "subtitle": "8 серия · 48 мин",
+          "subtitle": "8 серия · 49 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/c/7/866512e9454662a3cb13d2490a0374.jpg"
         },
         {
@@ -99,19 +99,19 @@
         {
           "id": "e10",
           "title": "Серия 10",
-          "subtitle": "10 серия · 48 мин",
+          "subtitle": "10 серия · 49 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/a/d/2d1d12da3b4e0389daf138341dcd13.jpg"
         },
         {
           "id": "e11",
           "title": "Серия 11",
-          "subtitle": "11 серия · 48 мин",
+          "subtitle": "11 серия · 50 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/f/9/20f588d77741118fb5bf3d7cb184df.jpg"
         },
         {
           "id": "e12",
           "title": "Серия 12",
-          "subtitle": "12 серия · 48 мин",
+          "subtitle": "12 серия · 49 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/2/c/2f99cd917d44ad82cd8f096954d7ff.jpg"
         }
       ]
@@ -173,6 +173,7 @@
     {
       "id": "sim-18038",
       "title": "Прометей",
+      "link": "https://www.ivi.ru/watch/prometej",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/1/c/f5778db2c44944bed7409b15f01429.jpg/640x360/?q=85&mod=to_webp",
       "description": "Журналистка расследует дело об исчезновении самолёта много лет назад. Триллер с Любовью Аксёновой.",
       "meta": [
@@ -181,18 +182,9 @@
       ]
     },
     {
-      "id": "sim-20029",
-      "title": "Нерождённая",
-      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/a/8/569de0211b433cbbe273e2362161a6.jpg/640x360/?q=85&mod=to_webp",
-      "description": "Школьница, видящая призраков, узнаёт тайну своего сверхъестественного дара.",
-      "meta": [
-        "2024",
-        "детективы"
-      ]
-    },
-    {
       "id": "sim-18044",
       "title": "Кордон",
+      "link": "https://www.ivi.ru/watch/kordon",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/5/4/7715c7bd4c4c339a422d9a18769a45.jpg/640x360/?q=85&mod=to_webp",
       "description": "Несправедливо уволенный пограничник продолжает ловить контрабандистов. Детектив с Петром Рыковым.",
       "meta": [
@@ -201,8 +193,20 @@
       ]
     },
     {
+      "id": "sim-20029",
+      "title": "Нерождённая",
+      "link": "https://www.ivi.ru/watch/nerozhdyonnaya",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/a/8/569de0211b433cbbe273e2362161a6.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Школьница, видящая призраков, узнаёт тайну своего сверхъестественного дара.",
+      "meta": [
+        "2024",
+        "детективы"
+      ]
+    },
+    {
       "id": "sim-20829",
       "title": "Затмение",
+      "link": "https://www.ivi.ru/watch/zatmenie-2025",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/e/b/b34825b8fb4507b1948897c9792837.jpg/640x360/?q=85&mod=to_webp",
       "description": "1960, Москва. Полковник КГБ расследует вспышку чёрной оспы, чтобы предотвратить смертельную эпидемию",
       "meta": [
@@ -213,6 +217,7 @@
     {
       "id": "sim-12120",
       "title": "Майя",
+      "link": "https://www.ivi.ru/watch/majya",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/f/0/7741c32ffe4889b07a9e32453cfa79.jpg/640x360/?q=85&mod=to_webp",
       "description": "Майя, мечтающая найти убийцу своего отца, начинает расследовать исчезновение «королевы» школы.",
       "meta": [
@@ -223,6 +228,7 @@
     {
       "id": "sim-21421",
       "title": "Скамейка запасных",
+      "link": "https://www.ivi.ru/watch/skamejka-zapasnyih",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/2/9/12b6f012884e3fb32aa80e06dbd2d9.jpg/640x360/?q=85&mod=to_webp",
       "description": "Отдел неудачливых в карьере, но целеустремлённых следователей распутывает самые сложные преступления",
       "meta": [
@@ -231,18 +237,9 @@
       ]
     },
     {
-      "id": "sim-17306",
-      "title": "Такси под прикрытием",
-      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/0/9/574c058b394ab3956ec21041e7ee07.jpg/640x360/?q=85&mod=to_webp",
-      "description": "Оперативник под видом таксиста ловит бандитов на улицах Петербурга. Детектив на высоких скоростях.",
-      "meta": [
-        "2023",
-        "детективы"
-      ]
-    },
-    {
       "id": "sim-17385",
       "title": "Страх над Невой",
+      "link": "https://www.ivi.ru/watch/strah-nad-nevoj",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/e/6/3de87e0997417c901e3fa379d4900f.jpg/640x360/?q=85&mod=to_webp",
       "description": "Ленинград, 1967 год. Майор КГБ и капитан милиции расследуют таинственные убийства женщин.",
       "meta": [
@@ -251,8 +248,20 @@
       ]
     },
     {
+      "id": "sim-17306",
+      "title": "Такси под прикрытием",
+      "link": "https://www.ivi.ru/watch/taksi-pod-prikryitiem",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/0/9/574c058b394ab3956ec21041e7ee07.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Оперативник под видом таксиста ловит бандитов на улицах Петербурга. Детектив на высоких скоростях.",
+      "meta": [
+        "2023",
+        "детективы"
+      ]
+    },
+    {
       "id": "sim-14436",
       "title": "Объявлен мёртвым (2021)",
+      "link": "https://www.ivi.ru/watch/obyavlen-mertvyim",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/3/5/3e6516ac9d4013a8b47937ba0fe3b9.jpg/640x360/?q=85&mod=to_webp",
       "description": "Полицейский, считавшийся убитым, возвращается из плена два года спустя. Детектив с Евгением Прониным",
       "meta": [
@@ -261,12 +270,13 @@
       ]
     },
     {
-      "id": "sim-10979",
-      "title": "Обратный отсчёт",
-      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/f/5/02ccad499148ddb37af22169a834ae.jpg/640x360/?q=85&mod=to_webp",
-      "description": "Юрий Колокольников и Полина Максимова в роли полицейских раскрывают убийства наперегонки со временем",
+      "id": "sim-21474",
+      "title": "Выход есть всегда",
+      "link": "https://www.ivi.ru/watch/vyihod-est-vsegda",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/a/2/29428cef8e46bbb3fbda765bc1315f.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Борьба за опеку над сыном оборачивается для Ирины чередой угроз и опасных происшествий.",
       "meta": [
-        "2018",
+        "2026",
         "детективы"
       ]
     }

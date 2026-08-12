@@ -15,9 +15,9 @@
     "2 сезона"
   ],
   "ratings": {
-    "kp": 7.4,
+    "kp": 7.42,
     "imdb": null,
-    "ivi": 8.36
+    "ivi": 8.37
   },
   "shortDescription": "Спасая семью от разорения, упрямая дворянка идёт на службу к молодому графу. Так начинается их роман",
   "synopsis": "Москва, XIX век. Пока высший свет пытается женить молодого графа Николая Шереметьева, завидный холостяк влюбляется в упрямую, но искреннюю дворянку Анну, которая вынуждена работать его горничной.",
@@ -45,73 +45,73 @@
         {
           "id": "e1",
           "title": "Серия 1",
-          "subtitle": "1 серия · 23 мин",
+          "subtitle": "1 серия · 50 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/6/7/8a6e453ebc4823b2b26992b6ce1c42.jpg"
         },
         {
           "id": "e2",
           "title": "Серия 2",
-          "subtitle": "2 серия · 23 мин",
+          "subtitle": "2 серия · 49 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/1/2/f9d814b44d485ea1a90071b03eb321.jpg"
         },
         {
           "id": "e3",
           "title": "Серия 3",
-          "subtitle": "3 серия · 23 мин",
+          "subtitle": "3 серия · 55 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/0/a/38cabf36bc4aae9011d8a2f33d288d.jpg"
         },
         {
           "id": "e4",
           "title": "Серия 4",
-          "subtitle": "4 серия · 23 мин",
+          "subtitle": "4 серия · 55 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/f/b/f4dd7b3e0b4984a81ff90d47de7706.jpg"
         },
         {
           "id": "e5",
           "title": "Серия 5",
-          "subtitle": "5 серия · 23 мин",
+          "subtitle": "5 серия · 50 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/5/0/d7f992ed7540f788027d8a6e447e1d.jpg"
         },
         {
           "id": "e6",
           "title": "Серия 6",
-          "subtitle": "6 серия · 23 мин",
+          "subtitle": "6 серия · 51 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/0/1/9873e4f372463a952bb0bb66bcbcf9.jpg"
         },
         {
           "id": "e7",
           "title": "Серия 7",
-          "subtitle": "7 серия · 23 мин",
+          "subtitle": "7 серия · 49 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/4/9/cda12b5e364c0890c2c22911b219d7.jpg"
         },
         {
           "id": "e8",
           "title": "Серия 8",
-          "subtitle": "8 серия · 23 мин",
+          "subtitle": "8 серия · 48 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/4/4/cfb4b8a0314d6fa93c3876f139d6a2.jpg"
         },
         {
           "id": "e9",
           "title": "Серия 9",
-          "subtitle": "9 серия · 23 мин",
+          "subtitle": "9 серия · 49 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/1/8/cce37edfe54ba0b2f8814bcf901b34.jpg"
         },
         {
           "id": "e10",
           "title": "Серия 10",
-          "subtitle": "10 серия · 23 мин",
+          "subtitle": "10 серия · 50 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/f/2/679999d9844ae482dece30b574c456.jpg"
         },
         {
           "id": "e11",
           "title": "Серия 11",
-          "subtitle": "11 серия · 23 мин",
+          "subtitle": "11 серия · 51 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/9/e/f337ac71a545deb1846decd50062da.jpg"
         },
         {
           "id": "e12",
           "title": "Серия 12",
-          "subtitle": "12 серия · 23 мин",
+          "subtitle": "12 серия · 51 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/b/b/b6eaef2518446cb06fd94917c0afcf.jpg"
         }
       ]
@@ -123,74 +123,86 @@
         {
           "id": "e1",
           "title": "Серия 1",
-          "subtitle": "1 серия · 23 мин",
-          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/4/0/39a101c61c4a2dad28382bc26a4752.jpg"
+          "subtitle": "1 серия · 49 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/4/0/39a101c61c4a2dad28382bc26a4752.jpg",
+          "soon": true
         },
         {
           "id": "e2",
           "title": "Серия 2",
-          "subtitle": "2 серия · 23 мин",
-          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/7/0/49a593eb5f46cf97d1af590b4106ea.jpg"
+          "subtitle": "2 серия · 51 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/7/0/49a593eb5f46cf97d1af590b4106ea.jpg",
+          "soon": true
         },
         {
           "id": "e3",
           "title": "Серия 3",
-          "subtitle": "3 серия · 23 мин",
-          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/e/d/14b31c470c4398bbe5dc25d9de9c49.jpg"
+          "subtitle": "3 серия · 49 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/e/d/14b31c470c4398bbe5dc25d9de9c49.jpg",
+          "soon": true
         },
         {
           "id": "e4",
           "title": "Серия 4",
-          "subtitle": "4 серия · 23 мин",
-          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/7/5/bb697fced24029b4fb096628b85cf5.jpg"
+          "subtitle": "4 серия · 48 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/7/5/bb697fced24029b4fb096628b85cf5.jpg",
+          "soon": true
         },
         {
           "id": "e5",
           "title": "Серия 5",
-          "subtitle": "5 серия · 23 мин",
-          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/0/a/8e00d75d0c4bb6bba729e09a200b89.jpg"
+          "subtitle": "5 серия · 51 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/0/a/8e00d75d0c4bb6bba729e09a200b89.jpg",
+          "soon": true
         },
         {
           "id": "e6",
           "title": "Серия 6",
-          "subtitle": "6 серия · 23 мин",
-          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/f/9/62ec321ee7410f83fdba9be0856864.jpg"
+          "subtitle": "6 серия · 52 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/f/9/62ec321ee7410f83fdba9be0856864.jpg",
+          "soon": true
         },
         {
           "id": "e7",
           "title": "Серия 7",
-          "subtitle": "7 серия · 23 мин",
-          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/0/6/488c659ea84ac7ae05844c3af907c9.jpg"
+          "subtitle": "7 серия · 50 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/0/6/488c659ea84ac7ae05844c3af907c9.jpg",
+          "soon": true
         },
         {
           "id": "e8",
           "title": "Серия 8",
-          "subtitle": "8 серия · 23 мин",
-          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/2/a/284046c9f74fd49422835840f014f0.jpg"
+          "subtitle": "8 серия · 52 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/2/a/284046c9f74fd49422835840f014f0.jpg",
+          "soon": true
         },
         {
           "id": "e9",
           "title": "Серия 9",
-          "subtitle": "9 серия · 23 мин",
-          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/d/9/21863baf6849beada3eb03f0e16031.jpg"
+          "subtitle": "9 серия · 52 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/d/9/21863baf6849beada3eb03f0e16031.jpg",
+          "soon": true
         },
         {
           "id": "e10",
           "title": "Серия 10",
-          "subtitle": "10 серия · 23 мин",
-          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/4/2/24f3859e9f4cc8846d968ad206dab5.jpg"
+          "subtitle": "10 серия · 50 мин",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/4/2/24f3859e9f4cc8846d968ad206dab5.jpg",
+          "soon": true
         },
         {
           "id": "e11",
           "title": "Серия 11",
-          "subtitle": "11 серия · 23 мин",
-          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/9/1/4122b78f514b9d93966457c1014c60.jpg"
+          "subtitle": "11 серия",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/9/1/4122b78f514b9d93966457c1014c60.jpg",
+          "soon": true
         },
         {
           "id": "e12",
           "title": "Серия 12",
-          "subtitle": "12 серия · 23 мин",
-          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/6/b/9d20e49e8f4da78117298d777269e4.jpg"
+          "subtitle": "12 серия",
+          "still": "https://thumbs.dfs.ivi.ru/storage0/contents/6/b/9d20e49e8f4da78117298d777269e4.jpg",
+          "soon": true
         }
       ]
     }
@@ -238,19 +250,31 @@
     },
     {
       "id": "c9",
-      "author": "mtm44mtm44@mail.ru",
-      "text": "Осилила одну серию. Глупый сериал."
+      "author": "Раяна",
+      "text": "Наконец-то наш кинематограф снова радует историческими сериалами! Обожаю такие фильмы — «Бедную Настю», «Институт благородных девиц» и «Тайны института» — это настоящая сокровище жанра. Очень жаль, что сейчас редко снимают многосерийные исторические и семейные сериалы. На экранах больше показывают что-то развратное и пустое. А посмотреть что-то доброе и душевное с семьёй — почти невозможно. Надеюсь, еще вернемся к хорошим, красивым историям!"
     },
     {
       "id": "c10",
-      "author": "Раяна",
-      "text": "Наконец-то наш кинематограф снова радует историческими сериалами! Обожаю такие фильмы — «Бедную Настю», «Институт благородных девиц» и «Тайны института» — это настоящая сокровище жанра. Очень жаль, что сейчас редко снимают многосерийные исторические и семейные сериалы. На экранах больше показывают что-то развратное и пустое. А посмотреть что-то доброе и душевное с семьёй — почти невозможно. Надеюсь, еще вернемся к хорошим, красивым историям!"
+      "author": "mtm44mtm44@mail.ru",
+      "text": "Осилила одну серию. Глупый сериал."
     }
   ],
   "similar": [
     {
+      "id": "sim-18044",
+      "title": "Кордон",
+      "link": "https://www.ivi.ru/watch/kordon",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/5/4/7715c7bd4c4c339a422d9a18769a45.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Несправедливо уволенный пограничник продолжает ловить контрабандистов. Детектив с Петром Рыковым.",
+      "meta": [
+        "2024",
+        "мелодрамы"
+      ]
+    },
+    {
       "id": "sim-20711",
       "title": "Анатомия чувств",
+      "link": "https://www.ivi.ru/watch/pirogovka",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/2/a/14d5b784474dd3a8c1f4298f596880.jpg/640x360/?q=85&mod=to_webp",
       "description": "Хирург Кира живёт только работой, не оставляя шансов любви. Всё меняется с приходом новых коллег.",
       "meta": [
@@ -261,6 +285,7 @@
     {
       "id": "sim-20029",
       "title": "Нерождённая",
+      "link": "https://www.ivi.ru/watch/nerozhdyonnaya",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/a/8/569de0211b433cbbe273e2362161a6.jpg/640x360/?q=85&mod=to_webp",
       "description": "Школьница, видящая призраков, узнаёт тайну своего сверхъестественного дара.",
       "meta": [
@@ -269,18 +294,9 @@
       ]
     },
     {
-      "id": "sim-18044",
-      "title": "Кордон",
-      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/5/4/7715c7bd4c4c339a422d9a18769a45.jpg/640x360/?q=85&mod=to_webp",
-      "description": "Несправедливо уволенный пограничник продолжает ловить контрабандистов. Детектив с Петром Рыковым.",
-      "meta": [
-        "2024",
-        "мелодрамы"
-      ]
-    },
-    {
       "id": "sim-17468",
       "title": "Рваный ветер",
+      "link": "https://www.ivi.ru/watch/rvanyij-veter",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/1/2/af5966a0a1468ba98f8e759e2476ea.jpg/640x360/?q=85&mod=to_webp",
       "description": "Бизнесмен Градов ввязывается в корпоративную войну за завод, которая перерастает в войну за любовь.",
       "meta": [
@@ -291,6 +307,7 @@
     {
       "id": "sim-19747",
       "title": "На разных берегах",
+      "link": "https://www.ivi.ru/watch/na-raznyih-beregah",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/2/d/eea98096c9414189bb9bce7035f08c.jpg/640x360/?q=85&mod=to_webp",
       "description": "Расставание с женихом приводит Соню к Денизу в солнечной Турции. Восточная сказка не длится вечно.",
       "meta": [
@@ -299,18 +316,9 @@
       ]
     },
     {
-      "id": "sim-19532",
-      "title": "Моя рыжая чудачка",
-      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/5/f/ad7752ab2447a09885dd6d45db4d58.jpg/640x360/?q=85&mod=to_webp",
-      "description": "Девушка-пацанка вынуждена стать личным водителем мажора. Хит «Домашнего» с Максимом Щёголевым.",
-      "meta": [
-        "2025",
-        "мелодрамы"
-      ]
-    },
-    {
       "id": "sim-21330",
       "title": "Потерянная жизнь",
+      "link": "https://www.ivi.ru/watch/poteryannaya-zhizn",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/2/4/5a0fd5133e4e669011c64b481942e5.jpg/640x360/?q=85&mod=to_webp",
       "description": "Тайны прошлого настигают Катерину, ставя под угрозу её брак и карьеру. Драма с Татьяной Арнтгольц.",
       "meta": [
@@ -321,6 +329,7 @@
     {
       "id": "sim-17359",
       "title": "Пармские фиалки",
+      "link": "https://www.ivi.ru/watch/parmskie-fialki",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/0/3/c00dd9ff40406eb339778b063992ba.jpg/640x360/?q=85&mod=to_webp",
       "description": "История непростой судьбы девушки Лиды, которая трагическим образом теряет любимых мужчин.",
       "meta": [
@@ -329,8 +338,20 @@
       ]
     },
     {
+      "id": "sim-19532",
+      "title": "Моя рыжая чудачка",
+      "link": "https://www.ivi.ru/watch/moya-ryizhaya-chudachka",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/5/f/ad7752ab2447a09885dd6d45db4d58.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Девушка-пацанка вынуждена стать личным водителем мажора. Хит «Домашнего» с Максимом Щёголевым.",
+      "meta": [
+        "2025",
+        "мелодрамы"
+      ]
+    },
+    {
       "id": "sim-21689",
       "title": "Украденная жизнь",
+      "link": "https://www.ivi.ru/watch/ukradennaya-zhizn",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/6/8/f34d8c89da4798ac66fbdfe3553259.jpg/640x360/?q=85&mod=to_webp",
       "description": "Прошлое военного Василия возвращается спустя годы, сталкивая его дочек Машу и Василису лицом к лицу.",
       "meta": [
@@ -341,6 +362,7 @@
     {
       "id": "sim-14436",
       "title": "Объявлен мёртвым (2021)",
+      "link": "https://www.ivi.ru/watch/obyavlen-mertvyim",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/3/5/3e6516ac9d4013a8b47937ba0fe3b9.jpg/640x360/?q=85&mod=to_webp",
       "description": "Полицейский, считавшийся убитым, возвращается из плена два года спустя. Детектив с Евгением Прониным",
       "meta": [

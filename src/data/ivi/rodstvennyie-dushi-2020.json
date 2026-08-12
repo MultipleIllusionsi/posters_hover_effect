@@ -16,7 +16,7 @@
     "1 сезон"
   ],
   "ratings": {
-    "kp": 6.76,
+    "kp": 6.77,
     "imdb": 6.4,
     "ivi": 7.24
   },
@@ -52,13 +52,13 @@
         {
           "id": "e2",
           "title": "Влюбленные",
-          "subtitle": "2 серия · 42 мин",
+          "subtitle": "2 серия · 40 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/c/9/6970a581f54c24aff628bf6daaf0de.jpg"
         },
         {
           "id": "e3",
           "title": "Маленькие приключения",
-          "subtitle": "3 серия · 42 мин",
+          "subtitle": "3 серия · 34 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/9/4/4df3e308784e148488f96b3c262a1f.jpg"
         },
         {
@@ -70,7 +70,7 @@
         {
           "id": "e6",
           "title": "Баллада о (силе) Кейтлин Джонс",
-          "subtitle": "6 серия · 42 мин",
+          "subtitle": "6 серия · 50 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/a/b/cfcbbd6aa04c6b80dcf1b22652269e.jpg"
         }
       ]
@@ -92,6 +92,7 @@
     {
       "id": "sim-18038",
       "title": "Прометей",
+      "link": "https://www.ivi.ru/watch/prometej",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/1/c/f5778db2c44944bed7409b15f01429.jpg/640x360/?q=85&mod=to_webp",
       "description": "Журналистка расследует дело об исчезновении самолёта много лет назад. Триллер с Любовью Аксёновой.",
       "meta": [
@@ -102,6 +103,7 @@
     {
       "id": "sim-17638",
       "title": "Гостья",
+      "link": "https://www.ivi.ru/watch/gostya",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/d/0/7828ca1c014990a79e6f1dff713f2b.jpg/640x360/?q=85&mod=to_webp",
       "description": "Детектив ищет загадочную дочь погибшего в Калуге астронома, которую тот скрывал от всего света.",
       "meta": [
@@ -112,6 +114,7 @@
     {
       "id": "sim-16791",
       "title": "Разрешите обратиться",
+      "link": "https://www.ivi.ru/watch/razreshite-obratitsya",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/3/a/b2bd910fa247a5b7380fe2e763fe2a.jpg/640x360/?q=85&mod=to_webp",
       "description": "В бандитском городке завёлся оборотень в погонах. Буквально. Комедийный экшен о новом супергерое.",
       "meta": [
@@ -122,6 +125,7 @@
     {
       "id": "sim-14027",
       "title": "Небеса подождут",
+      "link": "https://www.ivi.ru/watch/nebesa-podozhdut",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/a/9/c197e482c24a849e279b68d2eb10cf.jpg/640x360/?q=85&mod=to_webp",
       "description": "Убитый бизнесмен возвращается на землю ради защиты любимой. Мистическая драма с Александром Робаком.",
       "meta": [
@@ -132,6 +136,7 @@
     {
       "id": "sim-8446",
       "title": "Секунда до...",
+      "link": "https://www.ivi.ru/watch/sekunda_do",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/8/9/c79ae5af14400a90029eb880392590.jpg/640x360/?q=85&mod=to_webp",
       "description": "Олег попадает в аварию, но не погибает а становится частью необычной спасательной команды.",
       "meta": [
@@ -142,6 +147,7 @@
     {
       "id": "sim-12102",
       "title": "Небесный суд",
+      "link": "https://www.ivi.ru/watch/nebesnyij-sud",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/7/6/e8d4930c884278ae499875f6257a82.jpg/640x360/?q=85&mod=to_webp",
       "description": "Два «небесных» адвоката решают, что произойдёт с душами умерших. Драма с Константином Хабенским.",
       "meta": [
@@ -152,6 +158,7 @@
     {
       "id": "sim-16069",
       "title": "Даркнет",
+      "link": "https://www.ivi.ru/watch/darknet",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/0/3/818f1715bd4646b4433950133bc9c8.jpg/640x360/?q=85&mod=to_webp",
       "description": "Отец ищет свою дочь в Даркнете – виртуальном мире без запретов. Первый российский киберпанк-сериал.",
       "meta": [
@@ -162,6 +169,7 @@
     {
       "id": "sim-16623",
       "title": "Оливье и роботы",
+      "link": "https://www.ivi.ru/watch/olive-i-robotyi",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/8/d/9790b490074d43bbfff9f39b6f0a3a.jpg/640x360/?q=85&mod=to_webp",
       "description": "Невероятные приключения простых россиян в мире фантастических технологий",
       "meta": [
@@ -172,6 +180,7 @@
     {
       "id": "sim-19341",
       "title": "Академия дружбы",
+      "link": "https://www.ivi.ru/watch/akademiya-druzhbyi",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/d/3/588a07335c4556baa608e18207d955.jpg/640x360/?q=85&mod=to_webp",
       "description": "Актёры-подростки из супергеройского сериала попадают в будущее и спасают мир от цифрового тирана.",
       "meta": [
@@ -182,6 +191,7 @@
     {
       "id": "sim-7233",
       "title": "Крах инженера Гарина",
+      "link": "https://www.ivi.ru/watch/krah_injenera_garina",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/9/a/9f975cddc243b7856460eda9dd6c67.jpg/640x360/?q=85&mod=to_webp",
       "description": "Учёный изобретает опасное оружие, чтобы с помощью него захватить господство над всем миром.",
       "meta": [

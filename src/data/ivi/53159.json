@@ -69,6 +69,7 @@
     {
       "id": "sim-564038",
       "title": "Семь вёрст до рассвета",
+      "link": "https://www.ivi.ru/watch/564038",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/6/4/3d6a7aae6646e7bc1fcb99156e07dc.jpg/640x360/?q=85&mod=to_webp",
       "description": "Зима 1942 года. Деревенский старик притворяется пособником врага, чтобы заманить фашистов в ловушку.",
       "meta": [
@@ -79,6 +80,7 @@
     {
       "id": "sim-621429",
       "title": "Красавица",
+      "link": "https://www.ivi.ru/watch/621429",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/3/5/3024498dff4cd882d5014c3970bb52.jpg/640x360/?q=85&mod=to_webp",
       "description": "1941. Сотрудники Ленинградского зоопарка самоотверженно спасают животных от холода, голода и смерти.",
       "meta": [
@@ -89,6 +91,7 @@
     {
       "id": "sim-170872",
       "title": "Т-34",
+      "link": "https://www.ivi.ru/watch/170872",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/8/f/fd1ba735a74593b5061ac3e09aab5a.jpg/640x360/?q=85&mod=to_webp",
       "description": "Военно-приключенческий блокбастер с Александром Петровым о побеге советского танкиста из плена.",
       "meta": [
@@ -99,6 +102,7 @@
     {
       "id": "sim-13207",
       "title": "Т-34. Полная версия",
+      "link": "https://www.ivi.ru/watch/t-34-televersiya",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/e/9/47563bd2504672947837f0697bc043.jpg/640x360/?q=85&mod=to_webp",
       "description": "Расширенная версия кинохита с Александром Петровым о побеге советского танкиста из концлагеря.",
       "meta": [
@@ -109,6 +113,7 @@
     {
       "id": "sim-112154",
       "title": "Марш-бросок",
+      "link": "https://www.ivi.ru/watch/112154",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/1/3/9b0df175a24566b5be03aff52b4d88.jpg/640x360/?q=85&mod=to_webp",
       "description": "Выпускник детдома страстно хочет защищать родину и стремится попасть на войну в Чечне.",
       "meta": [
@@ -119,6 +124,7 @@
     {
       "id": "sim-563287",
       "title": "Каруза",
+      "link": "https://www.ivi.ru/watch/563287",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/3/b/b14f0446f84429bc4526f669ce4e14.jpg/640x360/?q=85&mod=to_webp",
       "description": "История дружбы маленького Мити и собаки Карузы, которых не смогла разлучить даже война.",
       "meta": [
@@ -129,6 +135,7 @@
     {
       "id": "sim-459158",
       "title": "Приказ «Уничтожить»",
+      "link": "https://www.ivi.ru/watch/459158",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/b/4/74950e9ac6494d928fdb702383e90d.jpg/640x360/?q=85&mod=to_webp",
       "description": "Группа диверсантов должна уничтожить сверхсекретное оружие в тылу врага.",
       "meta": [
@@ -139,6 +146,7 @@
     {
       "id": "sim-560271",
       "title": "В списках не значился",
+      "link": "https://www.ivi.ru/watch/560271",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/0/d/229528f6b94a9db23056ed0dc4caf3.jpg/640x360/?q=85&mod=to_webp",
       "description": "Юный лейтенант прибывает в Брестскую крепость в ночь на 22 июня 1941-го. По повести Бориса Васильева",
       "meta": [
@@ -149,6 +157,7 @@
     {
       "id": "sim-193398",
       "title": "Решение о ликвидации",
+      "link": "https://www.ivi.ru/watch/193398",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/f/a/b3f040274e47e1bff60ee295a8556c.jpg/640x360/?q=85&mod=to_webp",
       "description": "Спецгруппа ФСБ охотится за особо опасным террористом на Кавказе. Боевик с Игорем Петренко.",
       "meta": [
@@ -157,12 +166,13 @@
       ]
     },
     {
-      "id": "sim-224688",
-      "title": "Сестренка",
-      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/f/4/43d633275344cc95387c96bb514610.jpg/640x360/?q=85&mod=to_webp",
-      "description": "Трогательная драма о детях войны по повести классика башкирской литературы Мустая Карима.",
+      "id": "sim-498820",
+      "title": "Тыгын Дархан",
+      "link": "https://www.ivi.ru/watch/498820",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/3/4/8adcdc2f174f0b91f4249a4d414c82.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Историческая драма о борьбе за власть в Якутии на рубеже XVI—XVII веков.",
       "meta": [
-        "2019",
+        "2020",
         "военные"
       ]
     }

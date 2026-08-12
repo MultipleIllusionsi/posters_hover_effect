@@ -62,6 +62,10 @@ const MOBILE_PARAMS = "app_version=870&country_place_id=41207";
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
+// Дата запуска (YYYY-MM-DD) — по ней метим ещё не вышедшие серии («Скоро»):
+// у них нет ivi_release_date либо он в будущем.
+const TODAY = new Date().toISOString().slice(0, 10);
+
 /**
  * Базовая инфа + постеры из мобильного API Иви. Числовой аргумент — это фильм
  * (videoinfo по id); текстовый — сериал (compilationinfo по hru). Возвращает
@@ -101,7 +105,8 @@ async function fetchMobileInfo(idOrHru) {
  *   · многие сериалы — «fake»-компиляции (comp.fake === true), и без `fake=true`
  *     их список серий пуст; для не-fake этот флаг безвреден, поэтому шлём всегда;
  *   · ответ страничный (from/to) — листаем по 100, пока страница полная.
- * У каждого элемента: season, episode, title, thumbs[0].url — настоящий кадр.
+ * У каждого элемента: season, episode, title, thumbs[0].url — настоящий кадр,
+ * localizations[0].duration — длительность серии в секундах (своя у каждой).
  */
 async function fetchCompilationVideos(compId) {
   const PAGE = 100;
@@ -112,7 +117,7 @@ async function fetchCompilationVideos(compId) {
       try {
         const res = await fetch(
           `${MOBILE_API2}/videofromcompilation/v7/?app_version=870&id=${compId}` +
-            `&fake=true&fields=thumbs,episode,title,season&from=${from}&to=${from + PAGE - 1}`,
+            `&fake=true&fields=thumbs,episode,title,season,localizations,ivi_release_date&from=${from}&to=${from + PAGE - 1}`,
           { headers: IVI_HEADERS }
         );
         const body = await res.json();
@@ -162,6 +167,10 @@ async function fetchSimilar(comp, genresById = {}, limit = 10) {
       return {
         id: `sim-${x.id}`,
         title: x.title,
+        // Ссылка на ivi.ru для клика по карточке «похожего». share_link — это
+        // готовый /watch/<hru>; фолбэк собираем из hru (числовой id для
+        // компиляций не резолвится — /watch/<id> отдаёт 404).
+        link: x.share_link || (x.hru ? `https://www.ivi.ru/watch/${x.hru}` : null),
         src: CDN_RESIZE(posterH.url, 640, 360),
         description: stripHtml(x.short_description || x.synopsis),
         meta: [year ? String(year) : null, genreName].filter(Boolean),
@@ -275,10 +284,11 @@ function normalize(comp, state, slug, isSeries, apiEpisodes = []) {
   // (fetchCompilationVideos) — там настоящие кадры, номер сезона и серии. SSR
   // рендерит только первый сезон, так что оставляем его лишь как фолбэк.
   const EPISODES_CAP = 12; // полосе эпизодов хватает; UI всё равно повторяет их
-  // Подпись серии — со средней длительностью: у api2-серий поминутной длины нет,
-  // зато у компиляции есть суммарная — делим на число серий.
-  const avgMin =
-    comp.duration && comp.episode_count ? Math.round(comp.duration / comp.episode_count / 60) : null;
+  // Длительность серии — своя у каждой (localizations[0].duration, секунды).
+  const epMinutes = (v) => {
+    const sec = v.localizations?.[0]?.duration || 0;
+    return sec ? Math.round(sec / 60) : null;
+  };
 
   // Заглушка для серий без кадра (обычно ещё не вышедшие): промо-шоты, фон и
   // постеры — намеренно НЕ кадры других серий, чтобы такая серия не выглядела
@@ -309,12 +319,18 @@ function normalize(comp, state, slug, isSeries, apiEpisodes = []) {
           .slice()
           .sort((a, b) => a.episode - b.episode)
           .slice(0, EPISODES_CAP)
-          .map((v) => ({
-            id: `e${v.episode}`,
-            title: v.title || `Серия ${v.episode}`,
-            subtitle: avgMin ? `${v.episode} серия · ${avgMin} мин` : `${v.episode} серия`,
-            still: (v.thumbs || [])[0]?.url || null,
-          })),
+          .map((v) => {
+            const min = epMinutes(v);
+            const ep = {
+              id: `e${v.episode}`,
+              title: v.title || `Серия ${v.episode}`,
+              subtitle: min ? `${v.episode} серия · ${min} мин` : `${v.episode} серия`,
+              still: (v.thumbs || [])[0]?.url || null,
+            };
+            // Серия ещё не вышла (нет даты релиза или она в будущем) — «Скоро».
+            if (!v.ivi_release_date || v.ivi_release_date > TODAY) ep.soon = true;
+            return ep;
+          }),
       }));
   } else {
     // Фолбэк — эпизоды из SSR (обычно только первый сезон; у фильмов пусто).

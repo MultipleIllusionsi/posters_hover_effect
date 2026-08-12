@@ -211,11 +211,16 @@ export default function SheetPanel({ data, onClose, leaving = false }) {
                         <li className="sheet__episode" key={ep.key}>
                           <span className="sheet__episode-poster">
                             <img className="sheet__episode-still" src={ep.still} alt="" />
-                            {/* На ховере — круглая красная кнопка play в правом
-                                нижнем углу постера. */}
-                            <span className="sheet__episode-play" aria-hidden="true">
-                              <IconPlay />
-                            </span>
+                            {ep.soon ? (
+                              /* Ещё не вышла — затемнение и «Скоро» вместо play. */
+                              <span className="sheet__episode-soon">Скоро</span>
+                            ) : (
+                              /* На ховере — круглая красная кнопка play в правом
+                                 нижнем углу постера. */
+                              <span className="sheet__episode-play" aria-hidden="true">
+                                <IconPlay />
+                              </span>
+                            )}
                           </span>
                           <span className="sheet__episode-text">
                             <span className="sheet__episode-title">{ep.title}</span>

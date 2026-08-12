@@ -17,7 +17,7 @@
   "ratings": {
     "kp": 7.3,
     "imdb": 7.5,
-    "ivi": 6.82
+    "ivi": 6.83
   },
   "shortDescription": "Вера сообщает мужу Алексу, что беременна, но не от него. Второй фильм Андрея Звягинцева.",
   "synopsis": "Вера сообщает своему мужу Алексу, что ждет ребенка, но не от него. Ошеломленный мужчина не может найти себе места и пытается понять, что выбрать: месть или прощение. Второй фильм Андрея Звягинцева.",
@@ -85,18 +85,20 @@
   ],
   "similar": [
     {
-      "id": "sim-537389",
-      "title": "Эластико: Двенадцатый игрок",
-      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/d/4/2bd22c0eef481cbe1c749789cc98d0.jpg/640x360/?q=85&mod=to_webp",
-      "description": "Футболиcт Матвей возвращается в родной город, чтобы разобраться в деле о похищении.",
+      "id": "sim-662429",
+      "title": "Тень (На казахском языке с русскими субтитрами)",
+      "link": "https://www.ivi.ru/watch/662429",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/0/0/c5a0fde5f44a9f839e74de7771c5e8.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Самат хочет завоевать сердце Асель. Его настойчивость превращает жизнь девушки в настоящий кошмар.",
       "meta": [
-        "2022",
+        "2026",
         "драмы"
       ]
     },
     {
       "id": "sim-564038",
       "title": "Семь вёрст до рассвета",
+      "link": "https://www.ivi.ru/watch/564038",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/6/4/3d6a7aae6646e7bc1fcb99156e07dc.jpg/640x360/?q=85&mod=to_webp",
       "description": "Зима 1942 года. Деревенский старик притворяется пособником врага, чтобы заманить фашистов в ловушку.",
       "meta": [
@@ -105,8 +107,20 @@
       ]
     },
     {
+      "id": "sim-537389",
+      "title": "Эластико: Двенадцатый игрок",
+      "link": "https://www.ivi.ru/watch/537389",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/d/4/2bd22c0eef481cbe1c749789cc98d0.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Футболиcт Матвей возвращается в родной город, чтобы разобраться в деле о похищении.",
+      "meta": [
+        "2022",
+        "драмы"
+      ]
+    },
+    {
       "id": "sim-619550",
       "title": "Кызым",
+      "link": "https://www.ivi.ru/watch/619550",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/c/e/a245c1b0e44c08b5548f7adae56f4f.jpg/640x360/?q=85&mod=to_webp",
       "description": "Три сестры ищут невесту для своего пожилого отца, но их поиски случайно открывают семейные тайны.",
       "meta": [
@@ -117,6 +131,7 @@
     {
       "id": "sim-634657",
       "title": "Кукла",
+      "link": "https://www.ivi.ru/watch/634657",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/e/f/7e474d46094a5bae07211c0a8f8e6d.jpg/640x360/?q=85&mod=to_webp",
       "description": "Бывшая заключённая Надя пытается найти дочь, рождённую в тюрьме. Драма Егора Бероева.",
       "meta": [
@@ -125,28 +140,9 @@
       ]
     },
     {
-      "id": "sim-662429",
-      "title": "Тень (На казахском языке с русскими субтитрами)",
-      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/0/0/c5a0fde5f44a9f839e74de7771c5e8.jpg/640x360/?q=85&mod=to_webp",
-      "description": "Самат хочет завоевать сердце Асель. Его настойчивость превращает жизнь девушки в настоящий кошмар.",
-      "meta": [
-        "2026",
-        "драмы"
-      ]
-    },
-    {
-      "id": "sim-631196",
-      "title": "Хейтер",
-      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/3/c/2ebcca924e4868bbc007401198847a.jpg/640x360/?q=85&mod=to_webp",
-      "description": "Анонимный стример-провокатор разрушает судьбы и отношения людей. Драмеди с Алексеем Серебряковым.",
-      "meta": [
-        "2026",
-        "драмы"
-      ]
-    },
-    {
       "id": "sim-495827",
       "title": "Жанна",
+      "link": "https://www.ivi.ru/watch/495827",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/0/6/e29f66c641439494c526c36754d955.jpg/640x360/?q=85&mod=to_webp",
       "description": "Неумолимая бизнесвумен сводит счёты с окружающими. Ксения Раппопорт в драме о пути железной леди.",
       "meta": [
@@ -155,8 +151,31 @@
       ]
     },
     {
+      "id": "sim-631196",
+      "title": "Хейтер",
+      "link": "https://www.ivi.ru/watch/631196",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/3/c/2ebcca924e4868bbc007401198847a.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Анонимный стример-провокатор разрушает судьбы и отношения людей. Драмеди с Алексеем Серебряковым.",
+      "meta": [
+        "2026",
+        "драмы"
+      ]
+    },
+    {
+      "id": "sim-662427",
+      "title": "Мечта (На казахском языке с русскими субтитрами)",
+      "link": "https://www.ivi.ru/watch/662427",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/0/4/db2c7fab8c494898e52df0adec924e.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Отец забирает дочь из больницы, чтобы исполнить все её заветные желания. Кыргызская драма.",
+      "meta": [
+        "2026",
+        "драмы"
+      ]
+    },
+    {
       "id": "sim-621429",
       "title": "Красавица",
+      "link": "https://www.ivi.ru/watch/621429",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/3/5/3024498dff4cd882d5014c3970bb52.jpg/640x360/?q=85&mod=to_webp",
       "description": "1941. Сотрудники Ленинградского зоопарка самоотверженно спасают животных от холода, голода и смерти.",
       "meta": [
@@ -167,20 +186,11 @@
     {
       "id": "sim-473879",
       "title": "Лунатики",
+      "link": "https://www.ivi.ru/watch/473879",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/f/2/a3b2ad5c214aa79ec1263fa52cf8dc.jpg/640x360/?q=85&mod=to_webp",
       "description": "Успешная бизнесвумен становится подозреваемой в похищении своего проблемного сына-рэпера.",
       "meta": [
         "2023",
-        "драмы"
-      ]
-    },
-    {
-      "id": "sim-69043",
-      "title": "Жизнь на двоих",
-      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/c/d/7a9af5a89f4878b03f4f25cf7231dd.jpg/640x360/?q=85&mod=to_webp",
-      "description": "Следователь Михаил раскрывает тайны прошлого двух загадочных сестёр-близнецов.",
-      "meta": [
-        "2009",
         "драмы"
       ]
     }

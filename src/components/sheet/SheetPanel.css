@@ -359,7 +359,8 @@ body.has-bottom-sheet {
   min-height: 0;
   overflow-x: auto;
   overflow-y: hidden;
-  padding-bottom: 4px;
+  /* Верт. паддинг = запас под ховер-скейл 1.04 (клип полосы его иначе срежет). */
+  padding: 4px 0;
   scrollbar-width: none;
   /* Краевой фейд — общий динамический (см. .scroll-rail__list в ScrollRail.css). */
 }
@@ -369,6 +370,13 @@ body.has-bottom-sheet {
   display: flex;
   align-items: center;
   gap: 12px;
+  position: relative;
+  transition: transform 200ms ease-out;
+}
+/* Ховер по карточке серии — лёгкий подъём (над соседями через z-index). */
+.sheet__episode:hover {
+  transform: scale(1.02);
+  z-index: 1;
 }
 
 /* Форма карточки внутри горизонтальной полосы сезонов: карточка обжимает
@@ -390,7 +398,7 @@ body.has-bottom-sheet {
   width: auto;
   height: max(40px, calc(var(--sheet-h) - 136px));
   aspect-ratio: 16 / 9;
-  border-radius: 8px;
+  border-radius: 14px;
   overflow: hidden;
 }
 
@@ -402,6 +410,20 @@ body.has-bottom-sheet {
 }
 
 /* Круглая красная кнопка play, по ховеру в правом нижнем углу постера. */
+/* Ещё не вышедшая серия: затемнение поверх кадра и «Скоро» по центру. */
+.sheet__episode-soon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
 .sheet__episode-play {
   position: absolute;
   right: 8px;

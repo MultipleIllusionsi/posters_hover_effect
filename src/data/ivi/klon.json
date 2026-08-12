@@ -47,7 +47,7 @@
         {
           "id": "e1",
           "title": "Серия 1",
-          "subtitle": "1 серия · 46 мин",
+          "subtitle": "1 серия · 48 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/f/0/5220af42164ff5b63b7f1a6534a375.jpg"
         },
         {
@@ -59,25 +59,25 @@
         {
           "id": "e3",
           "title": "Серия 3",
-          "subtitle": "3 серия · 46 мин",
+          "subtitle": "3 серия · 47 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/7/1/50bac161eb4197ae2132a91e62f388.jpg"
         },
         {
           "id": "e4",
           "title": "Серия 4",
-          "subtitle": "4 серия · 46 мин",
+          "subtitle": "4 серия · 47 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/8/1/69ab24736e4da3975dbea837906fd6.jpg"
         },
         {
           "id": "e5",
           "title": "Серия 5",
-          "subtitle": "5 серия · 46 мин",
+          "subtitle": "5 серия · 48 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/7/0/97509c212e4924bf29f2f89e5e6186.jpg"
         },
         {
           "id": "e6",
           "title": "Серия 6",
-          "subtitle": "6 серия · 46 мин",
+          "subtitle": "6 серия · 47 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/6/1/5917adfeff4f82981b0a6df48a6e91.jpg"
         },
         {
@@ -89,7 +89,7 @@
         {
           "id": "e8",
           "title": "Серия 8",
-          "subtitle": "8 серия · 46 мин",
+          "subtitle": "8 серия · 48 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/b/4/b5e514728d41adbd8949f10da69d7e.jpg"
         },
         {
@@ -101,19 +101,19 @@
         {
           "id": "e10",
           "title": "Серия 10",
-          "subtitle": "10 серия · 46 мин",
+          "subtitle": "10 серия · 47 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/4/6/2c9eb9cb4945e1adbcffff59b0bc14.jpg"
         },
         {
           "id": "e11",
           "title": "Серия 11",
-          "subtitle": "11 серия · 46 мин",
+          "subtitle": "11 серия · 47 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/4/e/724ccb0edd4bc2a86b509902c6a2f6.jpg"
         },
         {
           "id": "e12",
           "title": "Серия 12",
-          "subtitle": "12 серия · 46 мин",
+          "subtitle": "12 серия · 47 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/2/5/fd205d15f0424b953ec7f0462fc897.jpg"
         }
       ]
@@ -175,6 +175,7 @@
     {
       "id": "sim-18274",
       "title": "Холод",
+      "link": "https://www.ivi.ru/watch/holod",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/f/6/aaee0d71cb4626ba26b6719eba0f50.jpg/640x360/?q=85&mod=to_webp",
       "description": "Несправедливо осуждённая Женя бежит из тюрьмы, чтобы отомстить тем, кто отнял у неё семью и свободу.",
       "meta": [
@@ -183,18 +184,9 @@
       ]
     },
     {
-      "id": "sim-17468",
-      "title": "Рваный ветер",
-      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/1/2/af5966a0a1468ba98f8e759e2476ea.jpg/640x360/?q=85&mod=to_webp",
-      "description": "Бизнесмен Градов ввязывается в корпоративную войну за завод, которая перерастает в войну за любовь.",
-      "meta": [
-        "2024",
-        "драмы"
-      ]
-    },
-    {
       "id": "sim-20829",
       "title": "Затмение",
+      "link": "https://www.ivi.ru/watch/zatmenie-2025",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/e/b/b34825b8fb4507b1948897c9792837.jpg/640x360/?q=85&mod=to_webp",
       "description": "1960, Москва. Полковник КГБ расследует вспышку чёрной оспы, чтобы предотвратить смертельную эпидемию",
       "meta": [
@@ -203,8 +195,20 @@
       ]
     },
     {
+      "id": "sim-17468",
+      "title": "Рваный ветер",
+      "link": "https://www.ivi.ru/watch/rvanyij-veter",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/1/2/af5966a0a1468ba98f8e759e2476ea.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Бизнесмен Градов ввязывается в корпоративную войну за завод, которая перерастает в войну за любовь.",
+      "meta": [
+        "2024",
+        "драмы"
+      ]
+    },
+    {
       "id": "sim-20802",
       "title": "Двойная жизнь Ми",
+      "link": "https://www.ivi.ru/watch/dvojnaya-zhizn-mi",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/e/6/4815dcfc584ba2bf30665cd9ec526c.jpg/640x360/?q=85&mod=to_webp",
       "description": "У школьницы Милы есть секрет: она суперзвезда. Комедия с Миланой Хаметовой и Давидом Манукяном.",
       "meta": [
@@ -215,6 +219,7 @@
     {
       "id": "sim-21330",
       "title": "Потерянная жизнь",
+      "link": "https://www.ivi.ru/watch/poteryannaya-zhizn",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/2/4/5a0fd5133e4e669011c64b481942e5.jpg/640x360/?q=85&mod=to_webp",
       "description": "Тайны прошлого настигают Катерину, ставя под угрозу её брак и карьеру. Драма с Татьяной Арнтгольц.",
       "meta": [
@@ -225,6 +230,7 @@
     {
       "id": "sim-15662",
       "title": "Матрёшка",
+      "link": "https://www.ivi.ru/watch/matryoshka",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/b/d/2957f1d8774091b3fa76ddbffe9c98.jpg/640x360/?q=85&mod=to_webp",
       "description": "Простая студентка становится важнейшей шпионкой в детективе от режиссёра «28 панфиловцев».",
       "meta": [
@@ -235,6 +241,7 @@
     {
       "id": "sim-17043",
       "title": "Точка ноль",
+      "link": "https://www.ivi.ru/watch/tochka-nol",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/d/e/7487c940bd4494b0f99d7e4c5bf7d3.jpg/640x360/?q=85&mod=to_webp",
       "description": "Тихая деревня на Алтае стала очагом загадочной эпидемии. Медицинская драма с Мариной Александровой.",
       "meta": [
@@ -245,6 +252,7 @@
     {
       "id": "sim-21474",
       "title": "Выход есть всегда",
+      "link": "https://www.ivi.ru/watch/vyihod-est-vsegda",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/a/2/29428cef8e46bbb3fbda765bc1315f.jpg/640x360/?q=85&mod=to_webp",
       "description": "Борьба за опеку над сыном оборачивается для Ирины чередой угроз и опасных происшествий.",
       "meta": [
@@ -253,22 +261,24 @@
       ]
     },
     {
-      "id": "sim-18651",
-      "title": "Минута тишины",
-      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/2/b/e104d6189c4cdf86f2337c3d0cc887.jpg/640x360/?q=85&mod=to_webp",
-      "description": "Бизнесмен с амнезией, спасённый после землетрясения, скрывается от спецслужб на Ближнем Востоке.",
-      "meta": [
-        "2025",
-        "драмы"
-      ]
-    },
-    {
       "id": "sim-16784",
       "title": "Золотое дно",
+      "link": "https://www.ivi.ru/watch/zolotoe-dno",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/e/1/65edbacc5440e7a127e573560afc03.jpg/640x360/?q=85&mod=to_webp",
       "description": "Бизнес-империи Градовых угрожают новые враги, санкции и семейные склоки. Продолжение хитовой саги.",
       "meta": [
         "2024",
+        "драмы"
+      ]
+    },
+    {
+      "id": "sim-18140",
+      "title": "Искусство соблазна",
+      "link": "https://www.ivi.ru/watch/iskusstvo-soblazna",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/2/1/05b996d76649198e31ac1073260f6e.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Агентство по соблазнению мужчин начинает помогать обманутым женщинам. Продолжение хита с Лизой Моряк",
+      "meta": [
+        "2025",
         "драмы"
       ]
     }

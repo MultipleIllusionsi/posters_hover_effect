@@ -46,7 +46,7 @@
         {
           "id": "e1",
           "title": "Серия 1",
-          "subtitle": "1 серия · 48 мин",
+          "subtitle": "1 серия · 51 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/4/8/8bebe511254997b7ed3b6e6e8cc258.jpg"
         },
         {
@@ -64,7 +64,7 @@
         {
           "id": "e4",
           "title": "Серия 4",
-          "subtitle": "4 серия · 48 мин",
+          "subtitle": "4 серия · 49 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/f/7/f7a7dd745c48f8b94748cb565c159b.jpg"
         },
         {
@@ -190,7 +190,7 @@
         {
           "id": "e12",
           "title": "Серия 12",
-          "subtitle": "12 серия · 48 мин",
+          "subtitle": "12 серия · 47 мин",
           "still": "https://thumbs.dfs.ivi.ru/storage0/contents/1/3/99cf9a8f4345e6a0714e5fb6e03549.jpg"
         }
       ]
@@ -252,6 +252,7 @@
     {
       "id": "sim-15850",
       "title": "Слава",
+      "link": "https://www.ivi.ru/watch/slava",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/0/f/278120c7d649bba8ac9be8b4b43bc9.jpg/640x360/?q=85&mod=to_webp",
       "description": "История спортивного пути и жизни знаменитого хоккеиста Вячеслава Фетисова.",
       "meta": [
@@ -262,6 +263,7 @@
     {
       "id": "sim-8830",
       "title": "Жаркий лёд",
+      "link": "https://www.ivi.ru/watch/zharkiy_led",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/5/9/a521745a4f409f9a053bb5cc91d6e5.jpg/640x360/?q=85&mod=to_webp",
       "description": "Несколько пар фигуристов борются за успех и любовь. Мелодрама с Екатериной Гусевой.",
       "meta": [
@@ -272,6 +274,7 @@
     {
       "id": "sim-20271",
       "title": "OUT",
+      "link": "https://www.ivi.ru/watch/out",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/b/6/9894bc2cbc4f2c92b08ba8a8b06f4a.jpg/640x360/?q=85&mod=to_webp",
       "description": "Молодой футболист с травмой начинает работать на букмекерскую мафию, влияя на исход матчей.",
       "meta": [

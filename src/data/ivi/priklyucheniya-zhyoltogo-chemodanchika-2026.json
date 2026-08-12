@@ -68,6 +68,7 @@
     {
       "id": "sim-555333",
       "title": "Маша и Медведи",
+      "link": "https://www.ivi.ru/watch/555333",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/c/3/e2b0174f6a41b2b133543ceda6f0e6.jpg/640x360/?q=85&mod=to_webp",
       "description": "Чтобы расколдовать брата, Маша отправляется в лес сказок. Семейная комедия с Виталией Корниенко.",
       "meta": [
@@ -78,6 +79,7 @@
     {
       "id": "sim-534486",
       "title": "Домовёнок Кузя",
+      "link": "https://www.ivi.ru/watch/534486",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/4/d/2e8f99d6b443b3990e2bb6f93e9208.jpg/640x360/?q=85&mod=to_webp",
       "description": "Домовёнок Кузя прячется у людей от Бабы-Яги. В озвучке – легенды Сергей Бурунов и Гарик Харламов.",
       "meta": [
@@ -88,6 +90,7 @@
     {
       "id": "sim-584063",
       "title": "Дети-шпионы",
+      "link": "https://www.ivi.ru/watch/584063",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/9/0/4c45a494f148128def6ddd6c19b6e5.jpg/640x360/?q=85&mod=to_webp",
       "description": "Дети суперагента втягиваются в большие шпионские приключения. Семейная комедия с Дмитрием Нагиевым.",
       "meta": [
@@ -98,6 +101,7 @@
     {
       "id": "sim-433499",
       "title": "Артек. Большое путешествие",
+      "link": "https://www.ivi.ru/watch/433499",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/4/6/78b4e733d84c6eb29be839e64f23a3.jpg/640x360/?q=85&mod=to_webp",
       "description": "Современные школьники переносятся в «Артек» 1980-х. Летняя солнечная комедия о мире детства и мечте.",
       "meta": [
@@ -108,6 +112,7 @@
     {
       "id": "sim-569745",
       "title": "Артек. Сквозь столетия",
+      "link": "https://www.ivi.ru/watch/569745",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/4/8/91d7ebc694430fa9a919b7e561de6b.jpg/640x360/?q=85&mod=to_webp",
       "description": "Избалованный школьник и неудачливый вожатый из «Артека» переносятся в 1925-й и в 1812-й.",
       "meta": [
@@ -116,28 +121,9 @@
       ]
     },
     {
-      "id": "sim-31951",
-      "title": "Снежная королева",
-      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/d/5/80f6f3b45045358272ce20f6ef56cd.jpg/640x360/?q=85&mod=to_webp",
-      "description": "Юная смелая Герда спасает Кая из плена Снежной королевы. Фильм-сказка на основе пьесы Евгения Шварца",
-      "meta": [
-        "1967",
-        "для детей"
-      ]
-    },
-    {
-      "id": "sim-471474",
-      "title": "Вне зоны доступа",
-      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/1/a/c9ea3151234f5385cf12466445c7e2.jpg/640x360/?q=85&mod=to_webp",
-      "description": "Первая любовь, романтика, дружба и одно незабываемое лето офлайн. Светлая история взросления.",
-      "meta": [
-        "2021",
-        "для детей"
-      ]
-    },
-    {
       "id": "sim-525500",
       "title": "Одна дома",
+      "link": "https://www.ivi.ru/watch/525500",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/0/8/8ed929cbfa4e03aeab343b221f518f.jpg/640x360/?q=85&mod=to_webp",
       "description": "Неудачливый вор попадает в ловушку смышлёной девочки, которая навязывается к нему в напарницы.",
       "meta": [
@@ -148,6 +134,7 @@
     {
       "id": "sim-487282",
       "title": "Моя ужасная сестра",
+      "link": "https://www.ivi.ru/watch/487282",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/f/3/d5ab8ee6e848119ef1dd48792dff53.jpg/640x360/?q=85&mod=to_webp",
       "description": "Как ужиться с новой врединой-сестрой? Душевная семейная комедия с Владимиром Яглычем и Глюкозой.",
       "meta": [
@@ -156,8 +143,31 @@
       ]
     },
     {
+      "id": "sim-471474",
+      "title": "Вне зоны доступа",
+      "link": "https://www.ivi.ru/watch/471474",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/1/a/c9ea3151234f5385cf12466445c7e2.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Первая любовь, романтика, дружба и одно незабываемое лето офлайн. Светлая история взросления.",
+      "meta": [
+        "2021",
+        "для детей"
+      ]
+    },
+    {
+      "id": "sim-31951",
+      "title": "Снежная королева",
+      "link": "https://www.ivi.ru/watch/31951",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/d/5/80f6f3b45045358272ce20f6ef56cd.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Юная смелая Герда спасает Кая из плена Снежной королевы. Фильм-сказка на основе пьесы Евгения Шварца",
+      "meta": [
+        "1967",
+        "для детей"
+      ]
+    },
+    {
       "id": "sim-591960",
       "title": "Мой друг, кот и Пушкин",
+      "link": "https://www.ivi.ru/watch/591960",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/4/5/9fad64f4f74d7686d726bdb02da352.jpg/640x360/?q=85&mod=to_webp",
       "description": "Юная поэтесса участвует в рэп-дуэли по роману «Евгений Онегин» в компании необычного кота.",
       "meta": [

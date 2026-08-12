@@ -28,12 +28,12 @@
     "logo": "https://thumbs.dfs.ivi.ru/storage0/contents/e/0/7a568932094cde8c62da42c1af3ae7.jpg",
     "background": "https://thumbs.dfs.ivi.ru/storage0/contents/f/6/0f7d066b4145acb84d351c058ea915.jpg/1280x720/?q=85&mod=to_webp",
     "shots": [
-      "https://thumbs.dfs.ivi.ru/storage0/contents/3/2/754151108b4ed6b8a3a2ea66b94aab.jpg/1280x720/?q=85&mod=to_webp",
-      "https://thumbs.dfs.ivi.ru/storage0/contents/4/9/d4926644174e6eb37e523ec98b5152.jpg/1280x720/?q=85&mod=to_webp",
       "https://thumbs.dfs.ivi.ru/storage0/contents/e/1/592432576244de81e6e04d017509e9.jpg/1280x720/?q=85&mod=to_webp",
       "https://thumbs.dfs.ivi.ru/storage0/contents/9/e/45e455408644d08d350c390d9be486.jpg/1280x720/?q=85&mod=to_webp",
-      "https://thumbs.dfs.ivi.ru/storage0/contents/f/8/ed58f6e1834009a39e2b1d1f47988a.jpg/1280x720/?q=85&mod=to_webp",
-      "https://thumbs.dfs.ivi.ru/storage0/contents/9/1/f452c86f7a4e65aae8bcf6d0417c50.jpg/1280x720/?q=85&mod=to_webp"
+      "https://thumbs.dfs.ivi.ru/storage0/contents/3/2/754151108b4ed6b8a3a2ea66b94aab.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/a/c/051ffa51574826a2a8b62304d8383e.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/4/5/46a6068e6342dbbba93e71e76d246e.jpg/1280x720/?q=85&mod=to_webp",
+      "https://thumbs.dfs.ivi.ru/storage0/contents/f/8/ed58f6e1834009a39e2b1d1f47988a.jpg/1280x720/?q=85&mod=to_webp"
     ],
     "trailerPreview": "https://thumbs.dfs.ivi.ru/storage0/contents/3/b/e8f059dda84393bab5dc5b46e41c4c.jpg"
   },
@@ -79,6 +79,7 @@
     {
       "id": "sim-556394",
       "title": "Новая тёща",
+      "link": "https://www.ivi.ru/watch/556394",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/a/1/19ae0a1fd14cd3a5ad06261cbbe20c.jpg/640x360/?q=85&mod=to_webp",
       "description": "В дом Виктора, живущего под каблуком тёщи, врывается бедовый брат-близнец. Сиквел народной комедии.",
       "meta": [
@@ -87,8 +88,20 @@
       ]
     },
     {
+      "id": "sim-662422",
+      "title": "Аяш (на казахском языке)",
+      "link": "https://www.ivi.ru/watch/662422",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/d/4/6c4d26bba844f0bf3f05edb7e5270c.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Бакыт и Каныкей едут на Иссык-Куль, чтобы развестись. Встреча с необычной семьёй всё меняет.",
+      "meta": [
+        "2021",
+        "комедии"
+      ]
+    },
+    {
       "id": "sim-602787",
       "title": "Домовёнок Кузя 2",
+      "link": "https://www.ivi.ru/watch/602787",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/c/7/277aeddb1247dfba118facf8daee10.jpg/640x360/?q=85&mod=to_webp",
       "description": "Кузя и друзья отправляются в путешествие с загадочной Тихоней, чтобы спасти волшебный мир от Кощея.",
       "meta": [
@@ -99,6 +112,7 @@
     {
       "id": "sim-619550",
       "title": "Кызым",
+      "link": "https://www.ivi.ru/watch/619550",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/c/e/a245c1b0e44c08b5548f7adae56f4f.jpg/640x360/?q=85&mod=to_webp",
       "description": "Три сестры ищут невесту для своего пожилого отца, но их поиски случайно открывают семейные тайны.",
       "meta": [
@@ -107,18 +121,20 @@
       ]
     },
     {
-      "id": "sim-662422",
-      "title": "Аяш (на казахском языке)",
-      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/d/4/6c4d26bba844f0bf3f05edb7e5270c.jpg/640x360/?q=85&mod=to_webp",
-      "description": "Бакыт и Каныкей едут на Иссык-Куль, чтобы развестись. Встреча с необычной семьёй всё меняет.",
+      "id": "sim-662426",
+      "title": "Напарники 3 (На казахском языке)",
+      "link": "https://www.ivi.ru/watch/662426",
+      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/b/5/03bd70330e4892b9ac8ab47eaad2fc.jpg/640x360/?q=85&mod=to_webp",
+      "description": "Неловкий милиционер и строгая оперативница расследуют дело наркосиндиката.",
       "meta": [
-        "2021",
+        "2025",
         "комедии"
       ]
     },
     {
       "id": "sim-631196",
       "title": "Хейтер",
+      "link": "https://www.ivi.ru/watch/631196",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/3/c/2ebcca924e4868bbc007401198847a.jpg/640x360/?q=85&mod=to_webp",
       "description": "Анонимный стример-провокатор разрушает судьбы и отношения людей. Драмеди с Алексеем Серебряковым.",
       "meta": [
@@ -129,6 +145,7 @@
     {
       "id": "sim-632796",
       "title": "Приключения жёлтого чемоданчика",
+      "link": "https://www.ivi.ru/watch/632796",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/0/d/27eb3d2b0444f993aa88c649e99cad.jpg/640x360/?q=85&mod=to_webp",
       "description": "Петя и Тома помогают Доктору найти украденный чемоданчик с волшебным лекарством от страха и грусти.",
       "meta": [
@@ -139,6 +156,7 @@
     {
       "id": "sim-555333",
       "title": "Маша и Медведи",
+      "link": "https://www.ivi.ru/watch/555333",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/c/3/e2b0174f6a41b2b133543ceda6f0e6.jpg/640x360/?q=85&mod=to_webp",
       "description": "Чтобы расколдовать брата, Маша отправляется в лес сказок. Семейная комедия с Виталией Корниенко.",
       "meta": [
@@ -149,6 +167,7 @@
     {
       "id": "sim-556393",
       "title": "Лысый нянь",
+      "link": "https://www.ivi.ru/watch/556393",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/1/1/411d570b944ca1ae390b678e658146.jpg/640x360/?q=85&mod=to_webp",
       "description": "Спецназовец под прикрытием становится няней трёх детей. Семейная комедия с Никитой Панфиловым.",
       "meta": [
@@ -157,18 +176,9 @@
       ]
     },
     {
-      "id": "sim-662426",
-      "title": "Напарники 3 (На казахском языке)",
-      "src": "https://thumbs.dfs.ivi.ru/storage0/contents/b/5/03bd70330e4892b9ac8ab47eaad2fc.jpg/640x360/?q=85&mod=to_webp",
-      "description": "Неловкий милиционер и строгая оперативница расследуют дело наркосиндиката.",
-      "meta": [
-        "2025",
-        "комедии"
-      ]
-    },
-    {
       "id": "sim-441927",
       "title": "LOVE",
+      "link": "https://www.ivi.ru/watch/441927",
       "src": "https://thumbs.dfs.ivi.ru/storage0/contents/0/f/298c0d42334b018b698fa9c487b7a3.jpg/640x360/?q=85&mod=to_webp",
       "description": "В отеле LOVE переплетаются самые невероятные истории любви. Звёздный ромком Сергея Светлакова.",
       "meta": [

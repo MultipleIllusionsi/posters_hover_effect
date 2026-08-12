@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { IconFavorite, IconFavoriteOutline, IconPlay, IconSoundOff, IconSoundOn } from "../icons";
+import { openExternal } from "../../openExternal";
 import ScrollRail from "../ScrollRail";
 import TextBadge from "../TextBadge";
 import "./CombinedCard.css";
@@ -225,9 +226,14 @@ export default function CombinedCard({ data, onClose }) {
                       <li className="combined-card__episode" key={ep.key}>
                         <span className="combined-card__episode-poster">
                           <img className="combined-card__episode-still" src={ep.still} alt="" />
-                          <span className="combined-card__episode-play" aria-hidden="true">
-                            <IconPlay />
-                          </span>
+                          {ep.soon ? (
+                            /* Ещё не вышла — затемнение и «Скоро» вместо play. */
+                            <span className="combined-card__episode-soon">Скоро</span>
+                          ) : (
+                            <span className="combined-card__episode-play" aria-hidden="true">
+                              <IconPlay />
+                            </span>
+                          )}
                         </span>
                         <span className="combined-card__episode-text">
                           <span className="combined-card__episode-title">{ep.title}</span>
@@ -245,7 +251,11 @@ export default function CombinedCard({ data, onClose }) {
                 <div className="combined-card__panel">
                   <ScrollRail className="combined-card__list combined-card__list--similar">
                     {similar.map((s) => (
-                      <li className="combined-card__similar" key={s.id}>
+                      <li
+                        className="combined-card__similar"
+                        key={s.id}
+                        onClick={() => openExternal(s.link)}
+                      >
                         <span className="combined-card__similar-poster">
                           <img className="combined-card__similar-image" src={s.src} alt={s.title} />
                         </span>

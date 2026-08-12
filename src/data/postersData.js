@@ -1,8 +1,6 @@
-// Трейлеры — локальные (видео Иви под DRM); заменишь ссылками позже.
-import t1 from "../../assets/video_trailers/trailer_1.mp4";
-import t2 from "../../assets/video_trailers/trailer_2.mp4";
-import t3 from "../../assets/video_trailers/trailer_3.mp4";
-import t4 from "../../assets/video_trailers/trailer_4.mp4";
+// Трейлеры (SD-400 mp4 с Иви) захостены на jsDelivr, файл на слаг: <slug>.mp4.
+// CORS `*` и range-запросы — можно отдавать в кросс-доменный <video>.
+const TRAILER_CDN = "https://cdn.jsdelivr.net/gh/MultipleIllusionsi/trailers@main";
 
 // Реальные данные каждой карточки, вытащенные с ivi.ru скриптом
 // scripts/ivi-extract.mjs. Картинки — публичные URL CDN Иви (грузятся вживую).
@@ -57,19 +55,16 @@ import { badgeForMeta, BADGES } from "./badges";
  *   meta         чипы («2021 · детективы · 1 сезон» или «… · фильм»)
  *   description  короткое описание (ховер)
  *   longDescription  синопсис (шторка/совмещённый)
- *   trailer      ЛОКАЛЬНОЕ видео (циклично t1–t4) — видео Иви под DRM
+ *   trailer      реальный трейлер Иви (mp4 с CDN) или null, если его нет
  *   still        кадр-заставка для трейлера
  *   seasons      [{ id, title, episodes:[{ id, title, subtitle, still }] }]
  *   reviews      отзывы Иви [{ id, author, text }] — без оценки
  *   similar      «похожее» (жанровая подборка Иви)
  *   badge        назначается ниже по meta (локальный каталог badges.js)
  */
-const TRAILERS = [t1, t2, t3, t4];
-let trailerIndex = 0;
 
 // Слаги без трейлера на Иви (проверено по SSR) — у них вместо видео показываем
-// BackgroundImage. У остальных трейлер есть (пока локальная заглушка, дальше —
-// реальные mp4 с CDN).
+// BackgroundImage. У остальных берём реальный трейлер с CDN (TRAILER_CDN).
 const NO_TRAILER = new Set(["aleks-lyutyij", "168196", "53130", "51505"]);
 
 function card(data, shape) {
@@ -86,7 +81,7 @@ function card(data, shape) {
     meta: data.meta,
     description: data.shortDescription,
     longDescription: data.synopsis,
-    trailer: NO_TRAILER.has(data.slug) ? null : TRAILERS[trailerIndex++ % TRAILERS.length],
+    trailer: NO_TRAILER.has(data.slug) ? null : `${TRAILER_CDN}/${data.slug}.mp4`,
     // BackgroundImage-1280x720: poster у трейлера (до загрузки видео) и картинка
     // вместо трейлера у контента без него.
     still: data.images.background || data.images.shots?.[0] || poster,
