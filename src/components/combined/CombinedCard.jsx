@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { IconFavorite, IconFavoriteOutline, IconPlay, IconSoundOff, IconSoundOn } from "../icons";
 import { openExternal } from "../../openExternal";
+import { playContent } from "../../playerStore";
 import ScrollRail from "../ScrollRail";
 import TextBadge from "../TextBadge";
 import "./CombinedCard.css";
@@ -53,7 +54,11 @@ export default function CombinedCard({ data, onClose }) {
   // обработчик подменит контент; клик внутри карточки её оставляет.
   useEffect(() => {
     const onDown = (e) => {
-      if (e.target.closest(".combined-card, .combined-vertical, .combined-horizontal")) {
+      // Клик внутри карточки/постера её оставляет; клик внутри открытого плеера
+      // (он поверх всего) тоже — иначе выход из плеера закрывал бы карточку.
+      if (
+        e.target.closest(".combined-card, .combined-vertical, .combined-horizontal, .player")
+      ) {
         return;
       }
       onClose();
@@ -106,19 +111,31 @@ export default function CombinedCard({ data, onClose }) {
               {tab === "info" && (
                 <div className="combined-card__info">
                   <div className="combined-card__info-col">
+                    {/* Логотип·описание·мета·кнопки — по центру свободной высоты;
+                        отзывы ниже прибиты к низу, зазор между ними — гибкий. */}
+                    <div className="combined-card__info-main">
                     {data.logo ? (
                       <img className="combined-card__logo" src={data.logo} alt={data.title} />
                     ) : (
                       /* Нет вордмарка — показываем заголовок как текст-лого. */
                       <h2 className="combined-card__logo-text">{data.title}</h2>
                     )}
-                    <p className="combined-card__description">
-                      {data.longDescription || data.description}
-                    </p>
+                    {/* Обрезаем не сам flex-элемент, а его блочного потомка —
+                        иначе -webkit-line-clamp в flex-колонке в части браузеров
+                        считает высоту как 0 и текст не виден. */}
+                    <div className="combined-card__description">
+                      <p className="combined-card__description-text">
+                        {data.longDescription || data.description}
+                      </p>
+                    </div>
                     {(data.badge || data.meta?.length > 0) && (
                       <div className="combined-card__meta-row">
                         {data.badge && (
-                          <TextBadge className="combined-card__badge" {...data.badge} />
+                          <TextBadge
+                            className="combined-card__badge"
+                            {...data.badge}
+                            rating={data.rating}
+                          />
                         )}
                         {data.meta?.length > 0 && (
                           <p className="combined-card__meta">
@@ -133,7 +150,11 @@ export default function CombinedCard({ data, onClose }) {
                       </div>
                     )}
                     <div className="combined-card__actions">
-                      <button type="button" className="combined-card__watch">
+                      <button
+                        type="button"
+                        className="combined-card__watch"
+                        onClick={() => playContent(data)}
+                      >
                         <IconPlay />
                         Смотреть
                       </button>
@@ -147,8 +168,8 @@ export default function CombinedCard({ data, onClose }) {
                         {fav ? <IconFavorite /> : <IconFavoriteOutline />}
                       </button>
                     </div>
-                    {/* Рейл отзывов под кнопками — как на ivi.ru: имя автора и
-                        текст, без оценки. Показываем только если их достаточно. */}
+                    </div>
+                    {/* Рейл отзывов — прибит к низу колонки. */}
                     {reviews.length >= MIN_REVIEWS && (
                       <ScrollRail className="combined-card__reviews">
                         {reviews.map((r) => (
@@ -223,7 +244,17 @@ export default function CombinedCard({ data, onClose }) {
                   </div>
                   <ScrollRail className="combined-card__list combined-card__list--episodes">
                     {episodes.map((ep) => (
-                      <li className="combined-card__episode" key={ep.key}>
+                      <li
+                        className="combined-card__episode"
+                        key={ep.key}
+                        onClick={() => {
+                          if (ep.soon) return; // не вышедшую серию не открываем
+                          playContent(data, {
+                            season: seasonIndex + 1,
+                            episode: parseInt(ep.id.slice(1), 10) || 1,
+                          });
+                        }}
+                      >
                         <span className="combined-card__episode-poster">
                           <img className="combined-card__episode-still" src={ep.still} alt="" />
                           {ep.soon ? (

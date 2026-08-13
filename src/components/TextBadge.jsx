@@ -13,7 +13,11 @@ import "./TextBadge.css";
  *   <TextBadge icon={badge.icon} text={badge.text} color={badge.color} />
  * or spread one directly: `<TextBadge {...badge} />`.
  */
-export default function TextBadge({ icon, text, color, className = "", ...rest }) {
+export default function TextBadge({ icon, text, color, rating, className = "", ...rest }) {
+  // Рейтинг — обычным текстом внутри бейджа, слева от подписи: «8.5 • популярно».
+  // Меньше 7.5 не показываем. Сравниваем по показываемому (округлённому) значению.
+  const shown = typeof rating === "number" ? rating.toFixed(1) : null;
+  const showRating = shown != null && Number(shown) >= 7.5;
   return (
     <span
       className={`text-badge ${className}`.trim()}
@@ -21,7 +25,7 @@ export default function TextBadge({ icon, text, color, className = "", ...rest }
       {...rest}
     >
       <img className="text-badge__icon" src={icon} alt="" aria-hidden="true" />
-      <span className="text-badge__text">{text}</span>
+      <span className="text-badge__text">{showRating ? `${shown} • ${text}` : text}</span>
     </span>
   );
 }

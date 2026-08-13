@@ -1,7 +1,9 @@
 import { Fragment, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { IconFavorite, IconFavoriteOutline, IconPlay, IconSoundOff, IconSoundOn } from "../icons";
 import { openExternal } from "../../openExternal";
+import { playContent } from "../../playerStore";
 import ScrollRail from "../ScrollRail";
+import TextBadge from "../TextBadge";
 import "./SheetPanel.css";
 
 /**
@@ -57,7 +59,13 @@ export default function SheetPanel({ data, onClose, leaving = false }) {
   // внутри панели её оставляет. Фон чисто визуальный (pointer-events:none).
   useEffect(() => {
     const onDown = (e) => {
-      if (e.target.closest(".sheet") || e.target.closest(".sheet-poster")) {
+      // Клик внутри панели/постера её оставляет; клик внутри открытого плеера
+      // (он поверх всего) тоже — иначе выход из плеера закрывал бы шторку.
+      if (
+        e.target.closest(".sheet") ||
+        e.target.closest(".sheet-poster") ||
+        e.target.closest(".player")
+      ) {
         return;
       }
       onClose();
@@ -172,22 +180,37 @@ export default function SheetPanel({ data, onClose, leaving = false }) {
                     {/* По центру — заголовок, мета и описание. */}
                     <div className="sheet__info-text">
                       {data.title && <h3 className="sheet__title">{data.title}</h3>}
-                      {data.meta?.length > 0 && (
-                        <p className="sheet__meta">
-                          {data.meta.map((chip, i) => (
-                            <span key={chip}>
-                              {i > 0 && <span className="sheet__dot">·</span>}
-                              {chip}
-                            </span>
-                          ))}
-                        </p>
+                      {(data.badge || data.meta?.length > 0) && (
+                        <div className="sheet__meta-row">
+                          {data.badge && (
+                            <TextBadge
+                              className="sheet__badge"
+                              {...data.badge}
+                              rating={data.rating}
+                            />
+                          )}
+                          {data.meta?.length > 0 && (
+                            <p className="sheet__meta">
+                              {data.meta.map((chip, i) => (
+                                <span key={chip}>
+                                  {i > 0 && <span className="sheet__dot">·</span>}
+                                  {chip}
+                                </span>
+                              ))}
+                            </p>
+                          )}
+                        </div>
                       )}
                       <p className="sheet__description">{data.longDescription || data.description}</p>
                     </div>
 
                     {/* Справа — смотреть / в избранное. */}
                     <div className="sheet__actions">
-                      <button type="button" className="sheet__watch">
+                      <button
+                        type="button"
+                        className="sheet__watch"
+                        onClick={() => playContent(data)}
+                      >
                         <IconPlay />
                         Смотреть
                       </button>
@@ -208,7 +231,18 @@ export default function SheetPanel({ data, onClose, leaving = false }) {
                   <div className="sheet__panel">
                     <ScrollRail className="sheet__list sheet__list--episodes">
                       {episodes.map((ep) => (
-                        <li className="sheet__episode" key={ep.key}>
+                        <li
+                          className="sheet__episode"
+                          key={ep.key}
+                          onClick={() => {
+                            // Не вышедшую серию не открываем.
+                            if (ep.soon) return;
+                            playContent(data, {
+                              season: seasonIndex + 1,
+                              episode: parseInt(ep.id.slice(1), 10) || 1,
+                            });
+                          }}
+                        >
                           <span className="sheet__episode-poster">
                             <img className="sheet__episode-still" src={ep.still} alt="" />
                             {ep.soon ? (

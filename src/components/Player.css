@@ -1,0 +1,270 @@
+/* Полноэкранный «фейковый» плеер поверх всего окна. */
+.player {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  overflow: hidden;
+  background: #000;
+  color: #fff;
+  font-family: "iviSans Base", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  animation: player-in 200ms ease-out both;
+}
+
+@keyframes player-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .player { animation-duration: 1ms; }
+}
+
+/* Фон — background выбранного контента, во весь экран. Проявляется не сразу, а
+   после «загрузки» (класс .player--loaded). */
+.player__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 600ms ease-out;
+}
+.player--loaded .player__bg {
+  opacity: 1;
+}
+
+/* Спиннер загрузки по центру — пока не появился фон. */
+.player__spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 4;
+  width: 48px;
+  height: 48px;
+  margin: -24px 0 0 -24px;
+  border: 3px solid rgba(255, 255, 255, 0.25);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: player-spin 800ms linear infinite;
+  pointer-events: none;
+}
+
+@keyframes player-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .player__spinner { animation-duration: 2400ms; }
+}
+
+/* Небольшое градиентное затемнение под плашкой (сверху) и контролами (снизу),
+   для читаемости. Над фоном, но под контентом (у плашки/контролов z-index выше). */
+.player::before,
+.player::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.player::before {
+  top: 0;
+  height: 140px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
+.player::after {
+  bottom: 0;
+  height: 180px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+}
+
+/* Заметная кнопка закрытия справа сверху. */
+.player__close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 160ms ease-out;
+}
+.player__close:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* Верхняя плашка ---------------------------------------------------------- */
+.player__top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 24px 32px;
+  /* Проявляется вместе с фоном после «загрузки». */
+  opacity: 0;
+  transition: opacity 500ms ease-out 120ms;
+}
+.player--loaded .player__top {
+  opacity: 1;
+}
+
+.player__top-title {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.player__title {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 36px;
+  color: #fff;
+}
+
+.player__series {
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 20px;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* Нижняя панель ----------------------------------------------------------- */
+.player__bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 0 32px 16px;
+  /* «Подлёт» снизу вверх из прозрачности после «загрузки». */
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 450ms ease-out 120ms, transform 450ms cubic-bezier(0.22, 1, 0.36, 1) 120ms;
+  display: flex;
+  flex-direction: column;
+}
+.player--loaded .player__bottom {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* При отключённой анимации не прячем контролы (иначе их «подлёт» не сыграет). */
+@media (prefers-reduced-motion: reduce) {
+  .player__bg,
+  .player__top,
+  .player__bottom {
+    transition-duration: 1ms;
+  }
+}
+
+.player__progress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 36px;
+}
+
+.player__time {
+  flex: 0 0 auto;
+  min-width: 52px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #fff;
+}
+.player__time:last-child {
+  text-align: right;
+}
+
+.player__bar {
+  position: relative;
+  flex: 1 1 auto;
+  height: 4px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.48);
+  overflow: hidden;
+}
+.player__bar-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1%;
+  background: #fff;
+  border-radius: 100px;
+}
+
+.player__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+}
+
+.player__controls-left,
+.player__controls-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Кнопка-контрол: 40×40, иконка 20×20 по центру. */
+.player__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.player__btn img {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+/* Кнопка выхода — единственная кликабельная. */
+.player__exit {
+  cursor: pointer;
+  border-radius: 100px;
+  transition: background-color 160ms ease-out;
+}
+.player__exit:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* Регулятор громкости: иконка + декоративная дорожка. */
+.player__volume {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding-right: 12px;
+}
+.player__volume img {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin: 0 10px;
+}
+.player__volume-track {
+  display: block;
+  width: 48px;
+  height: 4px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.48);
+}

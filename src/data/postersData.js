@@ -79,6 +79,8 @@ function card(data, shape) {
     alt: `Постер «${data.title}»`,
     title: data.title,
     meta: data.meta,
+    // Рейтинг Иви (10-балльный); фолбэк — Кинопоиск. Показываем пилюлей.
+    rating: data.ratings?.ivi ?? data.ratings?.kp ?? null,
     description: data.shortDescription,
     longDescription: data.synopsis,
     trailer: NO_TRAILER.has(data.slug) ? null : `${TRAILER_CDN}/${data.slug}.mp4`,
@@ -142,6 +144,7 @@ const BADGE_OVERRIDES = {
   "istoriya-ego-sluzhanki": "iviSeries",
   "iskusstvo-soblazna": "iviSeries",
   "53159": "legendary", // Летят журавли
+  "strah-nad-nevoj": "bestInSub", // «лучшее в подписке»
 };
 
 // Каждой карточке — свой TextBadge (иконка + подпись): точечный override по slug,

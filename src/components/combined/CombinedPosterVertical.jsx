@@ -22,7 +22,7 @@ export default function CombinedPosterVertical({ data, selected = false, ...rest
           <span className="combined-vertical__text">
             {data.badge && (
               <span className="combined-vertical__brand">
-                <TextBadge className="combined-vertical__badge" {...data.badge} />
+                <TextBadge className="combined-vertical__badge" {...data.badge} rating={data.rating} />
               </span>
             )}
             <span className="combined-vertical__description">{data.description}</span>

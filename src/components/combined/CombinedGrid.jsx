@@ -6,8 +6,10 @@ import CombinedCard from "./CombinedCard";
 /** Держим в синхроне с exit-анимацией .combined-expander--leaving в CombinedCard.css. */
 const EXIT_DURATION = 300;
 
-/** Высота раскрывающейся карточки (.combined-expander / .combined-card = 70vh). */
+/** Высота раскрывающейся карточки (.combined-expander / .combined-card). */
 const CARD_VH = 0.7;
+/** Минимальная высота карточки — синхронно с CSS: height: max(70vh, 600px). */
+const MIN_CARD_H = 600;
 
 /** Отступ снизу под карточкой при доскролле. */
 const REVEAL_MARGIN = 16;
@@ -27,7 +29,7 @@ const closers = new Set();
  */
 const reveal = (posterEl) => {
   if (!posterEl) return;
-  const cardH = window.innerHeight * CARD_VH;
+  const cardH = Math.max(window.innerHeight * CARD_VH, MIN_CARD_H);
   const posterRect = posterEl.getBoundingClientRect();
   let shift = 0;
   const openExp = document.querySelector(".combined-expander:not(.combined-expander--leaving)");

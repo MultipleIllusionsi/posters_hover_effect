@@ -24,7 +24,7 @@ export default function CombinedPosterHorizontal({ data, selected = false, ...re
         <span className="combined-horizontal__text">
           {data.badge && (
             <span className="combined-horizontal__brand">
-              <TextBadge className="combined-horizontal__badge" {...data.badge} />
+              <TextBadge className="combined-horizontal__badge" {...data.badge} rating={data.rating} />
             </span>
           )}
           <span className="combined-horizontal__description">{data.description}</span>

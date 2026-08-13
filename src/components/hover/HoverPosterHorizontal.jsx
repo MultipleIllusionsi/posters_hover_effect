@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { IconFavorite, IconFavoriteOutline, IconPlay, IconSoundOff, IconSoundOn } from "../icons";
 import { openExternal } from "../../openExternal";
+import { playContent } from "../../playerStore";
 import TextBadge from "../TextBadge";
 import "./HoverPosterHorizontal.css";
 
@@ -94,14 +95,23 @@ export default function HoverPosterHorizontal({ data }) {
               ширину; описание идёт под ними. */}
           <div className="hover-horizontal__brand">
             {data.logo && <img className="hover-horizontal__logo" src={data.logo} alt="" />}
-            {data.badge && <TextBadge className="hover-horizontal__badge" {...data.badge} />}
+            {data.badge && (
+              <TextBadge className="hover-horizontal__badge" {...data.badge} rating={data.rating} />
+            )}
           </div>
 
           <p className="hover-horizontal__description">{data.description}</p>
         </div>
 
         <div className="hover-horizontal__actions">
-          <button type="button" className="hover-horizontal__watch">
+          <button
+            type="button"
+            className="hover-horizontal__watch"
+            onClick={(e) => {
+              e.stopPropagation(); // не открывать ссылку ivi.ru (клик по карточке)
+              playContent(data);
+            }}
+          >
             <IconPlay />
             Смотреть
           </button>

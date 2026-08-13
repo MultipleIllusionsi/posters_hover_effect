@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Gallery from "./components/Gallery";
 import ModeToggle from "./components/ModeToggle";
+import Player from "./components/Player";
 import { galleries } from "./data/postersData";
 import "./App.css";
 
@@ -22,6 +23,9 @@ export default function App() {
       ))}
 
       <ModeToggle mode={mode} onChange={setMode} />
+
+      {/* Полноэкранный плеер поверх всего — открывается из любого варианта. */}
+      <Player />
     </main>
   );
 }

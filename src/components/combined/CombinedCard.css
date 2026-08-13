@@ -18,10 +18,10 @@
 
 @keyframes combined-expander-open {
   from { height: 0; }
-  to   { height: 70vh; }
+  to   { height: max(70vh, 600px); }
 }
 @keyframes combined-expander-close {
-  from { height: 70vh; }
+  from { height: max(70vh, 600px); }
   to   { height: 0; }
 }
 
@@ -38,7 +38,7 @@
 
   position: relative;
   width: 100%;
-  height: 70vh;
+  height: max(70vh, 600px);
   box-sizing: border-box;
   background: transparent;
   overflow: hidden;
@@ -154,11 +154,23 @@
   max-width: 50%;
   display: flex;
   flex-direction: column;
+  /* Свой паддинг (у inner его нет) + верхний запас под приколотые табы. */
+  padding: 80px 0 32px 56px;
+  box-sizing: border-box;
+}
+
+/* Основной блок (лого·описание·мета·кнопки) — по центру свободной высоты над
+   отзывами. Забирает весь остаток высоты; при нехватке ужимается (min-height:0),
+   за счёт чего зазор перед прибитыми к низу отзывами сокращается. */
+.combined-card__info-main {
+  /* Растёт, чтобы центрировать контент в свободной высоте, но НЕ сжимается ниже
+     своего контента (flex-shrink: 0) — иначе при нехватке высоты контент
+     вываливался бы за низ и наезжал на отзывы. */
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   gap: 24px;
-  /* Свой паддинг (у inner его нет) + верхний запас под приколотые табы. */
-  padding: 120px 0 32px 56px;
-  box-sizing: border-box;
 }
 
 .combined-card__logo {
@@ -186,15 +198,23 @@
   -webkit-box-orient: vertical;
 }
 
+/* Внешний блок — обычный flex-элемент колонки (без -webkit-box). */
 .combined-card__description {
   margin: 0 0 0 4px;
+}
+
+/* Обрезка живёт на блочном потомке — так -webkit-line-clamp считает высоту
+   корректно во всех браузерах (а не как 0 у flex-элемента). */
+.combined-card__description-text {
+  margin: 0;
   font-weight: 400;
   font-size: 17px;
   line-height: 1.3;
   color: #fff;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
   overflow: hidden;
 }
 
@@ -278,10 +298,12 @@
 }
 .combined-card__reviews::-webkit-scrollbar { display: none; }
 
-/* Обёртки ScrollRail занимают слот бывших списков в своих колонках. */
+/* Обёртки ScrollRail занимают слот бывших списков в своих колонках. Отзывы
+   прибиты к низу колонки; зазор перед ними даёт центрирование info-main и
+   сокращается при нехватке высоты (фикс. 64px больше не держим). */
 .combined-card__info-col > .scroll-rail {
   flex: 0 0 auto;
-  margin: 64px 0 0;
+  margin-top: 16px;
   min-height: 0;
 }
 .combined-card__panel > .scroll-rail {
@@ -437,6 +459,7 @@
   align-items: stretch;
   gap: 8px;
   position: relative;
+  cursor: pointer;
   transition: transform 200ms ease-out;
 }
 /* Ховер по карточке серии — лёгкий подъём (над соседями через z-index). */
@@ -475,6 +498,7 @@
   font-weight: 600;
   font-size: 20px;
   line-height: 1.2;
+  cursor: default;
 }
 
 .combined-card__episode-play {

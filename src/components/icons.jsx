@@ -54,6 +54,33 @@ export function IconFavorite() {
   );
 }
 
+/** Галочка — кратко показывается после выбора варианта (подтверждение). */
+export function IconCheck() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M5 13l4 4L19 7" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+/** Бургер-меню (три линии) — свёрнутый переключатель вариантов. */
+export function IconBurger() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+/** Крестик — закрытие (напр. кнопка выхода из плеера). */
+export function IconClose() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M6 6l12 12M18 6 6 18" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 /** Шеврон для кнопок листания рейлов; `left` разворачивает влево. */
 export function IconChevron({ left = false }) {
   return (

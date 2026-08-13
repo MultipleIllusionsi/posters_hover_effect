@@ -287,15 +287,23 @@ body.has-bottom-sheet {
 .sheet__info-text::-webkit-scrollbar { display: none; }
 
 .sheet__title {
-  margin: 0 0 6px 4px;
+  margin: 0 0 8px 4px;
   font-weight: 600;
   font-size: 22px;
   line-height: 1.15;
   color: #fff;
 }
 
-.sheet__meta {
+/* Рейтинг + цветной тег + мета-чипы в одну строку. */
+.sheet__meta-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   margin: 4px 0 8px 4px;
+}
+
+.sheet__meta {
+  margin: 0;
   font-weight: 500;
   font-size: 15px;
   line-height: 20px;
@@ -371,6 +379,7 @@ body.has-bottom-sheet {
   align-items: center;
   gap: 12px;
   position: relative;
+  cursor: pointer;
   transition: transform 200ms ease-out;
 }
 /* Ховер по карточке серии — лёгкий подъём (над соседями через z-index). */
@@ -422,6 +431,7 @@ body.has-bottom-sheet {
   font-weight: 600;
   font-size: 16px;
   line-height: 1.2;
+  cursor: default;
 }
 
 .sheet__episode-play {
