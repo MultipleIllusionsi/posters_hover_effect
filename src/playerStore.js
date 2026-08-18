@@ -34,6 +34,7 @@ export function playContent(data, { season = 1, episode = 1 } = {}) {
     isFilm: data.meta?.includes("фильм") ?? false,
     season,
     episode,
+    seasons: data.seasons ?? [],
   });
 }
 

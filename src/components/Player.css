@@ -268,3 +268,179 @@
   border-radius: 100px;
   background: rgba(255, 255, 255, 0.48);
 }
+
+/* Панель сезонов/серий (кнопка player_series) — как таб «Сезоны» в «Карточке»,
+   всплывает над нижней панелью управления. -------------------------------- */
+.player__series-btn {
+  cursor: pointer;
+  border-radius: 100px;
+  transition: background-color 160ms ease-out;
+}
+.player__series-btn:hover,
+.player__series-btn--active {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.player__series-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 128px;
+  z-index: 2;
+  padding: 16px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  /* Тёмный фон под контентом сезонов — для читаемости поверх кадра. */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0));
+  animation: player-series-in 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes player-series-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .player__series-panel { animation-duration: 1ms; }
+}
+
+/* Номера сезонов. */
+.player__season-nums {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.player__seasons-caption {
+  margin-right: 8px;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.72);
+}
+.player__season-btn {
+  min-width: 40px;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: background-color 160ms ease-out, color 160ms ease-out;
+}
+.player__season-btn--active {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+/* Полоса эпизодов (внутри ScrollRail). */
+.player__episodes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  padding: 8px 0;
+  list-style: none;
+  min-height: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+.player__episodes::-webkit-scrollbar { display: none; }
+
+.player__episode {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 200ms ease-out;
+}
+.player__episode:hover {
+  transform: scale(1.02);
+  z-index: 1;
+}
+
+.player__episode-poster {
+  position: relative;
+  flex: 0 0 auto;
+  width: auto;
+  height: 150px;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  overflow: hidden;
+}
+.player__episode-still {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.player__episode-soon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.2;
+  cursor: default;
+}
+.player__episode-play {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 100px;
+  background: #f30745;
+  color: #fff;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 160ms ease-out, transform 160ms ease-out;
+  pointer-events: none;
+}
+.player__episode:hover .player__episode-play {
+  opacity: 1;
+  transform: scale(1);
+}
+.player__episode-play svg { translate: 1px; }
+
+.player__episode-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 0;
+  min-width: 100%;
+  flex-shrink: 0;
+}
+.player__episode-title,
+.player__episode-subtitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.player__episode-title {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 20px;
+  color: #fff;
+}
+.player__episode-subtitle {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  color: rgba(255, 255, 255, 0.56);
+}
