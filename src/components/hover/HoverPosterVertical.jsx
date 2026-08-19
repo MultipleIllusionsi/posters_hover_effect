@@ -53,7 +53,10 @@ export default function HoverPosterVertical({ data }) {
         <span className="hover-vertical__scrim" aria-hidden="true" />
 
         {/* Трейлер — видео (poster=BackgroundImage до загрузки); если трейлера
-            нет, на его месте статичный BackgroundImage. */}
+            нет, на его месте статичный BackgroundImage.
+            x-yandex-pip="true" — гасит всплывающую панель Яндекс.Браузера над
+            видео (тот же атрибут, что у плеера Кинопоиска). Важно: должен стоять
+            на <video> с момента создания — навесить его позже уже не помогает. */}
         {data.trailer ? (
           <video
             ref={videoRef}
@@ -64,6 +67,7 @@ export default function HoverPosterVertical({ data }) {
             muted={muted}
             loop
             playsInline
+            x-yandex-pip="true"
           />
         ) : data.still ? (
           <img className="hover-vertical__trailer" src={data.still} alt="" />

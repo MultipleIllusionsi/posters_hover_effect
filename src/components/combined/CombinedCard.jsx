@@ -183,6 +183,9 @@ export default function CombinedCard({ data, onClose }) {
                   </div>
 
                   <div className="combined-card__trailer">
+                    {/* x-yandex-pip="true" гасит всплывающую панель
+                        Яндекс.Браузера над видео (как в плеере Кинопоиска);
+                        должен стоять на <video> с момента создания. */}
                     {data.trailer ? (
                       <video
                         ref={videoRef}
@@ -193,6 +196,7 @@ export default function CombinedCard({ data, onClose }) {
                         muted={muted}
                         loop
                         playsInline
+                        x-yandex-pip="true"
                       />
                     ) : (
                       <img className="combined-card__trailer-media" src={trailerStill} alt="" />

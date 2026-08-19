@@ -150,6 +150,9 @@ export default function SheetPanel({ data, onClose, leaving = false }) {
                   <div className="sheet__info">
                     {/* Слева — трейлер. */}
                     <div className="sheet__trailer">
+                      {/* x-yandex-pip="true" гасит всплывающую панель
+                          Яндекс.Браузера над видео (как в плеере Кинопоиска);
+                          должен стоять на <video> с момента создания. */}
                       {data.trailer ? (
                         <video
                           ref={videoRef}
@@ -160,6 +163,7 @@ export default function SheetPanel({ data, onClose, leaving = false }) {
                           muted={muted}
                           loop
                           playsInline
+                          x-yandex-pip="true"
                         />
                       ) : (
                         <img className="sheet__trailer-media" src={trailerStill} alt="" />
