@@ -16,9 +16,9 @@ import "./Player.css";
  * Player — «фейковый» полноэкранный плеер поверх всего окна (в той же вкладке).
  * По макету Figma (PD-3826, node 125:288): фон — background выбранного контента,
  * сверху top_title (название + подпись «Серия N сезон M» у сериала), снизу —
- * прогресс-бар и панель управления. Контролы декоративные, кроме: выход
- * (player_fullscreen) и — только у сериалов — player_series, открывающий панель
- * с сезонами и сериями (как таб «Сезоны» в «Карточке»).
+ * прогресс-бар и панель управления. Рабочие контролы: выход (player_fullscreen),
+ * player_series (панель «Сезоны и серии»), а у сериалов — previous/next
+ * (переход между сериями с имитацией загрузки).
  */
 
 /** Эпизоды в полосе — добиваем до этого числа, чтобы полоса всегда прокручивалась. */
@@ -27,8 +27,6 @@ const MIN_EPISODES = 9;
 export default function Player() {
   const data = usePlayer();
 
-  // Имитация загрузки: секунду показываем чёрный экран со спиннером, затем
-  // проявляем фон и «подлетают» контролы. Сбрасываем при каждом новом открытии.
   const [loaded, setLoaded] = useState(false);
   const [session, setSession] = useState(data);
   // Панель сезонов/серий и текущая (играющая) серия — своя для каждого открытия.
@@ -46,11 +44,9 @@ export default function Player() {
     setSeasonIndex(data ? Math.max(0, (data.season ?? 1) - 1) : 0);
   }
 
-  // Пока плеер открыт — блокируем прокрутку страницы, закрываем по Esc, и через
-  // секунду «дозагружаем» (setLoaded).
+  // Блокируем прокрутку страницы под плеером и закрываем по Esc.
   useEffect(() => {
     if (!data) return undefined;
-    const loadTimer = setTimeout(() => setLoaded(true), 1000);
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     const onKey = (e) => {
@@ -58,17 +54,63 @@ export default function Player() {
     };
     window.addEventListener("keydown", onKey);
     return () => {
-      clearTimeout(loadTimer);
       document.body.style.overflow = prevOverflow;
       window.removeEventListener("keydown", onKey);
     };
   }, [data]);
 
+  // Имитация загрузки: спиннер ~1с при открытии и при каждой смене серии
+  // (setLoaded(false) выставляем императивно, здесь только таймер «дозагрузки»).
+  useEffect(() => {
+    if (!data) return undefined;
+    const t = setTimeout(() => setLoaded(true), 1000);
+    return () => clearTimeout(t);
+  }, [data, current.season, current.episode]);
+
+  // Открытую панель «Сезоны и серии» закрываем кликом в любую зону вне неё
+  // (и вне самой кнопки — та переключает сама).
+  useEffect(() => {
+    if (!seriesOpen) return undefined;
+    const onDown = (e) => {
+      if (e.target.closest(".player__series-panel") || e.target.closest(".player__series-btn")) return;
+      setSeriesOpen(false);
+    };
+    document.addEventListener("mousedown", onDown);
+    return () => document.removeEventListener("mousedown", onDown);
+  }, [seriesOpen]);
+
   if (!data) return null;
   const { title, background, isFilm } = data;
 
-  // Сезоны/серии для панели player_series (только у сериалов).
   const seasons = data.seasons ?? [];
+
+  // Плоский порядок серий по всем сезонам — для перехода previous/next и
+  // определения границ (первая/последняя серия).
+  const flat = [];
+  seasons.forEach((s, si) => {
+    (s.episodes ?? []).forEach((ep) => {
+      flat.push({ season: si + 1, episode: parseInt(ep.id.slice(1), 10) || flat.length + 1 });
+    });
+  });
+  const currentIdx = flat.findIndex((f) => f.season === current.season && f.episode === current.episode);
+  const isSeries = !isFilm && flat.length > 0;
+  const canPrev = isSeries && currentIdx > 0;
+  const canNext = isSeries && (currentIdx === -1 ? flat.length > 0 : currentIdx < flat.length - 1);
+
+  // Перейти к серии (с имитацией загрузки).
+  const playEpisode = (season, episode) => {
+    setLoaded(false);
+    setCurrent({ season, episode });
+    setSeasonIndex(season - 1);
+  };
+  const goPrev = () => canPrev && playEpisode(flat[currentIdx - 1].season, flat[currentIdx - 1].episode);
+  const goNext = () => {
+    if (!canNext) return;
+    const next = flat[currentIdx === -1 ? 0 : currentIdx + 1];
+    playEpisode(next.season, next.episode);
+  };
+
+  // Серии выбранного (в панели) сезона — добиваем до MIN_EPISODES.
   const season = seasons[Math.min(seasonIndex, Math.max(0, seasons.length - 1))];
   const baseEpisodes = season?.episodes ?? [];
   const episodes =
@@ -88,10 +130,8 @@ export default function Player() {
     >
       {background && <img className="player__bg" src={background} alt="" />}
 
-      {/* Спиннер загрузки — до появления фона. */}
       {!loaded && <div className="player__spinner" aria-hidden="true" />}
 
-      {/* Заметная круглая кнопка закрытия справа сверху. */}
       <button
         type="button"
         className="player__close"
@@ -141,7 +181,7 @@ export default function Player() {
                 key={ep.key}
                 onClick={() => {
                   if (ep.soon) return; // не вышедшую серию не выбираем
-                  setCurrent({ season: seasonIndex + 1, episode: parseInt(ep.id.slice(1), 10) || 1 });
+                  playEpisode(seasonIndex + 1, parseInt(ep.id.slice(1), 10) || 1);
                   setSeriesOpen(false);
                 }}
               >
@@ -165,7 +205,7 @@ export default function Player() {
         </div>
       )}
 
-      {/* Нижняя панель: прогресс + контролы (декоративные, кроме выхода и серий). */}
+      {/* Нижняя панель: прогресс + контролы. */}
       <div className="player__bottom">
         <div className="player__progress">
           <span className="player__time">0:00:00</span>
@@ -177,15 +217,30 @@ export default function Player() {
 
         <div className="player__controls">
           <div className="player__controls-left">
-            <span className="player__btn" aria-hidden="true">
-              <img src={iconPrevious} alt="" />
-            </span>
-            <span className="player__btn" aria-hidden="true">
-              <img src={iconPlay} alt="" />
-            </span>
-            <span className="player__btn" aria-hidden="true">
-              <img src={iconNext} alt="" />
-            </span>
+            {isSeries ? (
+              <>
+                {/* previous прячем на первой серии; переход — с имитацией загрузки. */}
+                {canPrev && (
+                  <button type="button" className="player__btn player__nav" onClick={goPrev} aria-label="Предыдущая серия">
+                    <img src={iconPrevious} alt="" />
+                  </button>
+                )}
+                <span className="player__btn" aria-hidden="true">
+                  <img src={iconPlay} alt="" />
+                </span>
+                {/* next прячем на последней серии последнего сезона. */}
+                {canNext && (
+                  <button type="button" className="player__btn player__nav" onClick={goNext} aria-label="Следующая серия">
+                    <img src={iconNext} alt="" />
+                  </button>
+                )}
+              </>
+            ) : (
+              /* У фильмов кнопок переключения серий (previous/next) нет — только play. */
+              <span className="player__btn" aria-hidden="true">
+                <img src={iconPlay} alt="" />
+              </span>
+            )}
             <span className="player__volume" aria-hidden="true">
               <img src={iconVolume} alt="" />
               <span className="player__volume-track" />
@@ -193,7 +248,7 @@ export default function Player() {
           </div>
 
           <div className="player__controls-right">
-            {/* Сезоны/серии — только у сериалов; рабочая кнопка. */}
+            {/* Сезоны/серии — только у сериалов; с подписью справа от иконки. */}
             {!isFilm && (
               <button
                 type="button"
@@ -203,6 +258,7 @@ export default function Player() {
                 aria-pressed={seriesOpen}
               >
                 <img src={iconSeries} alt="" />
+                <span className="player__series-btn-label">Сезоны и серии</span>
               </button>
             )}
             <span className="player__btn" aria-hidden="true">
@@ -211,7 +267,7 @@ export default function Player() {
             <span className="player__btn" aria-hidden="true">
               <img src={iconSubtitles} alt="" />
             </span>
-            {/* Единственная рабочая кнопка выхода. */}
+            {/* Кнопка выхода. */}
             <button
               type="button"
               className="player__btn player__exit"

@@ -173,16 +173,16 @@
 .player__progress {
   display: flex;
   align-items: center;
-  gap: 12px;
-  height: 36px;
+  gap: 18px;
+  height: 54px;
 }
 
 .player__time {
   flex: 0 0 auto;
-  min-width: 52px;
+  min-width: 78px;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 16px;
+  font-size: 21px;
+  line-height: 24px;
   color: #fff;
 }
 .player__time:last-child {
@@ -192,7 +192,7 @@
 .player__bar {
   position: relative;
   flex: 1 1 auto;
-  height: 4px;
+  height: 6px;
   border-radius: 100px;
   background: rgba(255, 255, 255, 0.48);
   overflow: hidden;
@@ -211,31 +211,39 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 40px;
+  height: 60px;
 }
 
 .player__controls-left,
 .player__controls-right {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
 }
 
-/* Кнопка-контрол: 40×40, иконка 20×20 по центру. */
+/* Кнопка-контрол: 60×60, иконка 30×30 по центру. Ховер-эффект — у всех кнопок
+   (даже декоративных); действие при этом отрабатывает не везде. */
 .player__btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   padding: 0;
   border: 0;
+  border-radius: 100px;
   background: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 160ms ease-out;
+}
+.player__btn:hover {
+  background: rgba(255, 255, 255, 0.16);
 }
 .player__btn img {
   display: block;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
 }
 
 /* Кнопка выхода — единственная кликабельная. */
@@ -250,49 +258,72 @@
 
 /* Регулятор громкости: иконка + декоративная дорожка. */
 .player__volume {
+  margin-left: 24px;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  padding-right: 12px;
+  gap: 6px;
+  padding-right: 18px;
 }
 .player__volume img {
   display: block;
-  width: 20px;
-  height: 20px;
-  margin: 0 10px;
+  width: 30px;
+  height: 30px;
+  margin: 0 8px;
 }
 .player__volume-track {
   display: block;
-  width: 48px;
-  height: 4px;
+  width: 72px;
+  height: 6px;
   border-radius: 100px;
   background: rgba(255, 255, 255, 0.48);
 }
 
-/* Панель сезонов/серий (кнопка player_series) — как таб «Сезоны» в «Карточке»,
-   всплывает над нижней панелью управления. -------------------------------- */
-.player__series-btn {
+/* previous/next — кликабельные (переход между сериями у сериалов). */
+.player__nav {
   cursor: pointer;
   border-radius: 100px;
+  transition: background-color 160ms ease-out;
+}
+.player__nav:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* Панель сезонов/серий (кнопка player_series) — как таб «Сезоны» в «Карточке»,
+   всплывает над нижней панелью управления. -------------------------------- */
+/* Кнопка с подписью «Сезоны и серии» справа от иконки — шире иконочной. */
+.player__series-btn {
+  width: auto;
+  gap: 12px;
+  padding: 0 21px;
+  cursor: pointer;
+  border-radius: 20px;
   transition: background-color 160ms ease-out;
 }
 .player__series-btn:hover,
 .player__series-btn--active {
   background: rgba(255, 255, 255, 0.16);
 }
+.player__series-btn-label {
+  font-family: 'IVI Sans Base';
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.2;
+  color: #fff;
+  white-space: nowrap;
+}
 
 .player__series-panel {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 128px;
+  /* Над увеличенной (×1.5) нижней панелью управления — сдвинута выше, но по
+     размеру не изменена. */
+  bottom: 132px;
   z-index: 2;
   padding: 16px 32px;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  /* Тёмный фон под контентом сезонов — для читаемости поверх кадра. */
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0));
   animation: player-series-in 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
